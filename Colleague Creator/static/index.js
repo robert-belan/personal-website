@@ -1,15 +1,7 @@
 // index.js
-
-import { createMenuOptions } from "/static/main.js";
-
-//values contain paths(URLs)
-const mainMenuitems = {
-    "Založit novou postavu": "/create",
-    "Nastavení": "/settings",
-    "Extras": "/extras",
-    "Log": "/log",
-    "Opustit hru": "/quit"
-}
+import { changeMenuSections } from "/static/main.js";
+import "/static/data.js";
 
 // running code
-createMenuOptions(mainMenuitems);
+changeMenuSections(mainMenuItems);
+
