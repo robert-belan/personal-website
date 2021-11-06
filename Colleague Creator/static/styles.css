@@ -1,0 +1,129 @@
+/* Variables */
+:root {
+  --text: #555454;
+  --background: #fff;
+  --ui-elements: #555454;
+  --ui-max-width: 1200px;
+  --ui-min-width: 1000px;
+  --ui-margin: auto auto;
+  --ui-border-radius: 3px;
+  /* --ui-icon-bg: #555454; Zatim nepouzite */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* General Common Styles */
+body {
+  background-color: white; /* TODO Debug barva */
+}
+
+main {
+  min-height: 400px; /*Lze doupravit*/
+  height: 450px;
+  width: 100%;
+  border: 1px solid green;
+}
+/* end General Common Styles */
+
+/* Header section */
+header {
+  height: 80px; /* 5rem */
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header > h1 {
+  margin-left: 40px;
+  font-size: 2.5rem;
+}
+/* end Header section */
+
+/* Index.html */
+
+.menu {
+  width: 270px;
+  position: absolute;
+  top: 200px;
+  right: 10%;
+  /* border: 1px solid grey; */ /* debug code */
+  /* border: 1px ridge brown; debugcode */
+}
+
+/* Menu options */
+.menu li {
+  height: auto;
+  margin: 0.6rem;
+  list-style-type: none;
+  text-align: right;
+  padding: 7px;
+  font-size: 1.3rem;
+}
+
+.menu-title {
+  background-color: white;
+  color: var(--text);
+  border-bottom: 1px solid darkslategrey;
+}
+
+.menu-item {
+  background-color: #555454;
+  color: rgba(255, 255, 255, 1);
+}
+
+.menu div {
+  transform: scale(1);
+  transition: transform 0s;
+}
+
+.menu div:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.05s ease-in;
+}
+
+.menu button {
+  border: 1px solid var(--ui-elements);
+  background-color: var(--ui-elements);
+  padding: 10px 60px;
+  color: white;
+  border-radius: var(--ui-border-radius);
+}
+
+/* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
+.fadePage {
+  animation: fade linear 0.5s forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.showPage {
+  animation: showPage linear 0.5s forwards;
+}
+
+@keyframes showPage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+/* -------------------------------------------------------------------------- */

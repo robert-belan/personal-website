@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<button id="butt">Žádám o pár řádků textu</button>
+
+<script>
+    const butt = document.querySelector("#butt");
+
+    const getText = () => {
+        fetch("/zkouska")
+            .then( response => response.text())
+            .then( html => {
+                const cil = document.querySelector("#zde");
+                cil.innerHTML = html;
+            })
+    }
+
+
+    butt.addEventListener("click", (event) => {
+        event.preventDefault()
+        getText();
+            
+        }
+    )
+
+    
+</script>
+
+
+<div id="zde"></div>
+
+{% endblock %}
