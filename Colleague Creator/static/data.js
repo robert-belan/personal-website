@@ -1,18 +1,43 @@
-let createItems;
-let mainMenuItems;
+import {
+    howCreateColleague,
+    settings,
+    extras,
+    leaveThisWebsite,
+    generateColleague,
+    letsCreateMyOwn,
+    mainMenu
+} from "/static/menuFunctions.js"
 
-createItems = {
-    "Zkusím štěstí": null,
-    "Zvolím si sám ": null,
-    "Zpět": null
+
+export const navigationData = {
+    "Hlavní menu": {
+        "Nadpis": "Hlavní menu",
+        "Založit novou postavu": howCreateColleague,
+        "Nastavení": settings,
+        "Extras": extras,
+        "Opustit hru": leaveThisWebsite
+    },
+
+    "Jak vytvořit postavu?": {
+        "Nadpis": "Jak si přejete vytvořit postavu?",
+        "Zkusím štěstí": generateColleague,
+        "Zvolím si sám": letsCreateMyOwn,
+        "Zpět": mainMenu
+    },
+
+    // "Vytváření postavy": {
+    //     "Nadpis": "Vytváření postavy",
+    //     "Vzhled": appearance,
+    //     "Historie": history,
+    //     "Dovednosti": skills,
+    //     "Vlastnosti": attributes,
+    //     "Shrnutí": sumamry
+    // },
+
+    // "Extras": {
+    //     "Nadpis": "Extras",
+    //     "Vznik webu": whyThisWebsite,
+    //     "Log": records,
+    //     "Zpět": mainMenu
+    // }
 }
-
-mainMenuItems = {
-    "Založit novou postavu": createItems,
-    "Nastavení": null,
-    "Extras": null,
-    "Log": null,
-    "Opustit hru": null
-}
-
-createItems["Zpět"] = mainMenuItems;

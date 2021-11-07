@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
     showAllElements();
 })
@@ -8,8 +7,10 @@ function showAllElements() {
     document.body.classList.replace("hidden", "showPage");
 }
 
-globalThis.currentSection = "";
-
+// used when leaving site (for more seamless experience)
+function fadeAllElements() {
+    document.body.classList.replace("showPage", "fadePage");
+}
 
 // attach link to elements
 function homePageTicket(selector) {
@@ -26,78 +27,72 @@ function homePageTicket(selector) {
 homePageTicket("header h1");
 
 
-//before changing location(url), all elements are faded
-function changeLocation(path) {
-    fadeAllElements();
-    setTimeout(() => {
-        window.location.assign(path);
-    }, 500);
-}
+// export function getFetch(url, target) {
+//     fetch(url)
+//         .then( response => response.text())
+//         .then( html => {
+//             target.classList.add("hidden");
+//             target.innerHTML = "";
+//             target.innerHTML = html;
+//             target.classList.replace("hidden", "showPage");
+//         })
+// }
 
 
-// used when leaving page (for more seamless experience)
-function fadeAllElements() {
-    document.body.classList.replace("showPage", "fadePage");
-}
 
-function fadeElements(element) {
-    element.classList.add("fadePage");
-}
+//first argument should be object from navigationData, second ccs selector, ex. #items
+export function createNavigation(whichOne, targetID) {
+    //where to create navigation
+    const target = document.querySelector(`${targetID}`);
 
-function showElements(element) {
-    element.classList.add("showPage");
-}
+    //if there is menu items already, launch smooth animations
+    if (!(target.innerHTML.length === 0)) {
+        target.classList.replace("showPage", "fadePage")
 
-// used for creating menu in:
-    // index.html (index.js),
-    // creating.html (creating.js)   
-function createMenuOptions(obj) {
-    
-    if ( typeof obj === "object") {
-
-        // where append new elements
-        const menu = document.querySelector("#items");
-
-        let labels = Object.keys(obj);
-        let paths = Object.values(obj);
-
-        for (let counter = 0; counter < paths.length; counter++) {
-        
-            //creating new <li class="menu-item"><div>...text...</div></li>
-            const newElement = document.createElement("li");
-            newElement.classList.add("menu-item");
-        
-            let appendedElement = menu.appendChild(newElement);
-            appendedElement.innerHTML = `<div>${labels[counter]}</div>`;
-        
-            //adding listeners with path(URLs)
-            appendedElement.addEventListener("click", event => {
-                //in main.js
-                changeMenuSections(paths[counter])
-            })
-        }
-    }
+        setTimeout( () => {
+            target.innerHTML = "";
+            createMenuTitle(whichOne["Nadpis"], target);
+            createMenuItems(whichOne, target);
+            target.classList.replace("fadePage", "showPage")
+        }, 500);
+    } 
     else {
-        changeLocation(obj);
-    }   
+        target.classList.add("showPage");
+        createMenuTitle(whichOne["Nadpis"], target);
+        createMenuItems(whichOne, target);
+    }
 }
 
-export function changeMenuSections(obj) {
-    const menuItems = document.querySelector("#items");
-
-    // fade out menu items
-    menuItems.classList.replace("showPage", "fadePage");
-
-    setTimeout(() => {
-        // delete current menu items
-        menuItems.innerHTML = "";
-        
-        // create new items
-        createMenuOptions(obj)
-
-        // fade in new items
-        menuItems.classList.replace("fadePage" ,"showPage");
-    }, 500);
-
-    currentSection = Object.keys({obj})[0];
+function createMenuTitle(itemTitle, target) {
+    target.insertAdjacentHTML("afterbegin", `<li class="menu-title">${itemTitle}</li>`);
 }
+
+//execute function references in navigationData
+//used by: createMenuItems
+function executor(func) {
+    return func();
+}
+
+function createMenuItems(dataObject, target) {
+    let labels = Object.keys(dataObject);
+    let paths = Object.values(dataObject);
+    
+    for (let counter = 1; counter < paths.length; counter++) {
+    
+        //creating new <li class="menu-item"><div>...text...</div></li>
+        const item = document.createElement("li");
+        item.classList.add("menu-item");
+    
+        let appendedNewItem = target.appendChild(item);
+        appendedNewItem.insertAdjacentHTML("beforeend", `<div>${labels[counter]}</div>`);
+
+        //adding listeners with path(URLs)
+        appendedNewItem.addEventListener("click", event => {
+            //in main.js
+            event.preventDefault();
+            // changeMenuSections(paths[counter])
+            executor(paths[counter]);
+        })
+    }
+}
+

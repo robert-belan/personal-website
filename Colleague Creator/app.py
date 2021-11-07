@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session, send_from_directory
 from flask_session import Session
 
 app = Flask(__name__)
@@ -22,6 +22,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/create")
-def create():
-    return render_template("create.html")
+@app.route("/creating")
+def creating():
+    return send_from_directory("", "templates/creating.html")
+
+
+@app.route("/appearance")
+def appearance():
+    return send_from_directory("", "templates/appearance.html")

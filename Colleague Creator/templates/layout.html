@@ -10,7 +10,7 @@
         <link href="/static/favicon.ico" rel="icon"> -->
 
         <link  rel="stylesheet" href="/static/styles.css">
-        <script type="text/javascript" src="/static/main.js"></script> 
+        <script type="module" src="/static/main.js"></script> 
         <script type="text/javascript" src="/static/data.js"></script> 
 
         <title>Vytvoř si nového kolegy</title>
@@ -26,6 +26,10 @@
         <main>
             {% block main %}{% endblock %}
         </main>
+
+        {% block nav %}
+
+        {% endblock %}
 
         <footer>
         </footer>
