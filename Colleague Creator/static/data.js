@@ -19,7 +19,7 @@ export const navigationData = {
     },
 
     "Jak vytvořit postavu?": {
-        "Nadpis": "Jak si přejete vytvořit postavu?",
+        "Nadpis": "Jak chcete vytvořit postavu?",
         "Zkusím štěstí": generateColleague,
         "Zvolím si sám": letsCreateMyOwn,
         "Zpět": mainMenu

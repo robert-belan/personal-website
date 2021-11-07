@@ -21,6 +21,7 @@
 /* General Common Styles */
 body {
   background-color: white; /* TODO Debug barva */
+  font-family: "Inconsolata", monospace;
 }
 
 main {
@@ -47,23 +48,30 @@ header > h1 {
 
 /* Index.html */
 
+/* Menu options */
+
 .menu {
-  width: 270px;
+  width: 350px;
   position: absolute;
   top: 200px;
   right: 10%;
-  /* border: 1px solid grey; */ /* debug code */
-  /* border: 1px ridge brown; debugcode */
+  /* border: 1px ridge brown; */
 }
 
-/* Menu options */
 .menu li {
-  height: auto;
+  height: 2.3rem;
   margin: 0.6rem;
   list-style-type: none;
   text-align: right;
   padding: 7px;
+  padding-right: 13px;
   font-size: 1.3rem;
+  transition: letter-spacing 0.5s;
+}
+
+.menu li:hover:not(:first-child) {
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .menu-title {
@@ -74,17 +82,6 @@ header > h1 {
 .menu-item {
   background-color: #555454;
   color: rgba(255, 255, 255, 1);
-}
-
-.menu div {
-  transform: scale(1);
-  transition: transform 0s;
-}
-
-.menu div:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  transition: transform 0.05s ease-in;
 }
 
 .menu button {
@@ -200,4 +197,54 @@ nav {
 
 .appearance td:last-child {
   text-align: center;
+}
+
+/* Message - Zvolim si sam */
+
+.modal {
+  display: none;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999; */
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  width: 400px;
+  height: 100px;
+  margin: 20px; /*debug line */
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: var(--ui-border-radius);
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+
+  backdrop-filter: blur(14px);
+}
+
+.text-container {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 20px;
+}
+
+.buttons-container {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.button {
+  border: 1px solid var(--ui-elements);
+  background-color: var(--ui-elements);
+  padding: 5px 20px;
+  color: white;
+  border-radius: var(--ui-border-radius);
 }

@@ -8,7 +8,7 @@ function showAllElements() {
 }
 
 // used when leaving site (for more seamless experience)
-function fadeAllElements() {
+export function fadeAllElements() {
     document.body.classList.replace("showPage", "fadePage");
 }
 
