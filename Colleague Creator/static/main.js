@@ -1,3 +1,5 @@
+import { mainMenu } from "./menuFunctions.js";
+
 window.addEventListener("load", () => {
     showAllElements();
 })
@@ -12,19 +14,8 @@ export function fadeAllElements() {
     document.body.classList.replace("showPage", "fadePage");
 }
 
-// attach link to elements
-function homePageTicket(selector) {
-    const element = document.querySelector(selector);
-    element.classList.add = "link";
-    element.addEventListener("click", () => {
-        // if you're not in main menu already
-        if (window.location.pathname !== "/")
-            changeLocation("/");
-    })
-}
 
-//which elements have power to take you home
-homePageTicket("header h1");
+
 
 
 // export function getFetch(url, target) {

@@ -1,5 +1,5 @@
 import { createNavigation, fadeAllElements } from "/static/main.js";
-import { navigationData } from "/static/data.js";
+import { navigationData, creation_layout, model3dHTML } from "/static/data.js";
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
@@ -34,27 +34,39 @@ export function extras() {
 }
 
 
-
+//This function creates foundation for character creation section (layout and menu)
 export function generateColleague() {
 
+    const main = document.querySelector("main");
     const items = navigationData["Vytváření postavy"];
     createNavigation(items, "#items", "", "change");
 
+    main.insertAdjacentHTML("afterbegin", creation_layout);
+
+    const model3dContainer = document.querySelector("#model3d");
+    model3dContainer.insertAdjacentHTML("beforeend", model3dHTML);
+
     showBackToMenuButton();
-    const main = document.querySelector("main"); //not used yet
+    goToHomePage("#backToMenu");
+
+
 }
 
 
 
 function showBackToMenuButton() {
     const header = document.querySelector("header");
-    const strElement = '<button id="backToMenu" class="button hidden"><   Zpět do hlavního menu</button>';
+    const strElement = '<button id="backToMenu" class="button hidden"><<< Zpět do hlavního menu</button>';
     
     header.insertAdjacentHTML("beforeend", strElement);
     setTimeout( () => {
         const button = document.querySelector("#backToMenu");
         button.classList.replace("hidden", "showPage");
-    }, 1000);
+        setTimeout( () => {
+            button.classList.add("getRedAndBack");
+        }, 500);
+    }, 2000);
+    
 }
 
 
@@ -97,4 +109,16 @@ export function leaveThisWebsite() {
     })
 }
 
+
+// attach link to HomePage
+function goToHomePage(selector) {
+    const element = document.querySelector(selector);
+    element.addEventListener("click", () => {
+        setTimeout( () => {
+            window.location.assign("/");
+        }, 500);
+        fadeAllElements();
+
+    })
+}
 

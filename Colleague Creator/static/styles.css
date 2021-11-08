@@ -7,6 +7,7 @@
   --ui-min-width: 1000px;
   --ui-margin: auto auto;
   --ui-border-radius: 3px;
+  --ui-animation-duration: 0.3s;
   /* --ui-icon-bg: #555454; Zatim nepouzite */
 }
 
@@ -26,15 +27,16 @@ body {
 
 main {
   min-height: 400px; /*Lze doupravit*/
-  height: 450px;
+  height: 80vh;
   width: 100%;
-  /* border: 1px solid green; */
+  border: 1px solid green;
+  position: relative;
 }
 /* end General Common Styles */
 
 /* Header section */
 header {
-  height: 80px; /* 5rem */
+  height: 10vh; /* 5rem */
   width: 100%;
   display: flex;
   align-items: center;
@@ -103,14 +105,21 @@ header > h1 {
   color: rgba(255, 255, 255, 1);
 }
 
+/* Style for menu in character creation section ------------------------------*/
 .creation-menu {
+  /* border: 1px solid red; */
   width: 100%;
-  height: auto;
-  margin: 20px 0;
+  /* height: 61px; */ /* original height, vh is probably better*/
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .creation-menu ul {
-  margin: 60px;
+  margin: auto 60px;
+  width: 100%;
+  /* border: 1px solid slateblue; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -135,10 +144,11 @@ header > h1 {
   cursor: pointer;
   background-color: #433e5c;
 }
+/* -------------------------------------------------------------------------- */
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
 .fadePage {
-  animation: fade linear 0.5s forwards;
+  animation: fade linear var(--ui-animation-duration) forwards;
 }
 
 @keyframes fade {
@@ -151,7 +161,7 @@ header > h1 {
 }
 
 .showPage {
-  animation: showPage linear 0.5s forwards;
+  animation: showPage linear var(--ui-animation-duration) forwards;
 }
 
 @keyframes showPage {
@@ -166,6 +176,23 @@ header > h1 {
 .hidden {
   visibility: hidden;
 }
+
+.getRedAndBack {
+  animation: getRedAndBack linear 2s forwards;
+}
+
+@keyframes getRedAndBack {
+  0% {
+    background-color: var(--ui-elements);
+  }
+  50% {
+    background-color: darkred;
+  }
+  100% {
+    background-color: var(--ui-elements);
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 
 /* Character creating UI */
@@ -237,50 +264,31 @@ header > h1 {
 
 /* Message - Zvolim si sam */
 
-.modal {
-  display: none;
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999; */
-  height: 100%;
-  width: 100%;
-}
-
-.content {
-  width: 400px;
-  height: 100px;
-  margin: 20px; /*debug line */
-  border: 1px solid rgb(182, 182, 182);
-  border-radius: var(--ui-border-radius);
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.3);
-
-  backdrop-filter: blur(14px);
-}
-
-.text-container {
-  text-align: center;
-  width: 100%;
-  margin: auto;
-  position: absolute;
-  top: 20px;
-}
-
-.buttons-container {
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .button {
   border: 1px solid var(--ui-elements);
   background-color: var(--ui-elements);
   padding: 5px 20px;
   color: white;
   border-radius: var(--ui-border-radius);
+}
+
+/* Creation Section */
+.main-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 60px;
+  border: 1px solid yellow;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.model3d-container {
+  flex: 1;
+  border: 1px solid palevioletred;
+}
+
+.text-container {
+  flex: 2;
+  border: 1px solid brown;
 }
