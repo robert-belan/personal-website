@@ -33,23 +33,30 @@ export function extras() {
     console.log("3");
 }
 
+
+
 export function generateColleague() {
-    //items se ztrati
-    //zmeni se trida na takovou, kdy ty polozky jsou dole
-    //zmeni se 
-    
 
-    const main = document.querySelector("main");
-    const navigation = document.querySelector("#menu");
+    const items = navigationData["Vytváření postavy"];
+    createNavigation(items, "#items", "", "change");
 
-    createNavigation(navigationData["Vytváření postavy"], "#items");
-    
-    document.querySelector(".menu-title").remove();
-    navigation.classList.replace("menu", "creation-menu")
-
-
-    console.log("4");
+    showBackToMenuButton();
+    const main = document.querySelector("main"); //not used yet
 }
+
+
+
+function showBackToMenuButton() {
+    const header = document.querySelector("header");
+    const strElement = '<button id="backToMenu" class="button hidden"><   Zpět do hlavního menu</button>';
+    
+    header.insertAdjacentHTML("beforeend", strElement);
+    setTimeout( () => {
+        const button = document.querySelector("#backToMenu");
+        button.classList.replace("hidden", "showPage");
+    }, 1000);
+}
+
 
 export function letsCreateMyOwn() {
     console.log("4");

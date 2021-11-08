@@ -38,12 +38,31 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header > h1 {
-  margin-left: 40px;
+  margin-left: 60px;
   font-size: 2.5rem;
 }
+
+.button {
+  margin-right: 60px;
+  height: 2.3rem;
+  width: calc(auto + 10rem);
+  text-align: center;
+  border-radius: var(--ui-border-radius);
+  padding: 7px;
+  background-color: var(--ui-elements);
+  transition: letter-spacing 0.5s, background-color 0.5s;
+}
+
+.button:hover {
+  letter-spacing: 2px;
+  cursor: pointer;
+  background-color: #433e5c;
+}
+
 /* end Header section */
 
 /* Index.html */
@@ -84,42 +103,37 @@ header > h1 {
   color: rgba(255, 255, 255, 1);
 }
 
-.menu button {
-  border: 1px solid var(--ui-elements);
-  background-color: var(--ui-elements);
-  padding: 10px 60px;
-  color: white;
-  border-radius: var(--ui-border-radius);
-}
-
 .creation-menu {
-  border: 1px solid red; /* debug line */
   width: 100%;
-  height: 50px;
-  margin-top: 20px;
+  height: auto;
+  margin: 20px 0;
 }
 
 .creation-menu ul {
+  margin: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  list-style-type: none;
 }
 
 .creation-menu li {
+  width: 15%;
   height: 2.3rem;
-  margin: 0.6rem;
-  list-style-type: none;
+  margin: 0.6rem 0;
   text-align: right;
+  border-radius: var(--ui-border-radius);
   padding: 7px;
   padding-right: 13px;
   font-size: 1.3rem;
-  transition: letter-spacing 0.5s;
+  transition: letter-spacing 0.5s, background-color 0.5s;
 }
 
-.creation-menu li:hover:not(:first-child) {
+.creation-menu li:hover {
   letter-spacing: 2px;
   cursor: pointer;
+  background-color: #433e5c;
 }
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */

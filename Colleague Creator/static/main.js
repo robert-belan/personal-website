@@ -40,8 +40,11 @@ homePageTicket("header h1");
 
 
 
-//first argument should be object from navigationData, second ccs selector, ex. #items
-export function createNavigation(whichOne, targetID) {
+// first arg:   which menu-items(in data.js) should be used
+// second arg:  where to render new menu (css selector)
+// third arg:   if generate menu title, default Yes, empty arg No
+// forth arg:   change menu position, default No, else Yes
+export function createNavigation(whichOne, targetID, title="yes", changePos="") {
     //where to create navigation
     const target = document.querySelector(`${targetID}`);
 
@@ -51,19 +54,25 @@ export function createNavigation(whichOne, targetID) {
 
         setTimeout( () => {
             target.innerHTML = "";
-            console.log("If")
-            createMenuTitle(whichOne["Nadpis"], target);
+            title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/};
+
             createMenuItems(whichOne, target);
+
+            changePos ? changeMenuPosition() :  {/*do nothing*/};
+
             target.classList.replace("fadePage", "showPage")
         }, 500);
     } 
     else {
-        console.log("Else")
-
-        target.classList.add("showPage");
-        createMenuTitle(whichOne["Nadpis"], target);
+        target.classList.add("showPage");     
+        title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/};
         createMenuItems(whichOne, target);
     }
+}
+
+function changeMenuPosition() {
+    const nav = document.querySelector("#menu");
+    nav.classList.replace("menu", "creation-menu");
 }
 
 function createMenuTitle(itemTitle, target) {
