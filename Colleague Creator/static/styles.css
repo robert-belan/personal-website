@@ -28,7 +28,7 @@ main {
   min-height: 400px; /*Lze doupravit*/
   height: 450px;
   width: 100%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 /* end General Common Styles */
 
@@ -53,7 +53,7 @@ header > h1 {
 .menu {
   width: 350px;
   position: absolute;
-  top: 200px;
+  top: 45%;
   right: 10%;
   /* border: 1px ridge brown; */
 }
@@ -90,6 +90,36 @@ header > h1 {
   padding: 10px 60px;
   color: white;
   border-radius: var(--ui-border-radius);
+}
+
+.creation-menu {
+  border: 1px solid red; /* debug line */
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.creation-menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.creation-menu li {
+  height: 2.3rem;
+  margin: 0.6rem;
+  list-style-type: none;
+  text-align: right;
+  padding: 7px;
+  padding-right: 13px;
+  font-size: 1.3rem;
+  transition: letter-spacing 0.5s;
+}
+
+.creation-menu li:hover:not(:first-child) {
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
@@ -143,14 +173,6 @@ header > h1 {
 }
 
 /* Character creation navigation*/
-nav {
-  --padding-left-right: 50px;
-
-  margin-top: 20px;
-  width: 100%;
-  padding-left: var(--padding-left-right);
-  padding-right: var(--padding-left-right);
-}
 
 .navigation-bar {
   display: flex;

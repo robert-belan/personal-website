@@ -5,6 +5,26 @@ export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
 }
 
+export function appearance() {
+    console.log("appearance log");
+}
+
+export function history() {
+    console.log("history log");
+}
+
+export function skills() {
+    console.log("skills log");
+}
+
+export function attributes() {
+    console.log("attributes log");
+}
+
+export function summary() {
+    console.log("summary log");
+}
+
 export function settings() {
     console.log("2");
 }
@@ -14,6 +34,20 @@ export function extras() {
 }
 
 export function generateColleague() {
+    //items se ztrati
+    //zmeni se trida na takovou, kdy ty polozky jsou dole
+    //zmeni se 
+    
+
+    const main = document.querySelector("main");
+    const navigation = document.querySelector("#menu");
+
+    createNavigation(navigationData["Vytváření postavy"], "#items");
+    
+    document.querySelector(".menu-title").remove();
+    navigation.classList.replace("menu", "creation-menu")
+
+
     console.log("4");
 }
 
@@ -55,3 +89,5 @@ export function leaveThisWebsite() {
         }
     })
 }
+
+

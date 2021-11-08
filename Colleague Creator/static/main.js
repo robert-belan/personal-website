@@ -51,12 +51,15 @@ export function createNavigation(whichOne, targetID) {
 
         setTimeout( () => {
             target.innerHTML = "";
+            console.log("If")
             createMenuTitle(whichOne["Nadpis"], target);
             createMenuItems(whichOne, target);
             target.classList.replace("fadePage", "showPage")
         }, 500);
     } 
     else {
+        console.log("Else")
+
         target.classList.add("showPage");
         createMenuTitle(whichOne["Nadpis"], target);
         createMenuItems(whichOne, target);

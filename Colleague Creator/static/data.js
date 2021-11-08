@@ -5,7 +5,12 @@ import {
     leaveThisWebsite,
     generateColleague,
     letsCreateMyOwn,
-    mainMenu
+    mainMenu,
+    appearance,
+    history,
+    skills,
+    attributes,
+    summary
 } from "/static/menuFunctions.js"
 
 
@@ -25,14 +30,14 @@ export const navigationData = {
         "Zpět": mainMenu
     },
 
-    // "Vytváření postavy": {
-    //     "Nadpis": "Vytváření postavy",
-    //     "Vzhled": appearance,
-    //     "Historie": history,
-    //     "Dovednosti": skills,
-    //     "Vlastnosti": attributes,
-    //     "Shrnutí": sumamry
-    // },
+    "Vytváření postavy": {
+        "Nadpis": "Vytváření postavy",
+        "Vzhled": appearance,
+        "Historie": history,
+        "Dovednosti": skills,
+        "Vlastnosti": attributes,
+        "Shrnutí": summary
+    },
 
     // "Extras": {
     //     "Nadpis": "Extras",
