@@ -20,13 +20,3 @@ def after_request(response):
 @app.route("/")
 def index():
     return render_template("index.html")
-
-
-@app.route("/creating")
-def creating():
-    return send_from_directory("", "templates/creating.html")
-
-
-@app.route("/appearance")
-def appearance():
-    return send_from_directory("", "templates/appearance.html")

@@ -47,7 +47,7 @@ export const navigationData = {
     // }
 }
 
-export const creation_layout = `<div class="main-container">
+export const creation_layout = `<div id="main-container" class="main-container">
 <section id="model3d" class="model3d-container">
 </section>
 
@@ -56,3 +56,51 @@ export const creation_layout = `<div class="main-container">
 </div>`
 
 export const model3dHTML = '<iframe id="5f9ba68e-d40f-48d5-8d73-5095246e5dd9" src="https://app.vectary.com/viewer/v1/?model=5f9ba68e-d40f-48d5-8d73-5095246e5dd9&env=studio3&showInteractionPrompt=0" frameborder="0" width="100%" height="100%"></iframe>';
+
+
+export const appearanceData = [
+    {
+        prop: "Portrét",
+        option: "Obrázek"
+    },
+    {
+        prop: "Druh",
+        option: "člověk"
+    },
+    {
+        prop: "Pohlaví",
+        option: "muž"
+    },
+    {
+        prop: "Základ vzhledu",
+        option: "udržovaný"
+    },
+    {
+        prop: "Zdánlivý věk",
+        option: "29"
+    },
+    {
+        prop: "Kondice",
+        option: "chabá"
+    },
+    {
+        prop: "Výška",
+        option: "vyšší"
+    },
+    {
+        prop: "Hlava",
+        option: "č. 22"
+    },
+    {
+        prop: "Hlas",
+        option: "mužský"
+    },
+    {
+        prop: "Držení těla",
+        option: "asertivní"
+    },
+    {
+        prop: "Styl oblečení",
+        option: "neformální"
+    },
+]

@@ -1,5 +1,10 @@
-import { createNavigation, fadeAllElements } from "/static/main.js";
-import { navigationData, creation_layout, model3dHTML } from "/static/data.js";
+import {createNavigation, 
+        fadeAllElements, 
+        animationDuration } from "/static/main.js";
+import {navigationData,
+        creation_layout, 
+        model3dHTML,
+        appearanceData } from "/static/data.js";
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
@@ -22,20 +27,24 @@ export function generateColleague() {
     const model3dContainer = document.querySelector("#model3d");
     model3dContainer.insertAdjacentHTML("beforeend", model3dHTML);
 
+    const textContainer = document.querySelector("#text")
     // insert welcome text
-    const textContainer = document.querySelector("#text");
-    const introText = document.createElement("div");
-    introText.classList.add("centerInnerElements");
-    textContainer.insertAdjacentElement("beforeend", introText);
+    fadeInFadeOut( () => {
+        const introText = document.createElement("div");
+        introText.classList.add("centerInnerElements");
+        textContainer.insertAdjacentElement("beforeend", introText);
+        
+        const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
+        
+        Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
+                    
+        Menu dole slouží k procházení jednotlivých parametrů.`;
     
-    const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
+        const htmlElement = `<div class="creationMessage">${message}</div>`;
+        introText.insertAdjacentHTML("beforeend", htmlElement);
+    }, textContainer)
     
-    Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
-                
-    Menu dole slouží k procházení jednotlivých parametrů.`;
 
-    const htmlElement = `<div class="creationMessage">${message}</div>`;
-    introText.insertAdjacentHTML("beforeend", htmlElement);
 
     // show homepage button
     createBackToMenuButton();
@@ -102,11 +111,87 @@ function attachHomapageLinkListener(selector) {
     element.addEventListener("click", () => {
         setTimeout( () => {
             window.location.assign("/");
-        }, 500);
+        }, animationDuration);
         fadeAllElements();
 
     })
 }
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Právě vzniká ////////////////////////////////////////////
+ 
+
+// this decorator provides smooth animation among creation tabs
+// second arg: css selector (string)
+    // target should be "document.querySelector("#text");"
+function fadeInFadeOut(func, target) {
+    
+    const container = target;
+    
+    // fade content out 
+    container.classList.add("fadePage");
+
+    setTimeout( () => {
+        // remove old content
+        container.innerHTML = "";
+        
+
+        // load new content (new html tags etc.)
+        func();
+
+        // fade new content in
+        container.classList.replace("fadePage", "showPage");
+
+        // clear container attributes - this is needless work, but code looks better
+        setTimeout( () => {
+            container.classList.remove("showPage")
+        }, animationDuration + 1000)
+    
+       // happens after fading content out
+    }, animationDuration);
+}
+
+
+// provides new data
+export function appearance() {
+    fadeInFadeOut(createTable, document.querySelector("#text"))
+}
+
+function createTable() {
+
+    const table_ = document.createElement("table");
+    const tbody_ = document.createElement("tbody");
+
+    // inserting to DOM
+    const destination = document.querySelector("#text");
+    destination.insertAdjacentElement("beforeend", table_)
+    table_.insertAdjacentElement("beforeend", tbody_);
+
+    // generates table data
+    appearanceData.forEach( tableRow => { 
+        tbody_.insertAdjacentHTML("beforeend", `
+            <tr>
+                <td class="prop-col">${tableRow.prop}</td>
+                <td class="arrow-col"><</td>
+                <td class="option-col">${tableRow.option}</td>
+                <td class="arrow-col">></td>
+            <tr>`);
+    }); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
@@ -114,10 +199,6 @@ function attachHomapageLinkListener(selector) {
 
 export function letsCreateMyOwn() {
     console.log("4");
-}
-
-export function appearance() {
-    console.log("appearance log");
 }
 
 export function history() {

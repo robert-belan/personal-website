@@ -1,5 +1,11 @@
 import { mainMenu } from "./menuFunctions.js";
 
+// Global variables
+
+// is linked to style.css variable "--ui-animation-duration", must be changed manually
+export const animationDuration = 500; 
+
+
 window.addEventListener("load", () => {
     showAllElements();
 })
@@ -13,22 +19,6 @@ function showAllElements() {
 export function fadeAllElements() {
     document.body.classList.replace("showPage", "fadePage");
 }
-
-
-
-
-
-// export function getFetch(url, target) {
-//     fetch(url)
-//         .then( response => response.text())
-//         .then( html => {
-//             target.classList.add("hidden");
-//             target.innerHTML = "";
-//             target.innerHTML = html;
-//             target.classList.replace("hidden", "showPage");
-//         })
-// }
-
 
 
 // first arg:   which menu-items(in data.js) should be used
@@ -52,7 +42,7 @@ export function createNavigation(whichOne, targetID, title="yes", changePos="") 
             changePos ? changeMenuPosition() :  {/*do nothing*/};
 
             target.classList.replace("fadePage", "showPage")
-        }, 500);
+        }, animationDuration);
     } 
     else {
         target.classList.add("showPage");     
