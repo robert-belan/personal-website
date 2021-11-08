@@ -5,56 +5,46 @@ export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
 }
 
-export function appearance() {
-    console.log("appearance log");
-}
 
-export function history() {
-    console.log("history log");
-}
-
-export function skills() {
-    console.log("skills log");
-}
-
-export function attributes() {
-    console.log("attributes log");
-}
-
-export function summary() {
-    console.log("summary log");
-}
-
-export function settings() {
-    console.log("2");
-}
-
-export function extras() {
-    console.log("3");
-}
-
-
-//This function creates foundation for character creation section (layout and menu)
+// This function creates foundation for character creation section (layout and menu)
 export function generateColleague() {
 
     const main = document.querySelector("main");
     const items = navigationData["Vytváření postavy"];
+    
+    // loads menu
     createNavigation(items, "#items", "", "change");
 
+    // create new layout in <main> tag
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
+    // load 3d model
     const model3dContainer = document.querySelector("#model3d");
     model3dContainer.insertAdjacentHTML("beforeend", model3dHTML);
 
-    showBackToMenuButton();
-    goToHomePage("#backToMenu");
+    // insert welcome text
+    const textContainer = document.querySelector("#text");
+    const introText = document.createElement("div");
+    introText.classList.add("centerInnerElements");
+    textContainer.insertAdjacentElement("beforeend", introText);
+    
+    const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
+    
+    Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
+                
+    Menu dole slouží k procházení jednotlivých parametrů.`;
 
+    const htmlElement = `<div class="creationMessage">${message}</div>`;
+    introText.insertAdjacentHTML("beforeend", htmlElement);
 
+    // show homepage button
+    createBackToMenuButton();
+    attachHomapageLinkListener("#backToMenu");
 }
 
 
 
-function showBackToMenuButton() {
+function createBackToMenuButton() {
     const header = document.querySelector("header");
     const strElement = '<button id="backToMenu" class="button hidden"><<< Zpět do hlavního menu</button>';
     
@@ -69,10 +59,6 @@ function showBackToMenuButton() {
     
 }
 
-
-export function letsCreateMyOwn() {
-    console.log("4");
-}
 
 export function mainMenu() {
     createNavigation(navigationData["Hlavní menu"], "#items")
@@ -111,7 +97,7 @@ export function leaveThisWebsite() {
 
 
 // attach link to HomePage
-function goToHomePage(selector) {
+function attachHomapageLinkListener(selector) {
     const element = document.querySelector(selector);
     element.addEventListener("click", () => {
         setTimeout( () => {
@@ -122,3 +108,38 @@ function goToHomePage(selector) {
     })
 }
 
+////////////////////////////////////////////////////////////////////////////////
+///////////// Waiting for real declaration /////////////////////////////////////
+
+
+export function letsCreateMyOwn() {
+    console.log("4");
+}
+
+export function appearance() {
+    console.log("appearance log");
+}
+
+export function history() {
+    console.log("history log");
+}
+
+export function skills() {
+    console.log("skills log");
+}
+
+export function attributes() {
+    console.log("attributes log");
+}
+
+export function summary() {
+    console.log("summary log");
+}
+
+export function settings() {
+    console.log("2");
+}
+
+export function extras() {
+    console.log("3");
+}
