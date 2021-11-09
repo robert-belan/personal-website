@@ -21,6 +21,7 @@ export function generateColleague() {
     // loads menu
     createNavigation(items, "#items", "", "change");
 
+    
     // create new layout in <main> tag
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
@@ -44,14 +45,30 @@ export function generateColleague() {
         const htmlElement = `<div class="creationMessage">${message}</div>`;
         introText.insertAdjacentHTML("beforeend", htmlElement);
     }, textContainer)
-    
-
 
     // show homepage button
     createBackToMenuButton();
     attachHomapageLinkListener("#backToMenu");
 }
 
+// UNUSED FUNC YET
+// function clickedButtons() {
+//     const buttons = document.querySelectorAll("#items li");
+//     console.log("in ta clickeButotns()");
+//     buttons.forEach( button => {
+
+//         button.addEventListener( "click", (event) => {
+//             console.log("Klik")
+
+//             buttons.forEach( checkedButton => {
+//                 if (checkedButton.classList.contains("clicked")) {
+//                     checkedButton.classList.remove("clicked");
+//                 }
+//             })
+//             event.currentTarget.classList.add("clicked");
+//         })
+//     })
+// }
 
 
 function createBackToMenuButton() {
@@ -177,15 +194,14 @@ function fadeInFadeOut(func, target) {
     }, animationDuration);
 }
 
+////////////////////////// History Section Functions ///////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////// Being created ///////////////////////////////////////////
- 
-
+//
+// 
 export function history() {   
     fadeInFadeOut(createHistory, document.querySelector("#text"))
 }
-    
-    
+        
 
 function createHistory() {
 
@@ -214,6 +230,9 @@ function createHistory() {
         counter++;
     });
     
+    description.insertAdjacentHTML("beforeend", `<p>${historyData[0].description}</p>`)
+    
+    //adding event listeners
     profileToggle();
 }
 
@@ -234,6 +253,18 @@ function profileToggle() {
         })
     }
 }
+//
+//
+////////////////////// End History Section Functions ///////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Being created ///////////////////////////////////////////
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -263,3 +294,5 @@ export function settings() {
 export function extras() {
     console.log("3");
 }
+
+

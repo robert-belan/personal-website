@@ -121,3 +121,122 @@ export const historyData = [
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas sollicitudin. Nulla quis diam. In rutrum. Aliquam erat volutpat. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Et harum quidem rerum facilis est et expedita distinctio. Aliquam erat volutpat. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Fusce tellus. Duis pulvinar. Praesent in mauris eu tortor porttitor accumsan."
     }  
 ]
+
+
+export const skillsData = [
+    {
+        skill: "C/C++",
+        levels: ["Rozhodnutí naučit se programovat",
+                "První printf('Hello World!')",
+                "Poznávání vnitřního fungování PC",
+                "Ztráta praktické schopnosti používání jazyka"
+                ],
+        completed: 4
+    },
+
+    {
+        skill: "Obecné základy programování",
+        levels: ["Schopen zapnout počítač",
+                "První printf('Hello World')",
+                "Hotový první menší projekt(y)",
+                "Hotové CS50 by Harvard",
+                "Komerční praxe",
+                "Připraven do 'Googlu'"
+                ],
+        completed: 4
+    },
+
+    {
+        skill: "HTML",
+        levels: ["Rozpozná zkratku",
+                "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
+                "První jednodušší web",
+                "Praktické využívání",
+                "Nic ho nemůže zaskočit",
+                ],
+        completed: 4
+    },
+
+    {
+        skill: "CSS",
+        levels: ["Rozliší CSS a CCS",
+                "První vystylovaný Hello World",
+                "Začíná používat proměnné a funkce v CCS",
+                "Věc se §komplikuje§ s SCSS",
+                "Přestane všude psát CCS místo CSS"
+                ],
+        completed: 4 
+    },
+
+    {
+        skill: "JavaScript",
+        levels: ["Rozliší JavaScript od Jawy",
+                "První >alert('Hello World')",
+                "První praktické používání",
+                "Začíná rozpoznávat a používat různé Web API",
+                "Stačí krátké nahlédnutí do dokumentace",
+                "Nahlážení do dokumentace už jen zdržuje"
+                ],
+        completed: 4
+        
+        
+    },
+
+    {
+        skill: "React",
+        levels: ["Upřednostnil React nad Svelt",
+                "První &lt;HelloWorld /&gt;",
+                "Uvedení znalostí do praxe",
+                "První projekt postavený na Reactu"
+                ],
+        completed: 2
+    },
+
+    {
+        skill: "Python",
+        levels: ["Přechod z C/C++ na Python",
+                "První print('Hello World!')",
+                "Uvedení znalostí do praxe a první menší projekty",
+                "Počátek průzkumu Python 'vnitřností'",
+                "Mírné schlazení znalostí kvůli JS"
+                ]
+    },
+
+    {
+        skill: "Flask",
+        levels: ["Přičichnutí k Flasku",
+                "První menší loky",
+                "Vlastní menší večírek a první vystřízlivění",
+                "... *první ztráty paměti*",
+                "... *další ztráty paměti*",
+                "Zkušený pijan",
+                ]
+    },
+
+    {
+        skill: "SQL",
+        levels: ["Seznámení s SQLite",
+                "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
+                "Drobná praxe",
+                "Nějakou dobu nic",
+                "SQL engineer"
+                ]
+    },
+
+    {
+        skill: "GIT",
+        levels: ["Cože? Gastrointestinální trakt?",
+                "git commit index.html -m 'Hello world!';",
+                "Průběžná praxe",
+                "Pokročilejší používání GIT"
+                ]
+    },
+
+    {
+        skill: "Linux",
+        levels: ["První krůčky v Ubuntu",
+                "Rok s Ubuntu",
+                "Zpět k W10 + WSL",
+                ]
+    },
+]

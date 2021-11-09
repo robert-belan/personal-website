@@ -3,12 +3,9 @@
   --text: #555454;
   --background: #fff;
   --ui-elements: #555454;
-  --ui-max-width: 1200px;
-  --ui-min-width: 1000px;
-  --ui-margin: auto auto;
-  --ui-border-radius: 3px;
+  --ui-border-radius: 1px;
   --ui-animation-duration: 0.3s;
-  /* --ui-icon-bg: #555454; Zatim nepouzite */
+  --ui-clicked-button: rgb(31, 48, 105);
 }
 
 /* Reset */
@@ -20,6 +17,7 @@
 }
 
 /* General Common Styles */
+
 body {
   background-color: white; /* TODO Debug barva */
   font-family: "Inconsolata", monospace;
@@ -46,6 +44,7 @@ header {
 header > h1 {
   margin-left: 60px;
   font-size: 2.5rem;
+  color: var(--ui-elements);
 }
 
 .button {
@@ -144,6 +143,10 @@ header > h1 {
   cursor: pointer;
   background-color: #433e5c;
 }
+
+.clicked {
+  background-color: var(--ui-clicked-button);
+}
 /* -------------------------------------------------------------------------- */
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
@@ -187,7 +190,7 @@ header > h1 {
   }
   50% {
     /* background-color: darkred; */
-    background-color: red;
+    background-color: darkred;
   }
   100% {
     background-color: var(--ui-elements);
@@ -287,7 +290,7 @@ table {
   font-size: 1.3rem;
   width: 90%;
   padding-left: 7%;
-  border: 1px solid tomato;
+  /* border: 1px solid rgb(146, 141, 140); */
 }
 
 .prop-col {
@@ -337,23 +340,63 @@ table td {
 .history-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 90%;
   height: 80%;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 }
 
 .profile {
-  border: 1px dotted red;
+  /* border: 1px dotted red; */
   flex: 1;
   width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile ul {
+  margin-left: 4rem;
+  width: 17rem;
+  /* border: 1px solid orange; */
+  list-style-type: none;
+  font-size: 1.3rem;
+}
+
+.profile li {
+  background-color: #555454;
+  color: rgba(255, 255, 255, 1);
+  padding: 7px;
+  transition: letter-spacing 0.5s;
+  margin: 0.5rem 0;
+  border-radius: var(--ui-border-radius);
+}
+
+.profile li:first-child {
+  background-color: rgb(31, 48, 105);
+}
+
+.profile li:hover {
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* padding: 7px;
+  padding-right: 13px; 
+}
+ */
+
+iframe {
+  filter: grayscale(1);
+  transition: filter 0.5s;
+}
+
+iframe:hover {
+  filter: grayscale(0);
 }
 
 .description {
   flex: 2;
-  padding: 2rem 3rem;
-  border: 1px dotted blue;
+  padding: 3rem 3rem;
+  /* border: 1px dotted blue; */
   width: 100%;
 }
 
@@ -362,11 +405,8 @@ table td {
 }
 
 /* animation styles for History */
-.displayNone {
-  display: none;
-}
 
-.invisible {
+/* .invisible {
   opacity: 0;
 }
 
@@ -394,4 +434,44 @@ table td {
   100% {
     opacity: 0;
   }
+} */
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* Button animation section */
+input[name="btn-focus"] {
+  display: none;
 }
+
+.grandButton {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  border-radius: var(--ui-border-radius);
+  background-color: var(--ui-elements);
+  height: 2.3rem;
+  color: var(--background);
+  margin: 0.5rem 0.5rem;
+  /* padding: 0.2rem 1rem; */
+  font-size: 1.2rem;
+  transition: background-color var(--ui-animation-duration),
+    padding var(--ui-animation-duration) ease-in-out;
+}
+
+.mainMenu-btn {
+  width: 20rem;
+  padding: 0 1rem;
+  justify-content: right;
+}
+
+.grandButton:hover {
+  cursor: pointer;
+  background-color: #433e5c;
+  padding: 0 2rem;
+}
+
+.grandButton:active,
+:checked + .grandButton {
+  background-color: #1c2a49;
+  padding: 0 2rem;
+}
+/* ////////////////////////////////////////////////////////////////////////// */
