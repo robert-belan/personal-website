@@ -4,7 +4,8 @@ import {createNavigation,
 import {navigationData,
         creation_layout, 
         model3dHTML,
-        appearanceData } from "/static/data.js";
+        appearanceData,
+        historyData } from "/static/data.js";
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
@@ -116,9 +117,35 @@ function attachHomapageLinkListener(selector) {
 
     })
 }
-////////////////////////////////////////////////////////////////////////////////
-////////////////////// Právě vzniká ////////////////////////////////////////////
- 
+
+
+// provides data for appearance section
+export function appearance() {
+    fadeInFadeOut(createAppearanceTable, document.querySelector("#text"))
+}
+
+
+function createAppearanceTable() {
+
+    const table_ = document.createElement("table");
+    const tbody_ = document.createElement("tbody");
+
+    // inserting to DOM
+    const destination = document.querySelector("#text");
+    destination.insertAdjacentElement("beforeend", table_)
+    table_.insertAdjacentElement("beforeend", tbody_);
+
+    // generates table data
+    appearanceData.forEach( tableRow => { 
+        tbody_.insertAdjacentHTML("beforeend", `
+            <tr>
+                <td class="prop-col">${tableRow.prop}</td>
+                <td class="arrow-col"><</td>
+                <td class="option-col">${tableRow.option}</td>
+                <td class="arrow-col">></td>
+            <tr>`);
+    }); 
+}
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string)
@@ -144,53 +171,69 @@ function fadeInFadeOut(func, target) {
         // clear container attributes - this is needless work, but code looks better
         setTimeout( () => {
             container.classList.remove("showPage")
-        }, animationDuration + 1000)
+        }, animationDuration + 501)
     
        // happens after fading content out
     }, animationDuration);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Being created ///////////////////////////////////////////
+ 
 
-// provides new data
-export function appearance() {
-    fadeInFadeOut(createTable, document.querySelector("#text"))
+export function history() {   
+    fadeInFadeOut(createHistory, document.querySelector("#text"))
 }
+    
+    
 
-function createTable() {
+function createHistory() {
 
-    const table_ = document.createElement("table");
-    const tbody_ = document.createElement("tbody");
-
-    // inserting to DOM
     const destination = document.querySelector("#text");
-    destination.insertAdjacentElement("beforeend", table_)
-    table_.insertAdjacentElement("beforeend", tbody_);
-
-    // generates table data
-    appearanceData.forEach( tableRow => { 
-        tbody_.insertAdjacentHTML("beforeend", `
-            <tr>
-                <td class="prop-col">${tableRow.prop}</td>
-                <td class="arrow-col"><</td>
-                <td class="option-col">${tableRow.option}</td>
-                <td class="arrow-col">></td>
-            <tr>`);
-    }); 
+    
+    // foundation
+    const history_layout = `
+    <div class="history-container">
+        <div id="profile" class="profile">
+            <ul></ul>
+        </div>
+        <div id="description" class="description"></div>
+    </div>
+    `
+    destination.insertAdjacentHTML("beforeend", history_layout);
+    
+    
+    const list = document.querySelector("#profile ul");
+    const description = document.querySelector("#description");
+    let counter = 0;
+    historyData.forEach( profile => {
+        list.insertAdjacentHTML("beforeend", `
+            <li id="profile-${counter}">${profile.profile}</li>`);
+        
+            // TODO: mozna zde nastavit listeners?
+        counter++;
+    });
+    
+    profileToggle();
 }
 
+function profileToggle() {
+    
+    // const profile = document.querySelector("#profile");
+    const destination = document.querySelector("#description");
+    const profiles = document.querySelectorAll("#profile li");
 
+    
+    for (let counter = 0; counter < profiles.length; counter++) {
+        profiles[counter].addEventListener("click", () => {
 
-
-
-
-
-
-
-
-
-
-
-
+            fadeInFadeOut( () => {
+                destination.insertAdjacentHTML("beforeend", `
+                <p>${historyData[counter].description}</p>`
+            )}, destination )
+        })
+    }
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -199,10 +242,6 @@ function createTable() {
 
 export function letsCreateMyOwn() {
     console.log("4");
-}
-
-export function history() {
-    console.log("history log");
 }
 
 export function skills() {

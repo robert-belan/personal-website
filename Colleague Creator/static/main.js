@@ -1,4 +1,3 @@
-import { mainMenu } from "./menuFunctions.js";
 
 // Global variables
 
