@@ -17,7 +17,6 @@
 }
 
 /* General Common Styles */
-
 body {
   background-color: white; /* TODO Debug barva */
   font-family: "Inconsolata", monospace;
@@ -27,10 +26,9 @@ main {
   min-height: 400px; /*Lze doupravit*/
   height: 80vh;
   width: 100%;
-  /* border: 1px solid green; */
   position: relative;
 }
-/* end General Common Styles */
+
 
 /* Header section */
 header {
@@ -47,50 +45,30 @@ header > h1 {
   color: var(--ui-elements);
 }
 
-.button {
-  margin-right: 60px;
-  height: 2.3rem;
-  width: calc(auto + 10rem);
-  text-align: center;
-  border-radius: var(--ui-border-radius);
-  padding: 7px;
-  background-color: var(--ui-elements);
-  transition: letter-spacing 0.5s, background-color 0.5s;
-}
 
-.button:hover {
-  letter-spacing: 2px;
-  cursor: pointer;
-  background-color: #433e5c;
-}
-
-/* end Header section */
-
-/* Index.html */
-/* Menu options */
-
+    /* Index.html */
+    /* Menu options */
 .menu {
-  width: 350px;
   position: absolute;
   top: 45%;
   right: 10%;
-  /* border: 1px ridge brown; */
 }
 
 .menu li {
   list-style-type: none;
-  transition: letter-spacing 0.5s;
 }
 
-.menu li:hover:not(:first-child) {
-  letter-spacing: 0.07rem;
+.menu h2 {
+  text-align: right;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Style for menu in character creation section ------------------------------*/
+
+/* Styles for menu in character creation section ------------------------------*/
 .creation-menu {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   width: 100%;
-  /* height: 61px; */ /* original height, vh is probably better*/
   height: 10vh;
   display: flex;
   align-items: center;
@@ -199,38 +177,6 @@ header > h1 {
   flex: 2;
 }
 
-/* Character creation navigation*/
-
-.navigation-bar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-}
-
-.navigation-bar > li {
-  height: auto;
-  margin: 0.6rem;
-  list-style-type: none;
-  text-align: right;
-  padding: 7px;
-  font-size: 1.3rem;
-  border-radius: var(--ui-border-radius);
-  background-color: #555454;
-  color: rgba(255, 255, 255, 1);
-  width: 90%;
-  text-align: center;
-  padding: 8px 3px;
-}
-
-/* Message - Zvolim si sam */
-.button {
-  border: 1px solid var(--ui-elements);
-  background-color: var(--ui-elements);
-  padding: 5px 20px;
-  color: white;
-  border-radius: var(--ui-border-radius);
-}
 
 /* Creation Section */
 .main-container {
@@ -424,7 +370,7 @@ input[name="btn-focus"] {
   display: none;
 }
 
-.grandButton {
+.button {
   display: flex;
   align-items: center;
   justify-content: right;
@@ -436,24 +382,29 @@ input[name="btn-focus"] {
   /* padding: 0.2rem 1rem; */
   font-size: 1.2rem;
   transition: background-color var(--ui-animation-duration),
-    padding var(--ui-animation-duration) ease-in-out;
+              padding var(--ui-animation-duration), 
+              letter-spacing 0.5s 
+              ease-in-out;
 }
 
-.mainMenu-btn {
+.button:hover {
+  cursor: pointer;
+  background-color: #433e5c;
+  padding: 0 2rem;
+  letter-spacing: 0.07rem;
+}
+
+.button:active,
+:checked + .button {
+  background-color: #1c2a49;
+  padding: 0 2rem;
+}
+
+  /* individual menus */
+.mainmenu {
   width: 20rem;
   padding: 0 1rem;
   justify-content: right;
 }
 
-.grandButton:hover {
-  cursor: pointer;
-  background-color: #433e5c;
-  padding: 0 2rem;
-}
-
-.grandButton:active,
-:checked + .grandButton {
-  background-color: #1c2a49;
-  padding: 0 2rem;
-}
 /* ////////////////////////////////////////////////////////////////////////// */

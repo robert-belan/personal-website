@@ -2,7 +2,7 @@
 // Global variables
 
 // is linked to style.css variable "--ui-animation-duration", must be changed manually
-export const animationDuration = 500; 
+export const animationDuration = 500;
 
 
 window.addEventListener("load", () => {
@@ -20,11 +20,11 @@ export function fadeAllElements() {
 }
 
 
-// first arg:   which menu-items(in data.js) should be used
+// first arg:   which menu items(in data.js) should be used
 // second arg:  where to render new menu (css selector)
 // third arg:   if generate menu title, default Yes, empty arg No
 // forth arg:   change menu position, default No, else Yes
-export function createNavigation(whichOne, targetID, title="yes", changePos="") {
+export function createNavigation(whichOne, targetID, title = "yes", changePos = "") {
     //where to create navigation
     const target = document.querySelector(`${targetID}`);
 
@@ -32,20 +32,20 @@ export function createNavigation(whichOne, targetID, title="yes", changePos="") 
     if (!(target.innerHTML.length === 0)) {
         target.classList.replace("showPage", "fadePage")
 
-        setTimeout( () => {
+        setTimeout(() => {
             target.innerHTML = "";
-            title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/};
+            title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/ };
 
             createMenuItems(whichOne, target);
 
-            changePos ? changeMenuPosition() :  {/*do nothing*/};
+            changePos ? changeMenuPosition() : {/*do nothing*/ };
 
             target.classList.replace("fadePage", "showPage")
         }, animationDuration);
-    } 
+    }
     else {
-        target.classList.add("showPage");     
-        title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/};
+        target.classList.add("showPage");
+        title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/ };
         createMenuItems(whichOne, target);
     }
 }
@@ -56,7 +56,7 @@ function changeMenuPosition() {
 }
 
 function createMenuTitle(itemTitle, target) {
-    target.insertAdjacentHTML("afterbegin", `<li>${itemTitle}</li>`);
+    target.insertAdjacentHTML("afterbegin", `<h2>${itemTitle}</h2>`);
 }
 
 //execute function references in navigationData
@@ -68,14 +68,14 @@ function executor(func) {
 function createMenuItems(dataObject, target) {
     let labels = Object.keys(dataObject);
     let paths = Object.values(dataObject);
-    
+
     for (let counter = 1; counter < paths.length; counter++) {
-    
+
         //creating new <li>...buttons...</li>
         target.insertAdjacentHTML("beforeend", `
         <li>
             <input type="radio" name="btn-focus" id="btn-focus${counter}">
-            <label for="btn-focus${counter}" class="grandButton mainMenu-btn">${labels[counter]}</label>
+            <label for="btn-focus${counter}" class="button mainmenu">${labels[counter]}</label>
         </li>`);
 
         //adding listeners with path(URLs)
