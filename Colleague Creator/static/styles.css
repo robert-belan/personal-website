@@ -125,10 +125,6 @@ input[name="btn-profile"] {
   padding: 0 2rem;
 }
 
-.button::selection {
-  background-color: inherit;
-}
-
 
 /* Individual menu buttons */
 /* Must be below .button classes */
@@ -268,7 +264,7 @@ iframe:hover {
 
 
 /* Appearance Section */
-table {
+.appearance-table {
   font-size: 1.5vw;
   /* font-size: 1.3rem; */
   width: 90%;
@@ -303,18 +299,18 @@ table {
   font-size: 1.6rem;
 }
 
-table tr {
+.appearance-table tr {
   height: 0.4rem;
   padding: auto 0;
   background-color: white;
   transition: background-color 0.3s;
 }
 
-table tr:hover {
+.appearance-table tr:hover {
   background-color: rgb(233, 233, 233);
 }
 
-table td {
+.appearance-table td {
   border-radius: 3px;
 }
 
@@ -394,3 +390,62 @@ table td {
 /* ////////////////////////////////////////////////////////////////////////// */
 
 /* ////////////////////////////////////////////////////////////////////////// */
+
+
+.skills-table {
+  color: var(--text);
+  font-size: 1.5vw;
+  width: 40vw;
+}
+
+.skills-table tr {
+  padding: auto 0;
+  background-color: white;
+  filter: grayscale(1);
+  transition: background-color var(--ui-animation-duration), 
+              filter var(--ui-animation-duration) ease-in-out;
+
+}
+
+.skills-table tr:hover {
+  background-color: rgb(241, 241, 241);
+  filter: grayscale(0.5);
+}
+
+.skills-table td {
+  border-radius: var(--ui-border-radius);
+}
+
+.skill-logo img {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+}
+
+.skill-label {
+  padding-left: 10%;
+  width: 60%;
+  text-align: left;
+}
+
+.level {
+  width: 10%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.sign {
+  width: 10%;
+  font-size: 2rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.sign span {
+  position: relative;
+  top: -0.3rem;
+}
+
+.sign:hover {
+  background-color: #b3b3c2;
+  cursor: pointer;
+}

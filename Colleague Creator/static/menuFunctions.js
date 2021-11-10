@@ -151,6 +151,7 @@ export function appearance() {
 function createAppearanceTable() {
 
     const table_ = document.createElement("table");
+    table_.classList.add("appearance-table")
     const tbody_ = document.createElement("tbody");
 
     // inserting to DOM
