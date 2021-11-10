@@ -67,7 +67,6 @@ header > h1 {
 /* end Header section */
 
 /* Index.html */
-
 /* Menu options */
 
 .menu {
@@ -79,29 +78,12 @@ header > h1 {
 }
 
 .menu li {
-  height: 2.3rem;
-  margin: 0.6rem;
   list-style-type: none;
-  text-align: right;
-  padding: 7px;
-  padding-right: 13px;
-  font-size: 1.3rem;
   transition: letter-spacing 0.5s;
 }
 
 .menu li:hover:not(:first-child) {
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-.menu-title {
-  background-color: white;
-  color: var(--text);
-}
-
-.menu-item {
-  background-color: #555454;
-  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.07rem;
 }
 
 /* Style for menu in character creation section ------------------------------*/

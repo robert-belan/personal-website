@@ -56,7 +56,7 @@ function changeMenuPosition() {
 }
 
 function createMenuTitle(itemTitle, target) {
-    target.insertAdjacentHTML("afterbegin", `<li class="menu-title">${itemTitle}</li>`);
+    target.insertAdjacentHTML("afterbegin", `<li>${itemTitle}</li>`);
 }
 
 //execute function references in navigationData
@@ -71,21 +71,19 @@ function createMenuItems(dataObject, target) {
     
     for (let counter = 1; counter < paths.length; counter++) {
     
-        //creating new <li class="menu-item"><div>...text...</div></li>
-        const item = document.createElement("li");
-        item.classList.add("menu-item");
-    
-        let appendedNewItem = target.appendChild(item);
-        appendedNewItem.insertAdjacentHTML("beforeend", `<div>${labels[counter]}</div>`);
+        //creating new <li>...buttons...</li>
+        target.insertAdjacentHTML("beforeend", `
+        <li>
+            <input type="radio" name="btn-focus" id="btn-focus${counter}">
+            <label for="btn-focus${counter}" class="grandButton mainMenu-btn">${labels[counter]}</label>
+        </li>`);
 
         //adding listeners with path(URLs)
-        appendedNewItem.addEventListener("click", event => {
+        document.querySelector(`#btn-focus${counter}`).addEventListener("click", event => {
             //in main.js
-            event.preventDefault();
+            // event.preventDefault();
             // changeMenuSections(paths[counter])
             executor(paths[counter]);
         })
     }
 }
-
-
