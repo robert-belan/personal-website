@@ -52,7 +52,11 @@ export function createNavigation(whichOne, targetID, title = "yes", changePos = 
 
 function changeMenuPosition() {
     const nav = document.querySelector("#menu");
+    const itemStyles = document.querySelectorAll("#items label");
     nav.classList.replace("menu", "creation-menu");
+    itemStyles.forEach(item => {
+        item.classList.replace("mainmenu", "creationmenu");
+    })
 }
 
 function createMenuTitle(itemTitle, target) {

@@ -1,11 +1,15 @@
-import {createNavigation, 
-        fadeAllElements, 
-        animationDuration } from "/static/main.js";
-import {navigationData,
-        creation_layout, 
-        model3dHTML,
-        appearanceData,
-        historyData } from "/static/data.js";
+import {
+    createNavigation,
+    fadeAllElements,
+    animationDuration
+} from "/static/main.js";
+import {
+    navigationData,
+    creation_layout,
+    model3dHTML,
+    appearanceData,
+    historyData
+} from "/static/data.js";
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
@@ -17,11 +21,11 @@ export function generateColleague() {
 
     const main = document.querySelector("main");
     const items = navigationData["Vytváření postavy"];
-    
+
     // loads menu
     createNavigation(items, "#items", "", "change");
 
-    
+
     // create new layout in <main> tag
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
@@ -31,17 +35,17 @@ export function generateColleague() {
 
     const textContainer = document.querySelector("#text")
     // insert welcome text
-    fadeInFadeOut( () => {
+    fadeInFadeOut(() => {
         const introText = document.createElement("div");
         introText.classList.add("centerInnerElements");
         textContainer.insertAdjacentElement("beforeend", introText);
-        
+
         const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
         
         Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
                     
         Menu dole slouží k procházení jednotlivých parametrů.`;
-    
+
         const htmlElement = `<div class="creationMessage">${message}</div>`;
         introText.insertAdjacentHTML("beforeend", htmlElement);
     }, textContainer)
@@ -74,16 +78,16 @@ export function generateColleague() {
 function createBackToMenuButton() {
     const header = document.querySelector("header");
     const strElement = '<button id="backToMenu" class="button hidden"><<< Zpět do hlavního menu</button>';
-    
+
     header.insertAdjacentHTML("beforeend", strElement);
-    setTimeout( () => {
+    setTimeout(() => {
         const button = document.querySelector("#backToMenu");
         button.classList.replace("hidden", "showPage");
-        setTimeout( () => {
+        setTimeout(() => {
             button.classList.add("getRedAndBack");
         }, 500);
     }, 2000);
-    
+
 }
 
 
@@ -93,7 +97,7 @@ export function mainMenu() {
 
 
 export function leaveThisWebsite() {
-   
+
     const modal = document.querySelector("#modal");
     const answerYes = document.querySelector("#answerYes");
     const answerNo = document.querySelector("#answerNo");
@@ -104,18 +108,18 @@ export function leaveThisWebsite() {
     //     modal.style.display = "block";
     // })
 
-    answerYes.addEventListener( "click", () => {
+    answerYes.addEventListener("click", () => {
         fadeAllElements();
-        setTimeout( () => {
+        setTimeout(() => {
             window.location.assign("https://www.google.com/");
         }, 500);
     })
 
-    answerNo.addEventListener( "click", () => {
+    answerNo.addEventListener("click", () => {
         modal.style.display = "none";
     })
 
-    window.addEventListener( "click", (event) => {
+    window.addEventListener("click", (event) => {
         if (event.target === modal) {
             modal.style.display = "none";
         }
@@ -127,7 +131,7 @@ export function leaveThisWebsite() {
 function attachHomapageLinkListener(selector) {
     const element = document.querySelector(selector);
     element.addEventListener("click", () => {
-        setTimeout( () => {
+        setTimeout(() => {
             window.location.assign("/");
         }, animationDuration);
         fadeAllElements();
@@ -153,7 +157,7 @@ function createAppearanceTable() {
     table_.insertAdjacentElement("beforeend", tbody_);
 
     // generates table data
-    appearanceData.forEach( tableRow => { 
+    appearanceData.forEach(tableRow => {
         tbody_.insertAdjacentHTML("beforeend", `
             <tr>
                 <td class="prop-col">${tableRow.prop}</td>
@@ -161,23 +165,23 @@ function createAppearanceTable() {
                 <td class="option-col">${tableRow.option}</td>
                 <td class="arrow-col">></td>
             <tr>`);
-    }); 
+    });
 }
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string)
-    // target should be "document.querySelector("#text");"
+// target should be "document.querySelector("#text");"
 function fadeInFadeOut(func, target) {
-    
+
     const container = target;
-    
+
     // fade content out 
     container.classList.add("fadePage");
 
-    setTimeout( () => {
+    setTimeout(() => {
         // remove old content
         container.innerHTML = "";
-        
+
 
         // load new content (new html tags etc.)
         func();
@@ -186,11 +190,11 @@ function fadeInFadeOut(func, target) {
         container.classList.replace("fadePage", "showPage");
 
         // clear container attributes - this is needless work, but code looks better
-        setTimeout( () => {
+        setTimeout(() => {
             container.classList.remove("showPage")
         }, animationDuration + 501)
-    
-       // happens after fading content out
+
+        // happens after fading content out
     }, animationDuration);
 }
 
@@ -198,15 +202,15 @@ function fadeInFadeOut(func, target) {
 ////////////////////////////////////////////////////////////////////////////////
 //
 // 
-export function history() {   
+export function history() {
     fadeInFadeOut(createHistory, document.querySelector("#text"))
 }
-        
+
 
 function createHistory() {
 
     const destination = document.querySelector("#text");
-    
+
     // foundation
     const history_layout = `
     <div class="history-container">
@@ -217,44 +221,44 @@ function createHistory() {
     </div>
     `
     destination.insertAdjacentHTML("beforeend", history_layout);
-    
-    
+
     const list = document.querySelector("#profile ul");
     const description = document.querySelector("#description");
     let counter = 0;
-    historyData.forEach( profile => {
+    historyData.forEach(profile => {
         list.insertAdjacentHTML("beforeend", `
             <li id="profile-${counter}">${profile.profile}</li>`);
-        
-            // TODO: mozna zde nastavit listeners?
+
+        // TODO: mozna zde nastavit listeners?
         counter++;
     });
-    
+
     description.insertAdjacentHTML("beforeend", `<p>${historyData[0].description}</p>`)
-    
+
     //adding event listeners
     profileToggle();
 }
 
 function profileToggle() {
-    
+
     // const profile = document.querySelector("#profile");
     const destination = document.querySelector("#description");
     const profiles = document.querySelectorAll("#profile li");
 
-    
+
     for (let counter = 0; counter < profiles.length; counter++) {
         profiles[counter].addEventListener("click", () => {
 
-            fadeInFadeOut( () => {
+            fadeInFadeOut(() => {
                 destination.insertAdjacentHTML("beforeend", `
                 <p>${historyData[counter].description}</p>`
-            )}, destination )
+                )
+            }, destination)
         })
     }
 }
-//
-//
+
+
 ////////////////////// End History Section Functions ///////////////////////////
 
 

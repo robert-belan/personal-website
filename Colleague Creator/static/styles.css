@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-/* General Common Styles */
+/* General Layout */
 body {
   background-color: white; /* TODO Debug barva */
   font-family: "Inconsolata", monospace;
@@ -29,8 +29,6 @@ main {
   position: relative;
 }
 
-
-/* Header section */
 header {
   height: 10vh; /* 5rem */
   width: 100%;
@@ -46,15 +44,16 @@ header > h1 {
 }
 
 
-    /* Index.html */
-    /* Menu options */
+
+
+    /* Main Menu (homepage) -----------------------------*/ 
 .menu {
   position: absolute;
   top: 45%;
   right: 10%;
 }
 
-.menu li {
+.menu ul {
   list-style-type: none;
 }
 
@@ -64,21 +63,14 @@ header > h1 {
   margin-bottom: 1rem;
 }
 
-
-/* Styles for menu in character creation section ------------------------------*/
+  /* Creation Menu Bar ------------------------------*/
 .creation-menu {
-  border: 1px solid red;
-  width: 100%;
   height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .creation-menu ul {
-  margin: auto 60px;
-  width: 100%;
-  /* border: 1px solid slateblue; */
+  margin: 0 60px;  /* zmenit tuto a souvisejici na rem jednotky */
+  border: 1px solid slateblue;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -86,28 +78,60 @@ header > h1 {
   list-style-type: none;
 }
 
-.creation-menu li {
-  width: 15%;
-  height: 2.3rem;
-  margin: 0.6rem 0;
-  text-align: right;
-  border-radius: var(--ui-border-radius);
-  padding: 7px;
-  padding-right: 13px;
-  font-size: 1.3rem;
-  transition: letter-spacing 0.5s, background-color 0.5s;
+
+
+
+/* Button animation section */
+input[name="btn-focus"] {
+  display: none;
 }
 
-.creation-menu li:hover {
-  letter-spacing: 2px;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  border-radius: var(--ui-border-radius);
+  background-color: var(--ui-elements);
+  height: 2.3rem;
+  color: var(--background);
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  transition: background-color var(--ui-animation-duration),
+              padding var(--ui-animation-duration), 
+              letter-spacing 0.5s 
+              ease-in-out;
+}
+
+.button:hover {
   cursor: pointer;
   background-color: #433e5c;
+  padding: 0 2rem;
+  letter-spacing: 0.07rem;
 }
 
-.clicked {
-  background-color: var(--ui-clicked-button);
+.button:active,
+:checked + .button {
+  background-color: #1c2a49;
+  padding: 0 2rem;
 }
-/* -------------------------------------------------------------------------- */
+
+
+
+
+/* individual menus */
+.mainmenu {
+  width: 20rem;
+  padding: 0 1rem;
+  justify-content: right;
+}
+
+.creationmenu {
+  width: 15vw;
+  justify-content: center;
+}
+
+
+
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
 .fadePage {
@@ -157,28 +181,22 @@ header > h1 {
   }
 }
 
-/* -------------------------------------------------------------------------- */
 
-/* Character creating UI */
 
-.main-container {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
+ /* 3D model */
+iframe {
+  filter: grayscale(1);
+  transition: filter 0.5s;
 }
 
-.model3d-container {
-  /* border: 1px solid red; */
-  flex: 1;
-}
-
-.text-container {
-  /* border: 1px solid green; */
-  flex: 2;
+iframe:hover {
+  filter: grayscale(0);
 }
 
 
-/* Creation Section */
+
+
+/* Creation Section Layout*/
 .main-container {
   width: 100%;
   height: 100%;
@@ -205,15 +223,21 @@ header > h1 {
   overflow: auto;
 }
 
+
+
+
 .creationMessage {
   white-space: pre-line;
   margin: 0 50px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: italic;
 }
 
-/* Table CSS in Appearance section */
+
+
+
+/* Appearance Section */
 table {
   font-size: 1.3rem;
   width: 90%;
@@ -264,7 +288,10 @@ table td {
   border-radius: 3px;
 }
 
-/* /////////////History Section/////////////// */
+
+
+
+/* History Section */
 .history-container {
   display: flex;
   flex-direction: column;
@@ -305,20 +332,6 @@ table td {
 .profile li:hover {
   letter-spacing: 2px;
   cursor: pointer;
-}
-
-/* padding: 7px;
-  padding-right: 13px; 
-}
- */
-
-iframe {
-  filter: grayscale(1);
-  transition: filter 0.5s;
-}
-
-iframe:hover {
-  filter: grayscale(0);
 }
 
 .description {
@@ -365,46 +378,5 @@ iframe:hover {
 } */
 
 /* ////////////////////////////////////////////////////////////////////////// */
-/* Button animation section */
-input[name="btn-focus"] {
-  display: none;
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  border-radius: var(--ui-border-radius);
-  background-color: var(--ui-elements);
-  height: 2.3rem;
-  color: var(--background);
-  margin: 0.5rem 0.5rem;
-  /* padding: 0.2rem 1rem; */
-  font-size: 1.2rem;
-  transition: background-color var(--ui-animation-duration),
-              padding var(--ui-animation-duration), 
-              letter-spacing 0.5s 
-              ease-in-out;
-}
-
-.button:hover {
-  cursor: pointer;
-  background-color: #433e5c;
-  padding: 0 2rem;
-  letter-spacing: 0.07rem;
-}
-
-.button:active,
-:checked + .button {
-  background-color: #1c2a49;
-  padding: 0 2rem;
-}
-
-  /* individual menus */
-.mainmenu {
-  width: 20rem;
-  padding: 0 1rem;
-  justify-content: right;
-}
 
 /* ////////////////////////////////////////////////////////////////////////// */
