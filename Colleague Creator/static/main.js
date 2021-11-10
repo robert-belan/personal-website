@@ -78,12 +78,12 @@ function createMenuItems(dataObject, target) {
         //creating new <li>...buttons...</li>
         target.insertAdjacentHTML("beforeend", `
         <li>
-            <input type="radio" name="btn-focus" id="btn-focus${counter}">
-            <label for="btn-focus${counter}" class="button mainmenu">${labels[counter]}</label>
+            <input type="radio" name="btn-menu" id="btn-menu${counter}">
+            <label for="btn-menu${counter}" class="button mainmenu">${labels[counter]}</label>
         </li>`);
 
         //adding listeners with path(URLs)
-        document.querySelector(`#btn-focus${counter}`).addEventListener("click", event => {
+        document.querySelector(`#btn-menu${counter}`).addEventListener("click", event => {
             //in main.js
             // event.preventDefault();
             // changeMenuSections(paths[counter])

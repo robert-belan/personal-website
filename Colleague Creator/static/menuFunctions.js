@@ -52,7 +52,7 @@ export function generateColleague() {
 
     // show homepage button
     createBackToMenuButton();
-    attachHomapageLinkListener("#backToMenu");
+    attachHomapageLinkListener("#btn-hp");
 }
 
 // UNUSED FUNC YET
@@ -77,14 +77,16 @@ export function generateColleague() {
 
 function createBackToMenuButton() {
     const header = document.querySelector("header");
-    const strElement = '<button id="backToMenu" class="button hidden"><<< Zpět do hlavního menu</button>';
 
-    header.insertAdjacentHTML("beforeend", strElement);
+    header.insertAdjacentHTML("beforeend", `
+    <input type="radio" name="btn-hp" id="btn-hp">
+    <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
+    `);
     setTimeout(() => {
-        const button = document.querySelector("#backToMenu");
+        const button = document.querySelector("header label");
         button.classList.replace("hidden", "showPage");
         setTimeout(() => {
-            button.classList.add("getRedAndBack");
+            button.classList.remove("showPage"); // sanitize html code
         }, 500);
     }, 2000);
 
@@ -224,10 +226,14 @@ function createHistory() {
 
     const list = document.querySelector("#profile ul");
     const description = document.querySelector("#description");
-    let counter = 0;
+
+    let counter = 10;
     historyData.forEach(profile => {
         list.insertAdjacentHTML("beforeend", `
-            <li id="profile-${counter}">${profile.profile}</li>`);
+            <li>
+                <input type="radio" name="btn-profile" id="btn-profile${counter}">
+                <label for="btn-profile${counter}" class="button historyprofilemenu">${profile.profile}</label>
+            </li>`);
 
         // TODO: mozna zde nastavit listeners?
         counter++;

@@ -108,18 +108,18 @@ export const appearanceData = [
 export const historyData = [
     {
         profile: "Ztracený a nalezený",
-        description: "Vychováván v moravské hlavní metropoli v Brně. Spokojené dětsví vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách brněnských ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější, přístup k internetu. Po letech nejistot a hledání se rozhodl slézt z brněnských střech a konečně si stoupnout na pevnou půdu pod nohama."
+        description: "Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách brněnských ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější, přístup k internetu. Po letech nejistot a hledání se rozhodl slézt z brněnských střech a konečně si stoupnout na pevnou půdu pod nohama."
     },
 
     {
         profile: "Premiant",
         description: "Oba tvoji rodiče byli úspěšnými kapacitami svých oborů a to strojního inženýrství a aplikované matematiky. Jejich až patologická snaha být ve vše lepší než ostatní se tak zákonitě musela přenést i na tebe a tvé dva sourozencem. S vyznamenáním jsi vystudoval slavné MIT v americkém Massachusetts a měl pocit, že ti kromě diplomu u nohou leží i celý svět. V Googlu si tě různá oddělení prohazovala jako horký brambor. Po pár měsících si tě k sobě přetáhl Apple, aby se tě sám nakonec zbavil. Byl jsi moc dobrej a začal z tebe mít strach. Rodinné důvody tě donutily opustit divoký život v Silicon Valley a vrátit se domů."
     },
-    
+
     {
         profile: "Poslední",
         description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas sollicitudin. Nulla quis diam. In rutrum. Aliquam erat volutpat. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Et harum quidem rerum facilis est et expedita distinctio. Aliquam erat volutpat. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Fusce tellus. Duis pulvinar. Praesent in mauris eu tortor porttitor accumsan."
-    }  
+    }
 ]
 
 
@@ -127,116 +127,121 @@ export const skillsData = [
     {
         skill: "C/C++",
         levels: ["Rozhodnutí naučit se programovat",
-                "První printf('Hello World!')",
-                "Poznávání vnitřního fungování PC",
-                "Ztráta praktické schopnosti používání jazyka"
-                ],
+            "První printf('Hello World!')",
+            "Poznávání vnitřního fungování PC",
+            "Ztráta praktické schopnosti používání jazyka"
+        ],
         completed: 4
     },
 
     {
         skill: "Obecné základy programování",
         levels: ["Schopen zapnout počítač",
-                "První printf('Hello World')",
-                "Hotový první menší projekt(y)",
-                "Hotové CS50 by Harvard",
-                "Komerční praxe",
-                "Připraven do 'Googlu'"
-                ],
+            "První printf('Hello World')",
+            "Hotový první menší projekt(y)",
+            "Hotové CS50 by Harvard",
+            "Komerční praxe",
+            "Připraven do 'Googlu'"
+        ],
         completed: 4
     },
 
     {
         skill: "HTML",
         levels: ["Rozpozná zkratku",
-                "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
-                "První jednodušší web",
-                "Praktické využívání",
-                "Nic ho nemůže zaskočit",
-                ],
+            "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
+            "První jednodušší web",
+            "Praktické využívání",
+            "Nic ho nemůže zaskočit",
+        ],
         completed: 4
     },
 
     {
         skill: "CSS",
         levels: ["Rozliší CSS a CCS",
-                "První vystylovaný Hello World",
-                "Začíná používat proměnné a funkce v CCS",
-                "Věc se §komplikuje§ s SCSS",
-                "Přestane všude psát CCS místo CSS"
-                ],
-        completed: 4 
+            "První vystylovaný Hello World",
+            "Začíná používat proměnné a funkce v CCS",
+            "Věc se §komplikuje§ s SCSS",
+            "Přestane všude psát CCS místo CSS"
+        ],
+        completed: 4
     },
 
     {
         skill: "JavaScript",
         levels: ["Rozliší JavaScript od Jawy",
-                "První >alert('Hello World')",
-                "První praktické používání",
-                "Začíná rozpoznávat a používat různé Web API",
-                "Stačí krátké nahlédnutí do dokumentace",
-                "Nahlážení do dokumentace už jen zdržuje"
-                ],
+            "První >alert('Hello World')",
+            "První praktické používání",
+            "Začíná rozpoznávat a používat různé Web API",
+            "Stačí krátké nahlédnutí do dokumentace",
+            "Nahlážení do dokumentace už jen zdržuje"
+        ],
         completed: 4
-        
-        
+
+
     },
 
     {
         skill: "React",
         levels: ["Upřednostnil React nad Svelt",
-                "První &lt;HelloWorld /&gt;",
-                "Uvedení znalostí do praxe",
-                "První projekt postavený na Reactu"
-                ],
+            "První &lt;HelloWorld /&gt;",
+            "Uvedení znalostí do praxe",
+            "První projekt postavený na Reactu"
+        ],
         completed: 2
     },
 
     {
         skill: "Python",
         levels: ["Přechod z C/C++ na Python",
-                "První print('Hello World!')",
-                "Uvedení znalostí do praxe a první menší projekty",
-                "Počátek průzkumu Python 'vnitřností'",
-                "Mírné schlazení znalostí kvůli JS"
-                ]
+            "První print('Hello World!')",
+            "Uvedení znalostí do praxe a první menší projekty",
+            "Počátek průzkumu Python 'vnitřností'",
+            "Mírné schlazení znalostí kvůli JS"
+        ],
+        completed: 5
     },
 
     {
         skill: "Flask",
         levels: ["Přičichnutí k Flasku",
-                "První menší loky",
-                "Vlastní menší večírek a první vystřízlivění",
-                "... *první ztráty paměti*",
-                "... *další ztráty paměti*",
-                "Zkušený pijan",
-                ]
+            "První menší loky",
+            "Vlastní menší večírek a první vystřízlivění",
+            "... *první ztráty paměti*",
+            "... *další ztráty paměti*",
+            "Zkušený pijan",
+        ],
+        completed: 3
     },
 
     {
         skill: "SQL",
         levels: ["Seznámení s SQLite",
-                "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
-                "Drobná praxe",
-                "Nějakou dobu nic",
-                "SQL engineer"
-                ]
+            "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
+            "Drobná praxe",
+            "Nějakou dobu nic",
+            "SQL engineer"
+        ],
+        completed: 3
     },
 
     {
         skill: "GIT",
         levels: ["Cože? Gastrointestinální trakt?",
-                "git commit index.html -m 'Hello world!';",
-                "Průběžná praxe",
-                "Pokročilejší používání GIT"
-                ]
+            "git commit greeting.html -m 'Hello world!';",
+            "Průběžná praxe",
+            "Pokročilejší používání GIT"
+        ],
+        completed: 3
     },
 
     {
         skill: "Linux",
         levels: ["První krůčky v Ubuntu",
-                "Rok s Ubuntu",
-                "Zpět k W10 + WSL",
-                ]
+            "Rok s Ubuntu",
+            "Zpět k W10 + WSL",
+        ],
+        completed: 3
     },
 ]

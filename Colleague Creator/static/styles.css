@@ -17,6 +17,15 @@
 }
 
 /* General Layout */
+html {
+  font-size: 100%;
+  cursor: default;
+}
+
+::selection {
+  background-color: inherit;
+}
+
 body {
   background-color: white; /* TODO Debug barva */
   font-family: "Inconsolata", monospace;
@@ -24,13 +33,13 @@ body {
 
 main {
   min-height: 400px; /*Lze doupravit*/
-  height: 80vh;
+  height: 75vh;
   width: 100%;
   position: relative;
 }
 
 header {
-  height: 10vh; /* 5rem */
+  height: 15vh; /* 5rem */
   width: 100%;
   display: flex;
   align-items: center;
@@ -70,7 +79,6 @@ header > h1 {
 
 .creation-menu ul {
   margin: 0 60px;  /* zmenit tuto a souvisejici na rem jednotky */
-  border: 1px solid slateblue;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -82,7 +90,9 @@ header > h1 {
 
 
 /* Button animation section */
-input[name="btn-focus"] {
+input[name="btn-hp"],
+input[name="btn-menu"],
+input[name="btn-profile"] {
   display: none;
 }
 
@@ -115,10 +125,13 @@ input[name="btn-focus"] {
   padding: 0 2rem;
 }
 
+.button::selection {
+  background-color: inherit;
+}
 
 
-
-/* individual menus */
+/* Individual menu buttons */
+/* Must be below .button classes */
 .mainmenu {
   width: 20rem;
   padding: 0 1rem;
@@ -130,7 +143,23 @@ input[name="btn-focus"] {
   justify-content: center;
 }
 
+.historyprofilemenu {
+  width: 20vw;
+  padding: 0 1rem;
+  justify-content: left;
+}
 
+.backToHomePage {
+  width: 15vw;
+  padding: 0 1rem;
+  margin: 0 60px;
+  justify-content: center;
+}
+
+.back-arrow {
+  position: relative;
+  right: 1rem;
+}
 
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
@@ -208,8 +237,9 @@ iframe:hover {
 }
 
 .model3d-container {
-  flex: 1;
-  /* border: 1px solid palevioletred; */
+  flex: 1.2;
+  padding: 2vh 4vw;
+  /* border: 1px solid rgb(184, 165, 171); */
 }
 
 .text-container {
@@ -239,9 +269,9 @@ iframe:hover {
 
 /* Appearance Section */
 table {
-  font-size: 1.3rem;
+  font-size: 1.5vw;
+  /* font-size: 1.3rem; */
   width: 90%;
-  padding-left: 7%;
   /* border: 1px solid rgb(146, 141, 140); */
 }
 
@@ -296,12 +326,12 @@ table td {
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 80%;
+  height: 90%;
   /* border: 1px solid yellow; */
 }
 
 .profile {
-  /* border: 1px dotted red; */
+  /* border: 1px dotted yellow; */
   flex: 1;
   width: 100%;
   display: flex;
@@ -313,37 +343,21 @@ table td {
   width: 17rem;
   /* border: 1px solid orange; */
   list-style-type: none;
-  font-size: 1.3rem;
 }
 
-.profile li {
-  background-color: #555454;
-  color: rgba(255, 255, 255, 1);
-  padding: 7px;
-  transition: letter-spacing 0.5s;
-  margin: 0.5rem 0;
-  border-radius: var(--ui-border-radius);
-}
 
-.profile li:first-child {
-  background-color: rgb(31, 48, 105);
-}
 
-.profile li:hover {
-  letter-spacing: 2px;
-  cursor: pointer;
-}
 
 .description {
+  font-size: 1.5vw;
   flex: 2;
-  padding: 3rem 3rem;
-  /* border: 1px dotted blue; */
-  width: 100%;
+  padding: 2rem 0 0 1rem;
+  /* border: 1px dotted red; */
+
 }
 
-.description:hover {
-  cursor: default;
-}
+
+
 
 /* animation styles for History */
 
