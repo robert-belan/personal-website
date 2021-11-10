@@ -8,7 +8,8 @@ import {
     creation_layout,
     model3dHTML,
     appearanceData,
-    historyData
+    historyData,
+    skillsData
 } from "/static/data.js";
 
 export function howCreateColleague() {
@@ -55,31 +56,12 @@ export function generateColleague() {
     attachHomapageLinkListener("#btn-hp");
 }
 
-// UNUSED FUNC YET
-// function clickedButtons() {
-//     const buttons = document.querySelectorAll("#items li");
-//     console.log("in ta clickeButotns()");
-//     buttons.forEach( button => {
-
-//         button.addEventListener( "click", (event) => {
-//             console.log("Klik")
-
-//             buttons.forEach( checkedButton => {
-//                 if (checkedButton.classList.contains("clicked")) {
-//                     checkedButton.classList.remove("clicked");
-//                 }
-//             })
-//             event.currentTarget.classList.add("clicked");
-//         })
-//     })
-// }
-
 
 function createBackToMenuButton() {
     const header = document.querySelector("header");
 
     header.insertAdjacentHTML("beforeend", `
-    <input type="radio" name="btn-hp" id="btn-hp">
+    <input type="radio" name="btn-hp" id="btn-hp" >
     <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
     `);
     setTimeout(() => {
@@ -266,14 +248,104 @@ function profileToggle() {
 }
 
 
-////////////////////// End History Section Functions ///////////////////////////
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////
+
+export function skills() {
+    fadeInFadeOut(createSkills, document.querySelector("#text"))
+}
+
+
+function createSkillsTable() {
+
+    const table_ = document.createElement("table");
+    table_.classList.add("skills-table")
+    const tbody_ = document.createElement("tbody");
+
+    // inserting to DOM
+    const destination = document.querySelector("#skills");
+    destination.insertAdjacentElement("beforeend", table_)
+    table_.insertAdjacentElement("beforeend", tbody_);
+
+    // generates table data
+    for (let counter = 0; counter < skillsData.length; counter++) {
+        tbody_.insertAdjacentHTML("beforeend", `
+            <tr id="skill-${counter}">
+                <td class="skill-logo"><img src="/static/logos/${skillsData[counter].logo}"></td>
+                <td class="skill-label">${skillsData[counter].skill}</td>
+                <td class="sign"><span>&#8331;</span></td>
+                <td class="level">${skillsData[counter].completed}</td>
+                <td class="sign"><span>&#8330;</span></td>
+            </tr>`);
+    }
+}
+
+function createSkills() {
+
+    const destination = document.querySelector("#text");
+
+    // creates foundation layout code
+    const skills_layout = `
+    <div class="skills-container">
+        <div id="skills" class="skills"></div>
+        <div id="skills-description" class="skills-description">
+            <h3>Zvolené úrovně dovedností</h2>
+            <ol></ol>
+        </div>
+    </div>
+    `
+    destination.insertAdjacentHTML("beforeend", skills_layout);
+
+    createSkillsTable();
+    skillsToggle();
+}
+
+
+// generates skill description after selected skill
+function skillsToggle() {
+    const destination = document.querySelector("#skills-description ol");
+    const skills = document.querySelectorAll("#skills tr");
+
+    for (let counter = 0; counter < skills.length; counter++) {
+        skills[counter].addEventListener("click", () => {
+
+            fadeInFadeOut(() => {
+                destination.insertAdjacentHTML("beforeend", `
+                    ${getSkillDescription(counter)}
+                    `)
+            }, destination)
+        })
+    }
+}
+
+
+function getSkillDescription(selectedSkill) {
+
+    const skill = skillsData[selectedSkill]; //array with levels text
+    const result = []
+
+    for (let counter = 0; counter < skill.levels.length; counter++) {
+        if (counter < skill.completed) {
+            result.push(`<li class="achieved">${skill.levels[counter]}</li>`)
+            if (counter < (skill.completed - 1)) {
+                result.push(`<li class="down-arrow">&#8595;</li>`);    // down arrow sign
+            }
+            else if (counter === skill.completed - 1 && counter !== skill.levels.length - 1) {
+                result.push(`<li class="down-arrow">&#10515;</li>`);
+            }
+        }
+        else {
+            result.push(`<li class="unachieved">${skill.levels[counter]}</li>`)
+        }
+
+    }
+    return result.join("");
+}
+
+
+
+
 
 
 
@@ -286,9 +358,7 @@ export function letsCreateMyOwn() {
     console.log("4");
 }
 
-export function skills() {
-    console.log("skills log");
-}
+
 
 export function attributes() {
     console.log("attributes log");

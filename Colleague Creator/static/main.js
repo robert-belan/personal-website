@@ -2,7 +2,7 @@
 // Global variables
 
 // is linked to style.css variable "--ui-animation-duration", must be changed manually
-export const animationDuration = 500;
+export const animationDuration = 300;
 
 
 window.addEventListener("load", () => {

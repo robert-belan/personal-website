@@ -125,7 +125,7 @@ export const historyData = [
 
 export const skillsData = [
     {
-        logo: "/static/logos/c.png",
+        logo: "c.png",
         skill: "C/C++",
         levels: ["Rozhodnutí naučit se programovat",
             "První printf('Hello World!')",
@@ -136,7 +136,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/cs50.png",
+        logo: "cs50.png",
         skill: "Obecné základy programování",
         levels: ["Schopen zapnout počítač",
             "První printf('Hello World')",
@@ -149,7 +149,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/html.png",
+        logo: "html.png",
         skill: "HTML",
         levels: ["Rozpozná zkratku",
             "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
@@ -161,19 +161,19 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/css.png",
+        logo: "css.png",
         skill: "CSS",
         levels: ["Rozliší CSS a CCS",
             "První vystylovaný Hello World",
             "Začíná používat proměnné a funkce v CCS",
-            "Věc se §komplikuje§ s SCSS",
+            "Věc se komplikuje s SCSS",
             "Přestane všude psát CCS místo CSS"
         ],
         completed: 4
     },
 
     {
-        logo: "/static/logos/js.png",
+        logo: "js.png",
         skill: "JavaScript",
         levels: ["Rozliší JavaScript od Jawy",
             "První >alert('Hello World')",
@@ -186,7 +186,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/react.png",
+        logo: "react.png",
         skill: "React",
         levels: ["Upřednostnil React nad Svelt",
             "První &lt;HelloWorld /&gt;",
@@ -197,7 +197,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/python.png",
+        logo: "python.png",
         skill: "Python",
         levels: ["Přechod z C/C++ na Python",
             "První print('Hello World!')",
@@ -209,7 +209,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/flask.png",
+        logo: "flask.png",
         skill: "Flask",
         levels: ["Přičichnutí k Flasku",
             "První menší loky",
@@ -222,7 +222,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/sqlite.png",
+        logo: "sqlite.png",
         skill: "SQL",
         levels: ["Seznámení s SQLite",
             "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
@@ -234,7 +234,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/git.png",
+        logo: "git.png",
         skill: "GIT",
         levels: ["Cože? Gastrointestinální trakt?",
             "git commit greeting.html -m 'Hello world!';",
@@ -245,7 +245,7 @@ export const skillsData = [
     },
 
     {
-        logo: "/static/logos/linux.png",
+        logo: "linux.png",
         skill: "Linux",
         levels: ["První krůčky v Ubuntu",
             "Rok s Ubuntu",

@@ -5,7 +5,9 @@
   --ui-elements: #555454;
   --ui-border-radius: 1px;
   --ui-animation-duration: 0.3s;
+  --ui-hover-button-color: #433e5c;
   --ui-clicked-button: rgb(31, 48, 105);
+
 }
 
 /* Reset */
@@ -215,7 +217,7 @@ iframe {
 }
 
 iframe:hover {
-  filter: grayscale(0);
+  filter: grayscale(0.5);
 }
 
 
@@ -391,11 +393,60 @@ iframe:hover {
 
 /* ////////////////////////////////////////////////////////////////////////// */
 
+.skills-container {
+  height: 100%;
+  width: 100%;
+}
+
+.skills {
+  overflow: auto;
+  /* border: 1px solid salmon; */
+  height: 55%;
+  margin: 1rem 0;
+}
+
+.skills-description {
+  /* border: 1px solid rgb(197, 197, 197); */
+  height: 25%;
+  border-radius: 5px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.skills-description .achieved {
+  color: rgb(31, 48, 105);
+  font-size: 1.2rem;
+}
+
+.skills-description .unachieved {
+  color: rgb(196, 196, 196);
+}
+
+/* This exclude list item from ordering */
+.skills-description .down-arrow {
+  display: block;
+}
+
+.skills-description h3 {
+  color: var(--ui-elements);
+  border-bottom: 1px solid var(--ui-elements);
+}
+
+.skills-description ol {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  list-style-type: upper-roman;
+
+}
 
 .skills-table {
   color: var(--text);
   font-size: 1.5vw;
-  width: 40vw;
+  width: 100%;
+}
+
+.skills-table:hover {
+  cursor: pointer;
 }
 
 .skills-table tr {
@@ -409,17 +460,23 @@ iframe:hover {
 
 .skills-table tr:hover {
   background-color: rgb(241, 241, 241);
-  filter: grayscale(0.5);
+  filter: grayscale(0.7);
 }
 
 .skills-table td {
   border-radius: var(--ui-border-radius);
 }
 
+.skill-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .skill-logo img {
-  width: 3rem;
-  height: 3rem;
-  padding: 0.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0.2rem;
+  object-fit: contain;
 }
 
 .skill-label {
@@ -448,4 +505,29 @@ iframe:hover {
 .sign:hover {
   background-color: #b3b3c2;
   cursor: pointer;
+}
+
+
+
+
+/* Window scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e6e6e6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ui-elements);
+  border-radius: var(--ui-border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ui-hover-button-color);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--ui-clicked-button);
 }
