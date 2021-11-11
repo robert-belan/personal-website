@@ -7,7 +7,6 @@
   --ui-animation-duration: 0.3s;
   --ui-hover-button-color: #433e5c;
   --ui-clicked-button: rgb(31, 48, 105);
-
 }
 
 /* Reset */
@@ -137,7 +136,7 @@ input[name="btn-profile"] {
 }
 
 .creationmenu {
-  width: 15vw;
+  width: 16vw;
   justify-content: center;
 }
 
@@ -401,25 +400,34 @@ iframe:hover {
 .skills {
   overflow: auto;
   /* border: 1px solid salmon; */
-  height: 55%;
+  height: 45%;
   margin: 1rem 0;
 }
 
 .skills-description {
   /* border: 1px solid rgb(197, 197, 197); */
-  height: 25%;
+  height: 35%;
   border-radius: 5px;
-  padding: 1rem;
+  padding: 0 1rem;
   overflow: auto;
 }
 
 .skills-description .achieved {
   color: rgb(31, 48, 105);
-  font-size: 1.2rem;
+  font-size: 1.0rem;
 }
 
 .skills-description .unachieved {
   color: rgb(196, 196, 196);
+  font-size: 0.8rem;
+  transition: font-size var(--ui-animation-duration),
+              color var(--ui-animation-duration) ease-in-out;
+}
+
+.skills-description .unachieved:hover {
+  font-size: 125%;
+  color:rgb(253, 127, 127);
+
 }
 
 /* This exclude list item from ordering */
@@ -427,16 +435,16 @@ iframe:hover {
   display: block;
 }
 
-.skills-description h3 {
+.skills-container h3 {
+  font-size: 1rem;
   color: var(--ui-elements);
   border-bottom: 1px solid var(--ui-elements);
+  margin-bottom: 1rem;
 }
 
 .skills-description ol {
-  margin-top: 1rem;
   margin-left: 2rem;
   list-style-type: upper-roman;
-
 }
 
 .skills-table {

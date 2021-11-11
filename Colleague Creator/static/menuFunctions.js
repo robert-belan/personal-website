@@ -289,8 +289,8 @@ function createSkills() {
     const skills_layout = `
     <div class="skills-container">
         <div id="skills" class="skills"></div>
+        <h3>Zvolené úrovně dovedností</h3>
         <div id="skills-description" class="skills-description">
-            <h3>Zvolené úrovně dovedností</h2>
             <ol></ol>
         </div>
     </div>
