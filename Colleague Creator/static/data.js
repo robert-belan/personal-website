@@ -144,7 +144,7 @@ export const skillsData = [
             "Hotový první menší projekt(y)",
             "Hotové CS50 by Harvard",
             "Komerční praxe",
-            "Připraven do 'Googlu'"
+            "'Připraven do <span class='g1'>G</span><span class='o1'>o</span><span class='o2'>o</span><span class='g2'>g</span><span class='l'>l</span><span class='u'>u</span>'"
         ],
         completed: 4
     },
@@ -256,7 +256,7 @@ export const skillsData = [
     },
 ]
 
-
+// it is possible to include html tags in strings for forrmating
 export const attributesData = [
     {
         name: "Hlava otevřená",
@@ -267,7 +267,7 @@ export const attributesData = [
 
     {
         name: "Co je v tý krabici?!",
-        description: "Jestli je uvnitř krabice Schrödingerovic mrtvá kočka nebo snad i něco horšího tě vlastně vůbec nezajímá. Zásadně se snažíš uvažovat out-of-the-box.",
+        description: "Jestli je uvnitř krabice Schrödingerovic mrtvá kočka nebo snad i něco horšího tě vlastně vůbec nezajímá. Zásadně se snažíš uvažovat <i>out-of-the-box</i>.",
         bonus: [""],
         selected: 1
     },

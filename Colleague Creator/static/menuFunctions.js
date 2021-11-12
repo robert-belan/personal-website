@@ -380,7 +380,7 @@ function createAttributesBoxes() {
             </div>
         `)
 
-        // attach listener to "button"
+        // attach listener to "button"  
         const attribute = document.querySelector(`#attribute-box-${counter}`);
         attribute.addEventListener("click", () => {
             //smooth changing effect

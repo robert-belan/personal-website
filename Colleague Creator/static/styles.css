@@ -140,7 +140,8 @@ input[name="btn-profile"] {
 }
 
 .creationmenu {
-  width: 16vw;
+  width: 17vw;
+  min-width: 10vw;
   justify-content: center;
 }
 
@@ -354,7 +355,6 @@ iframe:hover {
   flex: 2;
   padding: 2rem 0 0 1rem;
   /* border: 1px dotted red; */
-
 }
 
 
@@ -438,6 +438,27 @@ iframe:hover {
   color:rgb(253, 127, 127);
   content: " (Nezvoleno)";
 }
+
+/* Google's letters coloring */
+.unachieved:hover .g1 {
+  color: #4285f4;
+}
+.unachieved:hover  .o1 {
+  color: #ea4335;
+}
+.unachieved:hover  .o2 {
+  color: #fbbc05;
+}
+.unachieved:hover  .g2 {
+  color: #4285f4;
+}
+.unachieved:hover  .l {
+  color: #34a853;
+}
+.unachieved:hover  .u {
+  color: #ea4335;
+}
+
 
 /* This exclude list item from ordering */
 .skills-description .down-arrow {
@@ -565,39 +586,10 @@ iframe:hover {
   margin: 1rem 0;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-content: flex-start;
   flex-flow: row wrap;
   flex-shrink: 0;
-  
-}
-
-.attributes-description {
-  /* border: 1px solid peru; */
-  /* height: 35%; */
-  border-radius: 5px;
-  padding: 0 1rem;
-  overflow: auto;
-}
-
-.attributes-description > p {
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
-.bonuses{
-  margin: 1rem;
-  list-style-type: none;
-  color: black;
-  line-height: 1.2rem;
-  font-size: 0.9rem;
-  font-style: italic;
-  transition: font-size var(--ui-animation-duration),
-              background-color var(--ui-animation-duration) ease-in-out;
-}
-
-.bonuses:hover {
-  color: var(--ui-hover-button-color);
-  font-size: 1.1rem;
 }
 
 .attributes-container h3{
@@ -610,12 +602,11 @@ iframe:hover {
 
 .attribute-box {
   margin: 0.2rem 0.2rem;
-  /* border-radius: var(--ui-border-radius); */
   border-radius: 4px;
-  /* width: 19rem; */
-  width: 45%;
-  min-width: 17rem;
+  width: 48%;
+  min-width: 16rem;
   height: 3rem;
+
   padding: 0 2rem;
   background-color: var(--ui-elements);
   color: var(--ui-text-negative);
@@ -648,3 +639,69 @@ iframe:hover {
 .attribute-box:active {
   background-color: var(--ui-clicked-button);
 }
+
+
+.attributes-description {
+  /* border: 1px solid peru; */
+  /* height: 35%; */
+  border-radius: 5px;
+  padding: 0 1rem;
+  overflow: auto;
+}
+
+.attributes-description > h2 {
+  margin-bottom: 0.2rem;
+}
+
+.attributes-description > p {
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.bonuses{
+  margin: 1rem;
+  list-style-type: none;
+  color: black;
+  line-height: 1.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.bonuses li {
+  transition: font-size var(--ui-animation-duration),
+              color var(--ui-animation-duration) ease-in-out;
+}
+
+.bonuses li:hover {
+  color: var(--ui-hover-button-color);
+  font-size: 1.1rem;
+}
+
+/* Word "Google" coloring
+span > .g1 {
+  color: #4285f4;
+}
+span > .o1 {
+  color: #ea4335;
+}
+span > .o2 {
+  color: #fbbc05;
+}
+span > .g2 {
+  color: #4285f4;
+}
+span > .l {
+  color: #34a853;
+}
+
+span > .e {
+  color: #ea4335;
+} */
+
+
+/* Notes:
+
+<!-- &#9746;   cross in square -->
+<!-- &#9745;   checked mark` in square -->
+<!-- &#9744;   empty square -->
+<!-- &#10005;  multiplication x --> */
