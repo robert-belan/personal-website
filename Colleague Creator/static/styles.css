@@ -26,23 +26,24 @@ html[data-theme='light'] {
   --ui-animation-duration: 0.2s;
   --ui-hover-button-color: #433e5c;
   --ui-clicked-button: rgb(31, 48, 105);
+  --ui-clicked-button-text: #fff;
+  --ui-headings: black;
   --ui-text-negative: #fff;
+  --ui-attributes-bonuses: black;
 }
 
 html[data-theme='dark'] {
-  --text: #fff;
+  --text: #F5F5DC;
   --background: #303030;
-  --ui-elements: #fff;
+  --ui-elements: #F5F5DC;
   --ui-border-radius: 1px;
   --ui-animation-duration: 0.2s;
-  --ui-hover-button-color: #433e5c;
-  --ui-clicked-button: rgb(31, 48, 105);
-  --ui-text-negative: #555454;
+  --ui-hover-button-color: #C6AB80;
+  --ui-clicked-button: #A3795B;
+  --ui-text-negative: #303030;
+  --ui-headings: #C6AB80;
 }
 
-h6 {
-  color: 
-}
 
 /* General Layout */
 html {
@@ -79,7 +80,7 @@ header {
 header > h1 {
   margin-left: 60px;
   font-size: 2.5rem;
-  color: var(--ui-elements);
+  color: var(--ui-headings);
 }
 
 button {
@@ -102,6 +103,7 @@ button {
   text-align: right;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
+  color: var(--ui-headings);
 }
 
   /* Creation Menu Bar ------------------------------*/
@@ -140,7 +142,7 @@ input[name="btn-profile"] {
   font-size: 1.2rem;
   transition: background-color var(--ui-animation-duration),
               padding var(--ui-animation-duration), 
-              letter-spacing 0.5s 
+              letter-spacing var(--ui-animation-duration) 
               ease-in-out;
 }
 
@@ -440,7 +442,7 @@ iframe:hover {
 
 .skills-container h3 {
   font-size: 1rem;
-  color: var(--ui-elements);
+  color: var(--ui-headings);
   border-bottom: 1px solid var(--ui-elements);
   margin-bottom: 1rem;
 }
@@ -568,7 +570,7 @@ iframe:hover {
 .attributes-container h3{
   display: block;
   font-size: 1rem;
-  color: var(--ui-elements);
+  color: var(--ui-headings);
   border-bottom: 1px solid var(--ui-elements);
   margin-bottom: 1rem;
 }
@@ -624,17 +626,19 @@ iframe:hover {
 
 .attributes-description > h2 {
   margin-bottom: 0.2rem;
+  color: var(--ui-headings);
 }
 
 .attributes-description > p {
   font-size: 1.2rem;
   text-align: justify;
+  color: var(--text)
 }
 
 .bonuses{
   margin: 1rem;
   list-style-type: none;
-  color: black;
+  color: var(--ui-attributes-bonuses);
   line-height: 1.2rem;
   font-size: 0.9rem;
   font-style: italic;
