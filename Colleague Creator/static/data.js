@@ -10,7 +10,8 @@ import {
     history,
     skills,
     attributes,
-    summary
+    summary,
+    darkmode
 } from "/static/menuFunctions.js"
 
 
@@ -38,6 +39,12 @@ export const navigationData = {
         "Vlastnosti": attributes,
         "Shrnutí": summary
     },
+
+    "Nastavení": {
+        "Nadpis": "Nastavení",
+        "Dark Mode": darkmode,
+        "Zpět": mainMenu
+    }
 
     // "Extras": {
     //     "Nadpis": "Extras",

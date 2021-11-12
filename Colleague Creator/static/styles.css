@@ -1,5 +1,24 @@
 /* Variables */
-:root {
+/* :root {
+  --text: #555454;
+  --background: #fff;
+  --ui-elements: #555454;
+  --ui-border-radius: 1px;
+  --ui-animation-duration: 0.2s;
+  --ui-hover-button-color: #433e5c;
+  --ui-clicked-button: rgb(31, 48, 105);
+  --ui-text-negative: #fff;
+} */
+
+/* Reset (TODO: i should be more specific, this decreases performance) */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html[data-theme='light'] {
   --text: #555454;
   --background: #fff;
   --ui-elements: #555454;
@@ -10,27 +29,35 @@
   --ui-text-negative: #fff;
 }
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+html[data-theme='dark'] {
+  --text: #fff;
+  --background: #303030;
+  --ui-elements: #fff;
+  --ui-border-radius: 1px;
+  --ui-animation-duration: 0.2s;
+  --ui-hover-button-color: #433e5c;
+  --ui-clicked-button: rgb(31, 48, 105);
+  --ui-text-negative: #555454;
+}
+
+h6 {
+  color: 
 }
 
 /* General Layout */
 html {
+  background-color: var(--background);
   font-size: 100%;
   cursor: default;
   caret-color: rgba(0,0,0,0); /* Hide caret blinking in a text (paragraphs, buttons, etc)*/
 }
+
 
 ::selection {
   background-color: inherit;
 }
 
 body {
-  background-color: white; /* TODO Debug barva */
   font-family: "Inconsolata", monospace;
 }
 

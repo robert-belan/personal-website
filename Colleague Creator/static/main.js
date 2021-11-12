@@ -22,8 +22,8 @@ export function fadeAllElements() {
 
 // first arg:   which menu items(in data.js) should be used
 // second arg:  where to render new menu (css selector)
-// third arg:   if generate menu title, default Yes, empty arg No
 // forth arg:   change menu position, default No, else Yes
+// third arg:   if generate menu title, default Yes, empty arg No
 export function createNavigation(whichOne, targetID, title = "yes", changePos = "") {
     //where to create navigation
     const target = document.querySelector(`${targetID}`);
@@ -71,23 +71,22 @@ function executor(func) {
 
 function createMenuItems(dataObject, target) {
     let labels = Object.keys(dataObject);
-    let paths = Object.values(dataObject);
+    let functions = Object.values(dataObject);
 
-    for (let counter = 1; counter < paths.length; counter++) {
+    for (let counter = 1; counter < functions.length; counter++) {
 
         //creating new <li>...buttons...</li>
         target.insertAdjacentHTML("beforeend", `
         <li>
-            <input type="radio" name="btn-menu" id="btn-menu${counter}">
-            <label for="btn-menu${counter}" class="button mainmenu">${labels[counter]}</label>
+            <input type="radio" name="btn-menu" id="btn-${functions[counter].name}">
+            <label for="btn-${functions[counter].name}" class="button mainmenu">${labels[counter]}</label>
         </li>`);
 
         //adding listeners with path(URLs)
-        document.querySelector(`#btn-menu${counter}`).addEventListener("click", event => {
-            //in main.js
-            // event.preventDefault();
-            // changeMenuSections(paths[counter])
-            executor(paths[counter]);
+        document.querySelector(`#btn-${functions[counter].name}`).addEventListener("click", () => {
+            // executor just call referenced function
+            executor(functions[counter]);
         })
     }
 }
+

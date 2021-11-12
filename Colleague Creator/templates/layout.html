@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-theme="light">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, width=device-width">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
 
-        <!-- https://favicon.io/emoji-favicons/money-mouth-face/
+    <!-- https://favicon.io/emoji-favicons/money-mouth-face/
         <link href="/static/favicon.ico" rel="icon"> -->
 
-        <link  rel="stylesheet" href="/static/styles.css">
-        <script type="module" src="/static/main.js"></script> 
-        <script type="module" src="/static/data.js"></script> 
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-        
-        <title>Vytvoř si nového kolegy</title>
-    </head>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script type="module" src="/static/main.js"></script>
+    <script type="module" src="/static/data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
-    <body class="hidden">
-       
-        <header>
-            <h1>Vytvořte si nového kolegy</h1>
-        </header>
+    <title>Vytvoř si nového kolegy</title>
+</head>
 
-        <main>
-            {% block main %}{% endblock %}
-        </main>
+<body class="hidden">
 
-        {% block nav %}
+    <header>
+        <h1>Vytvořte si nového kolegy</h1>
+    </header>
 
-        {% endblock %}
+    <main>
+        {% block main %}{% endblock %}
+    </main>
 
-        <footer>
-        </footer>
+    {% block nav %}
+
+    {% endblock %}
+
+    <footer>
+    </footer>
 
 
-        {% block javascript %}{% endblock %}
-        
-    </body>
+    {% block javascript %}{% endblock %}
+
+</body>
 
 </html>
