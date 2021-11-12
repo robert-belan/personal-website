@@ -4,9 +4,10 @@
   --background: #fff;
   --ui-elements: #555454;
   --ui-border-radius: 1px;
-  --ui-animation-duration: 0.3s;
+  --ui-animation-duration: 0.2s;
   --ui-hover-button-color: #433e5c;
   --ui-clicked-button: rgb(31, 48, 105);
+  --ui-text-negative: #fff;
 }
 
 /* Reset */
@@ -21,6 +22,7 @@
 html {
   font-size: 100%;
   cursor: default;
+  caret-color: rgba(0,0,0,0); /* Hide caret blinking in a text (paragraphs, buttons, etc)*/
 }
 
 ::selection {
@@ -53,7 +55,9 @@ header > h1 {
   color: var(--ui-elements);
 }
 
-
+button {
+  background-color: var(--background);
+}
 
 
     /* Main Menu (homepage) -----------------------------*/ 
@@ -425,9 +429,14 @@ iframe:hover {
 }
 
 .skills-description .unachieved:hover {
-  font-size: 125%;
+  font-size: 100%;
   color:rgb(253, 127, 127);
+}
 
+.skills-description .unachieved:hover:after {
+  font-size: inherit;
+  color:rgb(253, 127, 127);
+  content: " (Nezvoleno)";
 }
 
 /* This exclude list item from ordering */
@@ -538,4 +547,104 @@ iframe:hover {
 
 ::-webkit-scrollbar-thumb:active {
   background: var(--ui-clicked-button);
+}
+ 
+
+
+/* /////////////// Attributes Section */
+.attributes-container {
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 100%;
+}
+
+.attributes-boxes {
+  /* border: 1px solid green; */
+  height: 45%;
+  overflow: auto;
+  margin: 1rem 0;
+
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  flex-shrink: 0;
+  
+}
+
+.attributes-description {
+  /* border: 1px solid peru; */
+  /* height: 35%; */
+  border-radius: 5px;
+  padding: 0 1rem;
+  overflow: auto;
+}
+
+.attributes-description > p {
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.bonuses{
+  margin: 1rem;
+  list-style-type: none;
+  color: black;
+  line-height: 1.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  transition: font-size var(--ui-animation-duration),
+              background-color var(--ui-animation-duration) ease-in-out;
+}
+
+.bonuses:hover {
+  color: var(--ui-hover-button-color);
+  font-size: 1.1rem;
+}
+
+.attributes-container h3{
+  display: block;
+  font-size: 1rem;
+  color: var(--ui-elements);
+  border-bottom: 1px solid var(--ui-elements);
+  margin-bottom: 1rem;
+}
+
+.attribute-box {
+  margin: 0.2rem 0.2rem;
+  /* border-radius: var(--ui-border-radius); */
+  border-radius: 4px;
+  /* width: 19rem; */
+  width: 45%;
+  min-width: 17rem;
+  height: 3rem;
+  padding: 0 2rem;
+  background-color: var(--ui-elements);
+  color: var(--ui-text-negative);
+  transition: background-color var(--ui-animation-duration) ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.attribute-box .check-mark {
+  /* background-color: var(--background); */
+  background-color: rgb(218, 218, 218);
+  color: var(--text);
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.attribute-box .uncheck-mark {
+  /* background-color: var(--background); */
+  background-color: rgb(218, 218, 218);
+  color: rgb(218, 218, 218);
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.attribute-box:hover {
+  background-color: var(--ui-hover-button-color);
+}
+
+.attribute-box:active {
+  background-color: var(--ui-clicked-button);
 }

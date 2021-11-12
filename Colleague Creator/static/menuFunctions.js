@@ -3,14 +3,18 @@ import {
     fadeAllElements,
     animationDuration
 } from "/static/main.js";
+
 import {
     navigationData,
     creation_layout,
     model3dHTML,
     appearanceData,
     historyData,
-    skillsData
+    skillsData,
+    attributesData
 } from "/static/data.js";
+
+
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
@@ -184,9 +188,6 @@ function fadeInFadeOut(func, target) {
 }
 
 ////////////////////////// History Section Functions ///////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-//
-// 
 export function history() {
     fadeInFadeOut(createHistory, document.querySelector("#text"))
 }
@@ -249,16 +250,14 @@ function profileToggle() {
 
 
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////// Being created ///////////////////////////////////////////
 
+/////////////////////////// Skill Section Functions ////////////////////////////
 export function skills() {
     fadeInFadeOut(createSkills, document.querySelector("#text"))
 }
 
 
 function createSkillsTable() {
-
     const table_ = document.createElement("table");
     table_.classList.add("skills-table")
     const tbody_ = document.createElement("tbody");
@@ -282,7 +281,6 @@ function createSkillsTable() {
 }
 
 function createSkills() {
-
     const destination = document.querySelector("#text");
 
     // creates foundation layout code
@@ -302,7 +300,7 @@ function createSkills() {
 }
 
 
-// generates skill description after selected skill
+// generates skill description after skill selection
 function skillsToggle() {
     const destination = document.querySelector("#skills-description ol");
     const skills = document.querySelectorAll("#skills tr");
@@ -310,6 +308,7 @@ function skillsToggle() {
     for (let counter = 0; counter < skills.length; counter++) {
         skills[counter].addEventListener("click", () => {
 
+            //smooth changing effect
             fadeInFadeOut(() => {
                 destination.insertAdjacentHTML("beforeend", `
                     ${getSkillDescription(counter)}
@@ -320,6 +319,7 @@ function skillsToggle() {
 }
 
 
+// Creates skills description using skillsData object (data.js)
 function getSkillDescription(selectedSkill) {
 
     const skill = skillsData[selectedSkill]; //array with levels text
@@ -332,23 +332,80 @@ function getSkillDescription(selectedSkill) {
                 result.push(`<li class="down-arrow">&#8595;</li>`);    // down arrow sign
             }
             else if (counter === skill.completed - 1 && counter !== skill.levels.length - 1) {
-                result.push(`<li class="down-arrow">&#10515;</li>`);
+                result.push(`<li class="down-arrow">&#10515;</li>`); // down arrow with bottom line
             }
         }
         else {
             result.push(`<li class="unachieved">${skill.levels[counter]}</li>`)
         }
-
     }
     return result.join("");
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Being created ///////////////////////////////////////////
+
+export function attributes() {
+    return fadeInFadeOut(createAttributes, document.querySelector("#text"));
+}
+
+function createAttributes() {
+    const destination = document.querySelector("#text");
+
+    // creates foundation layout code
+    const attributes_layout = `
+    <div class="attributes-container">
+        <div id="attributes-boxes" class="attributes-boxes"></div>
+        <h3>Popis vlastnosti</h3>
+        <div id="attributes-description" class="attributes-description"></div>
+    </div>
+    `
+    destination.insertAdjacentHTML("beforeend", attributes_layout);
+
+    createAttributesBoxes();
+}
+
+function createAttributesBoxes() {
+
+    const attributes_boxes_container = document.querySelector("#attributes-boxes");
+    const attributes_description_container = document.querySelector("#attributes-description")
+
+    // generates attributes boxes
+    for (let counter = 0; counter < attributesData.length; counter++) {
+        attributes_boxes_container.insertAdjacentHTML("beforeend", `
+            <div id="attribute-box-${counter}" class="attribute-box">
+                <p>${attributesData[counter].name}</p>
+                <div class="${attributesData[counter].selected ? "check-mark" : "uncheck-mark"}" >&#10005;</div >
+            </div>
+        `)
+
+        // attach listener to "button"
+        const attribute = document.querySelector(`#attribute-box-${counter}`);
+        attribute.addEventListener("click", () => {
+            //smooth changing effect
+            fadeInFadeOut(() => {
+                attributes_description_container.insertAdjacentHTML("beforeend", `
+                <h2>${attributesData[counter].name}</h2>
+                <p>${attributesData[counter].description}</p>
+                    <ul class="bonuses">${getAttributeDescription(counter)}</ul>
+                `);
+            }, attributes_description_container)
+        });
+    }
+}
 
 
+function getAttributeDescription(selectedAttribute) {
+    const attribute = attributesData[selectedAttribute];
+    const result = []
 
+    for (let counter = 0; counter < attribute.bonus.length; counter++) {
+        result.push(`<li> ${attribute.bonus[counter]}</li> `)
+    }
 
-
+    return result.join("");
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
@@ -356,12 +413,6 @@ function getSkillDescription(selectedSkill) {
 
 export function letsCreateMyOwn() {
     console.log("4");
-}
-
-
-
-export function attributes() {
-    console.log("attributes log");
 }
 
 export function summary() {

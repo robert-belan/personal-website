@@ -105,6 +105,7 @@ export const appearanceData = [
     },
 ]
 
+
 export const historyData = [
     {
         profile: "Ztracený a nalezený",
@@ -166,7 +167,7 @@ export const skillsData = [
         levels: ["Rozliší CSS a CCS",
             "První vystylovaný Hello World",
             "Začíná používat proměnné a funkce v CCS",
-            "Věc se komplikuje s SCSS",
+            "Věc se komplikuje s SCCS",
             "Přestane všude psát CCS místo CSS"
         ],
         completed: 4
@@ -252,5 +253,57 @@ export const skillsData = [
             "Zpět k W10 + WSL",
         ],
         completed: 3
+    },
+]
+
+
+export const attributesData = [
+    {
+        name: "Hlava otevřená",
+        description: "V útlém předškolním věku jsi letěl na konci závodu na kolech přes řidítka a hlavou jsi přistál betonovém obrubníku. Hlava se zahojila, ale otevřená mysl pro nové a neotřelé myšlenky a technologie (naštěstí) ne.",
+        bonus: ["Zvědavost +3"],
+        selected: 1
+    },
+
+    {
+        name: "Co je v tý krabici?!",
+        description: "Jestli je uvnitř krabice Schrödingerovic mrtvá kočka nebo snad i něco horšího tě vlastně vůbec nezajímá. Zásadně se snažíš uvažovat out-of-the-box.",
+        bonus: [""],
+        selected: 1
+    },
+
+    {
+        name: "Dlouhé vedení",
+        description: "Ne vždy všechno pochopíš na první dobrou. Občas uniká drobný detail, který brání uzavření okruhu. Výsledek však bývá lépe ukotven v paměti.",
+        bonus: ["+5 pochopení", "-4 trpělivost spoluhráčů v nejbližším okolí"],
+        selected: 1
+    },
+
+    {
+        name: "Rektální alpinista",
+        description: "Leze kam nemá.",
+        bonus: ["+5 pochopení", "-4 trpělivost spoluhráčů v nejbližším okolí"],
+        selected: 0
+    },
+
+    {
+        name: "Abstinující, spící",
+        description: "Propařil sis svoje. Teď je čas i na práci.",
+        bonus: ["+5 spánek, +100 energie (v kombinaci s Hlava rodiny)", "+12 % pravděpodobnost odvozu spoluhráčů z raidu"],
+        selected: 1
+    },
+
+    {
+        name: "Hlava rodiny",
+        description: "Jsou všude ...",
+        bonus: ["+3 zodpovědnost", "+3 radost", "-NaN&sup2; spánku", "+3 šedý vlasy/den"],
+        selected: 1
+    },
+
+    {
+        name: "Očipovaný",
+        description: "Čipy přijímáš zásadně od Applu a Phizeru.",
+        bonus: ["+12 obrana"],
+        selected: 1
     },
 ]
