@@ -663,6 +663,7 @@ iframe:hover {
 }
 
 .goodbye p {
+  color: var(--text);
   font-size: 3rem;
 }
 
