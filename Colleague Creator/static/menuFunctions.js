@@ -88,10 +88,11 @@ export function mainMenu() {
 function attachHomapageLinkListener(selector) {
     const element = document.querySelector(selector);
     element.addEventListener("click", () => {
+        fadeAllElements();
         setTimeout(() => {
             window.location.assign("/");
         }, animationDuration);
-        fadeAllElements();
+
 
     })
 }
