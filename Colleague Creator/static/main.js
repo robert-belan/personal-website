@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 })
 
 // used when window.onload is done (for more seamless experience)
-function showAllElements() {
+export function showAllElements() {
     document.body.classList.replace("hidden", "showPage");
 }
 

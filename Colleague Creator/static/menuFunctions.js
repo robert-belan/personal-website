@@ -84,37 +84,6 @@ export function mainMenu() {
 }
 
 
-export function leaveThisWebsite() {
-
-    const modal = document.querySelector("#modal");
-    const answerYes = document.querySelector("#answerYes");
-    const answerNo = document.querySelector("#answerNo");
-
-    modal.style.display = "block";
-
-    // modal.addEventListener( "click", () => {
-    //     modal.style.display = "block";
-    // })
-
-    answerYes.addEventListener("click", () => {
-        fadeAllElements();
-        setTimeout(() => {
-            window.location.assign("https://www.google.com/");
-        }, 500);
-    })
-
-    answerNo.addEventListener("click", () => {
-        modal.style.display = "none";
-    })
-
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    })
-}
-
-
 // attach link to HomePage
 function attachHomapageLinkListener(selector) {
     const element = document.querySelector(selector);
@@ -433,6 +402,39 @@ export function settings() {
         })
     }
 }
+
+
+
+
+export function leaveThisWebsite() {
+    createNavigation(navigationData["Ukončit hru"], "#items");
+}
+
+export function exit() {
+
+    // fade full page out
+    document.body.classList.replace("showPage", "fadePage");
+
+    // f*cking crazy combo function - it is just telling goodbye in fancy way
+    // fade everything out -> fade in and say "bye" -> fade everything out and redirect to Google
+    setTimeout(() => {
+        document.body.innerHTML = "";
+        document.body.insertAdjacentHTML("beforeend", `
+        <div class="goodbye">
+            <p>Děkuju za Váš čas.</p>
+        </div>
+        `);
+        document.body.classList.replace("fadePage", "showPage");;
+        // fade everything out again and
+        setTimeout(() => {
+            document.body.classList.replace("showPage", "fadePage");
+            // and after that, redirect to Google
+            setTimeout(window.location.assign("https://google.com"), 3000)
+        }, 1500);
+    }, 700);
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////

@@ -11,7 +11,8 @@ import {
     skills,
     attributes,
     summary,
-    darkmode
+    darkmode,
+    exit
 } from "/static/menuFunctions.js"
 
 
@@ -44,6 +45,12 @@ export const navigationData = {
         "Nadpis": "Nastavení",
         "Dark Mode": darkmode,
         "Zpět": mainMenu
+    },
+
+    "Ukončit hru": {
+        "Nadpis": "Jste si jisti?",
+        "Ano": exit,
+        "Ne": mainMenu
     }
 
     // "Extras": {
