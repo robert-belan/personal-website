@@ -11,7 +11,8 @@ import {
     appearanceData,
     historyData,
     skillsData,
-    attributesData
+    attributesData,
+    summaryData
 } from "/static/data.js";
 
 
@@ -42,7 +43,6 @@ export function generateColleague() {
     // insert welcome text
     fadeInFadeOut(() => {
         const introText = document.createElement("div");
-        introText.classList.add("centerInnerElements");
         textContainer.insertAdjacentElement("beforeend", introText);
 
         const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
@@ -92,8 +92,6 @@ function attachHomapageLinkListener(selector) {
         setTimeout(() => {
             window.location.assign("/");
         }, animationDuration);
-
-
     })
 }
 
@@ -439,7 +437,31 @@ export function exit() {
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////
+export function summary() {
+    return fadeInFadeOut(createSummary, document.querySelector("#text"));
+}
 
+function createSummary() {
+    const sumaSumarum = document.querySelector("#text");
+    sumaSumarum.insertAdjacentHTML("beforeend", `
+        <div id="summary" class="summary">
+            
+            ${summaryData}
+
+            <div class="btn-letsPlayAGame">
+                <input type="radio" name="btn-menu" id="btn-letsPlayAGame">
+                <label for="btn-letsPlayAGame" class="button creationmenu">Spustit hru</label>
+            </div>
+
+        </div>
+    `)
+
+    window.onload = () => {
+        document.querySelector("#btn-letsPlayAGame").addEventListener(() => {
+            fadeInFadeOut({}, {})
+        })
+    }
+}
 
 
 
@@ -449,10 +471,6 @@ export function exit() {
 
 export function letsCreateMyOwn() {
     console.log("4");
-}
-
-export function summary() {
-    console.log("summary log");
 }
 
 export function extras() {

@@ -130,7 +130,7 @@ export const appearanceData = [
 export const historyData = [
     {
         profile: "Ztracený a nalezený",
-        description: "Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách brněnských ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější, přístup k internetu. Po letech nejistot a hledání se rozhodl slézt z brněnských střech a konečně si stoupnout na pevnou půdu pod nohama."
+        description: "Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách různých ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější, přístup k internetu. Po letech nejistot a hledání se rozhodl ze střech slézt a konečně si stoupnout na pevnou půdu pod nohama."
     },
 
     {
@@ -289,7 +289,7 @@ export const attributesData = [
     {
         name: "Co je v tý krabici?!",
         description: "Jestli je uvnitř krabice Schrödingerovic mrtvá kočka nebo snad i něco horšího tě vlastně vůbec nezajímá. Zásadně se snažíš uvažovat <i>out-of-the-box</i>.",
-        bonus: [""],
+        bonus: ["Bonus neznámý. Jen <a href='https://www.csfd.cz/film/2671-sedm/prehled/'target='_blank'>Brad Pitt</a> spatřil, co je uvnitř krabice."],
         selected: 1
     },
 
@@ -301,30 +301,114 @@ export const attributesData = [
     },
 
     {
-        name: "Rektální alpinista",
-        description: "Leze kam nemá.",
-        bonus: ["+5 pochopení", "-4 trpělivost spoluhráčů v nejbližším okolí"],
-        selected: 0
+        name: "Nikdo není dokonalý",
+        description: "A už vůbec ne tato postava.",
+        bonus: ["+1 Sebereflexe"],
+        selected: 1
     },
 
     {
         name: "Abstinující, spící",
         description: "Propařil sis svoje. Teď je čas i na práci.",
-        bonus: ["+5 spánek, +100 energie (v kombinaci s Hlava rodiny)", "+12 % pravděpodobnost odvozu spoluhráčů z raidu"],
+        bonus: ["+5 Spánek, +100 Energie (v kombinaci s Hlava rodiny)", "-4 Pochopení okolních spoluhráčů"],
         selected: 1
     },
 
     {
         name: "Hlava rodiny",
         description: "Jsou všude ...",
-        bonus: ["+3 zodpovědnost", "+3 radost", "-NaN&sup2; spánku", "+3 šedý vlasy/den"],
+        bonus: ["+3 Zodpovědnost", "+3 Radost", "-NaN&sup2; Spánku", "+3 Šedý vlasy/den"],
         selected: 1
     },
 
     {
         name: "Očipovaný",
-        description: "Čipy přijímáš zásadně od Applu a Phizeru.",
-        bonus: ["+12 obrana"],
+        description: "Čipy přijímáš zásadně od Applu a Pfizeru.",
+        bonus: ["+12 Obrana proti návštěvě JIP"],
         selected: 1
     },
+
+    {
+        name: "Savá houba",
+        description: "Baví tě co děláš a tak nový informace nasáváš jako suchá houba vodu.",
+        bonus: ["+2 Vědění"],
+        selected: 1
+    },
+
+    {
+        name: "Rétor",
+        description: "Své myšlenky prezentuješ s chirurgickou přesností. Míla Rozner tiše závidí.",
+        bonus: ["+4 Komunikace", "+2 Pochopení okolních spoluhráčů"],
+        selected: 0
+    },
+
+    {
+        name: "Extrovert",
+        description: "Rád na sebe strháváš pozornost a řádně si to užíváš.",
+        bonus: ["+8 % Komunikace za každou novou úroveň", "-2 Pochopení od okolních introvertů"],
+        selected: 0
+    },
+
+    {
+        name: "Prokrastinátor",
+        description: "Kdyby ti platili za množství odložené práce na neurčito, jsi milionář.",
+        bonus: ["+25 % odložení účinku jiného bonusu na neurčito"],
+        selected: 0
+    },
+    // TODO: Doplnit funkci zobrazení bonusu až po delší chvíli. Samozřejmě někdy, až se ti bude chtít. Mrk. :-)
+
+    {
+        name: "Skromný pisálek",
+        description: "Než ze sebe něco vymáčkneš tak to trvá, ale není to tak špatný.",
+        bonus: ["+7 Psaný projev"],
+        selected: 1
+    },
+
+    {
+        name: "Nápad na další dovednost",
+        description: "Ticho po pěšině...",
+        bonus: ["-něco Neznámý bonus"],
+        selected: 0
+    },
+
+
 ]
+
+export const summaryData = `
+    <h3>Jméno:  Robert</h3>
+    <h4>Věk:    29</h4>
+
+<p>Ze zvolených kombinací dovedností se postava profiluje jako aspirující full&#8209;stackový vývojář. Pod vedením zkušeného hráče je schopna a ochotna velmi rychle dohnat chybějící technologie a nástroje. Vybrané dovednosti nejsou její alfou a omegou, ale "pouze" prostředky k dosahování cílů.</p>
+
+<p>Z vybraných vlastností se postava hodí do jakéhokoliv kolektivu spoluhráčů, kteří si umí udělat srandu nejen z ostatních, ale i sami ze sebe. "Skrytou" touhou postavy je být součástí profesionálů a nadšenců, kteří dokáží nejen inspirovat, ale když je potřeba, tak i motivovat.</p>
+
+<p>Tato ambiciózní postava je vhodná pro hráče, kteří nehledají "obyčejné" dělníky, ale spíše se ohlíží po disciplinovaných budoucích řemeslnících, kteří se neučí nové věci protože musí, ale protože to je součástí jejich vnitřního nastavení.</p>
+`;
+
+
+
+export const extrasKratke = `
+Doplňkové informace pro recruitery, headhuntery a HR
+
+Účel webu
+    Krátká verze
+        Ukázka práce a uvažování. Zaujmout. Trochu čtenáře pobavit. Snad se i dostat blíže ke své první práci v IT. 
+
+    Delší verze
+        Primárním cílem bylo vytvořit prezentační web o mé osobě tak, aby byl funkční, pěkný a osobitý. Úvaha byla taková, že pokud dostatečně zaujmu, dáte mi, náboráři, personalisté, více času než běžným životopisům. Na oplátku Vás nebudu zbytečně zdržovat, mlžit a zbytečně kecat. 
+
+    Web je inspirován počítačovými hrami 
+
+FAQ
+    Proč IT a vývoj?
+        Krátká verze
+            Protože neumím zpívat ani tancovat. 
+
+        Delší verze
+            Protože vytvořit něco funkčního, hezkého a smysluplného je opojný pocit. 
+            Jasně, to může dělat i truhláře že? Přestože vůně dřeva je taky nakažlivá, asi se shodneme, že truhlářství a jiná řemesla nejsou zdaleka tak progresivní, interaktivní a zdaleka nenabízí takové možnosti jako svět nul a jedniček. A to jsme stále na jeho počátcích. Blížící se nástup virtuální reality nám umožní vytvářet zážitky, které zkrátka v realitě možné nejsou. 
+            Jsem generace, která vyrůstala, mimo jiné, s Harrym Potterem a snil jsem být součástí toho kouzelného světa. Byť jsem z toho vyrostl, fantazie obecně jsem se nevzdal. Chci být aktivní součástí těchto nových nastupujících možností.
+
+            PS: Nebuďme pokrytci, v IT se pohybuje spousty peněz. Nejsou priorita, ale ideály Vám složenky a nový Macbooky a dovolený nezaplatí.
+    
+            `
