@@ -19,10 +19,22 @@ import {
 export const navigationData = {
     "Hlavní menu": {
         "Nadpis": "Hlavní menu",
-        "Založit novou postavu": howCreateColleague,
-        "Nastavení": settings,
-        "Extras": extras,
-        "Opustit hru": leaveThisWebsite
+        "Založit novou postavu": {
+            func: howCreateColleague,
+            available: 1
+        },
+        "Nastavení": {
+            func: settings,
+            available: 1
+        },
+        "Extras": {
+            func: extras,
+            available: 1
+        },
+        "Opustit hru": {
+            func: leaveThisWebsite,
+            available: 1
+        }
     },
 
     "Jak vytvořit postavu?": {

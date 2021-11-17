@@ -69,18 +69,26 @@ function executor(func) {
     return func();
 }
 
-function createMenuItems(dataObject, target) {
-    let labels = Object.keys(dataObject);
-    let functions = Object.values(dataObject);
+function createMenuItems(navData, target) {
+    let labels = [];
+    let functions = [];
 
-    for (let counter = 1; counter < functions.length; counter++) {
+    for (let obj in navData) {
+        if (typeof navData[obj] === "object") {
+            functions.push(navData[obj].func);
+            labels.push(obj);
+        }
+    }
 
-        //creating new <li>...buttons...</li>
+    for (let counter = 0; counter < functions.length; counter++) {
+
+        // creating new <li>...buttons...</li>
+        // (functions[].name returns function name (name is property!))
         target.insertAdjacentHTML("beforeend", `
-        <li>
-            <input type="radio" name="btn-menu" id="btn-${functions[counter].name}">
-            <label for="btn-${functions[counter].name}" class="button mainmenu">${labels[counter]}</label>
-        </li>`);
+            <li>
+                <input type="radio" name="btn-menu" id="btn-${functions[counter].name}">
+                <label for="btn-${functions[counter].name}" class="button mainmenu">${labels[counter]}</label>
+            </li>`);
 
         //adding listeners with path(URLs)
         document.querySelector(`#btn-${functions[counter].name}`).addEventListener("click", () => {
@@ -89,4 +97,3 @@ function createMenuItems(dataObject, target) {
         })
     }
 }
-

@@ -435,8 +435,7 @@ export function exit() {
 
 
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////// Being created ///////////////////////////////////////////
+
 export function summary() {
     return fadeInFadeOut(createSummary, document.querySelector("#text"));
 }
@@ -456,6 +455,7 @@ function createSummary() {
         </div>
     `)
 
+    // TODO: doplnit fadeInFadeOut
     window.onload = () => {
         document.querySelector("#btn-letsPlayAGame").addEventListener(() => {
             fadeInFadeOut({}, {})
@@ -465,13 +465,23 @@ function createSummary() {
 
 
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////// Being created ///////////////////////////////////////////
+
+export function letsCreateMyOwn() {
+
+    const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`
+
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
 
 
-export function letsCreateMyOwn() {
-    console.log("4");
-}
+
 
 export function extras() {
     console.log("3");
