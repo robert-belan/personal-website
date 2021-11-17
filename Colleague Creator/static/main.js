@@ -63,37 +63,22 @@ function createMenuTitle(itemTitle, target) {
     target.insertAdjacentHTML("afterbegin", `<h2>${itemTitle}</h2>`);
 }
 
-//execute function references in navigationData
-//used by: createMenuItems
-function executor(func) {
-    return func();
-}
+function createMenuItems(navItems, target) {
+    for (let item in navItems) {
+        // except Object there is String, that's why I use the IF statement
+        if (typeof navItems[item] === "object") {
 
-function createMenuItems(navData, target) {
-    let labels = [];
-    let functions = [];
+            // notes: .name is property of Function object!)
+            target.insertAdjacentHTML("beforeend", `
+                <li>
+                    <input type=${navItems[item].toggle ? "radio" : "button"} name="btn-menu" id="btn-${navItems[item].func.name}">
+                    <label for="btn-${navItems[item].func.name}" class="button mainmenu">${item}</label>
+                </li>`);
 
-    for (let obj in navData) {
-        if (typeof navData[obj] === "object") {
-            functions.push(navData[obj].func);
-            labels.push(obj);
+            //adding listeners with path(URLs)
+            document.querySelector(`#btn-${navItems[item].func.name}`).addEventListener("click", () => {
+                navItems[item].func();
+            });
         }
-    }
-
-    for (let counter = 0; counter < functions.length; counter++) {
-
-        // creating new <li>...buttons...</li>
-        // (functions[].name returns function name (name is property!))
-        target.insertAdjacentHTML("beforeend", `
-            <li>
-                <input type="radio" name="btn-menu" id="btn-${functions[counter].name}">
-                <label for="btn-${functions[counter].name}" class="button mainmenu">${labels[counter]}</label>
-            </li>`);
-
-        //adding listeners with path(URLs)
-        document.querySelector(`#btn-${functions[counter].name}`).addEventListener("click", () => {
-            // executor just call referenced function
-            executor(functions[counter]);
-        })
     }
 }

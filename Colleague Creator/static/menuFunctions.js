@@ -1,3 +1,5 @@
+import debounce from "/static/node_modules/lodash-es/debounce.js";
+
 import {
     createNavigation,
     fadeAllElements,
@@ -65,7 +67,7 @@ function createBackToMenuButton() {
     const header = document.querySelector("header");
 
     header.insertAdjacentHTML("beforeend", `
-    <input type="radio" name="btn-hp" id="btn-hp" >
+    <input type="button" name="btn-hp" id="btn-hp" >
     <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
     `);
     setTimeout(() => {
@@ -139,14 +141,13 @@ function fadeInFadeOut(func, target) {
         // remove old content
         container.innerHTML = "";
 
-
         // load new content (new html tags etc.)
         func();
 
         // fade new content in
         container.classList.replace("fadePage", "showPage");
 
-        // clear container attributes - this is needless work, but code looks better
+        // clear container attributes - this is needless, but code looks better
         setTimeout(() => {
             container.classList.remove("showPage")
         }, animationDuration + 501)
@@ -444,14 +445,11 @@ function createSummary() {
     const sumaSumarum = document.querySelector("#text");
     sumaSumarum.insertAdjacentHTML("beforeend", `
         <div id="summary" class="summary">
-            
             ${summaryData}
-
             <div class="btn-letsPlayAGame">
-                <input type="radio" name="btn-menu" id="btn-letsPlayAGame">
+                <input type="button" name="btn-menu" id="btn-letsPlayAGame">
                 <label for="btn-letsPlayAGame" class="button creationmenu">Spustit hru</label>
             </div>
-
         </div>
     `)
 
@@ -466,15 +464,47 @@ function createSummary() {
 
 
 
+// helper function which create temporary alert message
+function tempAlertMessage(message, target, duration) {
+
+    const messageParagraph = `<p class="temp-alert-msg">${message}</p>`;
+
+    const temp_container = document.createElement("div");
+    temp_container.classList.add("temp-alert-msg-container", "hidden");
+
+    target.insertAdjacentElement("beforeend", temp_container);
+    temp_container.insertAdjacentHTML("beforeend", messageParagraph)
+
+    // get message visible smoothly
+    temp_container.classList.replace("hidden", "showPage")
+
+    // after given time, get message invisible and remove it
+    setTimeout(() => {
+        temp_container.classList.replace("showPage", "fadePage");
+        setTimeout(() => {
+            temp_container.remove();
+        }, 550)
+    }, duration + animationDuration)
+}
+
+
+
+
+export function letsCreateMyOwn() {
+
+    const message = `Nezlobte se, ale možnost "Zvolím si sám" není v tuto chvíli přístupná.`;
+
+    if (document.querySelector("main").innerHTML.length === 0) {
+        tempAlertMessage(message, document.querySelector("main"), 2000);
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////
 
-export function letsCreateMyOwn() {
 
-    const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`
 
-}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////

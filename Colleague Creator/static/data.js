@@ -21,48 +21,84 @@ export const navigationData = {
         "Nadpis": "Hlavní menu",
         "Založit novou postavu": {
             func: howCreateColleague,
-            available: 1
+            toggle: 0
         },
         "Nastavení": {
             func: settings,
-            available: 1
+            toggle: 0
         },
         "Extras": {
             func: extras,
-            available: 1
+            toggle: 0
         },
         "Opustit hru": {
             func: leaveThisWebsite,
-            available: 1
+            toggle: 0
         }
     },
 
     "Jak vytvořit postavu?": {
         "Nadpis": "Jak chcete vytvořit postavu?",
-        "Zkusím štěstí": generateColleague,
-        "Zvolím si sám": letsCreateMyOwn,
-        "Zpět": mainMenu
+        "Zkusím štěstí": {
+            func: generateColleague,
+            toggle: 0
+        },
+        "Zvolím si sám": {
+            func: letsCreateMyOwn,
+            toggle: 0
+        },
+        "Zpět": {
+            func: mainMenu,
+            toggle: 0
+        }
     },
 
     "Vytváření postavy": {
         "Nadpis": "Vytváření postavy",
-        "Vzhled": appearance,
-        "Historie": history,
-        "Dovednosti": skills,
-        "Vlastnosti": attributes,
-        "Shrnutí": summary
+        "Vzhled": {
+            func: appearance,
+            toggle: 1
+        },
+        "Historie": {
+            func: history,
+            toggle: 1
+        },
+        "Dovednosti": {
+            func: skills,
+            toggle: 1
+        },
+        "Vlastnosti": {
+            func: attributes,
+            toggle: 1
+        },
+        "Shrnutí": {
+            func: summary,
+            toggle: 1
+        }
     },
 
     "Nastavení": {
         "Nadpis": "Nastavení",
-        "Dark Mode": darkmode,
-        "Zpět": mainMenu
+        "Dark Mode": {
+            func: darkmode,
+            toggle: 0
+        },
+        "Zpět": {
+            func: mainMenu,
+            toggle: 0
+        }
     },
 
     "Ukončit hru": {
         "Nadpis": "Jste si jisti?",
-        "Ano": exit,
-        "Ne": mainMenu
+        "Ano": {
+            func: exit,
+            toggle: 0
+        },
+        "Ne": {
+            func: mainMenu,
+            toggle: 0
+        }
     }
 
     // "Extras": {

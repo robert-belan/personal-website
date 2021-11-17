@@ -10,6 +10,7 @@
         <link href="/static/favicon.ico" rel="icon"> -->
 
     <link rel="stylesheet" href="/static/styles.css">
+
     <script type="module" src="/static/main.js"></script>
     <script type="module" src="/static/data.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
@@ -23,13 +24,9 @@
         <h1>Vytvořte si nového kolegy</h1>
     </header>
 
-    <main>
-        {% block main %}{% endblock %}
-    </main>
+    <main>{% block main %}{% endblock %}</main>
 
-    {% block nav %}
-
-    {% endblock %}
+    {% block nav %}{% endblock %}
 
     <footer>
     </footer>

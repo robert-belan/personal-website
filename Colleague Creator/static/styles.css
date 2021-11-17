@@ -181,7 +181,7 @@ input[name="btn-profile"] {
 }
 
 .backToHomePage {
-  width: 15vw;
+  width: 17vw;
   padding: 0 1rem;
   margin: 0 60px;
   justify-content: center;
@@ -694,3 +694,20 @@ iframe:hover {
 <!-- &#9745;   checked mark` in square -->
 <!-- &#9744;   empty square -->
 <!-- &#10005;  multiplication x --> */
+
+.temp-alert-msg-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 2rem;
+  height: 20px;
+}
+
+.temp-alert-msg {
+  color: darkred;
+  font-size: 1.3rem;
+  margin: 2rem;
+}
