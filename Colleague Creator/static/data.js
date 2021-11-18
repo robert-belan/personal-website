@@ -460,3 +460,70 @@ FAQ
             PS: Nebuďme pokrytci, v IT se pohybuje spousty peněz. Nejsou priorita, ale ideály Vám složenky a nový Macbooky a dovolený nezaplatí.
     
             `
+
+    // Cíle autora - krátkodobé - technologie, kurzy, 
+    //                 delšího horizontu - kam směřuji
+    // Background autora
+
+    // /od Evky
+    // - co dělal předtím, a proč přišel posun
+    // - vize, co prinesou na produkt noveho
+    // - jak jsem zvykly pracovat
+    // = chce z lidí dostat, jak přemýšlí
+
+    // Potřeby/Požadavky/Nároky/Prosby
+    // Kdy jsem volný k nástupu
+
+
+    // Odkazy na github, linkedin, spotify
+    // `
+
+    `
+    Dlouhá verze
+Účel webu a jeho budoucnost
+Důvodů vzniku je nespočet a všechny mají své místo. Jedním z hlavních bylo zaujmout a trochu zčeřit hladiny běžných životopisů. 
+Samotnému se mi líbí pracovní inzeráty, které jsou zajímavé nejen obsahem, ale i formou. Takové, za kterým lze "cítit" člověka a ne umaštěné klávesy CTRL, C a V. Snažil jsem se na tyto inzeráty navázat a trochu přispět. Do jaké míry se mi to povedlo už je na Vás, čtenářích, uživatelích. Sám s výsledkem nejsem zcela spokojen. Web vyžaduje ještě mnoho menších či větších úprav, ale už toto je verze, za kterou se nestydím a která předává vše, co bylo mým hlavním cílem. 
+
+Prací na webu jsem si chtěl procvičit nově nabyté znalosti o JavaScriptu, ukotvit je nespočtem provedených chyb a začít objevovat a prozkoumávat možnosti webových prohlížečů. Nějaké tyto možnosti zde ještě implementuji v rámci praxe, ale poté již půjdu "o web dál".
+
+Tento projekt také použiji jako výsledek zadání předposledního úkolu v kurzu CS50x a přesunu se ke vzniku finálního projektu, ve kterém chci již využít technologie jako Service Workers, Cache Storage a principy PWA. 
+
+Jaké úpravy zde ještě zamýšlím?
+1) Refaktorace nadbytečného kódu
+2) Využít Svelte a podle zbylého času v něm "překopat" celý web
+
+    Krátká verze
+Ukázka práce a uvažování. Zaujmout. Trochu čtenáře pobavit. Snad se i dostat blíže ke své první práci v IT. 
+Dále uvést do praxe nově nabyté znalosti o JavaScriptu a jejich ukotvení při hledání chyb a řešení. 
+
+
+
+    Vzdělání, kurzy a cíle
+Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak ji měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" tohoto webu, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti-upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůř. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přínašelo hromadu frustrace, ale ten přehled o všem mi vyhovoval. Nevylučuji budoucí oživení zájmu, ale v tuto chvíli mám jiné cíle.
+
+Pár měsíců zpět jsem na C++ nenavázal. Místo něj jsem si potykal s Pythonem a vzájemně jsme si porozuměli. Díky společnému známému C++ byla prvotní spolupráce takřka raketová. C++ vyžadovalo nějaké základní znalosti principů fungování paměti počítače a tak vůbec všeho možnýho kolem těch křemíkových vnitřností počítače. Po asi dvou třech týdnech jsem se pustil do vypracování entry úkolu pro tzv. Python Weekend pořádaný společností Kiwi. Seděl jsem u toho dnem a nocí, neboť nezbývalo moc času. Víkend s notebookem v Bratislavě jsem nakonec nestrávil, ale za to jsem se toho hodně naučil. Výsledný skript nakonec nefungoval a já ještě nepřišel na to proč. A to především z toho důvodu, že jsem si od toho chtěl dát chvíli pauzu a taky jsem se přesunul ke světově známému kurzu CS50x, což zpětně vnímám jako nejlepší možné rozhodnutí. 
+
+Zde bych se chtěl omluvit, za zcela vědomou lež. V sekci Dovednosti mám uvedeno, že kurz mám hotový, ale fakticky jej hotový ještě nemám. Tento web je součástí předposledního úkolu. A proč ta lež? Já jej jako hotový kurz vnímám už teď. Jsem totiž přesvědčem, že  David J. Malan a jeho skvělí kolegové mi předali všechno, co kurzem (ve skutečnosti semestrálním předmětem) předat svým studentům zamýšleli. Vypracování finálního projektu je již "jen" taková třešnička. Pro oficiální studenty Harvardovi univerzity je vypracování povinnost. Pro mě, jako nadšeného aspirujícího programátora, je to už jen čestné zakončení. (No a kdo by taky nechtěl certifikát s logem Harvardu, že? Tedy snad tam takové logo je, jináč si sednu a budu se mračit)
+
+Co je pro mě nejdůležitější je to, že díky CS50x a času strávenému jeho studiem ve mně vykrystalizovala představa, jakým směrem se chci aktuálně ubírat. Využil jsem také příležitosti a v mezičase si "nalil" do hlavy trochu JavaScriptu (>==ES2015) pomocí tohoto výtečně zpracovaného kurzu. Systematičnost, suverénnost a nápaditost s jakou autor přistoupil nejen k obsahu kurzu, ale i k celému UX byla inspirujicí a já v tu chvíli už věděl, že full-stack a cross-platformní PWA jsou mým aktuálním směrem, kterým se chci ubírat.
+
+Bylo by další lží tvrdit, že už teď mám na to být full-stackovým juniorem. Zcela určitě ne. V tuto chvíli jsem si výrazně jistější na front-endovém pobřeží. Back-Side-Story je v jeho delším závěsu, ale to mám v úmyslu velmi rychle napravit.
+
+Pravda, těch technologií se teď na člověka sype asi tolik, jako neočkovaných k nohám lékařů. Já mám ale rád přehled možností. Nemusím znát jednu věc super pořádně. Já chci vědět, jaké nástroje mám k dispozici a kde je efektivní je použít. Poté podle potřeb zvyšovat dovednost. Stejně jako mám vybavenou dílnu a jak přistupuji k opravě domu. Třeba nedávno jsem doma našel takový malý vrták do dlaně, nebozízek nebojak. Do té chvíle jsem nevěděl, že něco takového existuje, ale teď zpětně vím, že bych jej v jistých chvílích použil spíše než obyčejné šídlo. Už je zařazen v mém inventáři nástrojů.
+
+
+
+
+    Krátká verze
+Díky sice krátké, ale intenzivné zkušenosti s C++ jsem pochytil základy programování a základy vnitřního fungování PC. Tyto znalosti byly užitečné pro následné rychlejší vstřebání základů a pokročilejších záležitostí v Pythonu. Po měsící "pythonování" jsem nasedl na zběsilé tempo Davida J. Malana a jeho bandy zodpovědné za světové známý kurz CS50x. 
+
+
+
+
+
+
+
+
+
+
+`

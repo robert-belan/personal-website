@@ -707,7 +707,7 @@ iframe:hover {
 }
 
 .temp-alert-msg {
-  color: darkred;
+  color: var(--ui-clicked-button);
   font-size: 1.3rem;
   margin: 2rem;
 }
