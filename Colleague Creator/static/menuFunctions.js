@@ -28,10 +28,9 @@ export function howCreateColleague() {
 export function generateColleague() {
 
     const main = document.querySelector("main");
-    const items = navigationData["Vytváření postavy"];
 
     // loads menu
-    createNavigation(items, "#items", "", "change");
+    createNavigation(navigationData["Vytváření postavy"], "#items", "", "change");
 
 
     // create new layout in <main> tag
@@ -489,7 +488,6 @@ function tempAlertMessage(message, target, duration) {
 
 
 
-
 export function letsCreateMyOwn() {
 
     const message = `Nezlobte se, ale možnost "Zvolím si sám" není v tuto chvíli přístupná.`;
@@ -499,8 +497,21 @@ export function letsCreateMyOwn() {
     }
 }
 
+
+
+export function extras() {
+    createNavigation(navigationData["Extras"], "#items");
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////
+
+
+function aboutMeShort() {
+
+}
+
 
 
 
@@ -510,9 +521,12 @@ export function letsCreateMyOwn() {
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
 
+function aboutAuthor() {
+}
 
+function aboutThisWeb() {
+    // do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu
+}
 
-
-export function extras() {
-    console.log("3");
+function releaseNotes() {
 }
