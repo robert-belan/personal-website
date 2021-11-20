@@ -501,6 +501,8 @@ export function letsCreateMyOwn() {
 
 export function extras() {
     createNavigation(navigationData["Extras"], "#items");
+    // pridat zobrazeni uvodniho slova
+
 }
 
 
@@ -508,8 +510,14 @@ export function extras() {
 ////////////////////// Being created ///////////////////////////////////////////
 
 
-function aboutMeShort() {
+export function aboutAuthorShort() {
+    createNavigation(navigationData["Články o autorovi"], "#items");
+    // funkce zobrazit kratkou verzi
+}
 
+export function aboutAuthorLong() {
+    createNavigation(navigationData["Články o autorovi"], "#items");
+    // funkce zobrazit DLOoooooUHOU verzi
 }
 
 
