@@ -87,10 +87,13 @@ export function mainMenu() {
     createNavigation(navigationData["Hlavní menu"], "#items")
 }
 
+
 export function clearAndMoveToMainMenu() {
-    document.querySelector("main").innerText = "";
+    // clears main menu from text 
+    fadeInFadeOut(() => { }, "main");
     mainMenu();
 }
+
 
 
 // attach link to HomePage

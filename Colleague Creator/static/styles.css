@@ -1,7 +1,7 @@
 /* Variables */
 /* :root {
-  --text: #555454;
-  --background: #fff;
+  --ui-text: #555454;
+  --ui-background: #fff;
   --ui-elements: #555454;
   --ui-border-radius: 1px;
   --ui-animation-duration: 0.2s;
@@ -19,35 +19,55 @@
 }
 
 html[data-theme='light'] {
-  --text: #555454;
-  --background: #fff;
-  --ui-elements: #555454;
+  --ui-background: #ffffff;
+
+  --ui-headers: #000000;
+  --ui-text: #303030;
+  --ui-text-negative: #ffffff;
+  --ui-alert-message-text: #000000;
+
+  --ui-borders: #ffffff;
   --ui-border-radius: 1px;
-  --ui-animation-duration: 0.2s;
+
+  --ui-elements: #555454;
   --ui-hover-button-color: #433e5c;
-  --ui-clicked-button: rgb(31, 48, 105);
-  --ui-clicked-button-text: #fff;
-  --ui-headings: black;
-  --ui-text-negative: #fff;
-  --ui-attributes-bonuses: black;
+  --ui-clicked-button: #1F3069;
+  --ui-clicked-button-text: #ffffff;
+  --ui-attributes-bonuses: #000000;
+
+  --ui-scrollbar-track: #e6e6e6;
+  --ui-scrollbar-thumb: #555454;
+
+  --ui-animation-duration: 0.3s;
 }
 
 html[data-theme='dark'] {
-  --text: #F5F5DC;
-  --background: #303030;
-  --ui-elements: #F5F5DC;
+  --ui-background: #252525;
+
+  --ui-headers: #eeeeee;
+  --ui-text: #d3d3d3;
+  --ui-text-negative: #d3d3d3;
+  --ui-alert-message-text: #d3d3d3;
+
+  --ui-borders: #555454;
   --ui-border-radius: 1px;
-  --ui-animation-duration: 0.2s;
-  --ui-hover-button-color: #C6AB80;
-  --ui-clicked-button: #A3795B;
-  --ui-text-negative: #303030;
-  --ui-headings: #C6AB80;
+
+  --ui-elements: #252525;
+  --ui-hover-button-color: #433e5c;
+  --ui-clicked-button: #273257;
+  --ui-clicked-button-text: #ffffff;
+  --ui-attributes-bonuses: black;
+
+  --ui-scrollbar-track: #252525;
+  --ui-scrollbar-thumb: #555454;
+
+  --ui-animation-duration: 0.3s;
 }
 
 
 /* General Layout */
 html {
-  background-color: var(--background);
+  background-color: var(--ui-background);
   font-size: 100%;
   cursor: default;
   caret-color: rgba(0,0,0,0); /* Hide caret blinking in a text (paragraphs, buttons, etc)*/
@@ -60,6 +80,7 @@ html {
 
 body {
   font-family: "Inconsolata", monospace;
+  color: var(--ui-text);
 }
 
 main {
@@ -81,11 +102,11 @@ header {
 header > h1 {
   margin-left: 60px;
   font-size: 2.5rem;
-  color: var(--ui-headings);
+  color: var(--ui-headers);
 }
 
 button {
-  background-color: var(--background);
+  background-color: var(--ui-background);
 }
 
 
@@ -104,7 +125,7 @@ button {
   text-align: right;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
-  color: var(--ui-headings);
+  color: var(--ui-headers);
 }
 
   /* Creation Menu Bar ------------------------------*/
@@ -135,10 +156,11 @@ input[name="btn-profile"] {
   display: flex;
   align-items: center;
   justify-content: right;
+  border: 1px solid var(--ui-borders);
   border-radius: var(--ui-border-radius);
   background-color: var(--ui-elements);
   height: 2.3rem;
-  color: var(--background);
+  color: var(--ui-text-negative);
   margin: 0.5rem 0;
   font-size: 1.2rem;
   transition: background-color var(--ui-animation-duration),
@@ -320,7 +342,7 @@ iframe:hover {
 .appearance-table tr {
   height: 0.4rem;
   padding: auto 0;
-  background-color: var(--background);
+  background-color: var(--ui-background);
   transition: background-color 0.3s;
 }
 
@@ -444,7 +466,7 @@ iframe:hover {
 
 .skills-container h3 {
   font-size: 1rem;
-  color: var(--ui-headings);
+  color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-elements);
   margin-bottom: 1rem;
 }
@@ -455,7 +477,7 @@ iframe:hover {
 }
 
 .skills-table {
-  color: var(--text);
+  color: var(--ui-text);
   font-size: 1.5vw;
   width: 100%;
 }
@@ -466,7 +488,7 @@ iframe:hover {
 
 .skills-table tr {
   padding: auto 0;
-  background-color: var(--background);
+  background-color: var(--ui-background);
   filter: grayscale(1);
   transition: background-color var(--ui-animation-duration), 
               filter var(--ui-animation-duration) ease-in-out;
@@ -531,11 +553,13 @@ iframe:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: #e6e6e6;
+  background: var(--ui-scrollbar-track);
+  border: 1px solid var(--ui-borders)
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--ui-elements);
+  background: var(--ui-scrollbar-thumb);
+  border: 1px solid var(--ui-borders);
   border-radius: var(--ui-border-radius);
 }
 
@@ -572,7 +596,7 @@ iframe:hover {
 .attributes-container h3{
   display: block;
   font-size: 1rem;
-  color: var(--ui-headings);
+  color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-elements);
   margin-bottom: 1rem;
 }
@@ -594,15 +618,15 @@ iframe:hover {
 }
 
 .attribute-box .check-mark {
-  /* background-color: var(--background); */
+  /* background-color: var(--ui-background); */
   background-color: rgb(218, 218, 218);
-  color: var(--text);
+  color: var(--ui-text);
   padding: 0.5rem;
   font-size: 1.5rem;
 }
 
 .attribute-box .uncheck-mark {
-  /* background-color: var(--background); */
+  /* background-color: var(--ui-background); */
   background-color: rgb(218, 218, 218);
   color: rgb(218, 218, 218);
   padding: 0.5rem;
@@ -628,13 +652,13 @@ iframe:hover {
 
 .attributes-description > h2 {
   margin-bottom: 0.2rem;
-  color: var(--ui-headings);
+  color: var(--ui-headers);
 }
 
 .attributes-description > p {
   font-size: 1.2rem;
   text-align: justify;
-  color: var(--text)
+  color: var(--ui-text)
 }
 
 .bonuses{
@@ -665,7 +689,7 @@ iframe:hover {
 }
 
 .goodbye p {
-  color: var(--text);
+  color: var(--ui-text);
   font-size: 3rem;
 }
 
@@ -703,12 +727,12 @@ iframe:hover {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  bottom: 2rem;
+  bottom: 0rem;
   height: 20px;
 }
 
 .temp-alert-msg {
-  color: var(--ui-clicked-button);
+  color: var(--ui-alert-message-text);
   font-size: 1.3rem;
   margin: 2rem;
 }
@@ -752,7 +776,7 @@ iframe:hover {
 
 .extras-text-container ul {
   font-size: 1.2rem;
-  list-style-position: inside;
+  /* list-style-position: inside; */
 }
 
 .extras-text-container li:not(:last-child) { 
