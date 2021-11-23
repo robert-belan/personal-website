@@ -721,9 +721,17 @@ iframe:hover {
   border: 1px dotted goldenrod;
   position: relative;
   height: 100%;
-  width: 66.6%;
+  width: 50%;
   margin-right: 2rem;
-  padding: 2% 10%;
+  margin-left: 8%;
+  padding: 2% 2%;
   overflow: auto;
+  /* Following changes position of scrollbar to left. Inside text/element 
+  direction must be manually reset in individual selector (see bellow). */
+  direction: rtl;
 }
 
+/* Reset direction to default */
+.extras-text-container h2,p,ul {
+  direction: ltr;
+}

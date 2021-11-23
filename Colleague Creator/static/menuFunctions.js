@@ -540,43 +540,51 @@ export function extras() {
     // reason of bigger additional delay is for discovering menu items at first
 }
 
+
+// TODO: Refaktorovat, patrne lze vyuzit jiz napsane funkce 
 /**
- * 
+ * Clear text in Extras section. U
  */
 export function backToEmptyExtras() {
     fadeInFadeOut(getForeword, "#extras-text-container");
     extras();
 }
 
+/**
+ * Changes text in Extras section with smooth animation.
+ * 
+ * @param {string} text Text contains string with html tags.
+ */
+function changeTextInExtras(text) {
+    const target = document.querySelector("#extras-text-container");
+    fadeInFadeOut(() => {
+        target.insertAdjacentHTML("beforeend", text);
+    }, target);
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////// Being created ///////////////////////////////////////////
 
-
+/** 
+ * Used in: Extras Section
+ * Show short version of article about author
+ */
 export function aboutAuthorShort() {
     createNavigation(navigationData["Články o autorovi"], "#items");
-    // funkce zobrazit kratkou verzi
-
-    const target = document.querySelector("#extras-text-container");
-    fadeInFadeOut(() => {
-        target.insertAdjacentHTML("beforeend", shortStory);
-    }, target)
+    changeTextInExtras(shortStory);
 }
 
+export function aboutAuthorLong() {
+    createNavigation(navigationData["Články o autorovi"], "#items");
+    changeTextInExtras(longStory);
+}
 
 
 
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
 
-export function aboutAuthorLong() {
-    createNavigation(navigationData["Články o autorovi"], "#items");
-    // funkce zobrazit DLOoooooUHOU verzi
-}
-
-function aboutAuthor() {
-}
 
 function aboutThisWeb() {
     // do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu

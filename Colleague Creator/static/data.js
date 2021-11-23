@@ -109,19 +109,19 @@ export const navigationData = {
         "Nadpis": "Extras",
         "Krátce o autorovi": {
             func: aboutAuthorShort,
-            toggle: 0
+            toggle: 1
         },
         "Dlouze o autorovi": {
             func: aboutAuthorLong,
-            toggle: 0
+            toggle: 1
         },
         "Jak vznikal tento web?": {
             func: mainMenu,
-            toggle: 0
+            toggle: 1
         },
         "Změny na webu": {
             func: mainMenu,
-            toggle: 0
+            toggle: 1
         },
         "Zpět": {
             func: clearAndMoveToMainMenu,
@@ -545,7 +545,7 @@ export const longStory = `
 <p>I přes očkování dodržuji to stejné. K aktuální takřka "občanské válce" očkovaných a neočkovaných nechci nijak dál přispívat, ale chci přispět k tomu, abysme se z těch ***ček dostali co možná nejdříve a mohli se opět vrátit do kolejí vyjetých před pandemií. Nebo se tomu alespoň co nejvíce přiblížit.</p>
 
 
-<h2>Vzdělání a kurzy</h2
+<h2>Vzdělání a kurzy</h2>
 <p>Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak ji měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" tohoto webu, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti-upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůř. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přínášelo hromadu frustrace, ale ten přehled o všem mi vyhovoval. Nevylučuji budoucí oživení zájmu, ale v tuto chvíli mám jiné cíle.</p>
 <p>Pár měsíců zpět jsem na C++ nenavázal. Místo něj jsem si potykal s Pythonem a vzájemně jsme si porozuměli. Díky společnému známému C++ byla prvotní spolupráce takřka raketová. C++ vyžadovalo nějaké základní znalosti principů fungování paměti počítače a tak vůbec všeho možnýho kolem těch křemíkových vnitřností počítače. Po asi dvou třech týdnech jsem se pustil do vypracování entry úkolu pro tzv. Python Weekend pořádaný společností Kiwi. Seděl jsem u toho dnem a nocí, neboť nezbývalo moc času. Víkend s notebookem v Bratislavě jsem nakonec nestrávil, ale za to jsem se toho hodně naučil. Výsledný skript nakonec nefungoval a já ještě nepřišel na to proč. A to především z toho důvodu, že jsem si od toho chtěl dát chvíli pauzu a taky jsem se přesunul ke světově známému kurzu CS50x, což zpětně vnímám jako nejlepší možné rozhodnutí.</p>
 <p>Zde bych se chtěl omluvit, za zcela vědomou lež. V sekci Dovednosti mám uvedeno, že kurz mám hotový, ale fakticky jej hotový ještě nemám. Tento web je součástí předposledního úkolu. A proč ta lež? Já jej jako hotový kurz vnímám už teď. Jsem totiž přesvědčem, že  David J. Malan a jeho skvělí kolegové mi předali všechno, co kurzem (ve skutečnosti semestrálním předmětem) předat svým studentům zamýšleli. Vypracování finálního projektu je již "jen" taková třešnička. Pro oficiální studenty Harvardovi univerzity je vypracování povinnost. Pro mě, jako nadšeného aspirujícího programátora, je to už jen čestné zakončení. (No a kdo by taky nechtěl certifikát s logem Harvardu, že? Tedy snad tam takové logo je, jináč si sednu a budu se mračit).</p>
