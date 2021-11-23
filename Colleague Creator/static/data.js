@@ -182,6 +182,10 @@ export const navigationData = {
             func: function planned() { teleportTo("#planned") },
             toggle: 0
         },
+        "Uvažované": {
+            func: function potential() { teleportTo("#potential") },
+            toggle: 0
+        },
         "Zpět": {
             func: backToEmptyExtras,
             toggle: 0
@@ -621,16 +625,23 @@ export const releaseNotesData = `
     <ul>
         <li>Doplněný obsah "Jak vznikl tento web"</li>
         <li>Upravená responzivita pro menší obrazovky</li>
-        <li></li>
     </ul>
 </p>
 
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
+        <li>Upravit text v Extras a doplnit formátování</li>
         <li>Horní a spodní okraj textu v sekci Extras bude přecházet do ztracena</li>
-        <li></li>
-        <li></li>
+        <li>Doplnit JSDoc popisky k funkcím !</li>
+        <li>Přidat robots.txt. Nechci tento web nikde indexovat.</li>
+    </ul>
+</p>
+
+<h2 id="potential">Uvažované</h2>
+<p>
+    <ul>
+        <li>Drobečková navigace</li>
     </ul>
 </p>
 `

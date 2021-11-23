@@ -752,9 +752,9 @@ iframe:hover {
 
 .extras-text-container ul {
   font-size: 1.2rem;
-  list-style-type: none;
+  list-style-position: inside;
 }
 
 .extras-text-container li:not(:last-child) { 
-  margin-bottom: 0.5rem;  
+  margin-bottom: 0.3rem;  
 }
