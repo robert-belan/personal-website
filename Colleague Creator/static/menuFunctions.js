@@ -1,5 +1,3 @@
-import debounce from "/static/node_modules/lodash-es/debounce.js";
-
 import {
     createNavigation,
     showAllElements,
@@ -560,6 +558,14 @@ function changeTextInExtras(text) {
     fadeInFadeOut(() => {
         target.insertAdjacentHTML("beforeend", text);
     }, target);
+}
+
+
+export function teleportTo(target) {
+    let element = document.querySelector(target);
+
+    // TODO: volitelne parametry teto funkce zatim nepodporuje Safari
+    element.scrollIntoView({ behavior: "smooth" });
 }
 
 

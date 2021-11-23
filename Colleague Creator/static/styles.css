@@ -735,3 +735,7 @@ iframe:hover {
 .extras-text-container h2,p,ul {
   direction: ltr;
 }
+
+.extras-text-container h2 {
+  margin-bottom: 0.5rem;
+}
