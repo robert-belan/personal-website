@@ -9,14 +9,34 @@ window.addEventListener("load", () => {
     showAllElements();
 })
 
-// used when window.onload is done (for more seamless experience)
-function showAllElements() {
-    document.body.classList.replace("hidden", "showPage");
+// TODO: pozmenit jmeno a refaktorovat
+export function showAllElements(element = "") {
+    if (!element) {
+        document.body.classList.replace("hidden", "showPage");
+    } else {
+        let el = document.querySelector(element);
+
+        // Study Note: if hidden not exists, function return false, then...
+        if (!el.classList.replace("hidden", "showPage")) {
+            el.classList.replace("fadePage", "showPage");
+        };
+        // TODO: sledovat chovani a pripadne po cas nechat odstranit showPage
+    }
 }
 
 // used when leaving site (for more seamless experience)
-export function fadeAllElements() {
-    document.body.classList.replace("showPage", "fadePage");
+export function fadeOutAndDeleteContent(target) {
+    const element = document.querySelector(target);
+
+    if (element.classList.contains("showPage")) {
+        element.classList.replace("showPage", "fadePage");
+    } else {
+        element.classList.add("fadePage");
+    }
+
+    setTimeout(() => {
+        element.innerHTML = "";
+    }, animationDuration)
 }
 
 

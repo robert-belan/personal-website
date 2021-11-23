@@ -2,8 +2,9 @@ import debounce from "/static/node_modules/lodash-es/debounce.js";
 
 import {
     createNavigation,
-    fadeAllElements,
-    animationDuration
+    showAllElements,
+    animationDuration,
+    fadeOutAndDeleteContent
 } from "/static/main.js";
 
 import {
@@ -14,9 +15,11 @@ import {
     historyData,
     skillsData,
     attributesData,
-    summaryData
+    summaryData,
+    foreword,
+    shortStory,
+    longStory
 } from "/static/data.js";
-
 
 
 export function howCreateColleague() {
@@ -84,12 +87,17 @@ export function mainMenu() {
     createNavigation(navigationData["Hlavní menu"], "#items")
 }
 
+export function clearAndMoveToMainMenu() {
+    document.querySelector("main").innerText = "";
+    mainMenu();
+}
+
 
 // attach link to HomePage
 function attachHomapageLinkListener(selector) {
     const element = document.querySelector(selector);
     element.addEventListener("click", () => {
-        fadeAllElements();
+        fadeOutAndDeleteContent("body");
         setTimeout(() => {
             window.location.assign("/");
         }, animationDuration);
@@ -127,13 +135,22 @@ function createAppearanceTable() {
 }
 
 // this decorator provides smooth animation among creation tabs
-// second arg: css selector (string)
-// target should be "document.querySelector("#text");"
+// second arg: css selector (string) or element
 function fadeInFadeOut(func, target) {
 
-    const container = target;
+    let container;
+
+    if (typeof target === "object") {
+        container = target;
+    }
+    else if (typeof target === "string") {
+        container = document.querySelector(target);
+    }
 
     // fade content out 
+    if (container.classList.contains("showPage")) {
+        container.classList.remove("showPage");
+    }
     container.classList.add("fadePage");
 
     setTimeout(() => {
@@ -146,7 +163,7 @@ function fadeInFadeOut(func, target) {
         // fade new content in
         container.classList.replace("fadePage", "showPage");
 
-        // clear container attributes - this is needless, but code looks better
+        // clear container attributes - this is needless, but html code looks cleaner
         setTimeout(() => {
             container.classList.remove("showPage")
         }, animationDuration + 501)
@@ -420,7 +437,7 @@ export function exit() {
         document.body.innerHTML = "";
         document.body.insertAdjacentHTML("beforeend", `
         <div class="goodbye">
-            <p>Děkuju za Váš čas.</p>
+            <p>Díky za Váš čas.</p>
         </div>
         `);
         document.body.classList.replace("fadePage", "showPage");;
@@ -487,23 +504,50 @@ function tempAlertMessage(message, target, duration) {
 }
 
 
-
+// show 
 export function letsCreateMyOwn() {
-
     const message = `Nezlobte se, ale možnost "Zvolím si sám" není v tuto chvíli přístupná.`;
-
     if (document.querySelector("main").innerHTML.length === 0) {
         tempAlertMessage(message, document.querySelector("main"), 2000);
     }
 }
 
 
+/**
+ * Insert foreword into first page of extras section.
+ */
+function getForeword() {
+    document.querySelector("#extras-text-container").insertAdjacentHTML("beforeend", foreword);
+}
+
 
 export function extras() {
     createNavigation(navigationData["Extras"], "#items");
-    // pridat zobrazeni uvodniho slova
 
+    const main = document.querySelector("main");
+    // Studying Temporary Note: this means: if main is empty (not child elements)
+    if (!main.children.length) {
+        const html = `
+            <div id="extras-text-container" class="extras-text-container hidden">
+                ${foreword}            
+            </div>`;
+        main.insertAdjacentHTML("beforeend", html);
+    }
+
+    setTimeout(() => {
+        showAllElements("#extras-text-container");
+    }, animationDuration);
+    // reason of bigger additional delay is for discovering menu items at first
 }
+
+/**
+ * 
+ */
+export function backToEmptyExtras() {
+    fadeInFadeOut(getForeword, "#extras-text-container");
+    extras();
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -513,15 +557,12 @@ export function extras() {
 export function aboutAuthorShort() {
     createNavigation(navigationData["Články o autorovi"], "#items");
     // funkce zobrazit kratkou verzi
+
+    const target = document.querySelector("#extras-text-container");
+    fadeInFadeOut(() => {
+        target.insertAdjacentHTML("beforeend", shortStory);
+    }, target)
 }
-
-export function aboutAuthorLong() {
-    createNavigation(navigationData["Články o autorovi"], "#items");
-    // funkce zobrazit DLOoooooUHOU verzi
-}
-
-
-
 
 
 
@@ -529,11 +570,17 @@ export function aboutAuthorLong() {
 ////////////////////////////////////////////////////////////////////////////////
 ///////////// Waiting for real declaration /////////////////////////////////////
 
+export function aboutAuthorLong() {
+    createNavigation(navigationData["Články o autorovi"], "#items");
+    // funkce zobrazit DLOoooooUHOU verzi
+}
+
 function aboutAuthor() {
 }
 
 function aboutThisWeb() {
     // do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu
+    // zmenit nazev Extras - neni dostatecne jasne co se pod tim skryva !!!!
 }
 
 function releaseNotes() {

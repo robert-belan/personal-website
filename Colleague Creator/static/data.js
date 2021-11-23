@@ -14,7 +14,9 @@ import {
     darkmode,
     exit,
     aboutAuthorShort,
-    aboutAuthorLong
+    aboutAuthorLong,
+    clearAndMoveToMainMenu,
+    backToEmptyExtras
 } from "/static/menuFunctions.js"
 
 
@@ -122,7 +124,7 @@ export const navigationData = {
             toggle: 0
         },
         "Zpět": {
-            func: mainMenu,
+            func: clearAndMoveToMainMenu,
             toggle: 0
         }
     },
@@ -131,35 +133,35 @@ export const navigationData = {
         "Nadpis": "Obsah článku",
         "Stanovisko": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Vzdělání a kurzy": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "O autorovi": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Cíle": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Čím mohu přispět?": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Závěr": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Praktické poznámky": {
             func: mainMenu,
-            toggle: 1
+            toggle: 0
         },
         "Zpět": {
-            func: mainMenu,
-            toggle: 1
+            func: backToEmptyExtras,
+            toggle: 0
         }
     }
 }
@@ -489,12 +491,12 @@ export const summaryData = `
 `;
 
 
-const foreword = `
+export const foreword = `
 <h2>Předmluva</h2>
 <p>Tento text slouží k efektivnějšímu využití času mého, ten který zaměstnání hledá, tak i Vašeho, který naopak nového zaměstnance hledá. Sekce Založit novou postavu je mým životopisem a celý tento web je ukázkou mé práce a motivace. Pokud nejprve čtete tyto řádky, doporučuji nejprve si projít zmíněnou sekci. Pokud Vás web zaujme, pak pokračujte čtením níže, kde se již dopředu dozvíte nějaké informace o mé osobě a budete tak moci kvalifikovaněji posoudit, zdali má vůbec smysl se se mnou zabývat dál nebo ne.</p>`;
 
 
-const shortStory = `
+export const shortStory = `
 <h2>Vzdělání, kurzy a cíle</h2>
 <p>Díky sice krátké, ale intenzivné zkušenosti s C++ jsem pochytil základy programování a základy vnitřního fungování PC. Tyto znalosti byly užitečné pro následné rychlejší vstřebání základů a pokročilejších témat v Pythonu. Po měsící "pythonování" jsem nasedl na zběsilé tempo Davida J. Malana a jeho bandy z Harvardu zodpovědné za světově známý kurz CS50x. Odtud už to byl jen krůček k JavaScriptu. Díky tomu, že již kdysi na základní škole mě bavilo HTML, nebylo těžké do toho vlaku s připojeným CSS naskočit, spojit všechno včetně základů Flasku dohromady a začít tvořit.</p>
 <p>Nezpochybnitelnou roli při mém "přerodu" v programátora má Honza Javorek a jeho projekt Junior.guru a jeho komunita. Díky.</p>
@@ -536,7 +538,7 @@ Snažím se uvažovat a dělat věci trochu jinak, ale zase ne nezbytně "na sí
     </ul>
 </p>`;
 
-const longStory = `
+export const longStory = `
 <h2>Stanovisko k pandemii</h2>
 <p>Než se pustíte do čtení, bude ode mě fér zmínit narovinu pár věcí, které jsou pro mě kritické, a které by mohly být rozhodující ať už pro Vaše rozhodování nyní, tak pro naši potenciální spolupráci v budoucnu.</p>
 <p>Jsem člověk, který se od počátku těšil až vědci přijdou s funkční vakcínou proti aktuálnímu strašákovi. Jsem očkovaný a těším se na třetí dávku (*smrk*). Proti lidem, kteří očkovaní nejsou nemám nic do té doby, dokud nejsou v mé blízkosti, nebo pro neočkování mají smysluplný důvod a/nebo dodržují náležitou hygienu, nosí ochránné prostředky a chovají se obecně tak nějak ohleduplně.</p>
