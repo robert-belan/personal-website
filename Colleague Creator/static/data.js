@@ -17,7 +17,9 @@ import {
     aboutAuthorLong,
     clearAndMoveToMainMenu,
     backToEmptyExtras,
-    teleportTo
+    teleportTo,
+    releaseNotes,
+    aboutThisWeb
 } from "/static/menuFunctions.js"
 
 
@@ -117,11 +119,11 @@ export const navigationData = {
             toggle: 1
         },
         "Jak vznikal tento web?": {
-            func: mainMenu,
+            func: aboutThisWeb,
             toggle: 1
         },
         "Změny na webu": {
-            func: mainMenu,
+            func: releaseNotes,
             toggle: 1
         },
         "Zpět": {
@@ -132,10 +134,6 @@ export const navigationData = {
 
     "Články o autorovi": {
         "Nadpis": "Obsah článku",
-        "Stanovisko": {
-            func: function statement() { teleportTo("#statement"); console.log(this) },
-            toggle: 0
-        },
         "Vzdělání a kurzy": {
             func: function education() { teleportTo("#education") },
             toggle: 0
@@ -164,7 +162,32 @@ export const navigationData = {
             func: backToEmptyExtras,
             toggle: 0
         }
+    },
+
+    "Jak vznikal tento web?": {
+        "Nadpis": "Jak vznikal tento web?",
+        "Zpět": {
+            func: backToEmptyExtras,
+            toggle: 0
+        }
+    },
+
+    "Změny na webu": {
+        "Nadpis": "Změny na webu",
+        "Poslední": {
+            func: function latest() { teleportTo("#latest") },
+            toggle: 0
+        },
+        "Plánované": {
+            func: function planned() { teleportTo("#planned") },
+            toggle: 0
+        },
+        "Zpět": {
+            func: backToEmptyExtras,
+            toggle: 0
+        }
     }
+
 }
 
 export const creation_layout = `<div id="main-container" class="main-container">
@@ -498,11 +521,6 @@ export const foreword = `
 
 
 export const shortStory = `
-<h2 id="statement">Stanovisko k pandemii</h2>
-<p>Než se pustíte do čtení, bude ode mě fér zmínit narovinu pár věcí, které jsou pro mě kritické, a které by mohly být rozhodující ať už pro Vaše rozhodování nyní, tak pro naši potenciální spolupráci v budoucnu.</p>
-<p>Jsem člověk, který se od počátku těšil až vědci přijdou s funkční vakcínou proti aktuálnímu strašákovi. Jsem očkovaný a těším se na třetí dávku (*smrk*). Proti lidem, kteří očkovaní nejsou nemám nic do té doby, dokud nejsou v mé blízkosti, nebo pro neočkování mají smysluplný důvod a/nebo dodržují náležitou hygienu, nosí ochránné prostředky a chovají se obecně tak nějak ohleduplně.</p>
-<p>I přes očkování dodržuji to stejné. K aktuální takřka "občanské válce" očkovaných a neočkovaných nechci nijak dál přispívat, ale chci přispět k tomu, abysme se z těch ***ček dostali co možná nejdříve a mohli se opět vrátit do kolejí vyjetých před pandemií. Nebo se tomu alespoň co nejvíce přiblížit.</p>
-
 <h2 id="education">Vzdělání, kurzy a cíle</h2>
 <p>Díky sice krátké, ale intenzivné zkušenosti s C++ jsem pochytil základy programování a základy vnitřního fungování PC. Tyto znalosti byly užitečné pro následné rychlejší vstřebání základů a pokročilejších témat v Pythonu. Po měsící "pythonování" jsem nasedl na zběsilé tempo Davida J. Malana a jeho bandy z Harvardu zodpovědné za světově známý kurz CS50x. Odtud už to byl jen krůček k JavaScriptu. Díky tomu, že již kdysi na základní škole mě bavilo HTML, nebylo těžké do toho vlaku s připojeným CSS naskočit, spojit všechno včetně základů Flasku dohromady a začít tvořit.</p>
 <p>Nezpochybnitelnou roli při mém "přerodu" v programátora má Honza Javorek a jeho projekt Junior.guru a jeho komunita. Díky.</p>
@@ -545,12 +563,6 @@ Snažím se uvažovat a dělat věci trochu jinak, ale zase ne nezbytně "na sí
 </p>`;
 
 export const longStory = `
-<h2 id="statement">Stanovisko k pandemii</h2>
-<p>Než se pustíte do čtení, bude ode mě fér zmínit narovinu pár věcí, které jsou pro mě kritické, a které by mohly být rozhodující ať už pro Vaše rozhodování nyní, tak pro naši potenciální spolupráci v budoucnu.</p>
-<p>Jsem člověk, který se od počátku těšil až vědci přijdou s funkční vakcínou proti aktuálnímu strašákovi. Jsem očkovaný a těším se na třetí dávku (*smrk*). Proti lidem, kteří očkovaní nejsou nemám nic do té doby, dokud nejsou v mé blízkosti, nebo pro neočkování mají smysluplný důvod a/nebo dodržují náležitou hygienu, nosí ochránné prostředky a chovají se obecně tak nějak ohleduplně.</p>
-<p>I přes očkování dodržuji to stejné. K aktuální takřka "občanské válce" očkovaných a neočkovaných nechci nijak dál přispívat, ale chci přispět k tomu, abysme se z těch ***ček dostali co možná nejdříve a mohli se opět vrátit do kolejí vyjetých před pandemií. Nebo se tomu alespoň co nejvíce přiblížit.</p>
-
-
 <h2 id="education">Vzdělání a kurzy</h2>
 <p>Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak ji měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" tohoto webu, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti-upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůř. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přínášelo hromadu frustrace, ale ten přehled o všem mi vyhovoval. Nevylučuji budoucí oživení zájmu, ale v tuto chvíli mám jiné cíle.</p>
 <p>Pár měsíců zpět jsem na C++ nenavázal. Místo něj jsem si potykal s Pythonem a vzájemně jsme si porozuměli. Díky společnému známému C++ byla prvotní spolupráce takřka raketová. C++ vyžadovalo nějaké základní znalosti principů fungování paměti počítače a tak vůbec všeho možnýho kolem těch křemíkových vnitřností počítače. Po asi dvou třech týdnech jsem se pustil do vypracování entry úkolu pro tzv. Python Weekend pořádaný společností Kiwi. Seděl jsem u toho dnem a nocí, neboť nezbývalo moc času. Víkend s notebookem v Bratislavě jsem nakonec nestrávil, ale za to jsem se toho hodně naučil. Výsledný skript nakonec nefungoval a já ještě nepřišel na to proč. A to především z toho důvodu, že jsem si od toho chtěl dát chvíli pauzu a taky jsem se přesunul ke světově známému kurzu CS50x, což zpětně vnímám jako nejlepší možné rozhodnutí.</p>
@@ -587,9 +599,9 @@ To je jako všechno? Ne. Tak třeba díky tomu, že už je to rok a něco málo 
 <p>Pokud jste se touto rigorózní prací "prokousali" až sem, tak Vám mnohokrát děkuji a pevně doufám, že jsem jen neplýtval Vaším časem a minimálně jsem Vás trochu pobavil. Na první kontakt to bylo možná trochu svérázné a možná jsem si pod sebou podřezal pár větví, ale já hraju na upřímnost. Jsem si totiž vědom toho, že i Vy personalisté jste lidé s emocemi a přestože hledáte nejprve člověka podle dovedností na papíře, na pracovišti se budeme potkávat v jiné roli a ta musí dávat hlubší smysl pokud má tým držet pohromadě.</p>
 <p>A pokud byste měli pocit, že některé myšlenky v odstavcích nebyly zcela vysvětleny nebo ukončeny, byl to většinou záměr, aby toho textu nebylo úplně tolik a abychom si něco nechali na případný pohovor. :-)</p>
 
-<p>Ještě jednou díky,</p>
-<p>Robert</p>
-
+<br>
+<p>Ještě jednou díky,<br>
+Robert</p>
 
 
 <h2 id="practicalNotes">Praktické poznámky</h2>
@@ -601,3 +613,28 @@ To je jako všechno? Ne. Tak třeba díky tomu, že už je to rok a něco málo 
         <li>On-site, remote možný, ale raději bych se mu vyhnul</li>
     </ul>
 </p>`
+
+
+export const releaseNotesData = `
+<h2 id="latest">Poslední</h2>
+<p>
+    <ul>
+        <li>Doplněný obsah "Jak vznikl tento web"</li>
+        <li>Upravená responzivita pro menší obrazovky</li>
+        <li></li>
+    </ul>
+</p>
+
+<h2 id="planned">Plánované</h2>
+<p>
+    <ul>
+        <li>Horní a spodní okraj textu v sekci Extras bude přecházet do ztracena</li>
+        <li></li>
+        <li></li>
+    </ul>
+</p>
+`
+
+export const aboutThisWebData = `
+    <p>Spontánně.</p>
+`

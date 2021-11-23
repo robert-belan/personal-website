@@ -16,7 +16,9 @@ import {
     summaryData,
     foreword,
     shortStory,
-    longStory
+    longStory,
+    releaseNotesData,
+    aboutThisWebData
 } from "/static/data.js";
 
 
@@ -569,9 +571,6 @@ export function teleportTo(target) {
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////// Being created ///////////////////////////////////////////
-
 /** 
  * Used in: Extras Section
  * Show short version of article about author
@@ -586,16 +585,18 @@ export function aboutAuthorLong() {
     changeTextInExtras(longStory);
 }
 
-
-
-////////////////////////////////////////////////////////////////////////////////
-///////////// Waiting for real declaration /////////////////////////////////////
-
-
-function aboutThisWeb() {
-    // do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu
-    // zmenit nazev Extras - neni dostatecne jasne co se pod tim skryva !!!!
+export function releaseNotes() {
+    createNavigation(navigationData["Změny na webu"], "#items");
+    changeTextInExtras(releaseNotesData);
 }
 
-function releaseNotes() {
+export function aboutThisWeb() {
+    createNavigation(navigationData["Jak vznikal tento web?"], "#items");
+    changeTextInExtras(aboutThisWebData);
+
+    /** TODO: smazat kdykoli to zacne nekoho stvat
+     * do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu
+     * zmenit nazev Extras - neni dostatecne jasne co se pod tim skryva !!!!
+    */
+
 }

@@ -63,7 +63,7 @@ body {
 }
 
 main {
-  border: 1px solid rebeccapurple;
+  /* border: 1px solid rebeccapurple; */
   min-height: 400px; /*Lze doupravit*/
   height: 75vh;
   width: 100%;
@@ -92,7 +92,7 @@ button {
     /* Main Menu (homepage) -----------------------------*/ 
 .menu {
   position: absolute;
-  top: 35%;
+  bottom: 15%;
   right: 10%;
 }
 
@@ -718,7 +718,7 @@ iframe:hover {
 /* ------------------------ Extras Section --------------------------------- */
 
 .extras-text-container {
-  border: 1px dotted goldenrod;
+  /* border: 1px dotted goldenrod; */
   position: relative;
   height: 100%;
   width: 50%;
@@ -737,5 +737,24 @@ iframe:hover {
 }
 
 .extras-text-container h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 3rem;
+}
+
+.extras-text-container h2:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
+.extras-text-container p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.extras-text-container ul {
+  font-size: 1.2rem;
+  list-style-type: none;
+}
+
+.extras-text-container li:not(:last-child) { 
+  margin-bottom: 0.5rem;  
 }
