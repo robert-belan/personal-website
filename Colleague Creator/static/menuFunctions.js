@@ -79,7 +79,6 @@ function createBackToMenuButton() {
             button.classList.remove("showPage"); // sanitize html code
         }, 500);
     }, 2000);
-
 }
 
 
@@ -92,6 +91,8 @@ export function clearAndMoveToMainMenu() {
     // clears main menu from text 
     fadeInFadeOut(() => { }, "main");
     mainMenu();
+    console.log("FF");
+    // zkouska 
 }
 
 
