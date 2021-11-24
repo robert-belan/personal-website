@@ -131,9 +131,9 @@ function createAppearanceTable() {
         tbody_.insertAdjacentHTML("beforeend", `
             <tr>
                 <td class="prop-col">${tableRow.prop}</td>
-                <td class="arrow-col"><</td>
+                <td class="arrow-col">&#10229;</td>
                 <td class="option-col">${tableRow.option}</td>
-                <td class="arrow-col">></td>
+                <td class="arrow-col">&#10230;</td>
             <tr>`);
     });
 }

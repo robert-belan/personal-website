@@ -308,7 +308,6 @@ iframe:hover {
 .appearance-table {
   font-size: 1.3rem;
   width: 90%;
-  /* border: 1px solid rgb(146, 141, 140); */
 }
 
 .prop-col {
@@ -321,16 +320,16 @@ iframe:hover {
   width: 10%;
   font-size: 1.3rem;
   text-align: center;
-  transition: background-color 0.3s;
+  transition: background-color var(--ui-animation-duration) ease;
 }
 
 .arrow-col:hover {
-  background-color: #b3b3c2;
+  background-color: var(--ui-hover-button-color);
   cursor: pointer;
 }
 
 .arrow-col:active {
-  background-color: #5656a541;
+  background-color: var(--ui-clicked-button);
 }
 
 .option-col {
@@ -343,17 +342,12 @@ iframe:hover {
   height: 0.4rem;
   padding: auto 0;
   background-color: var(--ui-background);
-  border-style: solid;
-  border-width: 0px;
-  border-color: var(--ui-borders);
-  transition: border-width 0.5s,
-              background-color var(--ui-animation-duration) ease-in-out;
-              /* border var(--ui-animation-duration); */
+  transition: all 0.2s ease;
 }
   
 .appearance-table tr:hover {
-  background-color: purple;
-  /* border-width: 1px; */
+  background-color: var(--ui-elements);
+  color: var(--ui-text-negative);
 }
 
 .appearance-table td {
