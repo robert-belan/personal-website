@@ -52,7 +52,8 @@ export function generateColleague() {
         const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
         
         Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
-                    
+                 
+        
         Menu dole slouží k procházení jednotlivých parametrů.`;
 
         const htmlElement = `<div class="creationMessage">${message}</div>`;
@@ -136,7 +137,15 @@ function createAppearanceTable() {
                 <td class="arrow-col">&#10230;</td>
             <tr>`);
     });
+
+    document.querySelectorAll(".arrow-col").forEach(item => {
+        item.addEventListener("click", unavailableMessage)
+    })
 }
+
+
+
+
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
@@ -184,8 +193,6 @@ export function history() {
 
 function createHistory() {
 
-    const destination = document.querySelector("#text");
-
     // foundation
     const history_layout = `
     <div class="history-container">
@@ -195,20 +202,25 @@ function createHistory() {
         <div id="description" class="description"></div>
     </div>
     `
-    destination.insertAdjacentHTML("beforeend", history_layout);
+    document.querySelector("#text").insertAdjacentHTML("beforeend", history_layout);
 
     const list = document.querySelector("#profile ul");
     const description = document.querySelector("#description");
 
-    let counter = 10;
+    let counter = 0;
     historyData.forEach(profile => {
         list.insertAdjacentHTML("beforeend", `
             <li>
-                <input type="radio" name="btn-profile" id="btn-profile${counter}">
+                <input type="button" name="btn-profile" id="btn-profile${counter}">
                 <label for="btn-profile${counter}" class="button historyprofilemenu">${profile.profile}</label>
             </li>`);
 
-        // TODO: mozna zde nastavit listeners?
+        // if (counter > 0) {
+        //     document.querySelector(`#btn-profile${counter}`).addEventListener("click", () => {
+        //         unavailableMessage("Bohužel. V tuto chvíli není tato možnost dostupná.");
+        //     })
+        // }
+
         counter++;
     });
 
@@ -262,11 +274,15 @@ function createSkillsTable() {
             <tr id="skill-${counter}">
                 <td class="skill-logo"><img src="/static/logos/${skillsData[counter].logo}"></td>
                 <td class="skill-label">${skillsData[counter].skill}</td>
-                <td class="sign"><span>&#8331;</span></td>
+                <td class="sign">&#43;</td>
                 <td class="level">${skillsData[counter].completed}</td>
-                <td class="sign"><span>&#8330;</span></td>
+                <td class="sign">&#8722;</td>
             </tr>`);
     }
+
+    document.querySelectorAll(".sign").forEach(sign => {
+        sign.addEventListener("click", unavailableMessage)
+    })
 }
 
 function createSkills() {
@@ -318,10 +334,10 @@ function getSkillDescription(selectedSkill) {
         if (counter < skill.completed) {
             result.push(`<li class="achieved">${skill.levels[counter]}</li>`)
             if (counter < (skill.completed - 1)) {
-                result.push(`<li class="down-arrow">&#8595;</li>`);    // down arrow sign
+                result.push(`<li class="down-arrow">&#8675;</li>`);    // down arrow sign
             }
             else if (counter === skill.completed - 1 && counter !== skill.levels.length - 1) {
-                result.push(`<li class="down-arrow">&#10515;</li>`); // down arrow with bottom line
+                result.push(`<li class="down-stop-arrow">&#10515;</li>`); // down arrow with bottom line
             }
         }
         else {
@@ -364,7 +380,7 @@ function createAttributesBoxes() {
         attributes_boxes_container.insertAdjacentHTML("beforeend", `
             <div id="attribute-box-${counter}" class="attribute-box">
                 <p>${attributesData[counter].name}</p>
-                <div class="${attributesData[counter].selected ? "check-mark" : "uncheck-mark"}" >&#10005;</div >
+                <div class="${attributesData[counter].selected ? "check-mark checked" : "check-mark unchecked"}" >&#10005;</div >
             </div>
         `)
 
@@ -487,7 +503,7 @@ function createSummary() {
 // helper function which create temporary alert message
 function tempAlertMessage(message, target, duration) {
 
-    const messageParagraph = `<p class="temp-alert-msg">${message}</p>`;
+    const messageParagraph = `<p id="alertMsg" class="temp-alert-msg">${message}</p>`;
 
     const temp_container = document.createElement("div");
     temp_container.classList.add("temp-alert-msg-container", "hidden");
@@ -508,13 +524,19 @@ function tempAlertMessage(message, target, duration) {
 }
 
 
-// show 
-export function letsCreateMyOwn() {
-    const message = `Nezlobte se, ale možnost "Zvolím si sám" není v tuto chvíli přístupná.`;
-    if (document.querySelector("main").innerHTML.length === 0) {
+function unavailableMessage() {
+    if (!document.querySelector("#alertMsg")) {
+        const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`;
         tempAlertMessage(message, document.querySelector("main"), 2000);
     }
 }
+
+
+
+export function letsCreateMyOwn() {
+    unavailableMessage();
+}
+
 
 
 /**
