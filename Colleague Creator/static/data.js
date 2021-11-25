@@ -408,6 +408,13 @@ export const skillsData = [
     },
 
     {
+        logo: "DOPLNIT.png",
+        skill: "Testování",
+        levels: ["Mělo by se testovat"],
+        completed: 0
+    },
+
+    {
         logo: "linux.png",
         skill: "Linux",
         levels: ["První krůčky v Ubuntu",

@@ -270,7 +270,7 @@ iframe:hover {
   width: 100%;
   height: 100%;
   padding: 0 60px;
-  /* border: 1px solid yellow; */
+  border: 1px solid yellow;
   display: flex;
   flex-direction: row;
 }
@@ -635,7 +635,7 @@ iframe:hover {
   font-size: 1.3rem;
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
-  margin-bottom: 8vh;
+  margin-bottom: 10vh;
 }
 
 .attribute-box {
