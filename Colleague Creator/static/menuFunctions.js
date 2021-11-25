@@ -8,7 +8,7 @@ import {
 import {
     navigationData,
     creation_layout,
-    model3dHTML,
+    model3dHTMLData,
     appearanceData,
     historyData,
     skillsData,
@@ -40,8 +40,12 @@ export function generateColleague() {
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
     // load 3d model
+
+    async function getModel() {
+        { }
+    }
     const model3dContainer = document.querySelector("#model3d");
-    model3dContainer.insertAdjacentHTML("beforeend", model3dHTML);
+    model3dContainer.insertAdjacentHTML("beforeend", model3dHTMLData);
 
     const textContainer = document.querySelector("#text")
     // insert welcome text

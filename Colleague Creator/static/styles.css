@@ -525,9 +525,10 @@ iframe:hover {
 
 .skills-description .unachieved {
   color: var(--ui-text-negative);
+  font-size: 1rem;
   padding-top: 0.3rem;
   font-size: 1rem;
-  transition: all var(--ui-animation-duration) ease-in-out;
+  transition: all var(--ui-animation-duration) linear;
 }
 
 .skills-description .unachieved:last-of-type {
@@ -634,7 +635,7 @@ iframe:hover {
   font-size: 1.3rem;
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
-  margin-bottom: 0.5rem;
+  margin-bottom: 8vh;
 }
 
 .attribute-box {

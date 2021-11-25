@@ -202,13 +202,15 @@ export const creation_layout = `<div id="main-container" class="main-container">
 </section>
 </div>`
 
-export const model3dHTML = `
+// Vectary API - https://vectary.github.io/viewer-api/#/parameters
+export const model3dHTMLData = `
 <iframe id="5f9ba68e-d40f-48d5-8d73-5095246e5dd9" 
         src="https://app.vectary.com/viewer/v1/?model=5f9ba68e-d40f-48d5-8d73-5095246e5dd9&env=studio3&showInteractionPrompt=0" 
         frameborder="0" 
         width="100%" 
         height="100%"
         noAr="1"
+        showPreloader="0"
         ></iframe>`;
 
 
