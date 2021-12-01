@@ -1,9 +1,4 @@
-import {
-    createNavigation,
-    showElement,
-    afterAnimation,
-    fadeOutAndDeleteContent
-} from "/static/main.js";
+import { afterAnimation } from "/static/globals.js";
 
 import {
     navigationData,
@@ -21,9 +16,69 @@ import {
     aboutThisWebData
 } from "/static/data.js";
 
+import {
+    showElement,
+    fadeElement
+} from "/static/helpers.js";
+
+
+
+/**
+ * General function for MENUS CREATION
+ * @param {{a: string, b: {func: func, toggle: number}}} itemsData - contain menus items (titles and functions)
+ *  @property {string} - First property - represents menu title/header
+ *  @property {Object} - Second and THE REST of properties are {func: func, toggle: number}
+ *    @property {function} func - tells what happens after click
+ *    @property {number} toggle - specify <input> element behaviour (ie. type="button/radio")
+ */
+export function createNavigation(itemsData) {
+
+    /** Specify where to create menu items */
+    const container = document.querySelector(`#items`);
+
+    fadeElement(container);
+    setTimeout(() => {
+        createMenuItems(itemsData, container);
+        showElement(container);
+    }, afterAnimation);
+}
+
+
+/** Generates menu title and menu items
+ * @param {Object} itemsData - The same as previous function's (createNavigation) JSDoc
+ * @param {Element} container - Specifies where to generate items.
+ */
+function createMenuItems(itemsData, container) {
+
+    /** If true, it dictates creating special horizontal menu at "character creation" section */
+    const creationMenu = itemsData === navigationData["Vytváření postavy"];
+    if (creationMenu) document.querySelector("#menu").classList.replace("menu", "creation-menu");
+
+    /** Conditionally creates menu title */
+    if (itemsData["Nadpis"]) {
+        container.insertAdjacentHTML("afterbegin", `<h2>${itemsData["Nadpis"]}</h2>`);
+    }
+
+    /** Creates menu items (weird implementation of buttons) */
+    for (let item in itemsData) {
+        if (item !== "Nadpis") {
+            container.insertAdjacentHTML("beforeend", `
+<li>
+    <input type=${itemsData[item].toggle ? "radio" : "button"} name="btn-menu" id="btn-${itemsData[item].func.name}">
+    <label for="btn-${itemsData[item].func.name}" class="button ${creationMenu ? "creationmenu" : "mainmenu"}">${item}</label>
+</li>`);                               // .name is property of Function object)
+
+            /** Adding purpose(action) of buttons */
+            document.querySelector(`#btn-${itemsData[item].func.name}`).addEventListener("click", () => {
+                itemsData[item].func();
+            });
+        }
+    }
+}
+
 
 export function howCreateColleague() {
-    createNavigation(navigationData["Jak vytvořit postavu?"], "#items");
+    createNavigation(navigationData["Jak vytvořit postavu?"]);
 }
 
 
@@ -33,15 +88,12 @@ export function generateColleague() {
     const main = document.querySelector("main");
 
     // loads menu
-    createNavigation(navigationData["Vytváření postavy"], "#items", "", "change");
-
+    createNavigation(navigationData["Vytváření postavy"]);
 
     // create new layout in <main> tag
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
     // load 3d model
-
-
     const model3dContainer = document.querySelector("#model3d");
     model3dContainer.insertAdjacentHTML("beforeend", model3dHTMLData);
 
@@ -82,7 +134,7 @@ function createBackToMenuButton() {
 
 
 export function mainMenu() {
-    createNavigation(navigationData["Hlavní menu"], "#items")
+    createNavigation(navigationData["Hlavní menu"])
 }
 
 
@@ -97,7 +149,7 @@ export function clearAndMoveToMainMenu() {
 // attach link to HomePage
 function attachHomapageLinkListener(element) {
     element.addEventListener("click", () => {
-        fadeOutAndDeleteContent(document.body);
+        fadeElement(document.body);
         setTimeout(() => {
             window.location.assign("/");
         }, afterAnimation);
@@ -109,7 +161,6 @@ function attachHomapageLinkListener(element) {
 export function appearance() {
     fadeInFadeOut(createAppearanceTable, document.querySelector("#text"))
 }
-
 
 function createAppearanceTable() {
 
@@ -133,6 +184,7 @@ function createAppearanceTable() {
             <tr>`);
     });
 
+    /* After click on buttons with arrow, it tells you that you can not use it */
     document.querySelectorAll(".arrow-col").forEach(item => {
         item.addEventListener("click", unavailableMessage)
     })
@@ -409,7 +461,7 @@ export function darkmode() {
 
 // moves user from main menu to submenu - Settings
 export function settings() {
-    createNavigation(navigationData["Nastavení"], "#items");
+    createNavigation(navigationData["Nastavení"]);
 
     window.onload = () => {
         const darkmodeButton = document.querySelector("#btn-darkmode");
@@ -423,7 +475,7 @@ export function settings() {
 
 
 export function leaveThisWebsite() {
-    createNavigation(navigationData["Ukončit hru"], "#items");
+    createNavigation(navigationData["Ukončit hru"]);
 }
 
 export function exit() {
@@ -431,7 +483,7 @@ export function exit() {
     // fade full page out
     document.body.classList.replace("show", "fade");
 
-    // f*cking crazy combo function - it is just telling goodbye in fancy way
+    // this f*cking crazy combo function - it is just telling goodbye in fancy way
     // fade everything out -> fade in and say "bye" -> fade everything out and redirect to Google
     setTimeout(() => {
         document.body.innerHTML = "";
@@ -528,7 +580,7 @@ function getForeword() {
 
 
 export function extras() {
-    createNavigation(navigationData["Extras"], "#items");
+    createNavigation(navigationData["Extras"]);
 
     const main = document.querySelector("main");
     // Studying Temporary Note: this means: if main is empty (not child elements)
@@ -582,22 +634,22 @@ export function teleportTo(target) {
  * Show short version of article about author
  */
 export function aboutAuthorShort() {
-    createNavigation(navigationData["Články o autorovi"], "#items");
+    createNavigation(navigationData["Články o autorovi"]);
     changeTextInExtras(shortStory);
 }
 
 export function aboutAuthorLong() {
-    createNavigation(navigationData["Články o autorovi"], "#items");
+    createNavigation(navigationData["Články o autorovi"]);
     changeTextInExtras(longStory);
 }
 
 export function releaseNotes() {
-    createNavigation(navigationData["Změny na webu"], "#items");
+    createNavigation(navigationData["Změny na webu"]);
     changeTextInExtras(releaseNotesData);
 }
 
 export function aboutThisWeb() {
-    createNavigation(navigationData["Jak vznikal tento web?"], "#items");
+    createNavigation(navigationData["Jak vznikal tento web?"]);
     changeTextInExtras(aboutThisWebData);
 
     /** TODO: smazat kdykoli to zacne nekoho stvat

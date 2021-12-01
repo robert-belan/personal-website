@@ -22,7 +22,6 @@ import {
     aboutThisWeb
 } from "/static/menuFunctions.js"
 
-
 export const navigationData = {
     "Hlavní menu": {
         "Nadpis": "Hlavní menu",
@@ -61,7 +60,7 @@ export const navigationData = {
     },
 
     "Vytváření postavy": {
-        "Nadpis": "Vytváření postavy",
+        "Nadpis": "",
         "Vzhled": {
             func: appearance,
             toggle: 1
@@ -646,6 +645,7 @@ export const releaseNotesData = `
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
+        <li>Velká refaktorace kódu - chystání půdy pro překlopení do Reactu</li>
         <li>Upravit text v Extras a doplnit formátování</li>
         <li>Horní a spodní okraj textu v sekci Extras bude přecházet do ztracena</li>
         <li>Doplnit JSDoc popisky k funkcím !</li>
