@@ -88,7 +88,7 @@ export function mainMenu() {
 
 export function clearAndMoveToMainMenu() {
     // clears main menu from text 
-    fadeInFadeOut(() => { }, "main");
+    fadeInFadeOut(() => { }, document.querySelector("main"));
     mainMenu();
 }
 
@@ -141,16 +141,7 @@ function createAppearanceTable() {
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
-function fadeInFadeOut(func, target) {
-
-    let container;
-
-    if (typeof target === "object") {
-        container = target;
-    }
-    else if (typeof target === "string") {
-        container = document.querySelector(target);
-    }
+function fadeInFadeOut(func, container) {
 
     // fade content out 
     if (container.classList.contains("show")) {
@@ -165,15 +156,8 @@ function fadeInFadeOut(func, target) {
         // load new content (new html tags etc.)
         func();
 
-        // fade new content in
-        container.classList.replace("fade", "show");
+        showElement(container);
 
-        // clear container attributes - this is needless, but html code looks cleaner
-        setTimeout(() => {
-            container.classList.remove("show")
-        }, afterAnimation + 501)
-
-        // happens after fading content out
     }, afterAnimation);
 }
 
@@ -416,7 +400,11 @@ export function darkmode() {
     window.localStorage.setItem('theme', targetTheme);
     console.log(`info: ${targetTheme} theme setting has been saved to origin's local storage`)
 
-    //understood and copied from: https://lukelowrey.com/css-variable-theme-switcher/
+    /**
+     * Understood and copied from: 
+     * @author Luke Lowrey 
+     * https://lukelowrey.com/css-variable-theme-switcher/
+     */
 }
 
 // moves user from main menu to submenu - Settings
@@ -564,7 +552,7 @@ export function extras() {
  * Clear text in Extras section. U
  */
 export function backToEmptyExtras() {
-    fadeInFadeOut(getForeword, "#extras-text-container");
+    fadeInFadeOut(getForeword, document.querySelector("#extras-text-container"));
     extras();
 }
 

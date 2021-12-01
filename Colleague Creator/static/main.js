@@ -22,7 +22,7 @@ export function showElement(element) {
         element.classList.replace("fade", "show");
     };
 
-    /** @description - Clears HTML code up */
+    /** @description - Just clears HTML code up */
     setTimeout(() => { element.classList.remove("show") }, afterAnimation);
 }
 
