@@ -1,7 +1,7 @@
 import {
     createNavigation,
-    showAllElements,
-    animationDuration,
+    showElement,
+    afterAnimation,
     fadeOutAndDeleteContent
 } from "/static/main.js";
 
@@ -41,9 +41,7 @@ export function generateColleague() {
 
     // load 3d model
 
-    async function getModel() {
-        { }
-    }
+
     const model3dContainer = document.querySelector("#model3d");
     model3dContainer.insertAdjacentHTML("beforeend", model3dHTMLData);
 
@@ -66,24 +64,20 @@ export function generateColleague() {
 
     // show homepage button
     createBackToMenuButton();
-    attachHomapageLinkListener("#btn-hp");
+    attachHomapageLinkListener(document.querySelector("#btn-hp"));
 }
 
 
 function createBackToMenuButton() {
     const header = document.querySelector("header");
-
     header.insertAdjacentHTML("beforeend", `
     <input type="button" name="btn-hp" id="btn-hp" >
     <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
     `);
-    setTimeout(() => {
-        const button = document.querySelector("header label");
-        button.classList.replace("hidden", "showPage");
-        setTimeout(() => {
-            button.classList.remove("showPage"); // sanitize html code
-        }, 500);
-    }, 2000);
+    /** @todo - Uvazit zda nechat zobrazeni tlacitka okamzite nebo s odstupem casu */
+    // setTimeout(() => {
+    showElement(document.querySelector("header label"));
+    // }, 2000);
 }
 
 
@@ -96,20 +90,17 @@ export function clearAndMoveToMainMenu() {
     // clears main menu from text 
     fadeInFadeOut(() => { }, "main");
     mainMenu();
-    console.log("FF");
-    // zkouska 
 }
 
 
 
 // attach link to HomePage
-function attachHomapageLinkListener(selector) {
-    const element = document.querySelector(selector);
+function attachHomapageLinkListener(element) {
     element.addEventListener("click", () => {
-        fadeOutAndDeleteContent("body");
+        fadeOutAndDeleteContent(document.body);
         setTimeout(() => {
             window.location.assign("/");
-        }, animationDuration);
+        }, afterAnimation);
     })
 }
 
@@ -148,9 +139,6 @@ function createAppearanceTable() {
 }
 
 
-
-
-
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
 function fadeInFadeOut(func, target) {
@@ -165,10 +153,10 @@ function fadeInFadeOut(func, target) {
     }
 
     // fade content out 
-    if (container.classList.contains("showPage")) {
-        container.classList.remove("showPage");
+    if (container.classList.contains("show")) {
+        container.classList.remove("show");
     }
-    container.classList.add("fadePage");
+    container.classList.add("fade");
 
     setTimeout(() => {
         // remove old content
@@ -178,15 +166,15 @@ function fadeInFadeOut(func, target) {
         func();
 
         // fade new content in
-        container.classList.replace("fadePage", "showPage");
+        container.classList.replace("fade", "show");
 
         // clear container attributes - this is needless, but html code looks cleaner
         setTimeout(() => {
-            container.classList.remove("showPage")
-        }, animationDuration + 501)
+            container.classList.remove("show")
+        }, afterAnimation + 501)
 
         // happens after fading content out
-    }, animationDuration);
+    }, afterAnimation);
 }
 
 ////////////////////////// History Section Functions ///////////////////////////
@@ -453,7 +441,7 @@ export function leaveThisWebsite() {
 export function exit() {
 
     // fade full page out
-    document.body.classList.replace("showPage", "fadePage");
+    document.body.classList.replace("show", "fade");
 
     // f*cking crazy combo function - it is just telling goodbye in fancy way
     // fade everything out -> fade in and say "bye" -> fade everything out and redirect to Google
@@ -464,10 +452,10 @@ export function exit() {
             <p>Díky za Váš čas.</p>
         </div>
         `);
-        document.body.classList.replace("fadePage", "showPage");;
+        document.body.classList.replace("fade", "show");;
         // fade everything out again and
         setTimeout(() => {
-            document.body.classList.replace("showPage", "fadePage");
+            document.body.classList.replace("show", "fade");
             // and after that, redirect to Google
             setTimeout(window.location.assign("https://google.com"), 3000)
         }, 1500);
@@ -516,15 +504,15 @@ function tempAlertMessage(message, target, duration) {
     temp_container.insertAdjacentHTML("beforeend", messageParagraph)
 
     // get message visible smoothly
-    temp_container.classList.replace("hidden", "showPage")
+    temp_container.classList.replace("hidden", "show")
 
     // after given time, get message invisible and remove it
     setTimeout(() => {
-        temp_container.classList.replace("showPage", "fadePage");
+        temp_container.classList.replace("show", "fade");
         setTimeout(() => {
             temp_container.remove();
         }, 550)
-    }, duration + animationDuration)
+    }, duration + afterAnimation)
 }
 
 
@@ -565,8 +553,8 @@ export function extras() {
     }
 
     setTimeout(() => {
-        showAllElements("#extras-text-container");
-    }, animationDuration);
+        showElement(document.querySelector("#extras-text-container"));
+    }, afterAnimation);
     // reason of bigger additional delay is for discovering menu items at first
 }
 

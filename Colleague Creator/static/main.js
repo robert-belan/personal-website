@@ -1,42 +1,48 @@
 
-// Global variables
-
 // is linked to style.css variable "--ui-animation-duration", must be changed manually
-export const animationDuration = 300;
+export const afterAnimation = 300;
 
 
 window.addEventListener("load", () => {
-    showAllElements();
+    showElement(document.body);
 })
 
-// TODO: pozmenit jmeno a refaktorovat
-export function showAllElements(element = "") {
-    if (!element) {
-        document.body.classList.replace("hidden", "showPage");
-    } else {
-        let el = document.querySelector(element);
 
-        // Study Note: if hidden not exists, function return false, then...
-        if (!el.classList.replace("hidden", "showPage")) {
-            el.classList.replace("fadePage", "showPage");
-        };
-        // TODO: sledovat chovani a pripadne po cas nechat odstranit showPage
-    }
+
+
+
+
+/**
+ * Simple UI effect of fading element in
+ * @param {Element} element - specify element that should be faded in (smoothly shown)
+ */
+export function showElement(element) {
+    /** @description - There could be classes hidden or fade, this decide which will be replaced */
+    if (!element.classList.replace("hidden", "show")) {
+        element.classList.replace("fade", "show");
+    };
+
+    /** @description - Clears HTML code up */
+    setTimeout(() => { element.classList.remove("show") }, afterAnimation);
 }
 
-// used when leaving site (for more seamless experience)
-export function fadeOutAndDeleteContent(target) {
-    const element = document.querySelector(target);
 
-    if (element.classList.contains("showPage")) {
-        element.classList.replace("showPage", "fadePage");
+
+
+
+
+// used when leaving site (for more seamless experience)
+export function fadeOutAndDeleteContent(element) {
+
+    if (element.classList.contains("show")) {
+        element.classList.replace("show", "fade");
     } else {
-        element.classList.add("fadePage");
+        element.classList.add("fade");
     }
 
     setTimeout(() => {
         element.innerHTML = "";
-    }, animationDuration)
+    }, afterAnimation)
 }
 
 
@@ -50,7 +56,7 @@ export function createNavigation(whichOne, targetID, title = "yes", changePos = 
 
     //if there is menu items already, launch smooth animations
     if (!(target.innerHTML.length === 0)) {
-        target.classList.replace("showPage", "fadePage")
+        target.classList.replace("show", "fade")
 
         setTimeout(() => {
             target.innerHTML = "";
@@ -60,11 +66,11 @@ export function createNavigation(whichOne, targetID, title = "yes", changePos = 
 
             changePos ? changeMenuPosition() : {/*do nothing*/ };
 
-            target.classList.replace("fadePage", "showPage")
-        }, animationDuration);
+            target.classList.replace("fade", "show")
+        }, afterAnimation);
     }
     else {
-        target.classList.add("showPage");
+        target.classList.add("show");
         title ? createMenuTitle(whichOne["Nadpis"], target) : {/*do nothing*/ };
         createMenuItems(whichOne, target);
     }

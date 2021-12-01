@@ -219,7 +219,7 @@ input[name="btn-profile"] {
 
 
 /* Used by fadeAllElements() and showAllElements() (main.js) ---------------- */
-.fadePage {
+.fade {
   animation: fade linear var(--ui-animation-duration) forwards;
 }
 
@@ -232,11 +232,11 @@ input[name="btn-profile"] {
   }
 }
 
-.showPage {
-  animation: showPage linear var(--ui-animation-duration) forwards;
+.show {
+  animation: show linear var(--ui-animation-duration) forwards;
 }
 
-@keyframes showPage {
+@keyframes show {
   0% {
     opacity: 0;
   }
