@@ -1,4 +1,5 @@
 import { afterAnimation } from "/static/globals.js";
+import { mainMenu } from "/static/menuFunctions.js";
 
 /**
  * Helpers functions
@@ -44,9 +45,31 @@ export function fadeElement(element, remove = "") {
 
 
 
+// this decorator provides smooth animation among creation tabs
+// second arg: css selector (string) or element
+export function fadeInFadeOut(func, container) {
+
+    // fade content out 
+    if (container.classList.contains("show")) {
+        container.classList.remove("show");
+    }
+    container.classList.add("fade");
+
+    setTimeout(() => {
+        // remove old content
+        container.innerHTML = "";
+
+        // load new content (new html tags etc.)
+        func();
+        showElement(container);
+    }, afterAnimation);
+}
+
+
+
 // helper function which create temporary alert message
 // TODO: JSDoc !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-export function tempAlertMessage(message, target, duration) {
+function tempAlertMessage(message, target, duration) {
 
     const html = `
 <div id="tempMsg" class="temp-alert-msg-container hidden">
@@ -63,6 +86,20 @@ export function tempAlertMessage(message, target, duration) {
 }
 
 
-export function wait(seconds) {
-    setTimeout(null, seconds);
+
+// TODO: JSDoc !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+export function unavailableItemMessage() {
+    /** There could be just one such a message at the same time */
+    if (!document.querySelector("#tempMsg")) {
+        const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`;
+        tempAlertMessage(message, document.querySelector("main"), 2000);
+    }
+}
+
+
+
+export function backToMainMenu() {
+    // clears main menu from text 
+    fadeInFadeOut(() => { }, document.querySelector("main"));
+    mainMenu();
 }

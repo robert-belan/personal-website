@@ -9,18 +9,13 @@ import {
     skillsData,
     attributesData,
     summaryData,
-    foreword,
-    shortStory,
-    longStory,
-    releaseNotesData,
-    aboutThisWebData
 } from "/static/data.js";
 
 import {
-    wait,
     showElement,
     fadeElement,
-    tempAlertMessage
+    fadeInFadeOut,
+    unavailableItemMessage
 } from "/static/helpers.js";
 
 
@@ -140,13 +135,6 @@ export function mainMenu() {
 }
 
 
-export function clearAndMoveToMainMenu() {
-    // clears main menu from text 
-    fadeInFadeOut(() => { }, document.querySelector("main"));
-    mainMenu();
-}
-
-
 
 // attach link to HomePage
 function attachHomapageLinkListener(element) {
@@ -193,27 +181,7 @@ function createAppearanceTable() {
 }
 
 
-// this decorator provides smooth animation among creation tabs
-// second arg: css selector (string) or element
-function fadeInFadeOut(func, container) {
 
-    // fade content out 
-    if (container.classList.contains("show")) {
-        container.classList.remove("show");
-    }
-    container.classList.add("fade");
-
-    setTimeout(() => {
-        // remove old content
-        container.innerHTML = "";
-
-        // load new content (new html tags etc.)
-        func();
-
-        showElement(container);
-
-    }, afterAnimation);
-}
 
 ////////////////////////// History Section Functions ///////////////////////////
 export function history() {
@@ -479,9 +447,8 @@ export function settings() {
 export function leaveThisWebsite() {
     createNavigation(navigationData["Ukončit hru"]);
 }
-
+// TODO: JSDoc
 export function exit() {
-
     fadeElement(document.body);
     setTimeout(() => {
         document.body.insertAdjacentHTML("beforeend", `
@@ -491,7 +458,7 @@ export function exit() {
             fadeElement(document.body);
             setTimeout(() => {
                 window.location.assign("https://google.com");
-            }, 600);
+            }, 400);
         }, 1500);
     }, 500);
 }
@@ -528,15 +495,6 @@ function createSummary() {
 
 
 
-// TODO: JSDoc !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-function unavailableItemMessage() {
-    /** There could be just one such a message at the same time */
-    if (!document.querySelector("#tempMsg")) {
-        const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`;
-        tempAlertMessage(message, document.querySelector("main"), 2000);
-    }
-}
-
 
 
 export function letsCreateMyOwn() {
@@ -545,90 +503,4 @@ export function letsCreateMyOwn() {
 
 
 
-/**
- * Insert foreword into first page of extras section.
- */
-function getForeword() {
-    document.querySelector("#extras-text-container").insertAdjacentHTML("beforeend", foreword);
-}
 
-
-export function extras() {
-    createNavigation(navigationData["Extras"]);
-
-    const main = document.querySelector("main");
-    // Studying Temporary Note: this means: if main is empty (not child elements)
-    if (!main.children.length) {
-        const html = `
-            <div id="extras-text-container" class="extras-text-container hidden">
-                ${foreword}            
-            </div>`;
-        main.insertAdjacentHTML("beforeend", html);
-    }
-
-    setTimeout(() => {
-        showElement(document.querySelector("#extras-text-container"));
-    }, afterAnimation);
-    // reason of bigger additional delay is for discovering menu items at first
-}
-
-
-// TODO: Refaktorovat, patrne lze vyuzit jiz napsane funkce 
-/**
- * Clear text in Extras section. U
- */
-export function backToEmptyExtras() {
-    fadeInFadeOut(getForeword, document.querySelector("#extras-text-container"));
-    extras();
-}
-
-/**
- * Changes text in Extras section with smooth animation.
- * 
- * @param {string} text Text contains string with html tags.
- */
-function changeTextInExtras(text) {
-    const target = document.querySelector("#extras-text-container");
-    fadeInFadeOut(() => {
-        target.insertAdjacentHTML("beforeend", text);
-    }, target);
-}
-
-
-export function teleportTo(target) {
-    let element = document.querySelector(target);
-
-    // TODO: volitelne parametry teto funkce zatim nepodporuje Safari
-    element.scrollIntoView({ behavior: "smooth" });
-}
-
-
-/** 
- * Used in: Extras Section
- * Show short version of article about author
- */
-export function aboutAuthorShort() {
-    createNavigation(navigationData["Články o autorovi"]);
-    changeTextInExtras(shortStory);
-}
-
-export function aboutAuthorLong() {
-    createNavigation(navigationData["Články o autorovi"]);
-    changeTextInExtras(longStory);
-}
-
-export function releaseNotes() {
-    createNavigation(navigationData["Změny na webu"]);
-    changeTextInExtras(releaseNotesData);
-}
-
-export function aboutThisWeb() {
-    createNavigation(navigationData["Jak vznikal tento web?"]);
-    changeTextInExtras(aboutThisWebData);
-
-    /** TODO: smazat kdykoli to zacne nekoho stvat
-     * do clanku napsat, co bych na tomto webu udelal jinak kdybych zacinal odznovu
-     * zmenit nazev Extras - neni dostatecne jasne co se pod tim skryva !!!!
-    */
-
-}
