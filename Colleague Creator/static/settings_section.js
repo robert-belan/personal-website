@@ -5,8 +5,7 @@ export function settings() {
     createNavigation(settingsData["Nastavení"]);
 
     window.onload = () => {
-        const darkmodeButton = document.querySelector("#btn-darkmode");
-        darkmodeButton.addEventListener("click", () => {
+        document.querySelector("#btn-darkmode").addEventListener("click", () => {
             darkmode();
         })
     }

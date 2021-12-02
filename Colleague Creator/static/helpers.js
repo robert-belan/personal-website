@@ -49,10 +49,10 @@ export function fadeElement(element, remove = "") {
 // second arg: css selector (string) or element
 export function fadeInFadeOut(func, container) {
 
-    // fade content out 
-    if (container.classList.contains("show")) {
-        container.classList.remove("show");
-    }
+    // // fade content out 
+    // if (container.classList.contains("show")) {
+    //     container.classList.remove("show");
+    // }
     container.classList.add("fade");
 
     setTimeout(() => {

@@ -4,9 +4,6 @@ import {
     generateColleague,
     letsCreateMyOwn,
     mainMenu,
-    appearance,
-    history,
-    skills,
     attributes,
     summary,
     exit,
@@ -14,6 +11,9 @@ import {
 
 import { extras } from "/static/extras_section.js"
 import { settings } from "/static/settings_section.js"
+import { appearance } from "/static/appearance_section.js"
+import { history } from "/static/history_section.js"
+import { skills } from "/static/skills_section.js"
 
 export const navigationData = {
     "Hlavní menu": {
@@ -110,216 +110,13 @@ export const model3dHTMLData = `
         ></iframe>`;
 
 
-export const appearanceData = [
-    {
-        prop: "Portrét",
-        option: "Obrázek"
-    },
-    {
-        prop: "Druh",
-        option: "člověk"
-    },
-    {
-        prop: "Pohlaví",
-        option: "muž"
-    },
-    {
-        prop: "Základ vzhledu",
-        option: "udržovaný"
-    },
-    {
-        prop: "Zdánlivý věk",
-        option: "29"
-    },
-    {
-        prop: "Kondice",
-        option: "chabá"
-    },
-    {
-        prop: "Výška",
-        option: "vyšší"
-    },
-    {
-        prop: "Hlava",
-        option: "č. 22"
-    },
-    {
-        prop: "Hlas",
-        option: "mužský"
-    },
-    {
-        prop: "Držení těla",
-        option: "asertivní"
-    },
-    {
-        prop: "Styl oblečení",
-        option: "neformální"
-    },
-]
 
 
-export const historyData = [
-    {
-        profile: "Ztracený a nalezený",
-        description: `
-        <h2>Ztracený a nalezený</h2>
-        <p>Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách různých ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější, přístup k internetu. Po letech nejistot a hledání se rozhodl ze střech slézt a konečně si stoupnout na pevnou půdu pod nohama.</p>`
-    },
-
-    {
-        profile: "Premiant",
-        description: `
-        <h2>Premiant (nelze zvolit)</h2>
-        <p>Oba tvoji rodiče byli úspěšnými kapacitami svých oborů a to strojního inženýrství a aplikované matematiky. Jejich až patologická snaha být ve vše lepší než ostatní se tak zákonitě musela přenést i na tebe a tvé dva sourozencem. S vyznamenáním jsi vystudoval slavné MIT v americkém Massachusetts a měl pocit, že ti kromě diplomu u nohou leží i celý svět. V Googlu si tě různá oddělení prohazovala jako horký brambor. Po pár měsících si tě k sobě přetáhl Apple, aby se tě sám nakonec zbavil. Byl jsi moc dobrej a začal z tebe mít strach. Rodinné důvody tě donutily opustit divoký život v Silicon Valley a vrátit se domů.</p>`
-    },
-
-    {
-        profile: "Poslední",
-        description: `
-        <h2>Poslední (nelze zvolit)</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas sollicitudin. Nulla quis diam. In rutrum. Aliquam erat volutpat. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Et harum quidem rerum facilis est et expedita distinctio. Aliquam erat volutpat. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Fusce tellus. Duis pulvinar. Praesent in mauris eu tortor porttitor accumsan.</p>`
-    }
-]
 
 
-export const skillsData = [
-    {
-        logo: "c.png",
-        skill: "C/C++",
-        levels: ["Rozhodnutí naučit se programovat",
-            "První printf('Hello World!')",
-            "Poznávání vnitřního fungování PC",
-            "Ztráta praktické schopnosti používání jazyka"
-        ],
-        completed: 4
-    },
 
-    {
-        logo: "cs50.png",
-        skill: "Obecné základy programování",
-        levels: ["Schopen zapnout počítač",
-            "První printf('Hello World')",
-            "Hotový první menší projekt(y)",
-            "Hotové CS50 by Harvard",
-            "Komerční praxe",
-            "'Připraven do <span class='g1'>G</span><span class='o1'>o</span><span class='o2'>o</span><span class='g2'>g</span><span class='l'>l</span><span class='u'>u</span>'"
-        ],
-        completed: 4
-    },
 
-    {
-        logo: "html.png",
-        skill: "HTML",
-        levels: ["Rozpozná zkratku",
-            "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
-            "První jednodušší web",
-            "Praktické využívání",
-            "Nic ho nemůže zaskočit",
-        ],
-        completed: 4
-    },
 
-    {
-        logo: "css.png",
-        skill: "CSS",
-        levels: ["Rozliší CSS a CCS",
-            "První vystylovaný Hello World",
-            "Začíná používat proměnné a funkce v CCS",
-            "Věc se komplikuje s SCCS",
-            "Přestane všude psát CCS místo CSS"
-        ],
-        completed: 4
-    },
-
-    {
-        logo: "js.png",
-        skill: "JavaScript",
-        levels: ["Rozliší JavaScript od Jawy",
-            "První >alert('Hello World')",
-            "První praktické používání",
-            "Začíná rozpoznávat a používat různé Web API",
-            "Stačí krátké nahlédnutí do dokumentace",
-            "Nahlážení do dokumentace už jen zdržuje"
-        ],
-        completed: 4
-    },
-
-    {
-        logo: "react.png",
-        skill: "React",
-        levels: ["Upřednostnil React nad Svelt",
-            "První &lt;HelloWorld /&gt;",
-            "Uvedení znalostí do praxe",
-            "První projekt postavený na Reactu"
-        ],
-        completed: 2
-    },
-
-    {
-        logo: "python.png",
-        skill: "Python",
-        levels: ["Přechod z C/C++ na Python",
-            "První print('Hello World!')",
-            "Uvedení znalostí do praxe a první menší projekty",
-            "Počátek průzkumu Python 'vnitřností'",
-            "Mírné schlazení znalostí kvůli JS"
-        ],
-        completed: 5
-    },
-
-    {
-        logo: "flask.png",
-        skill: "Flask",
-        levels: ["Přičichnutí k Flasku",
-            "První menší loky",
-            "Vlastní menší večírek a první vystřízlivění",
-            "... *první ztráty paměti*",
-            "... *další ztráty paměti*",
-            "Zkušený pijan",
-        ],
-        completed: 3
-    },
-
-    {
-        logo: "sqlite.png",
-        skill: "SQL",
-        levels: ["Seznámení s SQLite",
-            "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
-            "Drobná praxe",
-            "Nějakou dobu nic",
-            "SQL engineer"
-        ],
-        completed: 3
-    },
-
-    {
-        logo: "git.png",
-        skill: "GIT",
-        levels: ["Cože? Gastrointestinální trakt?",
-            "git commit greeting.html -m 'Hello world!';",
-            "Průběžná praxe",
-            "Pokročilejší používání GIT"
-        ],
-        completed: 3
-    },
-
-    {
-        logo: "DOPLNIT.png",
-        skill: "Testování",
-        levels: ["Mělo by se testovat"],
-        completed: 0
-    },
-
-    {
-        logo: "linux.png",
-        skill: "Linux",
-        levels: ["První krůčky v Ubuntu",
-            "Rok s Ubuntu",
-            "Zpět k W10 + WSL",
-        ],
-        completed: 3
-    },
-]
 
 // it is possible to include html tags in strings for forrmating
 export const attributesData = [
