@@ -409,37 +409,7 @@ function getAttributeDescription(selectedAttribute) {
     return result.join("");
 }
 
-// Dark / Light toggle
-export function darkmode() {
 
-    let currentTheme = document.documentElement.getAttribute("data-theme");
-    let targetTheme = "light";
-
-    if (currentTheme === "light") {
-        targetTheme = "dark";
-    }
-    document.documentElement.setAttribute('data-theme', targetTheme);
-    window.localStorage.setItem('theme', targetTheme);
-    console.log(`info: ${targetTheme} theme setting has been saved to origin's local storage`)
-
-    /**
-     * Understood and copied from: 
-     * @author Luke Lowrey 
-     * https://lukelowrey.com/css-variable-theme-switcher/
-     */
-}
-
-// moves user from main menu to submenu - Settings
-export function settings() {
-    createNavigation(navigationData["Nastavení"]);
-
-    window.onload = () => {
-        const darkmodeButton = document.querySelector("#btn-darkmode");
-        darkmodeButton.addEventListener("click", () => {
-            darkmode();
-        })
-    }
-}
 
 
 

@@ -1,6 +1,5 @@
 import {
     howCreateColleague,
-    settings,
     leaveThisWebsite,
     generateColleague,
     letsCreateMyOwn,
@@ -10,11 +9,11 @@ import {
     skills,
     attributes,
     summary,
-    darkmode,
     exit,
 } from "/static/menuFunctions.js"
 
 import { extras } from "/static/extras_section.js"
+import { settings } from "/static/settings_section.js"
 
 export const navigationData = {
     "Hlavní menu": {
@@ -74,18 +73,6 @@ export const navigationData = {
         "Shrnutí": {
             func: summary,
             toggle: 1
-        }
-    },
-
-    "Nastavení": {
-        "Nadpis": "Nastavení",
-        "Dark Mode": {
-            func: darkmode,
-            toggle: 0
-        },
-        "Zpět": {
-            func: mainMenu,
-            toggle: 0
         }
     },
 
