@@ -17,8 +17,10 @@ import {
 } from "/static/data.js";
 
 import {
+    wait,
     showElement,
-    fadeElement
+    fadeElement,
+    tempAlertMessage
 } from "/static/helpers.js";
 
 
@@ -186,7 +188,7 @@ function createAppearanceTable() {
 
     /* After click on buttons with arrow, it tells you that you can not use it */
     document.querySelectorAll(".arrow-col").forEach(item => {
-        item.addEventListener("click", unavailableMessage)
+        item.addEventListener("click", unavailableItemMessage)
     })
 }
 
@@ -245,7 +247,7 @@ function createHistory() {
 
         // if (counter > 0) {
         //     document.querySelector(`#btn-profile${counter}`).addEventListener("click", () => {
-        //         unavailableMessage("Bohužel. V tuto chvíli není tato možnost dostupná.");
+        //         unavailableItemMessage("Bohužel. V tuto chvíli není tato možnost dostupná.");
         //     })
         // }
 
@@ -309,7 +311,7 @@ function createSkillsTable() {
     }
 
     document.querySelectorAll(".sign").forEach(sign => {
-        sign.addEventListener("click", unavailableMessage)
+        sign.addEventListener("click", unavailableItemMessage)
     })
 }
 
@@ -473,34 +475,28 @@ export function settings() {
 
 
 
-
+// Exit section
 export function leaveThisWebsite() {
     createNavigation(navigationData["Ukončit hru"]);
 }
 
 export function exit() {
 
-    // fade full page out
-    document.body.classList.replace("show", "fade");
-
-    // this f*cking crazy combo function - it is just telling goodbye in fancy way
-    // fade everything out -> fade in and say "bye" -> fade everything out and redirect to Google
+    fadeElement(document.body);
     setTimeout(() => {
-        document.body.innerHTML = "";
         document.body.insertAdjacentHTML("beforeend", `
-        <div class="goodbye">
-            <p>Díky za Váš čas.</p>
-        </div>
-        `);
-        document.body.classList.replace("fade", "show");;
-        // fade everything out again and
+        <div class="goodbye"><p>Díky za Váš čas.</p></div>`);
+        showElement(document.body);
         setTimeout(() => {
-            document.body.classList.replace("show", "fade");
-            // and after that, redirect to Google
-            setTimeout(window.location.assign("https://google.com"), 3000)
+            fadeElement(document.body);
+            setTimeout(() => {
+                window.location.assign("https://google.com");
+            }, 600);
         }, 1500);
-    }, 700);
+    }, 500);
 }
+// End Exit section
+
 
 
 
@@ -532,32 +528,10 @@ function createSummary() {
 
 
 
-// helper function which create temporary alert message
-function tempAlertMessage(message, target, duration) {
-
-    const messageParagraph = `<p id="alertMsg" class="temp-alert-msg">${message}</p>`;
-
-    const temp_container = document.createElement("div");
-    temp_container.classList.add("temp-alert-msg-container", "hidden");
-
-    target.insertAdjacentElement("beforeend", temp_container);
-    temp_container.insertAdjacentHTML("beforeend", messageParagraph)
-
-    // get message visible smoothly
-    temp_container.classList.replace("hidden", "show")
-
-    // after given time, get message invisible and remove it
-    setTimeout(() => {
-        temp_container.classList.replace("show", "fade");
-        setTimeout(() => {
-            temp_container.remove();
-        }, 550)
-    }, duration + afterAnimation)
-}
-
-
-function unavailableMessage() {
-    if (!document.querySelector("#alertMsg")) {
+// TODO: JSDoc !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function unavailableItemMessage() {
+    /** There could be just one such a message at the same time */
+    if (!document.querySelector("#tempMsg")) {
         const message = `Nezlobte se, ale tato možnost není v tuto chvíli přístupná.`;
         tempAlertMessage(message, document.querySelector("main"), 2000);
     }
@@ -566,7 +540,7 @@ function unavailableMessage() {
 
 
 export function letsCreateMyOwn() {
-    unavailableMessage();
+    unavailableItemMessage();
 }
 
 

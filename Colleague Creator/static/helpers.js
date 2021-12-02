@@ -30,13 +30,39 @@ export function showElement(element) {
 /**
  * Fade out and remove element's content.
  * @param {Element} element - specify element that should be faded out
- * 
+ * @param {boolean} remove - remove element from DOM if true
  * Used especially while leaving domain with exit("Opustit hru") button
  */
-export function fadeElement(element) {
+export function fadeElement(element, remove = "") {
     element.classList.add("fade");
 
     setTimeout(() => {
         element.innerHTML = "";
+        if (remove === "remove") element.remove();
     }, afterAnimation)
+}
+
+
+
+// helper function which create temporary alert message
+// TODO: JSDoc !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+export function tempAlertMessage(message, target, duration) {
+
+    const html = `
+<div id="tempMsg" class="temp-alert-msg-container hidden">
+    <p class="temp-alert-msg">${message}</p>
+</div>`;
+
+    target.insertAdjacentHTML("beforeend", html);
+    const msg = document.querySelector("#tempMsg");
+
+    showElement(msg);
+    setTimeout(() => {
+        fadeElement(msg, "remove");
+    }, afterAnimation + duration);
+}
+
+
+export function wait(seconds) {
+    setTimeout(null, seconds);
 }
