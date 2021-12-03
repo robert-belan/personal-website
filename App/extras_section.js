@@ -1,18 +1,18 @@
-import { showElement, backToMainMenu, fadeOutFadeIn } from "/static/helpers.js";
-import { createNavigation } from "/static/menuFunctions.js";
-import { afterAnimation } from "/static/helpers.js";
-
-
+import { showElement, backToMainMenu, fadeOutFadeIn, afterAnimation } from "/helpers.js";
+import { createNavigation } from "/menuFunctions.js";
 
 
 export function extras() {
     createNavigation(extrasData["Extras"]);
 
-    document.querySelector("main").insertAdjacentHTML("beforeend", `
-      <div id="extras-text-container" class="extras-text-container hidden">
-         ${foreword}            
-      </div>`
-    );
+    const main = document.querySelector("main");
+    if (!main.children.length) {
+        const html = `
+            <div id="extras-text-container" class="extras-text-container hidden">
+                ${foreword}            
+            </div>`;
+        main.insertAdjacentHTML("beforeend", html);
+    }
 
     setTimeout(() => {
         showElement(document.querySelector("#extras-text-container"));

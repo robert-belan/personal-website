@@ -1,16 +1,16 @@
-import { createNavigation } from "/static/menuFunctions.js";
+import { createNavigation } from "/menuFunctions.js";
 import {
     showElement,
     fadeOutFadeIn,
     afterAnimation,
     createBackToMenuButton
-} from "/static/helpers.js";
+} from "/helpers.js";
 
-import { appearance } from "/static/appearance_section.js"
-import { history } from "/static/history_section.js"
-import { skills } from "/static/skills_section.js"
-import { attributes } from "/static/attributes_section.js"
-import { summary } from "/static/summary_section.js"
+import { appearance } from "/appearance_section.js"
+import { history } from "/history_section.js"
+import { skills } from "/skills_section.js"
+import { attributes } from "/attributes_section.js"
+import { summary } from "/summary_section.js"
 
 
 // This function creates foundation for character creation section (layout and menu)

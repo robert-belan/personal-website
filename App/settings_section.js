@@ -1,4 +1,4 @@
-import { createNavigation, mainMenu } from "/static/menuFunctions.js";
+import { createNavigation, mainMenu } from "/menuFunctions.js";
 
 // moves user from main menu to submenu - Settings
 export function settings() {

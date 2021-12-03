@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" data-theme="light">
 
 <head>
@@ -9,25 +8,42 @@
     <!-- https://favicon.io/emoji-favicons/money-mouth-face/
         <link href="/static/favicon.ico" rel="icon"> -->
 
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
     <title>Vytvoř si nového kolegu</title>
 </head>
 
+
+
 <body class="hidden">
+
+
 
     <header>
         <h1>Vytvořte si nového kolegu</h1>
     </header>
 
-    <main>{% block main %}{% endblock %}</main>
 
-    {% block nav %}{% endblock %}
+    <main></main>
 
-    {% block javascript %}{% endblock %}
 
+    <nav id="menu" class="menu">
+        <ul id="items"></ul>
+    </nav>
+
+
+
+    <script type="module" src="/index.js"></script>
 </body>
 
+
+
 </html>
+
+
+<!-- &#9746;   cross in square -->
+<!-- &#9745;   checked mark` in square -->
+<!-- &#9744;   empty square -->
+<!-- &#10005;  multiplication x -->

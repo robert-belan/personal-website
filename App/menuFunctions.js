@@ -1,16 +1,16 @@
-import { characterCreation } from "/static/characterCreation_section.js"
-import { settings } from "/static/settings_section.js"
-import { extras } from "/static/extras_section.js"
-import { exit } from "/static/exit_section.js"
+import { characterCreation } from "/characterCreation_section.js"
+import { settings } from "/settings_section.js"
+import { extras } from "/extras_section.js"
+import { exit } from "/exit_section.js"
 
-import { characterCreationData } from "/static/characterCreation_section.js"
+import { characterCreationData } from "/characterCreation_section.js"
 
 import {
     showElement,
     fadeElement,
     unavailableItemMessage,
     afterAnimation
-} from "/static/helpers.js";
+} from "/helpers.js";
 
 
 

@@ -1,5 +1,5 @@
 // provides data for appearance section
-import { fadeOutFadeIn, unavailableItemMessage } from "/static/helpers.js";
+import { fadeOutFadeIn, unavailableItemMessage } from "/helpers.js";
 
 export function appearance() {
     fadeOutFadeIn(createAppearanceTable, document.querySelector("#text"))

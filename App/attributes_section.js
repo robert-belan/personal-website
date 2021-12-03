@@ -1,4 +1,4 @@
-import { fadeOutFadeIn } from "/static/helpers.js";
+import { fadeOutFadeIn } from "/helpers.js";
 
 
 export function attributes() {

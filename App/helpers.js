@@ -1,4 +1,4 @@
-import { mainMenu } from "/static/menuFunctions.js";
+import { mainMenu } from "/menuFunctions.js";
 
 /**
  * Helpers functions
