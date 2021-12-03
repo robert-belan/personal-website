@@ -1,7 +1,7 @@
-import { fadeInFadeOut } from "/static/helpers.js";
+import { fadeOutFadeIn } from "/static/helpers.js";
 
 export function summary() {
-    return fadeInFadeOut(createSummary, document.querySelector("#text"));
+    return fadeOutFadeIn(createSummary, document.querySelector("#text"));
 }
 
 function createSummary() {
@@ -16,10 +16,10 @@ function createSummary() {
         </div>
     `)
 
-    // TODO: doplnit fadeInFadeOut
+    // TODO: doplnit fadeOutFadeIn
     window.onload = () => {
         document.querySelector("#btn-letsPlayAGame").addEventListener(() => {
-            fadeInFadeOut({}, {})
+            fadeOutFadeIn({}, {})
         })
     }
 }

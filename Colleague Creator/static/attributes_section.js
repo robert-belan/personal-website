@@ -1,8 +1,8 @@
-import { fadeInFadeOut } from "/static/helpers.js";
+import { fadeOutFadeIn } from "/static/helpers.js";
 
 
 export function attributes() {
-    return fadeInFadeOut(createAttributes, document.querySelector("#text"));
+    return fadeOutFadeIn(createAttributes, document.querySelector("#text"));
 }
 
 function createAttributes() {
@@ -39,7 +39,7 @@ function createAttributesBoxes() {
         const attribute = document.querySelector(`#attribute-box-${counter}`);
         attribute.addEventListener("click", () => {
             //smooth changing effect
-            fadeInFadeOut(() => {
+            fadeOutFadeIn(() => {
                 attributes_description_container.insertAdjacentHTML("beforeend", `
                 <h2>${attributesData[counter].name}</h2>
                 <p>${attributesData[counter].description}</p>

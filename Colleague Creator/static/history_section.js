@@ -1,8 +1,8 @@
-import { fadeInFadeOut } from "/static/helpers.js";
+import { fadeOutFadeIn } from "/static/helpers.js";
 
 
 export function history() {
-    fadeInFadeOut(createHistory, document.querySelector("#text"))
+    fadeOutFadeIn(createHistory, document.querySelector("#text"))
 }
 
 
@@ -47,7 +47,7 @@ function profileToggle() {
     for (let counter = 0; counter < profiles.length; counter++) {
         profiles[counter].addEventListener("click", () => {
 
-            fadeInFadeOut(() => {
+            fadeOutFadeIn(() => {
                 destination.insertAdjacentHTML("beforeend", `
                 <p>${historyData[counter].description}</p>`
                 )

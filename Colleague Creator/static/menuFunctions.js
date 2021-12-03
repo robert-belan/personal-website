@@ -1,16 +1,15 @@
-import { afterAnimation } from "/static/globals.js";
+import { characterCreation } from "/static/characterCreation_section.js"
+import { settings } from "/static/settings_section.js"
+import { extras } from "/static/extras_section.js"
+import { exit } from "/static/exit_section.js"
 
-import {
-    navigationData,
-    creation_layout,
-    model3dHTMLData,
-} from "/static/data.js";
+import { characterCreationData } from "/static/characterCreation_section.js"
 
 import {
     showElement,
     fadeElement,
-    fadeInFadeOut,
-    unavailableItemMessage
+    unavailableItemMessage,
+    afterAnimation
 } from "/static/helpers.js";
 
 
@@ -41,7 +40,7 @@ export function createNavigation(itemsData) {
 function createMenuItems(itemsData, container) {
 
     /** If true, it dictates creating special horizontal menu at "character creation" section */
-    const creationMenu = itemsData === navigationData["Vytváření postavy"];
+    const creationMenu = itemsData === characterCreationData["Vytváření postavy"];
     if (creationMenu) document.querySelector("#menu").classList.replace("menu", "creation-menu");
 
     /** Conditionally creates menu title */
@@ -83,63 +82,53 @@ export function letsCreateMyOwn() {
 }
 
 
-// This function creates foundation for character creation section (layout and menu)
-export function generateColleague() {
 
-    const main = document.querySelector("main");
+export const navigationData = {
+    "Hlavní menu": {
+        "Nadpis": "Hlavní menu",
+        "Založit novou postavu": {
+            func: howCreateColleague,
+            toggle: 0
+        },
+        "Nastavení": {
+            func: settings,
+            toggle: 0
+        },
+        "Extras": {
+            func: extras,
+            toggle: 0
+        },
+        "Opustit hru": {
+            func: leaveThisWebsite,
+            toggle: 0
+        }
+    },
 
-    // loads menu
-    createNavigation(navigationData["Vytváření postavy"]);
+    "Jak vytvořit postavu?": {
+        "Nadpis": "Jak chcete vytvořit postavu?",
+        "Zkusím štěstí": {
+            func: characterCreation,
+            toggle: 0
+        },
+        "Zvolím si sám": {
+            func: letsCreateMyOwn,
+            toggle: 0
+        },
+        "Zpět": {
+            func: mainMenu,
+            toggle: 0
+        }
+    },
 
-    // create new layout in <main> tag
-    main.insertAdjacentHTML("afterbegin", creation_layout);
-
-    // load 3d model
-    const model3dContainer = document.querySelector("#model3d");
-    model3dContainer.insertAdjacentHTML("beforeend", model3dHTMLData);
-
-    const textContainer = document.querySelector("#text")
-    // insert welcome text
-    fadeInFadeOut(() => {
-        const introText = document.createElement("div");
-        textContainer.insertAdjacentElement("beforeend", introText);
-
-        const message = `Na základě dostupných informací Vám byla vygenerována tato osoba. 
-        
-        Parametry byly zvoleny tak, aby co nejlépe splňovaly Vaše požadavky.
-                 
-        
-        Menu dole slouží k procházení jednotlivých parametrů.`;
-
-        const htmlElement = `<div class="creationMessage">${message}</div>`;
-        introText.insertAdjacentHTML("beforeend", htmlElement);
-    }, textContainer)
-
-    // show homepage button
-    createBackToMenuButton();
-    linkToMainMenu(document.querySelector("#btn-hp"));
+    "Ukončit hru": {
+        "Nadpis": "Jste si jisti?",
+        "Ano": {
+            func: exit,
+            toggle: 0
+        },
+        "Ne": {
+            func: mainMenu,
+            toggle: 0
+        }
+    },
 }
-
-
-function createBackToMenuButton() {
-    const header = document.querySelector("header");
-    header.insertAdjacentHTML("beforeend", `
-    <input type="button" name="btn-hp" id="btn-hp" >
-    <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
-    `);
-    setTimeout(() => {
-        showElement(document.querySelector("header label"));
-    }, afterAnimation);
-}
-
-
-// attach link to HomePage
-function linkToMainMenu(element) {
-    element.addEventListener("click", () => {
-        fadeElement(document.body);
-        setTimeout(() => {
-            window.location.assign("/");
-        }, afterAnimation);
-    })
-}
-

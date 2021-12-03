@@ -1,7 +1,6 @@
 
 import { showElement } from "/static/helpers.js";
-import { createNavigation } from "/static/menuFunctions.js";
-import { navigationData } from "/static/data.js";
+import { createNavigation, navigationData } from "/static/menuFunctions.js";
 
 /* Smoothly loads homepage */
 window.addEventListener("load", () => {

@@ -259,7 +259,7 @@ iframe {
 }
 
 iframe:hover {
-  filter: grayscale(0.5);
+  filter: grayscale(0.4);
 }
 
 
@@ -276,6 +276,8 @@ iframe:hover {
 }
 
 .model3d-container {
+  position: relative;
+  z-index: 0;
   flex: 1.2;
   padding: 2vh 4vw;
   /* border: 1px solid rgb(184, 165, 171); */
@@ -297,10 +299,9 @@ iframe:hover {
 
 .creationMessage {
   white-space: pre-line;
-  text-align: left;
+  text-align: center;
   font-size: 1.2rem;
   line-height: 1.3rem;
-  font-style: italic;
   width: 100%;
 }
 
@@ -822,3 +823,4 @@ iframe:hover {
 .extras-text-container li:not(:last-child) { 
   margin-bottom: 0.3rem;  
 }
+

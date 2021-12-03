@@ -1,8 +1,8 @@
-import { fadeInFadeOut, unavailableItemMessage } from "/static/helpers.js";
+import { fadeOutFadeIn, unavailableItemMessage } from "/static/helpers.js";
 
 
 export function skills() {
-    fadeInFadeOut(createSkills, document.querySelector("#text"))
+    fadeOutFadeIn(createSkills, document.querySelector("#text"))
 }
 
 
@@ -65,7 +65,7 @@ function skillsToggle() {
         skills[counter].addEventListener("click", () => {
 
             //smooth changing effect
-            fadeInFadeOut(() => {
+            fadeOutFadeIn(() => {
                 destination.insertAdjacentHTML("beforeend", `
                     ${getSkillDescription(counter)}
                     `)

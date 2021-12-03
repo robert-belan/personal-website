@@ -1,15 +1,26 @@
-import { afterAnimation } from "/static/globals.js";
 import { mainMenu } from "/static/menuFunctions.js";
 
 /**
  * Helpers functions
  * 
- * For instance:
- *  - providing visual effects
+ * List:
+ *  - providing visual effects: 
+ *      a) showElement
+ *      b) fadeElement
+ *      c) fadeOutFadeIn
+ *  - 
  * 
  * @module helpers 
  * 
  */
+
+
+/**
+ * Corresponds with "/static/style.css" variable "--ui-animation-duration".
+ * @type {number}
+ */
+export const afterAnimation = 300;
+
 
 
 /**
@@ -47,7 +58,7 @@ export function fadeElement(element, remove = "") {
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
-export function fadeInFadeOut(func, container) {
+export function fadeOutFadeIn(func, container) {
 
     // // fade content out 
     // if (container.classList.contains("show")) {
@@ -100,6 +111,40 @@ export function unavailableItemMessage() {
 
 export function backToMainMenu() {
     // clears main menu from text 
-    fadeInFadeOut(() => { }, document.querySelector("main"));
+    fadeOutFadeIn(() => { }, document.querySelector("main"));
     mainMenu();
+}
+
+
+
+export function createBackToMenuButton(addId, addClass = []) {
+    document.querySelector("header").insertAdjacentHTML("beforeend", `
+    <div id="toMainMenuBtn">
+        <input type="button" name="${addId}" id=${addId}>
+        <label for="${addId}" class="button backToHomePage hidden ${addClass.join(" ")}"><span class="back-arrow"><</span> Hlavní menu</label>
+    </div>
+        `);
+    setTimeout(() => {
+        showElement(document.querySelector("header label"));
+        linkToMainMenu(document.querySelector(`#${addId}`));
+    }, afterAnimation);
+}
+
+
+
+export function linkToMainMenu(element) {
+    element.addEventListener("click", () => {
+        const nav = document.querySelector("nav");
+        const main = document.querySelector("main");
+        fadeElement(nav);
+        fadeElement(main);
+        fadeElement(document.querySelector("#toMainMenuBtn"), "remove");
+
+        setTimeout(() => {
+            nav.className = "menu";
+            nav.insertAdjacentHTML("beforeend", `<ul id="items"></ul>`);
+            mainMenu();
+            showElement(main);
+        }, afterAnimation);
+    })
 }

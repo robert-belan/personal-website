@@ -1,6 +1,6 @@
-import { showElement, backToMainMenu, fadeInFadeOut } from "/static/helpers.js";
+import { showElement, backToMainMenu, fadeOutFadeIn } from "/static/helpers.js";
 import { createNavigation } from "/static/menuFunctions.js";
-import { afterAnimation } from "/static/globals.js";
+import { afterAnimation } from "/static/helpers.js";
 
 
 
@@ -50,7 +50,7 @@ function aboutThisWeb() {
  * Clear text in Extras section. U
  */
 function backToExtras() {
-    fadeInFadeOut(getForeword, document.querySelector("#extras-text-container"));
+    fadeOutFadeIn(getForeword, document.querySelector("#extras-text-container"));
     extras();
 }
 
@@ -63,7 +63,7 @@ function backToExtras() {
  */
 function changeText(text) {
     const textContainer = document.querySelector("#extras-text-container");
-    fadeInFadeOut(() => {
+    fadeOutFadeIn(() => {
         textContainer.insertAdjacentHTML("beforeend", text);
     }, textContainer);
 }
