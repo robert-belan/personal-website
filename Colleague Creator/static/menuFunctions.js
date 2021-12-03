@@ -4,8 +4,6 @@ import {
     navigationData,
     creation_layout,
     model3dHTMLData,
-    attributesData,
-    summaryData,
 } from "/static/data.js";
 
 import {
@@ -19,11 +17,9 @@ import {
 
 /**
  * General function for MENUS CREATION
- * @param {{a: string, b: {func: func, toggle: number}}} itemsData - contain menus items (titles and functions)
+ * @param {{a: string, b: {func: func, toggle: number},}} itemsData - contain menus items (titles and functions)
  *  @property {string} - First property - represents menu title/header
  *  @property {Object} - Second and THE REST of properties are {func: func, toggle: number}
- *    @property {function} func - tells what happens after click
- *    @property {number} toggle - specify <input> element behaviour (ie. type="button/radio")
  */
 export function createNavigation(itemsData) {
 
@@ -70,9 +66,20 @@ function createMenuItems(itemsData, container) {
     }
 }
 
+export function mainMenu() {
+    createNavigation(navigationData["Hlavní menu"])
+}
 
 export function howCreateColleague() {
     createNavigation(navigationData["Jak vytvořit postavu?"]);
+}
+
+export function leaveThisWebsite() {
+    createNavigation(navigationData["Ukončit hru"]);
+}
+
+export function letsCreateMyOwn() {
+    unavailableItemMessage();
 }
 
 
@@ -110,7 +117,7 @@ export function generateColleague() {
 
     // show homepage button
     createBackToMenuButton();
-    attachHomapageLinkListener(document.querySelector("#btn-hp"));
+    linkToMainMenu(document.querySelector("#btn-hp"));
 }
 
 
@@ -120,21 +127,14 @@ function createBackToMenuButton() {
     <input type="button" name="btn-hp" id="btn-hp" >
     <label for="btn-hp" class="button backToHomePage hidden"><span class="back-arrow"><</span> Hlavní menu</label>
     `);
-    /** @todo - Uvazit zda nechat zobrazeni tlacitka okamzite nebo s odstupem casu */
-    // setTimeout(() => {
-    showElement(document.querySelector("header label"));
-    // }, 2000);
+    setTimeout(() => {
+        showElement(document.querySelector("header label"));
+    }, afterAnimation);
 }
-
-
-export function mainMenu() {
-    createNavigation(navigationData["Hlavní menu"])
-}
-
 
 
 // attach link to HomePage
-function attachHomapageLinkListener(element) {
+function linkToMainMenu(element) {
     element.addEventListener("click", () => {
         fadeElement(document.body);
         setTimeout(() => {
@@ -142,138 +142,4 @@ function attachHomapageLinkListener(element) {
         }, afterAnimation);
     })
 }
-
-
-
-/////////////////////////// Skill Section Functions ////////////////////////////
-
-
-
-
-//////////////////////// Attributes Section Functions //////////////////////////
-export function attributes() {
-    return fadeInFadeOut(createAttributes, document.querySelector("#text"));
-}
-
-function createAttributes() {
-    const destination = document.querySelector("#text");
-
-    // creates foundation layout code
-    const attributes_layout = `
-    <div class="attributes-container">
-        <div id="attributes-boxes" class="attributes-boxes"></div>
-        <h3>Popis vlastnosti</h3>
-        <div id="attributes-description" class="attributes-description"></div>
-    </div>
-    `
-    destination.insertAdjacentHTML("beforeend", attributes_layout);
-
-    createAttributesBoxes();
-}
-
-function createAttributesBoxes() {
-
-    const attributes_boxes_container = document.querySelector("#attributes-boxes");
-    const attributes_description_container = document.querySelector("#attributes-description")
-
-    // generates attributes boxes
-    for (let counter = 0; counter < attributesData.length; counter++) {
-        attributes_boxes_container.insertAdjacentHTML("beforeend", `
-            <div id="attribute-box-${counter}" class="attribute-box">
-                <p>${attributesData[counter].name}</p>
-                <div class="${attributesData[counter].selected ? "check-mark checked" : "check-mark unchecked"}" >&#10005;</div >
-            </div>
-        `)
-
-        // attach listener to "button"  
-        const attribute = document.querySelector(`#attribute-box-${counter}`);
-        attribute.addEventListener("click", () => {
-            //smooth changing effect
-            fadeInFadeOut(() => {
-                attributes_description_container.insertAdjacentHTML("beforeend", `
-                <h2>${attributesData[counter].name}</h2>
-                <p>${attributesData[counter].description}</p>
-                    <ul class="bonuses">${getAttributeDescription(counter)}</ul>
-                `);
-            }, attributes_description_container)
-        });
-    }
-}
-
-
-function getAttributeDescription(selectedAttribute) {
-    const attribute = attributesData[selectedAttribute];
-    const result = []
-
-    for (let counter = 0; counter < attribute.bonus.length; counter++) {
-        result.push(`<li> ${attribute.bonus[counter]}</li> `)
-    }
-
-    return result.join("");
-}
-
-
-
-
-
-// Exit section
-export function leaveThisWebsite() {
-    createNavigation(navigationData["Ukončit hru"]);
-}
-// TODO: JSDoc
-export function exit() {
-    fadeElement(document.body);
-    setTimeout(() => {
-        document.body.insertAdjacentHTML("beforeend", `
-        <div class="goodbye"><p>Díky za Váš čas.</p></div>`);
-        showElement(document.body);
-        setTimeout(() => {
-            fadeElement(document.body);
-            setTimeout(() => {
-                window.location.assign("https://google.com");
-            }, 400);
-        }, 1500);
-    }, 500);
-}
-// End Exit section
-
-
-
-
-
-export function summary() {
-    return fadeInFadeOut(createSummary, document.querySelector("#text"));
-}
-
-function createSummary() {
-    const sumaSumarum = document.querySelector("#text");
-    sumaSumarum.insertAdjacentHTML("beforeend", `
-        <div id="summary" class="summary">
-            ${summaryData}
-            <div class="btn-letsPlayAGame">
-                <input type="button" name="btn-menu" id="btn-letsPlayAGame">
-                <label for="btn-letsPlayAGame" class="button creationmenu">Spustit hru</label>
-            </div>
-        </div>
-    `)
-
-    // TODO: doplnit fadeInFadeOut
-    window.onload = () => {
-        document.querySelector("#btn-letsPlayAGame").addEventListener(() => {
-            fadeInFadeOut({}, {})
-        })
-    }
-}
-
-
-
-
-
-
-export function letsCreateMyOwn() {
-    unavailableItemMessage();
-}
-
-
-
 

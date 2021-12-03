@@ -30,7 +30,9 @@ function createAppearanceTable() {
     })
 }
 
-
+/**
+ * @type { {prop: string, option: string} } appearanceData
+ */
 const appearanceData = [
     {
         prop: "Portrét",
