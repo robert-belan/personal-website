@@ -1,0 +1,3 @@
+# This site is dedicated only to couple of you.
+User-agent: *
+Disallow: /
