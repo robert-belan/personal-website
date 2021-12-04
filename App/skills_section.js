@@ -41,7 +41,7 @@ function createSkillsTable() {
     for (let counter = 0; counter < skillsData.length; counter++) {
         tbody_.insertAdjacentHTML("beforeend", `
             <tr id="skill-${counter}">
-                <td class="skill-logo"><img src="/static/logos/${skillsData[counter].logo}"></td>
+                <td class="skill-logo"><img src="/logos/${skillsData[counter].logo}"></td>
                 <td class="skill-label">${skillsData[counter].skill}</td>
                 <td class="sign">&#43;</td>
                 <td class="level">${skillsData[counter].completed}</td>

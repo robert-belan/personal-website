@@ -18,11 +18,13 @@ function createAppearanceTable() {
         document.querySelector("#appearance-table > tbody").insertAdjacentHTML("beforeend", `
             <tr>
                 <td class="prop-col">${row.prop}</td>
-                <td class="arrow-col">&#10229;</td>
+                <td class="arrow-col">&#10092;</td>
                 <td class="option-col">${row.option}</td>
-                <td class="arrow-col">&#10230;</td>
+                <td class="arrow-col">&#10093;</td>
             <tr>`);
     });
+    // Other arrows: &#10229; and &#10230;
+
 
     /* After click on buttons with arrow, it tells you that you can not use it */
     document.querySelectorAll(".arrow-col").forEach(item => {
@@ -36,7 +38,15 @@ function createAppearanceTable() {
 const appearanceData = [
     {
         prop: "Portrét",
-        option: "Obrázek"
+        option: "<div class='logo-face-container'><img class='logo-face' src='/logos/face.png'></div>"
+    },
+    {
+        prop: "Jméno",
+        option: "Robert"
+    },
+    {
+        prop: "Zdánlivý věk",
+        option: "29"
     },
     {
         prop: "Druh",
@@ -51,8 +61,8 @@ const appearanceData = [
         option: "udržovaný"
     },
     {
-        prop: "Zdánlivý věk",
-        option: "29"
+        prop: "Postava",
+        option: "hubená"
     },
     {
         prop: "Kondice",
@@ -60,11 +70,7 @@ const appearanceData = [
     },
     {
         prop: "Výška",
-        option: "vyšší"
-    },
-    {
-        prop: "Hlava",
-        option: "č. 22"
+        option: "190 cm"
     },
     {
         prop: "Hlas",
@@ -72,7 +78,7 @@ const appearanceData = [
     },
     {
         prop: "Držení těla",
-        option: "asertivní"
+        option: "defenzivní"
     },
     {
         prop: "Styl oblečení",
