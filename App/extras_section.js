@@ -6,7 +6,9 @@ export function extras() {
     createNavigation(extrasData["Extras"]);
 
     const main = document.querySelector("main");
-    if (!main.children.length) {
+
+    // if element with that ID isn't already there, create one
+    if (!main.querySelector("#extras-text-container")) {
         const html = `
             <div id="extras-text-container" class="extras-text-container hidden">
                 ${foreword}            
@@ -115,27 +117,27 @@ const extrasData = {
     "Články o autorovi": {
         "Nadpis": "Obsah článku",
         "Vzdělání a kurzy": {
-            func: () => scrollTo("#education"),
+            func: function education() { scrollTo("#education") },
             toggle: 0
         },
         "O autorovi": {
-            func: () => scrollTo("#aboutAuthor"),
+            func: function aboutAuthor() { scrollTo("#aboutAuthor") },
             toggle: 0
         },
         "Cíle": {
-            func: () => scrollTo("#goals"),
+            func: function goals() { scrollTo("#goals") },
             toggle: 0
         },
         "Čím mohu přispět?": {
-            func: () => scrollTo("#contribution"),
+            func: function contribution() { scrollTo("#contribution") },
             toggle: 0
         },
         "Závěr": {
-            func: () => scrollTo("#conclusion"),
+            func: function conclusion() { scrollTo("#conclusion") },
             toggle: 0
         },
         "Praktické poznámky": {
-            func: () => scrollTo("#practicalNotes"),
+            func: function practicalNotes() { scrollTo("#practicalNotes") },
             toggle: 0
         },
         "Zpět": {
@@ -155,15 +157,15 @@ const extrasData = {
     "Změny na webu": {
         "Nadpis": "Změny na webu",
         "Poslední": {
-            func: () => scrollTo("#latest"),
+            func: function latest() { scrollTo("#latest") },
             toggle: 0
         },
         "Plánované": {
-            func: () => scrollTo("#planned"),
+            func: function planned() { scrollTo("#planned") },
             toggle: 0
         },
         "Uvažované": {
-            func: () => scrollTo("#potential"),
+            func: function potential() { scrollTo("#potential") },
             toggle: 0
         },
         "Zpět": {

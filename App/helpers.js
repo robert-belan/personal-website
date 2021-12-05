@@ -58,17 +58,14 @@ export function fadeElement(element, remove = "") {
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
-export function fadeOutFadeIn(func, container) {
+export function fadeOutFadeIn(func, container, remove) {
 
-    // // fade content out 
-    // if (container.classList.contains("show")) {
-    //     container.classList.remove("show");
-    // }
     container.classList.add("fade");
 
     setTimeout(() => {
         // remove old content
         container.innerHTML = "";
+        if (remove === "remove") container.remove();
 
         // load new content (new html tags etc.)
         func();
@@ -110,8 +107,8 @@ export function unavailableItemMessage() {
 
 
 export function backToMainMenu() {
-    // clears main menu from text 
-    fadeOutFadeIn(() => { }, document.querySelector("main"));
+    // clears homepage 
+    fadeElement(document.querySelector("#extras-text-container"), "remove");
     mainMenu();
 }
 
@@ -143,6 +140,7 @@ export function linkToMainMenu(element) {
         setTimeout(() => {
             nav.className = "menu";
             nav.insertAdjacentHTML("beforeend", `<ul id="items"></ul>`);
+            main.insertAdjacentHTML("beforeend", `<div class="background"></div>`);
             mainMenu();
             showElement(main);
         }, afterAnimation);

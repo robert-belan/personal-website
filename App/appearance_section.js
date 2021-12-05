@@ -7,10 +7,12 @@ export function appearance() {
 
 function createAppearanceTable() {
 
-    const html = `
-        <table id="appearance-table" class="appearance-table">
-            <tbody></tbody>
-        </table>`;
+    const html = `<div class="appearance-table-container">
+            <table id="appearance-table" class="appearance-table">
+                <tbody></tbody>
+            </table>
+        </div>
+        `;
     document.querySelector("#text").insertAdjacentHTML("beforeend", html);
 
     // generates table rows

@@ -223,7 +223,7 @@ export const skillsData = [
     },
 
     {
-        logo: "DOPLNIT.png",
+        logo: "test.png",
         skill: "Testování",
         levels: ["Mělo by se testovat"],
         completed: 0

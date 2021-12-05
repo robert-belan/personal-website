@@ -10,7 +10,6 @@ html, body, h1, h2, h3, h4, div, span, p, table, ul, ol, li, header, main, secti
 
 html[data-theme='light'] {
   --ui-background: #ffffff;
-
   --ui-headers: #000000;
   --ui-text: #303030;
   --ui-text-negative: #ffffff;
@@ -18,28 +17,25 @@ html[data-theme='light'] {
   --ui-text-appearance-table-hover: #ffffff;
   --ui-text-skills-description: #1F3069;
   --ui-text-attributes-bonuses: #1F3069;
-
-
-  --ui-borders: #ffffff;
+  --ui-borders: #ffffff00;
   --ui-border-radius: 1px;
-
   --ui-elements: #555454;
   --ui-hover-button-color: #433e5c;
   --ui-clicked-button: #1F3069;
   --ui-clicked-button-text: #ffffff;
   --ui-attributes-bonuses: #000000;
   --ui-table-row-hover: #555454;
-
   --ui-scrollbar-track: #e6e6e6;
   --ui-scrollbar-thumb: #555454;
-
   --ui-animation-duration: 0.3s;
   --ui-table-animation-duration: all 0.1s ease;
+  --ui-tr-bg: #ffffff75;
+  --ui-tr-bg-hover: #555454d9;
+  --ui-bg-opacity: 0.5;
 }
 
 html[data-theme='dark'] {
   --ui-background: #252525;
-
   --ui-headers: #eeeeee;
   --ui-text: #d3d3d3;
   --ui-text-negative: #d3d3d3;
@@ -47,23 +43,20 @@ html[data-theme='dark'] {
   --ui-text-appearance-table-hover: #252525;
   --ui-text-skills-description: #94acff;
   --ui-text-attributes-bonuses: #94acff;
-
   --ui-borders: #555454;
   --ui-border-radius: 1px;
-
   --ui-elements: #252525;
   --ui-hover-button-color: #433e5c;
   --ui-clicked-button: #273257;
   --ui-clicked-button-text: #ffffff;
   --ui-attributes-bonuses: black;
-  --ui-table-row-hover: #d3d3d3;
-
-
-  --ui-scrollbar-track: #252525;
-  --ui-scrollbar-thumb: #555454;
-
+  --ui-tr-bg: #ffffff75;
+  --ui-tr-bg-hover: #ffffff75;
+  --ui-scrollbar-track: #555454;
+  --ui-scrollbar-thumb: #252525;
   --ui-animation-duration: 0.3s;
   --ui-table-animation-duration: all 0.1s ease;
+  --ui-bg-opacity: 0.2;
 }
 
 :root {
@@ -96,6 +89,20 @@ main {
   position: relative;
 }
 
+.background{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 0%,rgb(255 255 255 / 50%) 59%,rgba(255,255,255,1) 100%), 
+    url(/logos/empty_chair_v1_cropped.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: opacity(var(--ui-bg-opacity)) blur(1px);
+}
+
 header {
   height: 15vh; 
   width: 100%;
@@ -118,7 +125,7 @@ button {
     /* Main Menu (homepage) -----------------------------*/ 
 .menu {
   position: absolute;
-  bottom: 15%;
+  bottom: 23%;
   right: 10%;
 }
 
@@ -304,37 +311,51 @@ iframe:hover {
 .creationMessage {
   white-space: pre-line;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5rem;
   width: 100%;
   padding: 0 2rem;
-  border: 1px solid red;
 }
 
 
 
 
 /* Appearance Section */
+.appearance-table-container {
+  /* border: 1px solid red; */
+  height: 80%;
+  width: 90%;
+  overflow: auto;
+}
+
 .appearance-table {
   font-size: 1.3rem;
-  width: 90%;
+  line-height: 2.2rem;
   height: 100%;
 }
 
 .appearance-table tr {
-  background-color: var(--ui-background);
+  background-color: var(--ui-tr-bg);
   color: inherit;
   transition: var(--ui-table-animation-duration);
+  backdrop-filter: blur(7px);
 }
   
 .appearance-table tr:hover {
-  background-color: var(--ui-table-row-hover);
+  background-color: var(--ui-tr-bg-hover);
   color: var(--ui-text-appearance-table-hover);
 }
 
 .appearance-table td {
   border-radius: 3px;
-  padding-left: 0.5rem;
+}
+
+.appearance-table td:nth-of-type(1) {
+  padding: 0 0.5rem;
+}
+
+.appearance-table td:nth-of-type(3) {
+  padding: 0 0.5rem;
 }
 
 .prop-col {
@@ -439,6 +460,7 @@ iframe:hover {
   /* border: 1px solid salmon; */
   height: 45%;
   margin: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .skills-table {
@@ -452,15 +474,16 @@ iframe:hover {
 }
 
 .skills-table tr {
-  background-color: var(--ui-background);
+  background-color: var(--ui-tr-bg);
   filter: grayscale(1);
-  transition: var(--ui-table-animation-duration);
+  transition: var(
+  --ui-table-animation-duration);
 }
 
 .skills-table tr:hover {
-  background-color: var(--ui-table-row-hover);
+  background-color: var(--ui-tr-bg-hover);
   color: var(--ui-text-appearance-table-hover);
-  filter: grayscale(0.2);
+  filter: grayscale(0.6);
 }
 
 .skills-table td {
@@ -481,6 +504,7 @@ iframe:hover {
   width: 1.5rem;
   height: 1.5rem;
   object-fit: contain;
+  vertical-align: bottom;
 }
 
   /* Skills table - second column */
@@ -532,11 +556,11 @@ iframe:hover {
 }
 .skills-description .achieved {
   color: var(--ui-text-skills-description);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .skills-description .unachieved {
-  color: var(--ui-text-negative);
+  color: var(--ui-text);
   font-size: 1rem;
   padding-top: 0.3rem;
   font-size: 1rem;
@@ -545,6 +569,7 @@ iframe:hover {
 
 .skills-description .unachieved:last-of-type {
   margin-bottom: 1.3rem;
+  /* color: var(--ui-text); */
 }
 
 .skills-description .unachieved:hover {
@@ -604,12 +629,12 @@ iframe:hover {
 
 ::-webkit-scrollbar-track {
   background: var(--ui-scrollbar-track);
-  border: 1px solid var(--ui-borders)
+  /* border: 1px solid var(--ui-borders) */
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--ui-scrollbar-thumb);
-  border: 1px solid var(--ui-borders);
+  /* border: 1px solid var(--ui-borders); */
   border-radius: var(--ui-border-radius);
 }
 
@@ -634,6 +659,7 @@ iframe:hover {
   height: 45%;
   overflow: auto;
   margin: 1rem 0;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
@@ -647,7 +673,7 @@ iframe:hover {
   font-size: 1.3rem;
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
-  margin-bottom: 10vh;
+  margin-bottom: 1rem;
 }
 
 .attribute-box {
@@ -836,7 +862,3 @@ iframe:hover {
 .extras-text-container li:not(:last-child) { 
   margin-bottom: 0.3rem;  
 }
-
- 0.3rem;  
-}
-

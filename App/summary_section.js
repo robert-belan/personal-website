@@ -17,11 +17,12 @@ function createSummary() {
     `)
 
     // TODO: doplnit fadeOutFadeIn
-    window.onload = () => {
-        document.querySelector("#btn-letsPlayAGame").addEventListener(() => {
-            fadeOutFadeIn({}, {})
-        })
-    }
+    // window.onload = () => {
+    document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
+        alert("*BUM*")
+        //         fadeOutFadeIn({}, {})
+    })
+    // }
 }
 
 

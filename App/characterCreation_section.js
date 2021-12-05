@@ -54,8 +54,7 @@ export function characterCreation() {
 const model3dData = `<iframe src="https://www.vectary.com/viewer/v1/?model=bdd97310-66b0-4ae9-afaa-c2b8ebbd09a5&env=studio3&pan=0&zoom=0&minPolar=80&maxPolar=100&minAzimuth=240&mouseFollow=0.1&maxAzimuth=290&doubleClickToFocus=0&showPreloader=0&showInteractionPrompt=0" frameborder="0" width="100%" height="100%"></iframe>`;
 
 
-const welcomeMessageData = `
-Vstoupili jste do sekce, ve které bude možné zvolit si <b>konkrétní parametry</b> svého nového kolegy.
+const welcomeMessageData = `Vstoupili jste do sekce, ve které bude možné zvolit si <b>konkrétní parametry</b> svého nového kolegy.
 
 Bohužel, nyní nejsou tyto možnosti přístupné. Abychom však zcela neplýtvali Vaším časem, dovolili jsme si na základě dostupných informací vygenerovat osobu automaticky.
 
