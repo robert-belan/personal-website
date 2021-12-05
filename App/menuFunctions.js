@@ -66,7 +66,19 @@ function createMenuItems(itemsData, container) {
 }
 
 export function mainMenu() {
-    createNavigation(navigationData["Hlavní menu"])
+    createNavigation(navigationData["Hlavní menu"]);
+
+    const welcomeMessage = `<div id="welcome-msg" class="welcome-msg hidden">
+    <h3>Vítejte</h3>
+        <p>Jmenuji se Robert a toto je můj životopis, motivační dopis, ukázka práce a uvažování, trochu i zábava.</p>
+        <br>
+        <p>Informace zde uvedené jsou podávané formou napodobující vytváření postavy v počítačových hrách typu RPG s
+        tím rozdílem, že vše zde uvedené je <b>skutečné</b> a <b>pravdivé</b>.</p>
+    </div>`;
+
+    document.querySelector("main").insertAdjacentHTML("beforeend", welcomeMessage);
+
+    showElement(document.querySelector("#welcome-msg"));
 }
 
 export function howCreateColleague() {

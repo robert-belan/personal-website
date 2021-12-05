@@ -1,6 +1,6 @@
 
 import { showElement } from "./helpers.js";
-import { createNavigation, navigationData } from "./menuFunctions.js";
+import { mainMenu, navigationData } from "./menuFunctions.js";
 
 /* Smoothly loads homepage */
 window.addEventListener("load", () => {
@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 })
 
 /* Creates main menu */
-createNavigation(navigationData["Hlavní menu"], "#items");
+mainMenu(navigationData["Hlavní menu"]);
 
 /* Check for dark/light theme previous settings and/or set it. */
 let storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");

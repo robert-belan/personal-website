@@ -1,4 +1,4 @@
-import { showElement, backToMainMenu, fadeOutFadeIn, afterAnimation } from "/helpers.js";
+import { showElement, backToMainMenu, fadeOutFadeIn, afterAnimation, fadeElement } from "/helpers.js";
 import { createNavigation } from "/menuFunctions.js";
 
 
@@ -6,6 +6,8 @@ export function extras() {
     createNavigation(extrasData["Extras"]);
 
     const main = document.querySelector("main");
+
+    fadeElement(document.querySelector("#welcome-msg"), "remove");
 
     // if element with that ID isn't already there, create one
     if (!main.querySelector("#extras-text-container")) {

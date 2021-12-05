@@ -1,8 +1,7 @@
 import { createNavigation } from "/menuFunctions.js";
 import {
-    showElement,
     fadeOutFadeIn,
-    afterAnimation,
+    fadeElement,
     createBackToMenuButton
 } from "/helpers.js";
 
@@ -17,6 +16,8 @@ import { summary } from "/summary_section.js"
 
 export function characterCreation() {
     const main = document.querySelector("main");
+
+    fadeElement(document.querySelector("#welcome-msg"), "remove");
 
     // loads menu items
     createNavigation(characterCreationData["Vytváření postavy"]);
