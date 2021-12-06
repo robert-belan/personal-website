@@ -28,7 +28,7 @@ function createSummary() {
 
 
 export const summaryData = `
-    <h3>Jméno:  Robert</h3>
+    <h3 style="margin-bottom: 0.5em">Jméno:  Robert</h3>
     <h4>Věk:    29</h4>
 
 <p>Ze zvolených kombinací dovedností se postava profiluje jako aspirující full&#8209;stackový vývojář. Pod vedením zkušeného hráče je schopna a ochotna velmi rychle dohnat chybějící technologie a nástroje. Vybrané dovednosti nejsou její alfou a omegou, ale "pouze" prostředky k dosahování cílů.</p>

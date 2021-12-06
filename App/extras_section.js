@@ -177,12 +177,15 @@ const extrasData = {
     }
 }
 
-const foreword = `
-<h2>Předmluva</h2>
-<p>Tento text slouží k efektivnějšímu využití času mého, ten který zaměstnání hledá, tak i Vašeho, který naopak nového zaměstnance hledá. Sekce Založit novou postavu je mým životopisem a celý tento web je ukázkou mé práce a motivace. Pokud nejprve čtete tyto řádky, doporučuji nejprve si projít zmíněnou sekci. Pokud Vás web zaujme, pak pokračujte čtením níže, kde se již dopředu dozvíte nějaké informace o mé osobě a budete tak moci kvalifikovaněji posoudit, zdali má vůbec smysl se se mnou zabývat dál nebo ne.</p>`;
+const foreword = ``;
+// const foreword = `
+// <div class="welcome-msg extras-foreword extras-text">
+// <h3>Předmluva</h3>
+// <p>Tento text slouží k efektivnějšímu využití času mého, ten který zaměstnání hledá, tak i Vašeho, který naopak nového zaměstnance hledá. Sekce Založit novou postavu je mým životopisem a celý tento web je ukázkou mé práce a motivace. Pokud nejprve čtete tyto řádky, doporučuji nejprve si projít zmíněnou sekci. Pokud Vás web zaujme, pak pokračujte čtením níže, kde se již dopředu dozvíte nějaké informace o mé osobě a budete tak moci kvalifikovaněji posoudit, zdali má vůbec smysl se se mnou zabývat dál nebo ne.</p>
+// </div>`;
 
 
-const shortStory = `
+const shortStory = `<div class="extras-text">
 <h2 id="education">Vzdělání, kurzy a cíle</h2>
 <p>Díky sice krátké, ale intenzivné zkušenosti s C++ jsem pochytil základy programování a základy vnitřního fungování PC. Tyto znalosti byly užitečné pro následné rychlejší vstřebání základů a pokročilejších témat v Pythonu. Po měsící "pythonování" jsem nasedl na zběsilé tempo Davida J. Malana a jeho bandy z Harvardu zodpovědné za světově známý kurz CS50x. Odtud už to byl jen krůček k JavaScriptu. Díky tomu, že již kdysi na základní škole mě bavilo HTML, nebylo těžké do toho vlaku s připojeným CSS naskočit, spojit všechno včetně základů Flasku dohromady a začít tvořit.</p>
 <p>Nezpochybnitelnou roli při mém "přerodu" v programátora má Honza Javorek a jeho projekt Junior.guru a jeho komunita. Díky.</p>
@@ -217,14 +220,15 @@ Snažím se uvažovat a dělat věci trochu jinak, ale zase ne nezbytně "na sí
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
     <ul>
-        <li>Nástup možný ihned</li> 
-        <li>Pouze full-time</li>
-        <li>Upřednostňuji HPP, IČO možné.</li>
-        <li>On-site, remote možný, ale raději bych se mu vyhnul</li>
+        <li>Hledám juniorní pozici!</li> 
+        <li>Nástup je možný ihned</li> 
+        <li>Pouze full-time na HPP nebo IČO</li>
+        <li>Upřednostňuji in-house.</li>
     </ul>
-</p>`;
+</p>
+</div>`;
 
-const longStory = `
+const longStory = `<div class="extras-text">
 <h2 id="education">Vzdělání a kurzy</h2>
 <p>Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak ji měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" tohoto webu, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti-upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůř. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přínášelo hromadu frustrace, ale ten přehled o všem mi vyhovoval. Nevylučuji budoucí oživení zájmu, ale v tuto chvíli mám jiné cíle.</p>
 <p>Pár měsíců zpět jsem na C++ nenavázal. Místo něj jsem si potykal s Pythonem a vzájemně jsme si porozuměli. Díky společnému známému C++ byla prvotní spolupráce takřka raketová. C++ vyžadovalo nějaké základní znalosti principů fungování paměti počítače a tak vůbec všeho možnýho kolem těch křemíkových vnitřností počítače. Po asi dvou třech týdnech jsem se pustil do vypracování entry úkolu pro tzv. Python Weekend pořádaný společností Kiwi. Seděl jsem u toho dnem a nocí, neboť nezbývalo moc času. Víkend s notebookem v Bratislavě jsem nakonec nestrávil, ale za to jsem se toho hodně naučil. Výsledný skript nakonec nefungoval a já ještě nepřišel na to proč. A to především z toho důvodu, že jsem si od toho chtěl dát chvíli pauzu a taky jsem se přesunul ke světově známému kurzu CS50x, což zpětně vnímám jako nejlepší možné rozhodnutí.</p>
@@ -274,10 +278,11 @@ Robert</p>
         <li>Upřednostňuji HPP, IČO možné.</li>
         <li>On-site, remote možný, ale raději bych se mu vyhnul</li>
     </ul>
-</p>`;
+</p>
+</div>`;
 
 
-const releaseNotesData = `
+const releaseNotesData = `<div class="extras-text">
 <h2 id="latest">Poslední</h2>
 <p>
     <ul>
@@ -307,8 +312,10 @@ const releaseNotesData = `
         <li>Drobečková navigace</li>
     </ul>
 </p>
+</div>
 `
 
-const aboutThisWebData = `
+const aboutThisWebData = `<div class="extras-text">
     <p>Spontánně.</p>
+</div>
 `;
