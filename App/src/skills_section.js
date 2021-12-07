@@ -69,7 +69,7 @@ function skillsToggle() {
         skills[counter].addEventListener("click", () => {
 
             //smooth changing effect
-            if (!document.querySelector(`#${skillsData[counter].skill}`)) {
+            if (!(contain() === skillsData[counter].skill)) {
                 fadeOutFadeIn(() => {
                     destination.insertAdjacentHTML("beforeend", `
                         ${getSkillDescription(counter)}
@@ -80,6 +80,13 @@ function skillsToggle() {
     }
 }
 
+function contain() {
+    try {
+        return document.querySelector("#skill-header").innerText;
+    } catch {
+        return "";
+    }
+}
 
 
 // Creates skills description using skillsData object
@@ -88,7 +95,7 @@ function getSkillDescription(selectedSkill) {
     const skill = skillsData[selectedSkill]; //array with levels text
     const result = []
 
-    result.push(`<h2 id=${skill.skill}>${skill.skill}</h2>`);
+    result.push(`<h2 id="skill-header">${skill.skill}</h2>`);
     for (let counter = 0; counter < skill.levels.length; counter++) {
         if (counter < skill.completed) {
             result.push(`<li class="achieved">${skill.levels[counter]}</li>`)
