@@ -110,7 +110,7 @@ main {
   top: 0px;
   left: 0px;
   background-image: linear-gradient(to right, rgba(255,255,255,0) 0%,rgb(255 255 255 / 50%) 59%,rgba(255,255,255,1) 100%), 
-    url(/logos/empty_chair_v1_cropped.png);
+    url(/logos/bg_extralow.png);
   background-size: cover;
   background-repeat: no-repeat;
   filter: opacity(var(--ui-bg-opacity)) blur(1px);
@@ -897,7 +897,9 @@ padding: 1rem 0;
   border-radius: 5px;
 }
 
-.extras-text a {color: var(--ui-anchors-color);/* text-decoration: none; */transition: var(--ui-animation-duration);}
+.extras-text a {
+  color: var(--ui-anchors-color);
+  transition: var(--ui-animation-duration);}
 
 .extras-text a:hover {
   color: var(--ui-anchors-color-hover);

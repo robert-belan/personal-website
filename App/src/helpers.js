@@ -1,5 +1,5 @@
-import { mainMenu } from "/main_menu.js";
-import { characterCreationData } from "/characterCreation_section.js";
+import { mainMenu } from "/src/main_menu.js";
+import { characterCreationData } from "/src/characterCreation_section.js";
 
 /**
  * Helpers functions

@@ -1,5 +1,5 @@
-import { createNavigation, } from "/helpers.js";
-import { mainMenu } from "/main_menu.js";
+import { createNavigation, } from "/src/helpers.js";
+import { mainMenu } from "/src/main_menu.js";
 
 // moves user from main menu to submenu - Settings
 export function settings() {

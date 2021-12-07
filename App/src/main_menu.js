@@ -1,10 +1,11 @@
 /* Ways to other Main menu sections*/
-import { characterCreation } from "/characterCreation_section.js";
-import { settings } from "/settings_section.js";
-import { extras } from "/extras_section.js";
-import { exit } from "/exit_section.js";
+import { characterCreation } from "/src/characterCreation_section.js";
+import { settings } from "/src/settings_section.js";
+import { extras } from "/src/extras_section.js";
+import { exit } from "/src/exit_section.js";
 
-import { createNavigation, showElement, unavailableItemMessage } from "/helpers.js";
+/* Effects and support functions */
+import { createNavigation, showElement, unavailableItemMessage } from "/src/helpers.js";
 
 
 

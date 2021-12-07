@@ -1,4 +1,4 @@
-import { fadeOutFadeIn, unavailableItemMessage } from "/helpers.js";
+import { fadeOutFadeIn, unavailableItemMessage } from "/src/helpers.js";
 
 
 export function skills() {

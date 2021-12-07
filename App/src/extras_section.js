@@ -1,5 +1,11 @@
-import { showElement, backToMainMenu, fadeOutFadeIn, afterAnimation, fadeElement } from "/helpers.js";
-import { createNavigation } from "/helpers.js";
+import {
+    showElement,
+    backToMainMenu,
+    fadeOutFadeIn,
+    afterAnimation,
+    fadeElement,
+    createNavigation
+} from "/src/helpers.js";
 
 
 export function extras() {

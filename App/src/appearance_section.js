@@ -1,5 +1,5 @@
 // provides data for appearance section
-import { fadeOutFadeIn, unavailableItemMessage } from "/helpers.js";
+import { fadeOutFadeIn, unavailableItemMessage } from "/src/helpers.js";
 
 /**
  * Creates full UI (layout and items) of Appearance section.

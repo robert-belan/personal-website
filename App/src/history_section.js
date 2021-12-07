@@ -1,4 +1,4 @@
-import { fadeOutFadeIn } from "/helpers.js";
+import { fadeOutFadeIn } from "/src/helpers.js";
 
 
 export function history() {

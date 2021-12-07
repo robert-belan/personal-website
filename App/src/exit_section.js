@@ -1,4 +1,4 @@
-import { showElement, fadeElement } from "/helpers.js";
+import { showElement, fadeElement } from "/src/helpers.js";
 
 
 // TODO: JSDoc

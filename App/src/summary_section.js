@@ -1,4 +1,4 @@
-import { fadeOutFadeIn, getContacts } from "/helpers.js";
+import { fadeOutFadeIn, getContacts } from "/src/helpers.js";
 
 export function summary() {
     if (!document.querySelector("#summary")) {
