@@ -272,14 +272,16 @@ const releaseNotesData = `<div class="extras-text">
 <p>
     <ul>
         <li>(7.12.2021) - Umístění na web</li>
+        <li>(7.12.2021) - Opraven první bug, při kterém se nezobrazoval po kliknutí popis první dovednosti</li>
     </ul>
 </p>
 
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
-        <li>Doposud proběhla nulová optimalizace pro malé obrazovky - priorita</li>
+        <li>Doposud proběhla nulová optimalizace pro malé obrazovky</li>
         <li>Zvýšení rychlosti webu</li>
+        <li>UI: Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
         <li>Refaktorace kódu i CSS</li>
         <li>Doplnit obsah sekce "Jak vznikl tento web"</li>
         <li>Plynulá změna barevného schéma light/dark</li>
@@ -291,7 +293,6 @@ const releaseNotesData = `<div class="extras-text">
 <h2 id="potential">Uvažované</h2>
 <p>
     <ul>
-        <li></li>
     </ul>
 </p>
 </div>

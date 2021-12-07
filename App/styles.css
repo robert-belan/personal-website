@@ -897,7 +897,7 @@ padding: 1rem 0;
 
 .extras-text-container ul {
   font-size: 1.2rem;
-  list-style-position: inside;
+  list-style-position: outside;
 }
 
 .extras-text-container li:not(:last-child) { 
@@ -910,6 +910,7 @@ padding: 1rem 0;
   z-index: -1;
   background-color: var(--ui-description-box);
   padding: 1rem;
+  padding-left: 2.6rem;
   border-radius: 5px;
 }
 
