@@ -1,6 +1,5 @@
-
-import { showElement } from "./helpers.js";
-import { mainMenu, navigationData } from "./menuFunctions.js";
+import { showElement, getContacts } from "/helpers.js";
+import { mainMenu, navigationData } from "/main_menu.js";
 
 /* Smoothly loads homepage */
 window.addEventListener("load", () => {
@@ -10,7 +9,14 @@ window.addEventListener("load", () => {
 /* Creates main menu */
 mainMenu(navigationData["Hlavní menu"]);
 
-/* Check for dark/light theme previous settings and/or set it. */
+/** After click on "Kontakty". Could be found in the bottom right corner of viewport or in its center. Depends on screen size*/
+document.querySelector("#contacts").addEventListener("click", () => {
+    const msg = `
+    <p>Ať už se máte na srdci cokoliv, neváhejte mě kontaktovat.</p>`;
+    getContacts(msg);
+})
+
+/** Check for dark/light theme previous settings and/or set it. */
 let storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 if (storedTheme) {
     document.documentElement.setAttribute('data-theme', storedTheme)

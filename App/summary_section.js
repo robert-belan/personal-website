@@ -1,7 +1,9 @@
-import { fadeOutFadeIn } from "/helpers.js";
+import { fadeOutFadeIn, getContacts } from "/helpers.js";
 
 export function summary() {
-    return fadeOutFadeIn(createSummary, document.querySelector("#text"));
+    if (!document.querySelector("#summary")) {
+        fadeOutFadeIn(createSummary, document.querySelector("#text"));
+    }
 }
 
 function createSummary() {
@@ -16,13 +18,13 @@ function createSummary() {
         </div>
     `)
 
-    // TODO: doplnit fadeOutFadeIn
-    // window.onload = () => {
     document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
-        alert("*BUM*")
-        //         fadeOutFadeIn({}, {})
+        const msg = `
+        <p>Pokud jste čekali něco akčnějšího, jste asi zklamaní. Zde v tuto chvíli hra končí. Pokud jsem Vás však trochu zaujal, vraťte se zpět do hlavního menu a pokračujte do sekce Extras. Tam se můžete dozvědět více a nakonec uvidíte, třeba se rozhodnete se mnou pár kol zkusit.</p>
+        <p>Možná Vám to už stačilo a chcete mi rovnou napsat. Níže je pár užitečných kontaktů. Stejné odkazy lze zobrazit kliknutím na "Kontakty" zcela dole vpravo nebo uprostřed.</p>
+        `;
+        getContacts(msg);
     })
-    // }
 }
 
 
@@ -35,5 +37,5 @@ export const summaryData = `
 
 <p>Z vybraných vlastností se postava hodí do jakéhokoliv kolektivu spoluhráčů, kteří si umí udělat srandu nejen z ostatních, ale i sami ze sebe. "Skrytou" touhou postavy je být součástí profesionálů a nadšenců, kteří dokáží nejen inspirovat, ale když je potřeba, tak i motivovat.</p>
 
-<p>Tato ambiciózní postava je vhodná pro hráče, kteří nehledají "obyčejné" dělníky, ale spíše se ohlíží po disciplinovaných budoucích řemeslnících, kteří se neučí nové věci protože musí, ale protože to je součástí jejich vnitřního nastavení.</p>
+<p>Tato ambiciózní postava je vhodná pro hráče, kteří nehledají dělníky programátory, ale spíše se ohlíží po disciplinovaných budoucích řemeslnících, kteří se neučí nové věci protože musí, ale protože to je součástí jejich vnitřního nastavení.</p>
 `;

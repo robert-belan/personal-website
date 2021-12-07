@@ -1,13 +1,25 @@
 // provides data for appearance section
 import { fadeOutFadeIn, unavailableItemMessage } from "/helpers.js";
 
+/**
+ * Creates full UI (layout and items) of Appearance section.
+ */
 export function appearance() {
-    fadeOutFadeIn(createAppearanceTable, document.querySelector("#text"))
+    /** If layout is not already shown - the second click on "Vzhled" button do nothing */
+    if (!document.querySelector("#appearance")) {
+        fadeOutFadeIn(createAppearanceTable, document.querySelector("#text"))
+    }
 }
 
+/**
+ * Used in: Character creation > Appearance section
+ * Creates individual base layout for the section,
+ */
 function createAppearanceTable() {
 
-    const html = `<div class="appearance-table-container">
+    /** Section's backbone */
+    const html = `
+        <div id="appearance" class="appearance-table-container">
             <table id="appearance-table" class="appearance-table">
                 <tbody></tbody>
             </table>
@@ -15,7 +27,7 @@ function createAppearanceTable() {
         `;
     document.querySelector("#text").insertAdjacentHTML("beforeend", html);
 
-    // generates table rows
+    /** Generates individual appearance characteristic as table row*/
     appearanceData.forEach(row => {
         document.querySelector("#appearance-table > tbody").insertAdjacentHTML("beforeend", `
             <tr>
@@ -25,17 +37,22 @@ function createAppearanceTable() {
                 <td class="arrow-col">&#10093;</td>
             <tr>`);
     });
+    // Arrows characters: left - &#10092; and right - &#10093;
     // Other arrows: &#10229; and &#10230;
 
 
-    /* After click on buttons with arrow, it tells you that you can not use it */
+    /** After click on buttons with arrow, it tells you that you can not use it */
     document.querySelectorAll(".arrow-col").forEach(item => {
+        /** After click shows that item is currently unavailable */
         item.addEventListener("click", unavailableItemMessage)
     })
 }
 
 /**
- * @type { {prop: string, option: string} } appearanceData
+ * @type {object}
+ * @property {string} prop - characteristic feature such as age, head, posture, condition etc.
+ * @property {string} option - specific value, could be used HTML tags, used as second arg in insertAdjacentHTML()
+ * 
  */
 const appearanceData = [
     {

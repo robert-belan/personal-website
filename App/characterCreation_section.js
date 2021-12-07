@@ -1,8 +1,8 @@
-import { createNavigation } from "/menuFunctions.js";
 import {
     fadeOutFadeIn,
     fadeElement,
-    createBackToMenuButton
+    createBackToMenuButton,
+    createNavigation
 } from "/helpers.js";
 
 import { appearance } from "/appearance_section.js"
@@ -61,7 +61,7 @@ Bohužel, nyní nejsou tyto možnosti přístupné. Abychom však zcela neplýtv
 
 Jednotlivé parametry jsou k nahlédnutí prostřednictvím <b>navigačního menu</b> pod tímto textem.
 
-Tyto parametry se v průběhu času postupně mění. Přestože není možné je nyní upravit zcela podle Vašich představ, je jisté, že je lze <b>výrazně ovlivnit</b> v případě, že se rozhodnete námi vytvořeného kolegy vyzkoušet a zvláště potom při zařazení do svého týmu.
+Tyto parametry se v průběhu času postupně mění. Přestože není možné je nyní upravit zcela podle Vašich představ, je jisté, že je lze <b>výrazně ovlivnit</b> v případě, že se rozhodnete námi vytvořeného kolegy vyzkoušet a zvláště při zařazení do svého týmu.
 `;
 
 export const characterCreationData = {

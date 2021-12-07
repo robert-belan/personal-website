@@ -2,7 +2,9 @@ import { fadeOutFadeIn, unavailableItemMessage } from "/helpers.js";
 
 
 export function skills() {
-    fadeOutFadeIn(createSkills, document.querySelector("#text"))
+    if (!document.querySelector("#skills-container")) {
+        fadeOutFadeIn(createSkills, document.querySelector("#text"))
+    }
 }
 
 
@@ -11,7 +13,7 @@ function createSkills() {
 
     // creates foundation layout code
     const skills_layout = `
-    <div class="skills-container">
+    <div id="skills-container" class="skills-container">
         <div id="skills" class="skills"></div>
         <h3>Zvolené úrovně dovedností</h3>
         <div id="skills-description" class="skills-description">
@@ -43,9 +45,9 @@ function createSkillsTable() {
             <tr id="skill-${counter}">
                 <td class="skill-logo"><img src="/logos/${skillsData[counter].logo}"></td>
                 <td class="skill-label">${skillsData[counter].skill}</td>
-                <td class="sign">&#43;</td>
-                <td class="level">${skillsData[counter].completed}</td>
                 <td class="sign">&#8722;</td>
+                <td class="level">${skillsData[counter].completed}</td>
+                <td class="sign">&#43;</td>
             </tr>`);
     }
 
@@ -60,6 +62,8 @@ function createSkillsTable() {
 function skillsToggle() {
     const destination = document.querySelector("#skills-description ol");
     const skills = document.querySelectorAll("#skills tr");
+    destination.insertAdjacentHTML("beforeend", `
+    <p class="notice-msg">Zvolte dovednost, kterou chcete zobrazit.</p> `)
 
     for (let counter = 0; counter < skills.length; counter++) {
         skills[counter].addEventListener("click", () => {
@@ -76,7 +80,7 @@ function skillsToggle() {
 
 
 
-// Creates skills description using skillsData object (data.js)
+// Creates skills description using skillsData object
 function getSkillDescription(selectedSkill) {
 
     const skill = skillsData[selectedSkill]; //array with levels text

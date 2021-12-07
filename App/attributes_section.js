@@ -2,7 +2,9 @@ import { fadeOutFadeIn } from "/helpers.js";
 
 
 export function attributes() {
-    return fadeOutFadeIn(createAttributes, document.querySelector("#text"));
+    if (!document.querySelector("#attributes")) {
+        fadeOutFadeIn(createAttributes, document.querySelector("#text"));
+    }
 }
 
 function createAttributes() {
@@ -10,7 +12,7 @@ function createAttributes() {
 
     // creates foundation layout code
     const attributes_layout = `
-    <div class="attributes-container">
+    <div id="attributes" class="attributes-container">
         <div id="attributes-boxes" class="attributes-boxes"></div>
         <h3>Popis vlastnosti</h3>
         <div id="attributes-description" class="attributes-description"></div>
@@ -25,6 +27,16 @@ function createAttributesBoxes() {
 
     const attributes_boxes_container = document.querySelector("#attributes-boxes");
     const attributes_description_container = document.querySelector("#attributes-description")
+
+
+    attributes_description_container.insertAdjacentHTML("beforeend", `
+    <div class="notice-msg">
+    <p>Vyberte vlastnost, kterou chcete zobrazit.</p>
+    <br>
+    <p>[X] značí zvolené</p>
+    <p>&nbsp;[ ] značí nevolené</p>
+    </div>`
+    );
 
     // generates attributes boxes
     for (let counter = 0; counter < attributesData.length; counter++) {
@@ -80,6 +92,13 @@ export const attributesData = [
     },
 
     {
+        name: "Extrovert",
+        description: "Rád na sebe strháváš pozornost a řádně si to užíváš.",
+        bonus: ["+8 % Komunikace za každou novou úroveň", "-2 Pochopení od okolních introvertů"],
+        selected: 0
+    },
+
+    {
         name: "Dlouhé vedení",
         description: "Ne vždy všechno pochopíš na první dobrou. Občas uniká drobný detail, který brání uzavření okruhu. Výsledek však bývá lépe ukotven v paměti.",
         bonus: ["+5 pochopení", "-4 trpělivost spoluhráčů v nejbližším okolí"],
@@ -91,6 +110,13 @@ export const attributesData = [
         description: "A už vůbec ne tato postava.",
         bonus: ["+1 Sebereflexe"],
         selected: 1
+    },
+
+    {
+        name: "Rétor",
+        description: "Své myšlenky prezentuješ s chirurgickou přesností. Míla Rozner tiše závidí.",
+        bonus: ["+4 Komunikace", "+2 Pochopení okolních spoluhráčů"],
+        selected: 0
     },
 
     {
@@ -119,20 +145,6 @@ export const attributesData = [
         description: "Baví tě co děláš a tak nový informace nasáváš jako suchá houba vodu.",
         bonus: ["+2 Vědění"],
         selected: 1
-    },
-
-    {
-        name: "Rétor",
-        description: "Své myšlenky prezentuješ s chirurgickou přesností. Míla Rozner tiše závidí.",
-        bonus: ["+4 Komunikace", "+2 Pochopení okolních spoluhráčů"],
-        selected: 0
-    },
-
-    {
-        name: "Extrovert",
-        description: "Rád na sebe strháváš pozornost a řádně si to užíváš.",
-        bonus: ["+8 % Komunikace za každou novou úroveň", "-2 Pochopení od okolních introvertů"],
-        selected: 0
     },
 
     {
