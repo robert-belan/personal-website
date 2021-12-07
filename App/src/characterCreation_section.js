@@ -32,8 +32,11 @@ export function characterCreation() {
 
     // load 3d model
     const model3dContainer = document.querySelector("#model3d");
-    model3dContainer.insertAdjacentHTML("beforeend", model3dData);
-
+    try {
+        model3dContainer.insertAdjacentHTML("beforeend", model3dData);
+    } catch (e) {
+        console.log("");
+    }
 
     const textContainer = document.querySelector("#text")
     // insert welcome text

@@ -1,4 +1,4 @@
-import { fadeOutFadeIn } from "/src/helpers.js";
+import { fadeOutFadeIn, unavailableItemMessage } from "/src/helpers.js";
 
 
 export function attributes() {
@@ -43,21 +43,27 @@ function createAttributesBoxes() {
         attributes_boxes_container.insertAdjacentHTML("beforeend", `
             <div id="attribute-box-${counter}" class="attribute-box">
                 <p>${attributesData[counter].name}</p>
-                <div class="${attributesData[counter].selected ? "check-mark checked" : "check-mark unchecked"}" >&#10005;</div >
+                <div id="selectBtn${counter}" class="${attributesData[counter].selected ? "check-mark checked" : "check-mark unchecked"}" >&#10005;</div >
             </div>
         `)
+
+        document.querySelector(`#selectBtn${counter}`).addEventListener("click", unavailableItemMessage);
 
         // attach listener to "button"  
         const attribute = document.querySelector(`#attribute-box-${counter}`);
         attribute.addEventListener("click", () => {
             //smooth changing effect
-            fadeOutFadeIn(() => {
-                attributes_description_container.insertAdjacentHTML("beforeend", `
-                <h2>${attributesData[counter].name}</h2>
-                <p>${attributesData[counter].description}</p>
-                    <ul class="bonuses">${getAttributeDescription(counter)}</ul>
-                `);
-            }, attributes_description_container)
+            if (!document.querySelector(`#attribute-no-${counter}`)) {
+                fadeOutFadeIn(() => {
+                    attributes_description_container.insertAdjacentHTML("beforeend", `
+                    <div id="attribute-no-${counter}">
+                        <h2>${attributesData[counter].name}</h2>
+                        <p>${attributesData[counter].description}</p>
+                            <ul class="bonuses">${getAttributeDescription(counter)}</ul>
+                    </div>
+                    `);
+                }, attributes_description_container);
+            }
         });
     }
 }
@@ -136,13 +142,13 @@ export const attributesData = [
     {
         name: "Očipovaný",
         description: "Čipy přijímáš zásadně od Applu a Pfizeru.",
-        bonus: ["+12 Obrana proti návštěvě JIP"],
+        bonus: ["+2 Obrana proti návštěvě JIP"],
         selected: 1
     },
 
     {
         name: "Savá houba",
-        description: "Baví tě co děláš a tak nový informace nasáváš jako suchá houba vodu.",
+        description: "Baví tě co děláš a nové informace proto nasáváš jako suchá houba vodu.",
         bonus: ["+2 Vědění"],
         selected: 1
     },
@@ -157,15 +163,29 @@ export const attributesData = [
 
     {
         name: "Skromný pisálek",
-        description: "Než ze sebe něco vymáčkneš tak to trvá, ale není to tak špatný.",
-        bonus: ["+7 Psaný projev"],
+        description: "Než ze sebe něco vymáčkneš tak to trvá, ale není to snad tak špatný.",
+        bonus: ["+2 Psaný projev"],
         selected: 1
     },
 
     {
-        name: "Nápad na další dovednost",
-        description: "Ticho po pěšině...",
-        bonus: ["-něco Neznámý bonus"],
+        name: "Skryté&#42;",
+        description: "*vlastnost se odhalí v průběhu hry",
+        bonus: [],
+        selected: 0
+    },
+
+    {
+        name: "Skryté&#42;",
+        description: "*vlastnost se odhalí v průběhu hry",
+        bonus: [],
+        selected: 0
+    },
+
+    {
+        name: "Skryté&#42;",
+        description: "*vlastnost se odhalí v průběhu hry",
+        bonus: [],
         selected: 0
     },
 

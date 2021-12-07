@@ -35,7 +35,7 @@ html[data-theme='light'] {
   --ui-shadows: 3px 3px 8px #000000a8;
   --ui-bg-buttons: #555454;
   --ui-header-footer-shadow: #0000008a;
-  --ui-description-box: #ffffffa3;
+  --ui-description-box: #ffffff61;
   --ui-anchors-color: #001f86;
   --ui-anchors-color-hover: #002cff;
 }
@@ -63,8 +63,8 @@ html[data-theme='dark'] {
   --ui-scrollbar-thumb: #252525;
   --ui-animation-duration: 0.3s;
   --ui-table-animation-duration: all 0.1s ease;
-  --ui-bg-opacity: 0.2;
-  --ui-shadows: 2px 4px 6px #cacaca59;
+  --ui-bg-opacity: 0.4;
+  --ui-shadows: 2px 2px 5px #cacaca59;
   --ui-bg-buttons: #252525;
   --ui-header-footer-shadow: #cacaca59;
   --ui-description-box: #6b6b6b5e;
@@ -196,7 +196,7 @@ input[name="btn-profile"] {
               padding var(--ui-animation-duration), 
               letter-spacing var(--ui-animation-duration) 
               ease-in-out;
-  box-shadow: var(--ui-shadows);
+  box-shadow: var(--ui-shadows), 0px 0px 2px #ffffff59;
 }
 
 .button:hover {
@@ -347,7 +347,7 @@ iframe:hover {
 
 .appearance-table {
   font-size: 1.3rem;
-  line-height: 2.2rem;
+  line-height: 1.9rem;
   height: 100%;
   width: 100%;
 }
@@ -447,10 +447,14 @@ iframe:hover {
 
 .description {
   font-size: 1rem;
-  line-height: 1.4rem;
+  line-height: 1.3rem;
   flex: 2;
   padding: 2rem 0 0 1rem;
   /* border: 1px dotted red; */
+}
+
+.description > div {
+  text-align: justify;
 }
 
 .description h2 {
@@ -459,6 +463,7 @@ iframe:hover {
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
   margin-bottom: 0.8rem;
+  padding-left: 2rem;
 }
 
 
@@ -537,6 +542,7 @@ iframe:hover {
 .sign:hover {
   background-color: var(--ui-hover-button-color);
   color: var(--ui-text-negative);
+  cursor: default;
 }
 .sign:active {
   background-color: var(--ui-clicked-button);
@@ -544,41 +550,47 @@ iframe:hover {
 
   /* Skills table - forth column */
 .level {
-  width: 20%;
+  width: 7%;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 
 
 .skills-container h3 {
-  font-weight: normal;
+  /* font-weight: normal; */
   font-size: 1.3rem;
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
   margin-bottom: 1rem;
-  text-shadow: var(--ui-shadows);
+  padding-left: 2rem;
+  /* text-shadow: var(--ui-shadows); */
 }
 
 .skills-description {
-
 height: 32%;
-
 border-radius: 5px;
-
 overflow: auto;
-
 background-color: var(--ui-description-box);
-
 padding: 1rem 0;
 }
+
 .skills-description li {
-  text-align: center;
+  text-align: left;
 }
+
+.skills-description h2 {
+  margin-bottom: 1rem;
+  color: var(--ui-headers);
+}
+
 .skills-description .achieved {
-  color: var(--ui-text-skills-description);
-  font-size: 1.1rem;
+  color: var(--ui-text);
+  font-size: 1rem;
 }
+
+
+
 
 .skills-description .unachieved {
   color: var(--ui-text);
@@ -595,7 +607,7 @@ padding: 1rem 0;
 
 .skills-description .unachieved:hover {
   font-size: 1.3rem;
-  color: var(--ui-alert-message-text);
+  color: var(--ui-text);
 }
 
 .skills-description .unachieved:hover:after {
@@ -606,9 +618,12 @@ padding: 1rem 0;
 
 .skills-description ol {
   margin-left: 2rem;
-  list-style-type: upper-roman;
+  /* list-style-type: upper-roman; */
   list-style-position: inside;
 }
+
+
+
 
 /* Google's letters coloring */
 .unachieved:hover  .g1 {
@@ -635,11 +650,11 @@ padding: 1rem 0;
 .down-stop-arrow {
   display: block;
   font-size: 1.5rem;
-  margin-top: 0.3rem;
+  padding-left: 3rem;
 }
 
 .down-stop-arrow {
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 
@@ -690,12 +705,16 @@ padding: 1rem 0;
 }
 
 .attributes-container h3{
-  font-weight: normal;
+  /* font-weight: normal; */
   font-size: 1.3rem;
   color: var(--ui-headers);
   border-bottom: 1px solid var(--ui-text);
   margin-bottom: 1rem;
+  /* text-shadow: var(--ui-shadows); */
+  padding-left: 2rem;
 }
+
+
 
 .attribute-box {
   margin: 0.2rem 0.2rem;
@@ -719,7 +738,7 @@ padding: 1rem 0;
   font-size: 1.5rem;
 }
 .check-mark:hover {
-  cursor: no-drop;
+  cursor: default;
 }
 
 .checked{
@@ -756,7 +775,7 @@ padding: 1rem 0;
 
 .attributes-description > p {
   margin-top: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: justify;
   color: var(--ui-text);
 }
@@ -766,7 +785,6 @@ padding: 1rem 0;
   list-style-type: none;
   color: var(--ui-attributes-bonuses);
   line-height: 1.2rem;
-  font-size: 1rem;
   font-style: italic;
 }
 
@@ -803,10 +821,8 @@ padding: 1rem 0;
 
 .summary p {
   margin-top: 1rem;
-  font-size: 1em;
-  line-height: 1.5rem;
+  line-height: 1.3rem;
   text-align: left;
-  white-space: pre-line;
 }
 
 .btn-letsPlayAGame {
@@ -922,8 +938,13 @@ footer {
   left: 6px;
 }
 
-.footer-contact{
+.footer-contact {
   right: 6px;
+}
+
+.footer-contact:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 
@@ -963,6 +984,7 @@ width: auto;
   padding: 2rem;
   top: 19%;
   left: 30%;
+  z-index: 100;
   height: auto;
   width: 40%;
   border-radius: var(--ui-border-radius);

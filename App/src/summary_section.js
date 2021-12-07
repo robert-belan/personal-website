@@ -21,7 +21,7 @@ function createSummary() {
     document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
         const msg = `
         <p>Pokud jste čekali něco akčnějšího, jste asi zklamaní. Zde v tuto chvíli hra končí. Pokud jsem Vás však trochu zaujal, vraťte se zpět do hlavního menu a pokračujte do sekce Extras. Tam se můžete dozvědět více a nakonec uvidíte, třeba se rozhodnete se mnou pár kol zkusit.</p>
-        <p>Možná Vám to už stačilo a chcete mi rovnou napsat. Níže je pár užitečných kontaktů. Stejné odkazy lze zobrazit kliknutím na "Kontakty" zcela dole vpravo nebo uprostřed.</p>
+        <p>Možná Vám to už stačilo. Tak jako tak, níže najdete pár užitečných kontaktů. Stejné odkazy lze zobrazit kliknutím na "Kontakty" zcela dole vpravo nebo uprostřed.</p>
         `;
         getContacts(msg);
     })

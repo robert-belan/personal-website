@@ -69,11 +69,13 @@ function skillsToggle() {
         skills[counter].addEventListener("click", () => {
 
             //smooth changing effect
-            fadeOutFadeIn(() => {
-                destination.insertAdjacentHTML("beforeend", `
-                    ${getSkillDescription(counter)}
-                    `)
-            }, destination)
+            if (!document.querySelector(`#${skillsData[counter].skill}`)) {
+                fadeOutFadeIn(() => {
+                    destination.insertAdjacentHTML("beforeend", `
+                        ${getSkillDescription(counter)}
+                        `)
+                }, destination);
+            }
         })
     }
 }
@@ -86,14 +88,15 @@ function getSkillDescription(selectedSkill) {
     const skill = skillsData[selectedSkill]; //array with levels text
     const result = []
 
+    result.push(`<h2 id=${skill.skill}>${skill.skill}</h2>`);
     for (let counter = 0; counter < skill.levels.length; counter++) {
         if (counter < skill.completed) {
             result.push(`<li class="achieved">${skill.levels[counter]}</li>`)
             if (counter < (skill.completed - 1)) {
-                result.push(`<li class="down-arrow">&#8675;</li>`);    // down arrow sign
+                result.push(`<li class="down-arrow">&#8595;</li>`);    // down arrow sign
             }
             else if (counter === skill.completed - 1 && counter !== skill.levels.length - 1) {
-                result.push(`<li class="down-stop-arrow">&#10515;</li>`); // down arrow with bottom line
+                result.push(`<li class="down-stop-arrow">&#120;</li>`); // down arrow with bottom line &#10515;
             }
         }
         else {
@@ -104,15 +107,16 @@ function getSkillDescription(selectedSkill) {
 }
 
 
-
 export const skillsData = [
     {
         logo: "c.png",
         skill: "C/C++",
         levels: ["Rozhodnutí naučit se programovat",
             "První printf('Hello World!')",
-            "Poznávání vnitřního fungování PC",
-            "Ztráta praktické schopnosti používání jazyka"
+            "Napsaná primitivní verze hry <a href='https://www.learncpp.com/cpp-tutorial/chapter-10-comprehensive-quiz/' target='_blank'>Blackjack</a>",
+            "Vypracováno několik úkolů v rámci <a href='https://cs50.harvard.edu/x/2021/' target='_blank'>CS50x</a>",
+            "Přechod na jiné jazyky",
+            "Pokračování s C++"
         ],
         completed: 4
     },
@@ -122,8 +126,8 @@ export const skillsData = [
         skill: "Obecné základy programování",
         levels: ["Schopen zapnout počítač",
             "První printf('Hello World')",
-            "Hotový první menší projekt(y)",
-            "Hotové CS50 by Harvard",
+            "Hotový první drobné projek(y)",
+            "Hotové <a href='https://cs50.harvard.edu/x/2021/' target='_blank'>CS50x</a> by Harvard",
             "Komerční praxe",
             "'Připraven do <span class='g1'>G</span><span class='o1'>o</span><span class='o2'>o</span><span class='g2'>g</span><span class='l'>l</span><span class='u'>u</span>'"
         ],
@@ -136,7 +140,7 @@ export const skillsData = [
         levels: ["Rozpozná zkratku",
             "První &lt;h1&gt;Hello World!&lt;/h1&gt;",
             "První jednodušší web",
-            "Praktické využívání",
+            "Praktické využívání a průběžné doplňování nedostatků",
             "Nic ho nemůže zaskočit",
         ],
         completed: 4
@@ -157,10 +161,11 @@ export const skillsData = [
     {
         logo: "js.png",
         skill: "JavaScript",
-        levels: ["Rozliší JavaScript od Jawy",
-            "První >alert('Hello World')",
-            "První praktické používání",
-            "Začíná rozpoznávat a používat různé Web API",
+        levels: ["Ví, že Javascript není Java",
+            "První console.log('Hello World')",
+            "Hotový <a href='https://learnjavascript.online/' target='_blank'>kurz</a> a první praktické používání",
+            "Začíná používat různé Web API",
+            "Doplnění Typescriptem",
             "Stačí krátké nahlédnutí do dokumentace",
             "Nahlážení do dokumentace už jen zdržuje"
         ],
@@ -172,10 +177,11 @@ export const skillsData = [
         skill: "React",
         levels: ["Upřednostnil React nad Svelt",
             "První &lt;HelloWorld /&gt;",
-            "Uvedení znalostí do praxe",
-            "První projekt postavený na Reactu"
+            "<a href='https://react-tutorial.app/' target='_blank'>Učí</a> se React",
+            "Předělání tohoto webu do Reactu",
+            "Další praxe"
         ],
-        completed: 2
+        completed: 3
     },
 
     {
@@ -185,7 +191,7 @@ export const skillsData = [
             "První print('Hello World!')",
             "Uvedení znalostí do praxe a první menší projekty",
             "Počátek průzkumu Python 'vnitřností'",
-            "Mírné schlazení znalostí kvůli JS"
+            "Dočasný přechod k javascriptu"
         ],
         completed: 5
     },
@@ -195,9 +201,9 @@ export const skillsData = [
         skill: "Flask",
         levels: ["Přičichnutí k Flasku",
             "První menší loky",
+            "Úvahy k přechodu na jiné beck-end technologie",
             "Vlastní menší večírek a první vystřízlivění",
             "... *první ztráty paměti*",
-            "... *další ztráty paměti*",
             "Zkušený pijan",
         ],
         completed: 3
@@ -208,9 +214,8 @@ export const skillsData = [
         skill: "SQL",
         levels: ["Seznámení s SQLite",
             "První SELECT * FROM greetings WHERE greeting = 'Hello World';",
-            "Drobná praxe",
-            "Nějakou dobu nic",
-            "SQL engineer"
+            "Drobná praxe v rámci <a href='https://cs50.harvard.edu/x/2021/' target='_blank'>CS50x</a> ",
+            "Pokročilá práce s SQL",
         ],
         completed: 3
     },
@@ -229,8 +234,9 @@ export const skillsData = [
     {
         logo: "test.png",
         skill: "Testování",
-        levels: ["Mělo by se testovat"],
-        completed: 0
+        levels: ["Už je na čase s tím začít",
+            "Začal"],
+        completed: 1
     },
 
     {
@@ -241,5 +247,26 @@ export const skillsData = [
             "Zpět k W10 + WSL",
         ],
         completed: 3
+    },
+
+    {
+        logo: "lock.png",
+        skill: "Skryto",
+        levels: [],
+        completed: 0
+    },
+
+    {
+        logo: "lock.png",
+        skill: "Skryto",
+        levels: [],
+        completed: 0
+    },
+
+    {
+        logo: "lock.png",
+        skill: "Skryto",
+        levels: [],
+        completed: 0
     },
 ]

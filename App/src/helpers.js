@@ -221,7 +221,8 @@ export function getContacts(message = "") {
                 ${message}
             </div>
             <div>
-                <p><b>info@robertbelan.com</b></p>
+                <p><b>robertbelan92@gmail.com</b></p>
+                <p><i>[temp: tento e-mail se změní ještě dnes (7.12.2021) - je tu pouze pro debug účely, použijte raději LinkedIn. Děkuji]</i></p>
                 <p>
                 LinkedIn, 
                 GitHub

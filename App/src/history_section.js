@@ -32,7 +32,7 @@ function createHistory() {
             </li>`);
     }
 
-    description.insertAdjacentHTML("beforeend", `<p>${historyData[0].description}</p>`);
+    description.insertAdjacentHTML("beforeend", `<div>${historyData[0].description}</div>`);
 
     profileToggle();
 }
@@ -64,20 +64,20 @@ const historyData = [
         profile: "Ztracený a nalezený",
         description: `
         <h2>Ztracený a nalezený (<b>zvolené</b>)</h2>
-        <p>Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtani studni se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách různých ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější - přístup k internetu. Po letech nejistot a hledání se rozhodl ze střech slézt a konečně si stoupnout na pevnou půdu pod nohama.</p>`
+        <p>Spokojené dětství vystřídala řada nešťastných studijních rozhodnutí, která jej dovedla k předčasnému zanechání studia vysoké školy. Vystřídal řadu zaměstnání. Po zkušenosti pomocného dělníka u vrtaní studní se na nějakou dobu navlékl do uniformy a stal se jezdcem stáje Policie ČR. Po jeho vystřízlivění ze služby odešel, ale radost z vnikání do lidských domovů jej neopustila. Na pár let tak zakotvil na brněnských střechách ve službách různých ISP a přinášel lidem, hned po zdraví zdánlivě to nejcennější&nbsp;-&nbsp;přístup k internetu. Po letech nejistot a hledání se rozhodl ze střech slézt a konečně si stoupnout na pevnou půdu pod nohama.</p>`
     },
 
     {
         profile: "Premiant",
         description: `
         <h2>Premiant (<b>nelze zvolit</b>)</h2>
-        <p>Oba jeho rodiče byli úspěšnými kapacitami svých oborů a to strojního inženýrství a aplikované matematiky. Jejich až patologická snaha být ve vše lepší než ostatní se tak zákonitě musela přenést i na něj a jeho dva sourozence. S vyznamenáním vystudoval slavné MIT a měl pocit, že mu kromě diplomu u nohou leží i celý svět. V Googlu si ho různá oddělení prohazovala jako horký brambor. Po pár měsících ho k sobě přetáhl Apple. Rodinné důvody ho donutily opustit divoký život v Silicon Valley, vrátit se domů a zkusit štěstí v jeho moravské podobě.</p>`
+        <p>Oba jeho rodiče byli úspěšnými kapacitami svých oborů. Jejich až patologická snaha být ve vše lepší než ostatní se tak zákonitě musela přenést i na něj a jeho dva sourozence. S vyznamenáním vystudoval slavné MIT a měl pocit, že mu kromě diplomu u nohou leží i celý svět. V Googlu si ho různá oddělení prohazovala jako horký brambor. Po pár měsících ho přetáhl Apple. Rodinné důvody ho donutily opustit divoký život v Silicon Valley, vrátit se domů a zkusit štěstí v jeho moravské verzi.</p>`
     },
 
     {
         profile: "Snílek",
         description: `
         <h2>Snílek (<b>nelze zvolit</b>)</h2>
-        <p>Stěží ukončil povinnou školní docházku. Předčasné úmrtí otce a neuspokojivá finanční situace jej vyhnala do ulic hledat práci v době, kdy se měl věnovat přípravě k přijímacím zkouškám na střední školu. Po několika letech se rodinná situace uklidnila, ale přestože práce u pásu jeho rodině naplní žaludky, už ne jeho touhu po vyšším uplatnění. Rozhodl se změnit zaměstnání. Přečetl si, že v IT berou všechny. Nemá co ztratit. Bez přípravy a po hlavě vráží do dveří všech dveří IT doufaje, že mu někdo otevře a vše ho naučí.</p>`
+        <p>Stěží ukončil povinnou školní docházku. Předčasné úmrtí otce a neuspokojivá finanční situace jej vyhnala do ulic hledat práci v době, kdy se měl věnovat přípravě ke zkouškám na střední školu. Po několika letech se rodinná situace uklidnila, ale přestože práce u pásu rodinu uživí, už ne jeho touhu po vyšším uplatnění. Rozhodl se změnit zaměstnání. Přečetl si, že v IT berou všechny. Nemá co ztratit. Bez přípravy a po hlavě vráží do všech IT dveří doufaje, že mu někdo otevře a vše ho naučí.</p>`
     }
 ]

@@ -13,13 +13,14 @@ export function extras() {
 
     const main = document.querySelector("main");
 
-    fadeElement(document.querySelector("#welcome-msg"), "remove");
+    if (document.querySelector("#welcome-msg")) {
+        fadeElement(document.querySelector("#welcome-msg"), "remove");
+    }
 
     // if element with that ID isn't already there, create one
     if (!main.querySelector("#extras-text-container")) {
         const html = `
-            <div id="extras-text-container" class="extras-text-container hidden">
-                ${foreword}            
+            <div id="extras-text-container" class="extras-text-container" hidden">
             </div>`;
         main.insertAdjacentHTML("beforeend", html);
     }
@@ -60,7 +61,7 @@ function aboutThisWeb() {
  * Clear text in Extras section. U
  */
 function backToExtras() {
-    fadeOutFadeIn(getForeword, document.querySelector("#extras-text-container"));
+    fadeOutFadeIn(() => { }, document.querySelector("#extras-text-container"));
     extras();
 }
 
@@ -83,15 +84,6 @@ function changeText(text) {
 function scrollTo(target) {
     // TODO: volitelne parametry funkce scrollIntoView zatim nepodporuje Safari
     document.querySelector(target).scrollIntoView({ behavior: "smooth" });
-}
-
-
-
-/**
- * Insert foreword into first page of extras section.
- */
-function getForeword() {
-    document.querySelector("#extras-text-container").insertAdjacentHTML("beforeend", foreword);
 }
 
 
@@ -211,7 +203,7 @@ const shortStory = `<div class="extras-text">
 
 <p>Buďte dobří,</p>
 <p>Robert</p>
-
+<p>[temp: velmi brzy doplním kontakty, zatím je najde vpravo dole]</p>
 
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
@@ -260,6 +252,7 @@ const longStory = `<div class="extras-text">
 <br>
 <p>Mnohokrát děkuji za Váš čas,<br>
 Robert</p>
+<p>[temp: velmi brzy doplním kontakty, zatím je najde vpravo dole]</p>
 
 
 <h2 id="practicalNotes">Praktické poznámky</h2>
@@ -278,30 +271,27 @@ const releaseNotesData = `<div class="extras-text">
 <h2 id="latest">Poslední</h2>
 <p>
     <ul>
-        <li>Doplněný obsah "Jak vznikl tento web"</li>
-        <li>Upravená responzivita pro menší obrazovky</li>
+        <li>(7.12.2021) - Umístění na web</li>
     </ul>
 </p>
 
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
-        <li>Velká refaktorace kódu - chystání půdy pro překlopení do Reactu</li>
-        <li>Upravit text v Extras a doplnit formátování</li>
-        <li>Horní a spodní okraj textu v sekci Extras bude přecházet do ztracena</li>
-        <li>Doplnit JSDoc popisky k funkcím !</li>
-        <li>Přidat robots.txt. Nechci tento web nikde indexovat.</li>
-        <li>Doplnit záložní obrázek v případě selhání serveru Vectary</li>
-        <li>Změna na Darkmode a zpět bude plynulá</li>
-        <li>Upravit barvy scrollbaru v DarkModu. Plete se posunovadlo s jeho pozadím</li>
-        <li>Doplnit alt atributy obrázků log v sekci Dovednosti</li>
+        <li>Doposud proběhla nulová optimalizace pro malé obrazovky - priorita</li>
+        <li>Zvýšení rychlosti webu</li>
+        <li>Refaktorace kódu i CSS</li>
+        <li>Doplnit obsah sekce "Jak vznikl tento web"</li>
+        <li>Plynulá změna barevného schéma light/dark</li>
+        <li>Přepsání do Reactu</li>
+        <li>Překlad webu do AJ</li>
     </ul>
 </p>
 
 <h2 id="potential">Uvažované</h2>
 <p>
     <ul>
-        <li>Drobečková navigace</li>
+        <li></li>
     </ul>
 </p>
 </div>
