@@ -95,7 +95,7 @@ function getSkillDescription(selectedSkill) {
     const skill = skillsData[selectedSkill]; //array with levels text
     const result = []
 
-    result.push(`<h2 id="skill-header">${skill.skill}</h2>`);
+    result.push(`<h3 id="skill-header" class="in-description-header">${skill.skill}</h3>`);
     for (let counter = 0; counter < skill.levels.length; counter++) {
         if (counter < skill.completed) {
             result.push(`<li class="achieved">${skill.levels[counter]}</li>`)

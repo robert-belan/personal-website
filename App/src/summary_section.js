@@ -20,13 +20,15 @@ function createSummary() {
 
     document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
         const msg = `
-        <p>Pokud jste čekali něco akčnějšího, jste asi zklamaní. Zde v tuto chvíli hra končí. Pokud jsem Vás však trochu zaujal, vraťte se zpět do hlavního menu a pokračujte do sekce Extras. Tam se můžete dozvědět více a nakonec uvidíte, třeba se rozhodnete se mnou pár kol zkusit.</p>
-        <p>Možná Vám to už stačilo. Tak jako tak, níže najdete pár užitečných kontaktů. Stejné odkazy lze zobrazit kliknutím na "Kontakty" zcela dole vpravo nebo uprostřed.</p>
+        <h2 style="text-align: center; margin-bottom: 1rem;">Spuštění přerušeno</h2>
+        <p>Nenaštvalo by Vás to? Hra, která se hned po spuštění přeruší. Než však budete pokračovat, dovolte mi menší doporučení. Vraťte se zpět do hlavního menu a pokračujte do sekce <b>Extras</b>. Pokud jsem Vás trochu zaujal, v Extras se o mně můžete dozvědět více a tak se lépe rozhodnout, zda se mnou pár kol zkusíte.</p>
+        <p>Jestliže Vám to už stačilo, pak pokračujte:</p>
         `;
-        getContacts(msg);
+        getContacts(msg, "SpustitHru@RobertBelan.com");
+
+
     })
 }
-
 
 
 export const summaryData = `

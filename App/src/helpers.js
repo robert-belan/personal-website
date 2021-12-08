@@ -88,11 +88,11 @@ function tempAlertMessage(message, target, duration) {
 </div>`;
 
     target.insertAdjacentHTML("beforeend", html);
-    const msg = document.querySelector("#tempMsg");
+    const alert_msg = document.querySelector("#tempMsg");
 
-    showElement(msg);
+    showElement(alert_msg);
     setTimeout(() => {
-        fadeElement(msg, "remove");
+        fadeElement(alert_msg, "remove");
     }, afterAnimation + duration);
 }
 
@@ -213,28 +213,24 @@ function createMenuItems(itemsData, container) {
  * Creates window with contacts.
  * @param {string} [message] - additional optional text content
  */
-export function getContacts(message = "") {
+export function getContacts(message = "", email = "info@robertbelan.com") {
     if (!document.querySelector("#contact-container")) {
+
         const html = `
         <div id="contact-container" class="contact-container hidden">
-            <div class="optionalMsg">
-                ${message}
-            </div>
-            <div>
-                <p><b>robertbelan92@gmail.com</b></p>
-                <p><i>[temp: tento e-mail se změní ještě dnes (7.12.2021) - je tu pouze pro debug účely, použijte raději LinkedIn. Děkuji]</i></p>
-                <p>
-                LinkedIn, 
-                GitHub
-                </p>
-                <p>Copyright <span style="font-size: 1.3em;">©</span> 2021 Robert Belan</p>        
+            <div class="optionalMsg">${message}</div>
+            <div>               
+                <p><span id="email" class="link" title="Zkopírovat adresu"><b>${email}</b><img src="/logos/copy.png"></span></p>
+                <p>LinkedIn, GitHub</p>
+                <small>Copyright <span style="font-size: 1.3em;">©</span> 2021 Robert Belan</small>        
             </div>
             <div>
                 <input type="button" name="contact-close" id="contact-close">
-                <label for="contact-close" class="button creationmenu ">Zavřít</label>
+                <label for="contact-close" class="button creationmenu">Zavřít</label>
             </div>
         </div>
         `;
+
         /** Create and show contacts */
         document.body.insertAdjacentHTML("beforeend", html);
         showElement(document.querySelector("#contact-container"));
@@ -243,5 +239,23 @@ export function getContacts(message = "") {
         document.querySelector("#contact-close").addEventListener("click", () => {
             fadeElement(document.querySelector("#contact-container"), "remove");
         });
+
+        /** Save e-mail address to clipboard */
+        document.querySelector("#email").addEventListener("click", function saveToClipboard() {
+            navigator.clipboard.writeText(`${email}`)
+                .then(() => {
+                    if (!document.querySelector("#tempMsg")) {
+                        const msg = `Adresa zkopírována do mezipaměti. Nyní už jen stačí na správném místě použít CTRL + V.`;
+                        tempAlertMessage(msg, document.querySelector("main"), 3000);
+                    }
+                }, function () {
+                    if (!document.querySelector("#tempMsg")) {
+                        const msg = `Něco se nezdařilo. Prosím, nevzdávejte to a adresu přepište ručně.`;
+                        tempAlertMessage(msg, document.querySelector("main"), 3000);
+                    };
+                });
+        })
+
+
     }
 }

@@ -57,7 +57,7 @@ function createAttributesBoxes() {
                 fadeOutFadeIn(() => {
                     attributes_description_container.insertAdjacentHTML("beforeend", `
                     <div id="attribute-no-${counter}">
-                        <h2>${attributesData[counter].name}</h2>
+                        <h3 class="in-description-header">${attributesData[counter].name}</h3>
                         <p>${attributesData[counter].description}</p>
                             <ul class="bonuses">${getAttributeDescription(counter)}</ul>
                     </div>
