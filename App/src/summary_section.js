@@ -25,8 +25,6 @@ function createSummary() {
         <p>Jestliže Vám to už stačilo, pak pokračujte:</p>
         `;
         getContacts(msg, "SpustitHru@RobertBelan.com");
-
-
     })
 }
 

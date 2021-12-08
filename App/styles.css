@@ -964,7 +964,7 @@ footer {
   z-index: 100;
   overflow: auto;
   height: auto;
-  width: 80%;
+  width: auto;
   max-width: 90%;
   min-width: 300px;
   border-radius: var(--ui-border-radius);
@@ -995,4 +995,15 @@ footer {
   left: 0.2rem;
   background-color: var(--ui-text-negative);
   border-radius: 50%;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  header {
+    height: 10vh;
+  }
+
+
+
 }
