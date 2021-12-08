@@ -328,7 +328,6 @@ iframe:hover {
 .creationMessage {
   white-space: pre-line;
   text-align: center;
-  font-size: 1.1rem;
   line-height: 1.5rem;
   width: 100%;
   padding: 0 2rem;
@@ -892,16 +891,14 @@ padding: 1rem 0;
 
 .extras-text-container p {
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .extras-text-container ul {
-  font-size: 1.2rem;
-  list-style-position: outside;
 }
 
-.extras-text-container li:not(:last-child) { 
-  margin-bottom: 0.3rem;  
+.extras-text-container li:not(:last-child) {
+  margin-bottom: 0.4rem;
 }
 
 

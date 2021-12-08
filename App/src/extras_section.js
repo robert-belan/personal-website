@@ -82,7 +82,7 @@ function changeText(text) {
 
 
 function scrollTo(target) {
-    // TODO: volitelne parametry funkce scrollIntoView zatim nepodporuje Safari
+    // Info: Safari doesn't support smooth behaviour. 
     document.querySelector(target).scrollIntoView({ behavior: "smooth" });
 }
 
@@ -279,9 +279,9 @@ const releaseNotesData = `<div class="extras-text">
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
-        <li>Doposud proběhla nulová optimalizace pro malé obrazovky</li>
+        <li>Optimalizace pro menší obrazovky</li>
         <li>Zvýšení rychlosti webu</li>
-        <li>UI: Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
+        <li>Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
         <li>Refaktorace kódu i CSS</li>
         <li>Doplnit obsah sekce "Jak vznikl tento web"</li>
         <li>Plynulá změna barevného schéma light/dark</li>
