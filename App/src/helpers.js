@@ -188,6 +188,8 @@ function createMenuItems(itemsData, container) {
     /** Conditionally creates menu TITLE */
     if (itemsData["Nadpis"]) {
         container.insertAdjacentHTML("afterbegin", `<h2>${itemsData["Nadpis"]}</h2>`);
+        container.insertAdjacentHTML("beforeend", `<div class="solo-flex-container"><div class="solo-flex"></div></div>`);
+        container = document.querySelector(".solo-flex");
     }
 
     /** Creates menu ITEMS (weird implementation of buttons) */

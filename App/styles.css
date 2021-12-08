@@ -157,7 +157,8 @@ button {
 
   /* Creation Menu Bar ------------------------------*/
 .creation-menu {
-  height: 15vh;
+  height: 6vh;
+  overflow-x: auto;
 }
 
 .creation-menu ul {
@@ -998,12 +999,191 @@ footer {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
   header {
-    height: 10vh;
+    height: auto;
+    max-height: 6vh;
+    padding: 5px 10px;
+    justify-content: center;
+    flex-direction: column;
   }
 
+  header > h1 {
+    margin-left: 0;
+    font-size: 1.3rem;
+  }
 
+  main {
+    height: 70vh;
+  }
+
+  footer {
+    height: 14vh;
+    padding-top: 1px;
+  }
+
+  main {
+    height: 73vh;
+  }
+
+  .menu {
+    position: static;
+    bottom: unset;
+    right: unset;
+  }
+ 
+  .menu ul {
+    margin: 0px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* flex-direction: column; */
+    /* overflow-x: auto; */
+  }
+
+  .mainmenu {
+    width: auto;
+    padding: 0 1rem;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .menu li {
+    margin: 0px 4px;
+    flex-wrap: nowrap;
+  }
+
+  .menu li:last-of-type {
+    margin: 0px 2px;
+  }
+
+  .button {
+    height: 32px;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .welcome-msg {
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+
+  .extras-text-container {
+    width: 100%;
+    margin-right: 0rem;
+    margin-left: 0%;
+    padding: 0% 0%;
+  }
+
+  .menu h2 {
+    text-align: center;
+    margin: 0.2rem 0;
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .menu .solo-flex-container {
+    padding-bottom: 8px;
+    overflow-x: auto;
+  }
+
+  .menu .solo-flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .extras-text {
+    padding: 0.3rem 7vw;
+    text-align: justify;
+  }
+
+  .footer-text {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: 2px;
+  }
+
+  .extras-text-container h2 {
+    margin: 1rem 0 0.8rem 0;
+    text-align: center;
+
+  }
+
+  .extras-text ul {
+  list-style: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 2px;
+  }
+
+  .contact-container {
+    position: absolute;
+    padding: 1rem;
+    top: 4rem;
+    margin: auto;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    height: auto;
+    width: 80vw;
+    max-width: 90vw;
+  }
+
+  .creationmenu {
+    min-width: 100px;
+  }
+
+  .temp-alert-msg-container {
+    padding: 0.3rem;
+    font-size: 3vw;
+  }
+
+  /* Character creation */
+  .main-container {
+    width: 100%;
+    height: 100%;
+    padding: 0rem 0px;
+    flex-direction: column;
+  }
+
+  .model3d-container {
+    position: relative;
+    z-index: 0;
+    flex: 1;
+    padding: 0vh 0vw;
+  }
+
+  .backToHomePage {
+    width: auto;
+    padding: 0 1rem;
+    margin: 00;
+    justify-content: center;
+  }
+
+  .creation-menu ul {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .creation-menu li {
+    margin: 0px 2px;
+  }
+
+  .extras-text-container p {
+    font-size: 2.4vh;
+    line-height: 2.8vh;
+  }
+  
+  .welcome-msg p {
+    font-size: 2.4vh;
+}
 
 }
