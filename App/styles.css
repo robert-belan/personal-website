@@ -65,7 +65,7 @@ html[data-theme='dark'] {
   --ui-shadows: 2px 2px 5px #cacaca59;
   --ui-bg-buttons: #252525;
   --ui-header-footer-shadow: #cacaca59;
-  --ui-description-box: #6b6b6b5e;
+  --ui-description-box: #0a0a0a5e;
   --ui-anchors-color: #c3d1ff;
   --ui-anchors-color-hover: #7d6fff;
 }
@@ -82,6 +82,14 @@ html {
   caret-color: rgba(0,0,0,0); /* Hide caret blinking in a text (paragraphs, buttons, etc)*/
 }
 
+a {
+  color: var(--ui-anchors-color);
+  transition: var(--ui-animation-duration);
+}
+
+a:hover {
+  color: var(--ui-anchors-color-hover);
+}
 
 ::selection {
   background-color: inherit;
@@ -157,22 +165,30 @@ button {
 
   /* Creation Menu Bar ------------------------------*/
 .creation-menu {
-  height: 6vh;
+  height: 100%;
+  margin: 0 60px;
   overflow-x: auto;
 }
 
 .creation-menu ul {
   height: 100%;
-  margin: 0 60px;  /* zmenit tuto a souvisejici na rem jednotky */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.creation-menu .solo-flex {
+    /* zmenit tuto a souvisejici na rem jednotky */
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
 }
 
-
-
+.solo-flex-container {
+  width: 100%;
+}
 
 /* Button animation section */
 input[name="btn-hp"],
@@ -886,17 +902,13 @@ iframe:hover {
 }
 
 .extras-text > h2 {
-  margin-top: 1.5rem;
+  margin-top: 0rem;
+  padding-top: 1rem;
 }
 
-.extras-text a {
-  color: var(--ui-anchors-color);
-  transition: var(--ui-animation-duration);
-}
-
-.extras-text a:hover {
-  color: var(--ui-anchors-color-hover);
-}
+.extras-text ul {
+  list-style: none;
+  }
 
 
 footer {
@@ -961,7 +973,9 @@ footer {
   position: fixed;
   padding: 2rem;
   top: 19%;
-  left: 10%;
+  right: 0;
+  margin: auto;
+  left: 0;
   z-index: 100;
   overflow: auto;
   height: auto;
@@ -975,6 +989,7 @@ footer {
 
 .contact-container p {
     margin-bottom: 1rem;
+    max-width: 600px;
 }
 
 .optionalMsg {
@@ -984,6 +999,7 @@ footer {
 .link {
   transition: all var(--ui-animation-duration);
 }
+
 .link:hover {
   cursor: pointer;
   color: var(--ui-text-skills-description);
@@ -1003,10 +1019,9 @@ footer {
 
   header {
     height: auto;
-    max-height: 6vh;
+    max-height: 7vh;
     padding: 5px 10px;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-around;
   }
 
   header > h1 {
@@ -1033,14 +1048,10 @@ footer {
     right: unset;
   }
  
-  .menu ul {
-    margin: 0px;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    /* flex-direction: column; */
-    /* overflow-x: auto; */
-  }
+  .creation-menu {
+    height: auto;
+    margin: 0;
+}
 
   .mainmenu {
     width: auto;
@@ -1049,9 +1060,8 @@ footer {
     white-space: nowrap;
   }
 
-  .menu li {
-    margin: 0px 4px;
-    flex-wrap: nowrap;
+  .solo-flex li {
+    padding: 0 4px;
   }
 
   .menu li:last-of-type {
@@ -1063,6 +1073,13 @@ footer {
     margin: 0;
     font-size: 1rem;
   }
+
+  .button:hover {
+    cursor: pointer;
+    background-color: var(--ui-hover-button-color);
+    padding: 0 1rem;
+    letter-spacing: 0;
+}
 
   .welcome-msg {
     width: 80%;
@@ -1085,16 +1102,15 @@ footer {
     font-size: 0.7rem;
   }
 
-  .menu .solo-flex-container {
+  .solo-flex-container {
     padding-bottom: 8px;
     overflow-x: auto;
   }
 
-  .menu .solo-flex {
+  .solo-flex {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   .extras-text {
@@ -1114,9 +1130,7 @@ footer {
 
   }
 
-  .extras-text ul {
-  list-style: none;
-  }
+
 
   ::-webkit-scrollbar {
     width: 3px;
@@ -1137,7 +1151,7 @@ footer {
   }
 
   .creationmenu {
-    min-width: 100px;
+    min-width: 110px;
   }
 
   .temp-alert-msg-container {
@@ -1162,20 +1176,30 @@ footer {
 
   .backToHomePage {
     width: auto;
-    padding: 0 1rem;
-    margin: 00;
+    padding: 0px 0.7rem;
     justify-content: center;
+    height: 1.3rem;
+    font-size: 0.8rem;
+    background-color: #151515ad;
+
+  }
+
+  .backToHomePage:hover {
+    cursor: pointer;
+    padding: 0px 0.7rem;
+    letter-spacing: 0;
   }
 
   .creation-menu ul {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+    margin: 6px 0 0 0;
+    display: block;
   }
 
-  .creation-menu li {
-    margin: 0px 2px;
-  }
+  .creation-menu .solo-flex {
+    justify-content: space-between;
+}
+
+  
 
   .extras-text-container p {
     font-size: 2.4vh;
@@ -1184,6 +1208,5 @@ footer {
   
   .welcome-msg p {
     font-size: 2.4vh;
-}
-
+  }
 }

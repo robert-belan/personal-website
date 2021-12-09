@@ -15,12 +15,20 @@ import { summary } from "/src/summary_section.js"
 // This function creates foundation for character creation section (layout and menu)
 
 export function characterCreation() {
+
     const main = document.querySelector("main");
 
     fadeElement(document.querySelector("#welcome-msg"), "remove");
 
     // loads menu items
     createNavigation(characterCreationData["Vytváření postavy"]);
+
+    // change <header> h1 inner text when using small screen device
+    // opposite statement could be found at helpers.js - 
+    const change_header_H1 = window.matchMedia("(max-width: 400px)");
+    if (change_header_H1.matches) {
+        document.querySelector("header h1").innerText = "Vytváření postavy";
+    }
 
     // create new layout in <main> tag
     const creation_layout = `

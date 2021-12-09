@@ -208,10 +208,10 @@ const shortStory = `<div class="extras-text">
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
     <ul>
-        <li>&#10093; Hledám juniorní pozici!</li> 
-        <li>&#10093; Nástup je možný ihned</li> 
-        <li>&#10093; Pouze full-time na HPP nebo IČO</li>
-        <li>&#10093; Upřednostňuji in-house.</li>
+        <li>> Hledám juniorní pozici!</li> 
+        <li>> Nástup je možný ihned</li> 
+        <li>> Pouze full-time na HPP nebo IČO</li>
+        <li>> Upřednostňuji in-house.</li>
     </ul>
 </p>
 </div>`;
@@ -258,10 +258,10 @@ Robert</p>
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
     <ul>
-        <li>&#10093; Hledám juniorní pozici!</li> 
-        <li>&#10093; Nástup je možný ihned</li> 
-        <li>&#10093; Pouze full-time na HPP nebo IČO</li>
-        <li>&#10093; Upřednostňuji in-house.</li>
+        <li>> Hledám juniorní pozici!</li> 
+        <li>> Nástup je možný ihned</li> 
+        <li>> Pouze full-time na HPP nebo IČO</li>
+        <li>> Upřednostňuji in-house.</li>
     </ul>
 </p>
 </div>`;
@@ -271,22 +271,22 @@ const releaseNotesData = `<div class="extras-text">
 <h2 id="latest">Poslední</h2>
 <p>
     <ul>
-        <li>&#10093; (7.12.2021) - Umístění na web</li>
-        <li>&#10093; (7.12.2021) - Opraven první bug, při kterém se nezobrazoval po kliknutí popis první dovednosti</li>
+        <li>> (7.12.2021) - Umístění na web</li>
+        <li>> (7.12.2021) - Opraven první bug, při kterém se nezobrazoval po kliknutí popis první dovednosti</li>
     </ul>
 </p>
 
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
-        <li>&#10093; Optimalizace pro menší obrazovky</li>
-        <li>&#10093; Zvýšení rychlosti webu</li>
-        <li>&#10093; Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
-        <li>&#10093; Refaktorace kódu i CSS</li>
-        <li>&#10093; Doplnit obsah sekce "Jak vznikl tento web"</li>
-        <li>&#10093; Plynulá změna barevného schéma light/dark</li>
-        <li>&#10093; Přepsání do Reactu</li>
-        <li>&#10093; Překlad webu do AJ</li>
+        <li>> Optimalizace pro menší obrazovky</li>
+        <li>> Zvýšení rychlosti webu</li>
+        <li>> Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
+        <li>> Refaktorace kódu i CSS</li>
+        <li>> Doplnit obsah sekce "Jak vznikl tento web"</li>
+        <li>> Plynulá změna barevného schéma light/dark</li>
+        <li>> Přepsání do Reactu</li>
+        <li>> Překlad webu do AJ</li>
     </ul>
 </p>
 

@@ -136,15 +136,19 @@ export function linkToMainMenu(element) {
     element.addEventListener("click", () => {
         const nav = document.querySelector("nav");
         const main = document.querySelector("main");
+        const header = document.querySelector("header");
         fadeElement(nav);
         fadeElement(main);
+        fadeElement(header);
         fadeElement(document.querySelector("#toMainMenuBtn"), "remove");
 
         setTimeout(() => {
             nav.className = "menu";
             nav.insertAdjacentHTML("beforeend", `<ul id="items"></ul>`);
             main.insertAdjacentHTML("beforeend", `<div class="background"></div>`);
+            header.insertAdjacentHTML("beforeend", `<h1>Vytvořte si nového kolegu</h1>`);
             mainMenu();
+            showElement(header);
             showElement(main);
         }, afterAnimation);
     })
@@ -188,9 +192,10 @@ function createMenuItems(itemsData, container) {
     /** Conditionally creates menu TITLE */
     if (itemsData["Nadpis"]) {
         container.insertAdjacentHTML("afterbegin", `<h2>${itemsData["Nadpis"]}</h2>`);
-        container.insertAdjacentHTML("beforeend", `<div class="solo-flex-container"><div class="solo-flex"></div></div>`);
-        container = document.querySelector(".solo-flex");
     }
+
+    container.insertAdjacentHTML("beforeend", `<div class="solo-flex-container"><div class="solo-flex"></div></div>`);
+    container = document.querySelector(".solo-flex");
 
     /** Creates menu ITEMS (weird implementation of buttons) */
     for (let item in itemsData) {
@@ -247,10 +252,11 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
             navigator.clipboard.writeText(`${email}`)
                 .then(() => {
                     if (!document.querySelector("#tempMsg")) {
-                        const msg = `Adresa zkopírována do mezipaměti. Nyní už jen stačí na správném místě použít CTRL + V.`;
-                        tempAlertMessage(msg, document.querySelector("main"), 3000);
+                        const msg = `Adresa zkopírována do mezipaměti. Nyní už jen stačí na správném místě použít ctrl + v.`;
+                        tempAlertMessage(msg, document.querySelector("main"), 4000);
                     }
-                }, function () {
+                })
+                .catch(() => {
                     if (!document.querySelector("#tempMsg")) {
                         const msg = `Něco se nezdařilo. Prosím, nevzdávejte to a adresu přepište ručně.`;
                         tempAlertMessage(msg, document.querySelector("main"), 3000);
@@ -259,5 +265,14 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
         })
 
 
+    }
+}
+
+export function checkMediaQuery(func) {
+    // change <header> h1 inner text when using small screen device
+    // opposite statement could be found at helpers.js - 
+    const change_header_H1 = window.matchMedia("(max-width: 800px)");
+    if (change_header_H1.matches) {
+        return func();
     }
 }
