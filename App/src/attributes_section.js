@@ -100,14 +100,14 @@ export const attributesData = [
     {
         name: "Extrovert",
         description: "Rád na sebe strháváš pozornost a řádně si to užíváš.",
-        bonus: ["+8 % Komunikace za každou novou úroveň", "-2 Pochopení od okolních introvertů"],
+        bonus: ["+4 % Komunikace za každou novou úroveň", "-2 Pochopení od okolních introvertů"],
         selected: 0
     },
 
     {
         name: "Dlouhé vedení",
         description: "Ne vždy všechno pochopíš na první dobrou. Občas uniká drobný detail, který brání uzavření okruhu. Výsledek však bývá lépe ukotven v paměti.",
-        bonus: ["+5 pochopení", "-4 trpělivost spoluhráčů v nejbližším okolí"],
+        bonus: ["+5 Pochopení", "-4 Trpělivost spoluhráčů v nejbližším okolí"],
         selected: 1
     },
 
@@ -128,7 +128,7 @@ export const attributesData = [
     {
         name: "Abstinující, spící",
         description: "Propařil sis svoje. Teď je čas i na práci.",
-        bonus: ["+5 Spánek, +100 Energie (v kombinaci s Hlava rodiny)", "-4 Pochopení okolních spoluhráčů"],
+        bonus: ["+5 Spánek", "+100 Energie (v kombinaci s Hlava rodiny)", "-4 Pochopení okolních spoluhráčů"],
         selected: 1
     },
 
@@ -156,7 +156,7 @@ export const attributesData = [
     {
         name: "Prokrastinátor",
         description: "Kdyby ti platili za množství odložené práce na neurčito, jsi milionář.",
-        bonus: ["+25 % odložení účinku jiného bonusu na neurčito"],
+        bonus: ["+25 % Odložení účinku jiného bonusu na neurčito"],
         selected: 0
     },
     // TODO: Doplnit funkci zobrazení bonusu až po nějaké chvíli. Samozřejmě někdy, až se ti bude chtít. *mrk*

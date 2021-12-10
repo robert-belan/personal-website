@@ -125,7 +125,7 @@ export const skillsData = [
             "Přechod na jiné jazyky",
             "Pokračování s C++"
         ],
-        completed: 4
+        completed: 5
     },
 
     {
@@ -162,7 +162,7 @@ export const skillsData = [
             "Věc se komplikuje s SCCS",
             "Přestane všude psát CCS místo CSS"
         ],
-        completed: 4
+        completed: 3
     },
 
     {
@@ -182,11 +182,12 @@ export const skillsData = [
     {
         logo: "react.png",
         skill: "React",
-        levels: ["Upřednostnil React nad Svelt",
+        levels: ["Reagoval na poptávku po Reactu",
             "První &lt;HelloWorld /&gt;",
             "<a href='https://react-tutorial.app/' target='_blank'>Učí</a> se React",
             "Předělání tohoto webu do Reactu",
-            "Další praxe"
+            "Další 'hafo' praxe",
+            "Říká si Reactor",
         ],
         completed: 3
     },
@@ -198,7 +199,8 @@ export const skillsData = [
             "První print('Hello World!')",
             "Uvedení znalostí do praxe a první menší projekty",
             "Počátek průzkumu Python 'vnitřností'",
-            "Dočasný přechod k javascriptu"
+            "Dočasný přechod k JavaScriptu",
+            "Pokročilý pythonista"
         ],
         completed: 5
     },
@@ -230,7 +232,7 @@ export const skillsData = [
     {
         logo: "git.png",
         skill: "GIT",
-        levels: ["Cože? Gastrointestinální trakt?",
+        levels: ["GIT? Ne, nejedná se o trávicí trakt",
             "git commit greeting.html -m 'Hello world!';",
             "Průběžná praxe",
             "Pokročilejší používání GIT"

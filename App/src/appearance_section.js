@@ -57,7 +57,7 @@ function createAppearanceTable() {
 const appearanceData = [
     {
         prop: "Portrét",
-        option: "<div class='logo-face-container'><img class='logo-face' src='/logos/face.png'></div>"
+        option: "<div class='logo-face-container'><img class='logo-face' src='/logos/miniface.png'></div>"
     },
     {
         prop: "Jméno",

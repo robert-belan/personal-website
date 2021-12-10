@@ -15,7 +15,7 @@ export function mainMenu() {
     createNavigation(navigationData["Hlavní menu"]);
 
     const tooSmallScreenAlert = () => {
-        return `<br><p><b>Upozornění</b>: Web je optimalizovaný primárně na <b>větší</b> displej než právě používáte.</p>`
+        return `<br><p><b>Upozornění</b>: Web je optimalizovaný primárně na <b>větší</b> displej než právě používáte. Na optimalizaci pro menší obrazovky právě pracuji (10.12.21)</p>`
     }
 
     /** Welcome message on homepage */
@@ -25,8 +25,11 @@ export function mainMenu() {
         <br>
         <p>Informace zde uvedené jsou podávané formou napodobující vytváření postavy v počítačových hrách typu RPG s
         tím rozdílem, že vše označené je <b>skutečné</b> a <b>pravdivé</b>.</p>
+        <br>
+        <p>Doporučuji začít <b>založením nové postavy</b>.</p>
         ${checkMediaQuery(tooSmallScreenAlert) ?? ""}
     </div>`;
+
     document.querySelector("main").insertAdjacentHTML("beforeend", welcomeMessage);
     showElement(document.querySelector("#welcome-msg"));
 }

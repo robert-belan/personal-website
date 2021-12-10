@@ -1,10 +1,14 @@
 import { showElement, getContacts } from "/src/helpers.js";
 import { mainMenu, navigationData } from "/src/main_menu.js";
 
+
 /* Smoothly loads homepage */
 window.addEventListener("load", () => {
     showElement(document.body);
 })
+
+
+
 
 /* Creates main menu */
 mainMenu(navigationData["Hlavní menu"]);

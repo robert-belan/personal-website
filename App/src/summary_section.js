@@ -21,8 +21,8 @@ function createSummary() {
     document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
         const msg = `
         <h2 style="text-align: center; margin-bottom: 1rem;">Spuštění přerušeno</h2>
-        <p>Nenaštvalo by Vás to? Hra, která se hned po spuštění přeruší. Než však budete pokračovat, dovolte mi menší doporučení. Vraťte se zpět do hlavního menu a pokračujte do sekce <b>Extras</b>. Pokud jsem Vás trochu zaujal, v Extras se o mně můžete dozvědět více a tak se lépe rozhodnout, zda se mnou pár kol zkusíte.</p>
-        <p>Jestliže Vám to už stačilo, pak pokračujte:</p>
+        <p>Nenaštvalo by Vás to? Hra, která se hned po spuštění přeruší. Než však budete pokračovat, dovolte mi menší doporučení. Vraťte se zpět do hlavního menu a pokračujte do sekce <b>Extras</b>. Pokud jsem Vás trochu zaujal, v Extras se můžete dozvědět více a tak se lépe rozhodnout, zda se mnou pár kol zkusíte.</p>
+        <p>Jestliže Vám to už stačilo, můžete pokračovat zde:</p>
         `;
         getContacts(msg, "SpustitHru@RobertBelan.com");
     })

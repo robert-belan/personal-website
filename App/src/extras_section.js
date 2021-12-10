@@ -4,7 +4,8 @@ import {
     fadeOutFadeIn,
     afterAnimation,
     fadeElement,
-    createNavigation
+    createNavigation,
+    getContacts
 } from "/src/helpers.js";
 
 
@@ -31,6 +32,14 @@ export function extras() {
 }
 
 
+function attachContactsBtnListener() {
+    setTimeout(() => {
+        document.querySelector("#extras-contacts").addEventListener("click", () => {
+            const msg = `<p>Ať už se máte na srdci cokoliv, neváhejte mi napsat.</p>`;
+            getContacts(msg);
+        })
+    }, 1000);
+}
 
 /** 
  * Show short version of article about author
@@ -38,11 +47,13 @@ export function extras() {
 function aboutAuthorShort() {
     createNavigation(extrasData["Články o autorovi"]);
     changeText(shortStory);
+    attachContactsBtnListener()
 }
 
 function aboutAuthorLong() {
     createNavigation(extrasData["Články o autorovi"]);
     changeText(longStory);
+    attachContactsBtnListener()
 }
 
 function releaseNotes() {
@@ -85,6 +96,7 @@ function scrollTo(target) {
     // Info: Safari doesn't support smooth behaviour. 
     document.querySelector(target).scrollIntoView({ behavior: "smooth" });
 }
+
 
 
 
@@ -199,11 +211,11 @@ const shortStory = `<div class="extras-text">
 <p>Programování je jen prostředek k dosažení cíle. Snažím se uvažovat nad výrobky celkově. Především se vztahem k uživateli a jeho zkušenosti. Přemýšlím, jak učinit produkt efektivnějším. Funkce však musí být v <a href="https://www.vitsoe.com/us/about/good-design" target"_blank">rovnováze</a> s formou. Nakonec jsou to hlavně lidské emoce, které rozhodují zda se uživatel/zákazník vrátí, a na ty se zaměřuji.</p>
 
 <h2 id="conclusion">Závěr</h2>
-<p>Mnohokrát děkuji za Váš čas a pokud jsem Vás alespoň trochu zaujal, v sekci Extras existuje i delší varianta tohoto textu, kde se můžete dozvědět trochu více.</p>
+<p>Pokud Vám to stále není dost, v sekci Extras existuje i delší varianta tohoto textu, kde se můžete dozvědět zase trochu více.</p>
 
 <p>Buďte dobří,</p>
-<p>Robert</p>
-<p>[temp: velmi brzy doplním kontakty, zatím je najde vpravo dole]</p>
+<p><b>Robert</b><br><a id="extras-contacts" class="contacts">kontakt</a></p>
+
 
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
@@ -211,7 +223,7 @@ const shortStory = `<div class="extras-text">
         <li>> Hledám juniorní pozici!</li> 
         <li>> Nástup je možný ihned</li> 
         <li>> Pouze full-time na HPP nebo IČO</li>
-        <li>> Upřednostňuji in-house.</li>
+        <li>> Upřednostňuji on-site</li>
     </ul>
 </p>
 </div>`;
@@ -251,9 +263,7 @@ const longStory = `<div class="extras-text">
 
 <br>
 <p>Mnohokrát děkuji za Váš čas,<br>
-Robert</p>
-<p>[temp: velmi brzy doplním kontakty, zatím je najde vpravo dole]</p>
-
+<p><b>Robert</b><br><a id="extras-contacts" class="contacts">Kontakt</a></p>
 
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
@@ -261,7 +271,7 @@ Robert</p>
         <li>> Hledám juniorní pozici!</li> 
         <li>> Nástup je možný ihned</li> 
         <li>> Pouze full-time na HPP nebo IČO</li>
-        <li>> Upřednostňuji in-house.</li>
+        <li>> Upřednostňuji on-site</li>
     </ul>
 </p>
 </div>`;
@@ -290,15 +300,10 @@ const releaseNotesData = `<div class="extras-text">
     </ul>
 </p>
 
-<h2 id="potential">Uvažované</h2>
-<p>
-    <ul>
-    </ul>
-</p>
 </div>
 `
 
 const aboutThisWebData = `<div class="extras-text">
-    <p>Spontánně.</p>
+    <p>Spontánně. (v krátké době doplním)</p>
 </div>
 `;

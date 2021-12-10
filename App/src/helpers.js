@@ -228,7 +228,7 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
             <div class="optionalMsg">${message}</div>
             <div>               
                 <p><span id="email" class="link" title="Zkopírovat adresu"><b>${email}</b><img src="/logos/copy.png"></span></p>
-                <p>LinkedIn, GitHub</p>
+                <p><a href="https://www.linkedin.com/in/robertbelan/" target="_blank" title="Pokud LinkedIn nemáte nevadí, více informací než zde tam nenajdete.">LinkedIn</a>, GitHub</p>
                 <small>Copyright <span style="font-size: 1.3em;">©</span> 2021 Robert Belan</small>        
             </div>
             <div>

@@ -339,6 +339,7 @@ iframe:hover {
 
 
 .creationMessage {
+  font-size: calc(0.8rem + 0.5vh);
   white-space: pre-line;
   text-align: center;
   line-height: 1.5rem;
@@ -417,7 +418,9 @@ iframe:hover {
 }
 
 .logo-face {
-  width: 90px;
+  position: relative;
+  top: 4px;
+  width: 80px;
   filter: drop-shadow(2px 0px 5px #ffffff) opacity(0.8);
 }
 
@@ -483,7 +486,7 @@ iframe:hover {
 .skills {
   overflow: auto;
   height: 45%;
-  margin: 1rem 0;
+  margin: 1rem 10px;
   margin-bottom: 2rem;
 }
 
@@ -688,7 +691,7 @@ iframe:hover {
 .attributes-boxes {
   height: 45%;
   overflow: auto;
-  margin: 1rem 0;
+  margin: 1rem 10px;
   margin-bottom: 2rem;
   display: flex;
   justify-content: flex-start;
@@ -910,6 +913,15 @@ iframe:hover {
   list-style: none;
   }
 
+.contacts {
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.contacts:hover {
+  cursor: pointer;
+}
+
 
 footer {
   box-shadow: 0px -5px 10px var(--ui-header-footer-shadow);
@@ -929,12 +941,11 @@ footer {
 
 .footer-contact {
   right: 6px;
-  transition: all var(--ui-animation-duration);
 }
 
 .footer-contact:hover {
   cursor: pointer;
-  color: var(--ui-text-skills-description);
+  font-weight: bold;
 }
 
 
@@ -943,6 +954,7 @@ footer {
   position: absolute;
   bottom: 23%;
   left: 10%;
+  overflow: auto;
 }
 
 .welcome-msg p {
@@ -993,7 +1005,7 @@ footer {
 }
 
 .optionalMsg {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .link {
@@ -1015,7 +1027,8 @@ footer {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen 
+and (max-width: 800px) {
 
   header {
     height: auto;
@@ -1086,6 +1099,9 @@ footer {
     position: absolute;
     top: 10%;
     left: 10%;
+    height: fit-content;
+    max-height: 100%;
+    overflow: auto;
   }
 
   .extras-text-container {
