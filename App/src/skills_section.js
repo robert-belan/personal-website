@@ -182,12 +182,11 @@ export const skillsData = [
     {
         logo: "react.png",
         skill: "React",
-        levels: ["Reagoval na poptávku po Reactu",
+        levels: ["Upřednostnil React nad Svelte",
             "První &lt;HelloWorld /&gt;",
             "<a href='https://react-tutorial.app/' target='_blank'>Učí</a> se React",
             "Předělání tohoto webu do Reactu",
             "Další 'hafo' praxe",
-            "Říká si Reactor",
         ],
         completed: 3
     },
@@ -261,21 +260,21 @@ export const skillsData = [
     {
         logo: "lock.png",
         skill: "Skryto",
-        levels: [],
+        levels: ["Dovednost se odhalí v průběhu hry"],
         completed: 0
     },
 
     {
         logo: "lock.png",
         skill: "Skryto",
-        levels: [],
+        levels: ["Dovednost se odhalí v průběhu hry"],
         completed: 0
     },
 
     {
         logo: "lock.png",
         skill: "Skryto",
-        levels: [],
+        levels: ["Dovednost se odhalí v průběhu hry"],
         completed: 0
     },
 ]
