@@ -13,7 +13,7 @@ function createSummary() {
             ${summaryData}
             <div class="btn-letsPlayAGame">
                 <input type="button" name="btn-menu" id="btn-letsPlayAGame">
-                <label for="btn-letsPlayAGame" class="button creationmenu">Spustit hru</label>
+                <label for="btn-letsPlayAGame" class="button creationmenu playgame">Spustit hru</label>
             </div>
         </div>
     `)

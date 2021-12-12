@@ -34,7 +34,7 @@ function createAttributesBoxes() {
     <p>Vyberte vlastnost, kterou chcete zobrazit.</p>
     <br>
     <p>[X] značí zvolené</p>
-    <p>&nbsp;[ ] značí nevolené</p>
+    <p>&nbsp;[ ] značí nezvolené</p>
     </div>`
     );
 

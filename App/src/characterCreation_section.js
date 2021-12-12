@@ -2,7 +2,8 @@ import {
     fadeOutFadeIn,
     fadeElement,
     createBackToMenuButton,
-    createNavigation
+    createNavigation,
+    checkMediaQuery
 } from "/src/helpers.js";
 
 import { appearance } from "/src/appearance_section.js"
@@ -38,6 +39,7 @@ export function characterCreation() {
     </div>`;
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
+
     // load 3d model
     const model3dContainer = document.querySelector("#model3d");
     try {
@@ -54,12 +56,45 @@ export function characterCreation() {
 
         const htmlElement = `<div class="creationMessage">${welcomeMessageData}</div>`;
         introText.insertAdjacentHTML("beforeend", htmlElement);
+
+        // if using small screen, add this button
+        checkMediaQuery(() => {
+            document.querySelector("#main-container").insertAdjacentHTML("beforeend", `
+             ${addShowModelBtn()}
+            `);
+            // add event listener on click
+            showModelToggle();
+        })
+
     }, textContainer)
 
     createBackToMenuButton("btn-hp");
+
 }
 
+function addShowModelBtn() {
+    return (`
+        <button type="button" id="showModel-btn" class="button mainmenu showModel-btn">Zobrazit postavu</button>`);
+}
 
+function showModelToggle() {
+    const showModelBtn = document.querySelector("#showModel-btn");
+    showModelBtn.addEventListener("click", function showModel() {
+        const text = document.querySelector("#text");
+        const model = document.querySelector("#model3d");
+
+        if (window.getComputedStyle(model).zIndex === "-100") {
+            text.setAttribute("style", "display:none");
+            model.setAttribute("style", "display:block; z-index: 100");
+            showModelBtn.innerText = "Zobrazit text";
+        } else {
+            text.removeAttribute("style");
+            model.removeAttribute("style");
+            showModelBtn.innerText = "Zobrazit postavu";
+
+        }
+    })
+}
 
 
 // Vectary API - https://vectary.github.io/viewer-api/#/parameters
@@ -74,6 +109,7 @@ Jednotlivé parametry jsou k nahlédnutí prostřednictvím <b>navigačního men
 
 Tyto parametry se v průběhu času postupně mění. Přestože není možné je nyní upravit zcela podle Vašich představ, je jisté, že je lze <b>výrazně ovlivnit</b> v případě, že se rozhodnete námi vytvořeného kolegy vyzkoušet a zvláště při zařazení do svého týmu.
 `;
+
 
 export const characterCreationData = {
     "Vytváření postavy": {
