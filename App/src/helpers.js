@@ -223,9 +223,13 @@ function createMenuItems(itemsData, container) {
 export function getContacts(message = "", email = "info@robertbelan.com") {
     if (!document.querySelector("#contact-container")) {
 
+        let original_email = email;
+
         if (email === "SpustitHru@RobertBelan.com") {
             email = `<span class='email'>SpustitHru</span>@RobertBelan.com`;
         }
+
+
 
         const html = `
         <div id="contact-container" class="contact-container hidden">
@@ -253,7 +257,7 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
 
         /** Save e-mail address to clipboard */
         document.querySelector("#email").addEventListener("click", function saveToClipboard() {
-            navigator.clipboard.writeText(`${email}`)
+            navigator.clipboard.writeText(`${original_email}`)
                 .then(() => {
                     if (!document.querySelector("#tempMsg")) {
                         const msg = `Adresa zkopírována do mezipaměti. Nyní už jen stačí na správném místě použít ctrl + v.`;
