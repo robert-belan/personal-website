@@ -991,7 +991,7 @@ iframe:hover {
 
 .goodbye p {
   color: var(--ui-text);
-  font-size: 3rem;
+  font-size: 5vh;
 }
 
 /* Summary section */
@@ -1021,7 +1021,10 @@ iframe:hover {
   margin-top: 2rem;
 }
 
-
+.email {
+  border: 1px solid var(--ui-headers);
+  padding: 2px;
+}
 
 /* Notes:
 

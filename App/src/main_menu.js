@@ -15,7 +15,7 @@ export function mainMenu() {
     createNavigation(navigationData["Hlavní menu"]);
 
     const tooSmallScreenAlert = () => {
-        return `<br><p><b>Upozornění</b>: Web je optimalizovaný primárně na <b>větší</b> displej než právě používáte. Na optimalizaci pro menší obrazovky právě pracuji (10.12.21)</p>`
+        return `<br><p><b>Upozornění</b>: Web je dělaný primárně na <b>větší</b> displej než právě používáte.</p>`
     }
 
     /** Welcome message on homepage */

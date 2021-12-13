@@ -223,6 +223,10 @@ function createMenuItems(itemsData, container) {
 export function getContacts(message = "", email = "info@robertbelan.com") {
     if (!document.querySelector("#contact-container")) {
 
+        if (email === "SpustitHru@RobertBelan.com") {
+            email = `<span class='email'>SpustitHru</span>@RobertBelan.com`;
+        }
+
         const html = `
         <div id="contact-container" class="contact-container hidden">
             <div class="optionalMsg">${message}</div>
