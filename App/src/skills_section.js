@@ -133,7 +133,7 @@ export const skillsData = [
         skill: "Obecné základy programování",
         levels: ["Schopen zapnout počítač",
             "První printf('Hello World')",
-            "Hotový první drobné projek(y)",
+            "Hotové první drobné projekty",
             "Hotové <a href='https://cs50.harvard.edu/x/2021/' target='_blank'>CS50x</a> by Harvard",
             "Komerční praxe",
             "'Připraven do <span class='g1'>G</span><span class='o1'>o</span><span class='o2'>o</span><span class='g2'>g</span><span class='l'>l</span><span class='u'>u</span>'"

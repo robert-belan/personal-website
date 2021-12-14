@@ -3,7 +3,7 @@ import { characterCreation } from "/src/characterCreation_section.js";
 import { settings } from "/src/settings_section.js";
 import { extras } from "/src/extras_section.js";
 import { exit } from "/src/exit_section.js";
-import { checkMediaQuery } from "/src/helpers.js";
+import { isUsingSmallScreen } from "/src/helpers.js";
 
 /* Effects and support functions */
 import { createNavigation, showElement, unavailableItemMessage } from "/src/helpers.js";
@@ -16,7 +16,7 @@ export function mainMenu() {
 
     const tooSmallScreenAlert = () => {
         return `<br><p><b>Upozornění</b>: Web je dělaný primárně na <b>větší</b> displej než právě používáte.</p>`
-    }
+    };
 
     /** Welcome message on homepage */
     const welcomeMessage = `<div id="welcome-msg" class="welcome-msg hidden">
@@ -27,7 +27,7 @@ export function mainMenu() {
         tím rozdílem, že vše označené je <b>skutečné</b> a <b>pravdivé</b>.</p>
         <br>
         <p>Doporučuji začít <b>založením nové postavy</b>.</p>
-        ${checkMediaQuery(tooSmallScreenAlert) ?? ""}
+        ${isUsingSmallScreen(tooSmallScreenAlert) ?? ""}
     </div>`;
 
     document.querySelector("main").insertAdjacentHTML("beforeend", welcomeMessage);

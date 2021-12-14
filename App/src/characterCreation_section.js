@@ -1,9 +1,12 @@
 import {
     fadeOutFadeIn,
+    showElement,
     fadeElement,
     createBackToMenuButton,
     createNavigation,
-    checkMediaQuery
+    isUsingSmallScreen,
+    getMessageWindow,
+    afterAnimation
 } from "/src/helpers.js";
 
 import { appearance } from "/src/appearance_section.js"
@@ -12,6 +15,8 @@ import { skills } from "/src/skills_section.js"
 import { attributes } from "/src/attributes_section.js"
 import { summary } from "/src/summary_section.js"
 
+// State variables:
+let askedFirstTime = true;
 
 // This function creates foundation for character creation section (layout and menu)
 
@@ -25,7 +30,7 @@ export function characterCreation() {
     createNavigation(characterCreationData["Vytváření postavy"]);
 
     // change <header> h1 inner text when using small screen device
-    // opposite statement could be found at helpers.js - 
+    // opposite statement could be found at helpers.js
     const change_header_H1 = window.matchMedia("(max-width: 400px)");
     if (change_header_H1.matches) {
         document.querySelector("header h1").innerText = "Vytváření postavy";
@@ -40,13 +45,16 @@ export function characterCreation() {
     main.insertAdjacentHTML("afterbegin", creation_layout);
 
 
-    // load 3d model
+    /* Load photo or 3D model.*/
+    // Select the <div> container, where <iframe> tag with 3d model is inserted
     const model3dContainer = document.querySelector("#model3d");
-    try {
+    //
+    if (!isUsingSmallScreen()) {
         model3dContainer.insertAdjacentHTML("beforeend", model3dData);
-    } catch (e) {
-        console.log("");
+    } else {
+        model3dContainer.insertAdjacentHTML("beforeend", modelPhotoData)
     }
+
 
     const textContainer = document.querySelector("#text")
     // insert welcome text
@@ -57,13 +65,13 @@ export function characterCreation() {
         const htmlElement = `<div class="creationMessage">${welcomeMessageData}</div>`;
         introText.insertAdjacentHTML("beforeend", htmlElement);
 
-        // if using small screen, add this button
-        checkMediaQuery(() => {
+        // if true, add "Zobrazit postavu" button
+        isUsingSmallScreen(() => {
             document.querySelector("#main-container").insertAdjacentHTML("beforeend", `
-             ${addShowModelBtn()}
+            <button type="button" id="showModel-btn" class="button mainmenu showModel-btn">Zobrazit postavu</button>
             `);
             // add event listener on click
-            showModelToggle();
+            TextToModelToggle();
         })
 
     }, textContainer)
@@ -72,12 +80,11 @@ export function characterCreation() {
 
 }
 
-function addShowModelBtn() {
-    return (`
-        <button type="button" id="showModel-btn" class="button mainmenu showModel-btn">Zobrazit postavu</button>`);
-}
-
-function showModelToggle() {
+/**
+ * Switch over to show text or character's photo/3D model.
+ * This feature could be found at Character creation section.
+ */
+function TextToModelToggle() {
     const showModelBtn = document.querySelector("#showModel-btn");
     showModelBtn.addEventListener("click", function showModel() {
         const text = document.querySelector("#text");
@@ -87,19 +94,49 @@ function showModelToggle() {
             text.setAttribute("style", "display:none");
             model.setAttribute("style", "display:block; z-index: 100");
             showModelBtn.innerText = "Zobrazit text";
+
+            if (!document.querySelector("#model3d > iframe")) {
+                load3DModelInvitation();
+            }
+
         } else {
             text.removeAttribute("style");
             model.removeAttribute("style");
             showModelBtn.innerText = "Zobrazit postavu";
-
         }
     })
 }
 
+function load3DModelInvitation() {
+    if (askedFirstTime) {
+        getMessageWindow(beforeLoad3DModelMsg, load3DModel);
+        askedFirstTime = false;
+    } else {
+        getMessageWindow(secondBeforeLoad3DModelMsg, load3DModel);
+    }
+}
+
+function load3DModel() {
+    const loadButton = document.querySelector("#load3DModel");
+    loadButton.addEventListener("click", function handlerLoadModel() {
+        const modelContainer = document.querySelector("#model3d");
+
+        // remove current figure's picture ...
+        fadeElement(modelContainer);
+        // ... replace it with the 3D model, fade it in and ...
+        setTimeout(() => {
+            modelContainer.insertAdjacentHTML("beforeend", model3dData);
+            showElement(modelContainer);
+            // ... close message window
+            fadeElement(document.querySelector("#message-container"), "remove");
+        }, afterAnimation)
+    })
+}
 
 // Vectary API - https://vectary.github.io/viewer-api/#/parameters
 const model3dData = `<iframe src="https://www.vectary.com/viewer/v1/?model=bdd97310-66b0-4ae9-afaa-c2b8ebbd09a5&env=studio3&pan=0&zoom=0&minPolar=80&maxPolar=100&minAzimuth=240&mouseFollow=0.1&maxAzimuth=290&doubleClickToFocus=0&showPreloader=0&showInteractionPrompt=0" frameborder="0" width="100%" height="100%"></iframe>`;
 
+const modelPhotoData = `<img id="personImage" class="personImage" src="/logos/model.png" alt="Vzhled vytvářené postavy. Skromný fešák.">`;
 
 const welcomeMessageData = `Vstoupili jste do sekce, ve které bude možné zvolit si <b>konkrétní parametry</b> svého nového kolegu.
 
@@ -110,8 +147,23 @@ Jednotlivé parametry jsou k nahlédnutí prostřednictvím <b>navigačního men
 Tyto parametry se v průběhu času postupně mění. Přestože není možné je nyní upravit zcela podle Vašich představ, je jisté, že je lze <b>výrazně ovlivnit</b> v případě, že se rozhodnete námi vytvořeného kolegu vyzkoušet - zvláště při zařazení do Vašeho týmu.
 `;
 
+const beforeLoad3DModelMsg = `
+<p>Přejete si načíst 3D model?</p>
+<p>Pokud používáte méně výkonný smartphone, načtení modelu může způsobit snížení jeho výkonu. Jinými slovy, začne se Vám tato část webové stránky hrozně sekat.</p>
+<p>Načtení také spotřebuje přibližně 5&nbsp;MB dat. Zvažte to, pokud využíváte mobilní data.</p>
+<p><button type="button" id="load3DModel" class="button mainmenu loadModel-btn">Načíst 3D postavu</button></p>
+<p>Po kliknutí na tlačítko "Zavřít" bude zobrazen pouze obrázek.</p>
+`;
+
+const secondBeforeLoad3DModelMsg = `
+<p>Snížení výkonu zařízení a vyšší spotřeba mobilních dat. Rozumím, přesto chci:</p>
+<p><button type="button" id="load3DModel" class="button mainmenu loadModel-btn">Načíst 3D postavu</button></p>
+<p>Nebo "Zavřít" a zobrazit pouze obrázek.</p>
+`;
+
 
 export const characterCreationData = {
+
     "Vytváření postavy": {
         "Nadpis": "",
         "Vzhled": {

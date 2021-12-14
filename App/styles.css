@@ -1186,7 +1186,7 @@ footer {
   text-align: center !important;
 }
 
-.contact-container {
+.contact-container, .message-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1200,7 +1200,7 @@ footer {
   text-align: center;
   position: fixed;
   padding: 2rem;
-  top: 19%;
+  top: 15%;
   right: 0;
   margin: auto;
   left: 0;
@@ -1216,7 +1216,8 @@ footer {
   background-color: var(--ui-background);
 }
 
-.contact-container p {
+.contact-container p, 
+.message-container p{
     margin-bottom: 1rem;
     max-width: 600px;
 }
@@ -1675,4 +1676,35 @@ padding: 0 1rem;
   .summary h3, h4 {
     white-space: nowrap;
   }
+
+
+  .personImage {
+    height: 80%;
+    aspect-ratio: auto;
+    /* centering object below */
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .loadModel-btn {
+    width: 100%;
+    border: none;
+    height: auto;
+    font-size: 0.8rem;
+    padding: 3px 1rem;
+    font-family: 'Inconsolata', monospace;
+    -webkit-box-shadow: var(--ui-shadows);
+    box-shadow: var(--ui-shadows);
+    background-color: var(--ui-show-model-btn);
+  }
+
+  .loadModel-btn:hover {
+    padding: 3px 1rem;
+  }
+
+
 }

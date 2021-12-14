@@ -219,8 +219,11 @@ function createMenuItems(itemsData, container) {
 /**
  * Creates window with contacts.
  * @param {string} [message] - additional optional text content
+ * @param {string} [email] - specify e-mail address which will be displayed
  */
 export function getContacts(message = "", email = "info@robertbelan.com") {
+
+    // there could be displayed only just one such a contact window at the same time
     if (!document.querySelector("#contact-container")) {
 
         let original_email = email;
@@ -228,8 +231,6 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
         if (email === "SpustitHru@RobertBelan.com") {
             email = `<span class='email'>SpustitHru</span>@RobertBelan.com`;
         }
-
-
 
         const html = `
         <div id="contact-container" class="contact-container hidden">
@@ -271,16 +272,58 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
                     };
                 });
         })
-
-
     }
 }
 
-export function checkMediaQuery(func) {
-    // change <header> h1 inner text when using small screen device
-    // opposite statement could be found at helpers.js - 
-    const change_header_H1 = window.matchMedia("(max-width: 800px)");
-    if (change_header_H1.matches) {
-        return func();
+/**
+ * Checks whether user's using small screen device such as smartphones or tablets.
+ * @param {function} [func] 
+ * @returns {boolean}
+ */
+export function isUsingSmallScreen(func = null) {
+    const smallSizeScreen = window.matchMedia("(max-width: 800px)");
+    if (smallSizeScreen.matches) {
+        // if function provided, call it
+        if (func) {
+            return func();
+            // else just tell that screen is smaller than 800px
+        } else {
+            return true;
+        }
+        // else size is greater than 800px
+    } else {
+        return null;
+    }
+}
+
+
+
+
+export function getMessageWindow(message, additionalEventListener = null) {
+
+    // there could be displayed only just one such a message window at the same time
+    if (!document.querySelector("#message-container")) {
+
+        const html = `
+        <div id="message-container" class="message-container hidden">
+            ${message}
+            <div>
+                <input type="button" name="message-close" id="message-close">
+                <label for="message-close" class="button creationmenu">Zavřít</label>
+            </div>
+        </div>
+        `;
+
+        /** Create and show message window */
+        document.body.insertAdjacentHTML("beforeend", html);
+        showElement(document.querySelector("#message-container"));
+
+        if (additionalEventListener) additionalEventListener();
+
+        /** Close and remove message window */
+        document.querySelector("#message-close").addEventListener("click", () => {
+            fadeElement(document.querySelector("#message-container"), "remove");
+            
+        });
     }
 }
