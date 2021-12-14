@@ -85,7 +85,7 @@ function getAttributeDescription(selectedAttribute) {
 export const attributesData = [
     {
         name: "Hlava otevřená",
-        description: "V útlém předškolním věku jsi letěl na konci závodu na kolech přes řidítka a hlavou jsi přistál betonovém obrubníku. Hlava se zahojila, ale otevřená mysl pro nové a neotřelé myšlenky a technologie (naštěstí) ne.",
+        description: "V útlém předškolním věku jsi letěl na konci závodu na kolech přes řidítka a hlavou jsi přistál na betonovém obrubníku. Hlava se zahojila, ale otevřená mysl pro nové a neotřelé myšlenky a technologie (naštěstí) ne.",
         bonus: ["Zvědavost +3"],
         selected: 1
     },
@@ -128,7 +128,7 @@ export const attributesData = [
     {
         name: "Abstinující, spící",
         description: "Propařil sis svoje. Teď je čas i na práci.",
-        bonus: ["+5 Spánek", "+100 Energie (v kombinaci s Hlava rodiny)", "-4 Pochopení okolních spoluhráčů"],
+        bonus: ["+5 Spánek", "+100 Energie (v kombinaci s Hlava rodiny)", "-4 Pochopení ostatních spoluhráčů"],
         selected: 1
     },
 

@@ -220,42 +220,42 @@ const shortStory = `<div class="extras-text">
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
     <ul>
-        <li>> Hledám juniorní pozici!</li> 
-        <li>> Nástup je možný ihned</li> 
-        <li>> Pouze full-time na HPP nebo IČO</li>
-        <li>> Upřednostňuji on-site</li>
+        <li>> Hledám juniorní pozici.</li> 
+        <li>> Nástup je možný ihned.</li> 
+        <li>> Pouze full-time na HPP nebo IČO.</li>
+        <li>> Upřednostňuji on-site.</li>
     </ul>
 </p>
 </div>`;
 
 const longStory = `<div class="extras-text">
 <h2 id="education">Vzdělání a kurzy</h2>
-<p>Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak ji měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" <a href="https://www.learncpp.com/" target="_blank">tohoto webu</a>, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti-upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůře. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přinášelo hromadu frustrace, ale ten přehled o všem mi vyhovoval.</p>
+<p>Před dvěma lety jsem začal s C++. Vydrželo to přibližně dva měsíce než vstoupila na scénu stále aktuální pandemie. Já byl, k mému štěstí, na té straně barikády, která nejen že o práci nepřišla, ale naopak jí měla ještě mnohem víc. Tento jazyk jsem vstřebával "pod vedením" <a href="https://www.learncpp.com/" target="_blank">tohoto webu</a>, jehož přístup mi naprosto sedl. Stihl jsem se dostat před kapitolu o základech objektového programování, vypracovat průběžný znalosti upevňující projekt a "zbastlit" hru Blackjack pro příkazový řádek. Zdrojový soubor bych ještě někde našel, ale praktickou schopnost použití jazyka už hůře. C++ mi bylo ale velmi sympatické, neboť člověk musí mít pod kontrolou téměř vše. Pro začátečníka to přinášelo hromadu frustrace, ale ten přehled o všem mi vyhovoval.</p>
 
 <p>Pár měsíců zpět jsem si potykal s Pythonem a vzájemně jsme si porozuměli. Díky společnému známému C/C++ byla prvotní spolupráce takřka raketová. C++ vyžadovalo nějaké základní znalosti principů fungování paměti počítače a tak vůbec všeho možnýho kolem těch křemíkových vnitřností počítače. Po asi dvou nebo třech týdnech jsem se pustil do vypracování entry úkolu pro tzv. Python Weekend pořádaný společností Kiwi. Seděl jsem u toho dnem a nocí, neboť nezbývalo moc času. Víkend s notebookem v Bratislavě jsem nakonec nestrávil, ale za to jsem se toho hodně naučil. Výsledný skript nakonec nefungoval a já ještě nepřišel na to proč. A to především z toho důvodu, že jsem se přesunul ke světově známému kurzu <a href="https://cs50.harvard.edu/x/2021/" target="_blank">CS50x</a>, což zpětně vnímám jako nejlepší možné rozhodnutí.</p>
-<p>Zde bych se chtěl přiznat ke zcela vědomé lži. V sekci Dovednosti mám uvedeno, že kurz mám hotový, ale fakticky jej hotový ještě nemám. Tento web je součástí jednoho z úkolu. A proč ta lež? Já jej jako hotový kurz vnímám už teď. Jsem totiž přesvědčem, že  David J. Malan a jeho skvělí kolegové mi předali téměř všechno, co kurzem (fakticky semestrálním předmětem) předat svým studentům zamýšleli. Vypracování finálního projektu je již "jen" taková třešnička.</p>
+<p>Zde bych se chtěl přiznat ke zcela vědomé lži. V sekci Dovednosti mám uvedeno, že kurz mám hotový, ale fakticky jej hotový ještě nemám. Tento web je součástí jednoho z úkolů. A proč ta lež? Já jej jako hotový kurz vnímám už teď. Jsem totiž přesvědčem, že  David J. Malan a jeho skvělí kolegové mi předali téměř všechno, co kurzem (fakticky semestrálním předmětem) předat svým studentům zamýšleli. Vypracování finálního projektu je již "jen" taková třešnička.</p>
 <p>Co je pro mě nejdůležitější je to, že díky CS50x a času strávenému jeho studiem ve mně vykrystalizovala představa, jakým směrem se chci aktuálně ubírat. Využil jsem také příležitosti a v mezičase si "nalil" do hlavy trochu Javascriptu pomocí <a href="https://learnjavascript.online/" target="_blank">tohoto</a> výtečně zpracovaného kurzu. Systematičnost, suverénnost a nápaditost s jakou autor přistoupil nejen k obsahu kurzu, ale i k celému UX byla inspirujicí a já v tu chvíli už věděl, že full-stack je směrem, kterým se chci aktuálně ubírat. Kurzů pod záštitou CS50 je více a postupně chci projít nejen ze zvědavosti všechny. Už jen proto, že je na autorech vidět, jak si užívají tu zatraceně dobře odvedenou práci. Je to až nakažlivé.</p>
 <p>Bylo by další lží tvrdit, že už teď mám na to být full-stackovým juniorem. Zcela určitě ne. V tuto chvíli jsem si výrazně jistější na front-endovém pobřeží. Back-Side-Story je v jeho delším závěsu, ale to mám v úmyslu velmi brzy napravit.</p>
 <p>Pravda, těch technologií se teď na člověka sype spousty. Já mám ale rád přehled možností. Nemusím znát jednu věc hned super pořádně. Já chci vědět, jaké nástroje mám k dispozici a kde je efektivní je použít. Poté podle potřeb zvyšovat dovednost.</p>
-<p>Poslední, ale o to kritičtější věc musím zmínit. Nezpochybnitelnou roli při mém "přerodu" v programátora má Honza Javorek a jeho projekt <a href="https://junior.guru/" target="_blank">Junior.guru</a> a jeho komunita. Pokud byste si měli z tohoto webu něco odnést pak vědomí o tomto projektu. Pro lidí jako já je to nezpochybnitelný zdroj motivace a inspirace. Byť jsem zatím nebyl příliš aktivním přispěvovatelem, vědomí, že jsou další lidé zápasící s podobnými problémy, je v některých frustrujících dnech skoro až záchranným kruhem. Cílem projektu není vést Vás za ručičku, ale ukázat směr pokud zabloudíte a dát najevo, že v tom nejste sami. Začátky v programování jsou totiž jako stezka odvahy na dětském táboře. Jen je z toho méně papírování pokud se úplně ztratíte.</p>
+<p>Poslední, ale o to kritičtější věc musím zmínit. Nezpochybnitelnou roli při mém "přerodu" v programátora má Honza Javorek a jeho projekt <a href="https://junior.guru/" target="_blank">Junior.guru</a> a jeho komunita. Pokud byste si měli z tohoto webu něco odnést pak vědomí o tomto projektu. Pro lidí jako já je to nezpochybnitelný zdroj motivace a inspirace. Byť jsem zatím nebyl příliš aktivním přispěvatelem, vědomí, že jsou další lidé zápasící s podobnými problémy, je v některých frustrujících dnech skoro až záchranným kruhem. Cílem projektu není vést Vás za ručičku, ale ukázat směr pokud zabloudíte a dát najevo, že v tom nejste sami. Začátky v programování jsou totiž jako stezka odvahy na dětském táboře. Jen je z toho méně papírování pokud se úplně ztratíte.</p>
 
 
 <h2 id="aboutAuthor">O autorovi</h2>
-<p>Narozen v Brně, posledních pár let žiji pár minut na jih od Brna s výhledem na Pálavu. Mám ukončené gymnázium a neukončené studium VŠ oboru Zdravotní laborant na MU. Ve skutečnosti je to ještě marnější, ale ne každý měl štěstí, aby věděl ve studijních letech jistojistě, co chce v budoucnu dělat. Já se svým stavem nesmířil a když jsem konečně zjistil, co je pro mě to pravé, tak jsem šel zatím a proto čtete tyto řádky.</p>
-<p>Mezitím jsem dělal rok pomocného dělníka při vrtání studní. Poměrně poctivá dřina v neustálém mokru a vlhku - v létě vítáném, v zimě tolik ne. Neb to nikam nevedlo, zhypnotizoval mě ukazující prst našeho strýčka Sama a tak jsem na pár let oblékl uniformu příslušníka republikové policie. Protože mě z toho neustálého sezení v oktávce začaly bolet záda, přijal jsem nabídku kamaráda, šel lozit po střechách a připojovat lidi k internetu. Záda přestala bolet.</p>
+<p>Narozen v Brně, posledních pár let žiji pár minut na jih od Brna s výhledem na Pálavu. Mám ukončené gymnázium a neukončené studium VŠ oboru Zdravotní laborant na MU. Ve skutečnosti je to ještě marnější, ale ne každý měl štěstí, aby věděl ve studijních letech jistojistě, co chce v budoucnu dělat. Já se svým stavem nesmířil, a když jsem konečně zjistil, co je pro mě to pravé, tak jsem šel zatím, a proto čtete tyto řádky.</p>
+<p>Mezitím jsem dělal rok pomocného dělníka při vrtání studní. Poměrně poctivá dřina v neustálém mokru a vlhku - v létě vítaném, v zimě tolik ne. Neb to nikam nevedlo, zhypnotizoval mě ukazující prst našeho strýčka Sama, a tak jsem na pár let oblékl uniformu příslušníka republikové policie. Protože mě z toho neustálého sezení v oktávce začaly bolet záda, přijal jsem nabídku kamaráda, šel lozit po střechách a připojovat lidi k internetu. Záda přestala bolet.</p>
 <p>Stále jsem cítil, že to není to, co chci dělat i za pár let. A protože jsem pořád dost mladý, plný mentálních sil, a hlavně protože už jsem zjistil, kam mě to opravdu táhne, práci jsem ukončil, sedl si chvíli za monitor a studoval. Během toho jsem si udělal menší zastávku v jedné digitální agentuře na pozici SEO konzultant junior.</p>
-<p>Teď už vím, že práce programátora je přesně to ozubené kolečko, které naprosto pasuje do mé povahy a doplňuje mé vnitřní předpoklady a nastavení. Ne, nejsem Tony Stark, Steve Wozniak, Samantha Carter ani jiný superhrdina, kterému nestíhá počítač zaznamenávat jeho myšlenky. Občas sedím nad primitivní funkcí a musím ji procházet krok za krokem jako jsem kdysi počítal na prstech.</p>
+<p>Teď už vím, že práce programátora je přesně to ozubené kolečko, které naprosto pasuje do mé povahy a doplňuje mé vnitřní předpoklady a nastavení. Ne, nejsem Tony Stark, Steve Wozniak, Samantha Carter ani jiný superhrdina, kterému nestíhá počítač zaznamenávat jeho myšlenky. Občas sedím nad primitivní funkcí a musím ji procházet krok za krokem, jako jsem kdysi počítal na prstech.</p>
 <p>Snažím se to však vyvážit svým přístupem a uvažováním nad drobnými detaily, které jsou důležité pro uživatele jako člověka. Mám rád hezký a poctivý obsah, ale stejně důležité jsou pro mě i jeho funkce a forma. Proto jsou pro mě hrdinové spíše Jonathan Ive a jeho vzor <a href="https://www.vitsoe.com/us/about/good-design" target="_blank">Dieter Rams</a>.</p>
 
 
 <h2 id="goals">Krátkodobé a střednědobé cíle</h2>
-<p>V tuto chvíli mi jde o to již získat zaměstnání ve vývoji na poli webových technologií a stát se co nejrychleji užitečným a platným členem týmu. Nyní se věnuji Reactu a znalosti Javascriptu doplňuji průběžně. Dále doplním Javascript Typescriptem. Více než React mě zaujal Svelte. Ten však ještě není tak rozšířený a zdaleka tolik žádaný. Programování je prostředek k dosažení cílů bez ohledu na jazyk a technologie a proto si nechávám dveře otevřené pro diskuzi s potenciálním zaměstnavatelem.</p> 
+<p>V tuto chvíli mi jde o to již získat zaměstnání ve vývoji na poli webových technologií, a stát se co nejrychleji užitečným a platným členem týmu. Nyní se věnuji Reactu a znalosti Javascriptu doplňuji průběžně. Dále doplním Javascript Typescriptem. Více než React mě zaujal Svelte. Ten však ještě není tak rozšířený a zdaleka tolik žádaný. Programování je prostředek k dosažení cílů bez ohledu na jazyk a technologie, a proto si nechávám dveře otevřené pro diskuzi s potenciálním zaměstnavatelem.</p> 
 <p>V dlouhodobějším horizontu se chci ponořit do technologie blockchainu a jeho přidružených technologií.</p>
 
 
 <h2 id="contribution">Čím tedy mohu přispět Vaší společnosti?</h2>
-<p>Snažím se uvažovat a dělat věci trochu jinak, ale zase ne nezbytně "na sílu". Na internetu strávím hodiny denně a navštívím spousty domén. Většina z nich je jako přes kopírák pouze s jinými barvami. Má to často pochopitelně své logické, eknomické a jiné důvody, které jsou v mnoha <a href="https://www.nngroup.com/ target="_blank">článcích</a> obhajovány. Rozumím tomu a nehodlám proti tomu nijak bojovat. Na druhou stranu mnoho domén mě utvrzuje v tom, že věci jdou dělat lépe, byť se může jednat o drobný funkční detail. Drobné nepatrné tlačítko, nápad, který může zvrátit celou Vaši zkušenost. A vůbec nemusí jít ani o skutečnou smysluplnou funkci, ale jen o "prostou" známku takového toho lidského doteku. Taková ta drobnost, kvůli které si uvědomíte, že na druhé straně klávesnice seděl člověk, který si byl sakra vědom, že to dělá pro jiné lidi, a chtěl předat kromě nul a jedniček i nějaké upřímné <b>emoce</b>.</p>
-<p>Stejný přístup jsem připraven přinášet i já. To je jako všechno? Ne. Tak třeba díky tomu, že už je to rok a něco málo co zcela abstinuji, můžu své kolegy odvést z večírků až před prahy jejich domů. Podceňovaná schopnost abstinujících.</p>
+<p>Snažím se uvažovat a dělat věci trochu jinak, ale zase ne nezbytně "na sílu". Na internetu strávím hodiny denně a navštívím spousty domén. Většina z nich je jako přes kopírák, pouze s jinými barvami. Má to často pochopitelně své logické, eknomické a jiné důvody, které jsou v mnoha <a href="https://www.nngroup.com/ target="_blank">článcích</a> obhajovány. Rozumím tomu a nehodlám proti tomu nijak bojovat. Na druhou stranu mnoho domén mě utvrzuje v tom, že věci jdou dělat lépe, byť se může jednat o drobný funkční detail. Drobné nepatrné tlačítko, nápad, který může zvrátit celou Vaši zkušenost. A vůbec nemusí jít ani o skutečnou smysluplnou funkci, ale jen o "prostou" známku takového toho lidského doteku. Taková ta drobnost, kvůli které si uvědomíte, že na druhé straně klávesnice seděl člověk, který si byl sakra vědom, že to dělá pro jiné lidi, a chtěl předat kromě nul a jedniček i nějaké upřímné <b>emoce</b>.</p>
+<p>Stejný přístup jsem připraven přinášet i já. To je jako všechno? Ne. Tak třeba díky tomu, že už je to rok a něco málo, co zcela abstinuji, můžu své kolegy odvést z večírků až před prahy jejich domů. Podceňovaná schopnost abstinujících.</p>
 
 
 <h2 id="conclusion">Závěr</h2>
@@ -268,10 +268,10 @@ const longStory = `<div class="extras-text">
 <h2 id="practicalNotes">Praktické poznámky</h2>
 <p>
     <ul>
-        <li>> Hledám juniorní pozici!</li> 
-        <li>> Nástup je možný ihned</li> 
-        <li>> Pouze full-time na HPP nebo IČO</li>
-        <li>> Upřednostňuji on-site</li>
+        <li>> Hledám juniorní pozici.</li> 
+        <li>> Nástup je možný ihned.</li> 
+        <li>> Pouze full-time na HPP nebo IČO.</li>
+        <li>> Upřednostňuji on-site.</li>
     </ul>
 </p>
 </div>`;
@@ -284,6 +284,7 @@ const releaseNotesData = `<div class="extras-text">
         <li>> (7.12.2021) - Umístění na web</li>
         <li>> (7.12.2021) - Opraven první bug, při kterém se nezobrazoval po kliknutí popis první dovednosti</li>
         <li>> (12.12.2021) - Optimalizace pro menší obrazovky</li>
+        <li>> (13.12.2021) - Na základě zpětné vazby opraveno několik překlepů a chyb v textech</li>
     </ul>
 </p>
 
@@ -304,6 +305,6 @@ const releaseNotesData = `<div class="extras-text">
 `
 
 const aboutThisWebData = `<div class="extras-text">
-    <p>Spontánně. (v krátké době doplním)</p>
+    <p>Spontánně. (je to v procesu)</p>
 </div>
 `;
