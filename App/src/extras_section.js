@@ -291,13 +291,12 @@ const releaseNotesData = `<div class="extras-text">
 <h2 id="planned">Plánované</h2>
 <p>
     <ul>
-        <li>> Zvýšení rychlosti webu</li>
-        <li>> Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
-        <li>> Refaktorace kódu i CSS</li>
-        <li>> Doplnit obsah sekce "Jak vznikl tento web"</li>
-        <li>> Plynulá změna barevného schéma light/dark</li>
         <li>> Přepsání do Reactu</li>
         <li>> Překlad webu do AJ</li>
+        <li>> Doplnit obsah sekce "Jak vznikl tento web"</li>        
+        <li>> Doplnit v sekci Dovednosti, co znamenají čísla mezi znamínky + a - </li>
+        <li>> Refaktorace kódu i CSS</li>
+        <li>> Plynulá změna barevného schéma light/dark</li>
     </ul>
 </p>
 
