@@ -184,7 +184,7 @@ export const skillsData = [
         skill: "React",
         levels: ["Upřednostnil React nad Svelte",
             "První &lt;HelloWorld /&gt;",
-            "<a href='https://react-tutorial.app/' target='_blank'>Učí</a> se React",
+            "Hotová <a href='https://react-tutorial.app/' target='_blank'>'nalejvárna'</a> vč. závěrečného menšího projektu",
             "Předělání tohoto webu do Reactu",
             "Další 'hafo' praxe",
         ],

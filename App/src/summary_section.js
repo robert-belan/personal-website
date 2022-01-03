@@ -1,14 +1,18 @@
 import { fadeOutFadeIn, getContacts } from "/src/helpers.js";
 
+
 export function summary() {
+    // do nothing if Shrnutí/Summary section is already loaded
     if (!document.querySelector("#summary")) {
         fadeOutFadeIn(createSummary, document.querySelector("#text"));
     }
 }
 
+/** 
+ * Creates HTML layout for Summary section, contains character summarizing text and "launch game" button
+ */
 function createSummary() {
-    const sumaSumarum = document.querySelector("#text");
-    sumaSumarum.insertAdjacentHTML("beforeend", `
+    document.querySelector("#text").insertAdjacentHTML("beforeend", `
         <div id="summary" class="summary">
             ${summaryData}
             <div class="btn-letsPlayAGame">
@@ -16,7 +20,7 @@ function createSummary() {
                 <label for="btn-letsPlayAGame" class="button creationmenu playgame">Spustit hru</label>
             </div>
         </div>
-    `)
+    `);
 
     document.querySelector("#btn-letsPlayAGame").addEventListener("click", () => {
         const msg = `
@@ -25,11 +29,14 @@ function createSummary() {
         <p>Jestliže Vám to už stačilo, můžete pokračovat zde:</p>
         `;
         getContacts(msg, "SpustitHru@RobertBelan.com");
-    })
+    });
 }
 
-
-export const summaryData = `
+/**
+ * Contains content text at the Character creating -> Summary section
+ * @type {string} - can includes HTML tags
+ */
+const summaryData = `
     <h3 style="margin-bottom: 0.5em">Jméno:  Robert</h3>
     <h4>Věk:    29</h4>
 

@@ -18,8 +18,10 @@ import { characterCreationData } from "/src/characterCreation_section.js";
  */
 
 
+
 /**
  * Corresponds with "/static/style.css" variable "--ui-animation-duration".
+ * TODO: Edit: Could be resolved by: getComputedStyle(document.body).getPropertyValue("--ui-animation-duration");       // 0.3s
  * @type {number}
  */
 export const afterAnimation = 300;
@@ -61,6 +63,13 @@ export function fadeElement(element, remove = "") {
 
 // this decorator provides smooth animation among creation tabs
 // second arg: css selector (string) or element
+
+/**
+ * Function creates transition effect between the section
+ * @param {function} func 
+ * @param {HTMLElement} container 
+ * @param {string} remove 
+ */
 export function fadeOutFadeIn(func, container, remove) {
 
     container.classList.add("fade");
@@ -237,7 +246,8 @@ export function getContacts(message = "", email = "info@robertbelan.com") {
             <div class="optionalMsg">${message}</div>
             <div>               
                 <p><span id="email" class="link" title="Zkopírovat adresu"><b>${email}</b><img src="/logos/copy.png"></span></p>
-                <p><a href="https://www.linkedin.com/in/robertbelan/" target="_blank" title="Pokud LinkedIn nemáte nevadí, více informací než zde tam nenajdete.">LinkedIn</a>, GitHub</p>
+                <p><a href="https://www.linkedin.com/in/robertbelan/" target="_blank" title="Pokud LinkedIn nemáte nevadí, více informací než zde tam nenajdete.">LinkedIn</a>, 
+                <a href="https://github.com/robert-belan" target="_blank" title="Pozor, vstupujete na stavbu (3.1.2022)">GitHub</a></p>
                 <small>Copyright <span style="font-size: 1.3em;">©</span> 2021 Robert Belan</small>        
             </div>
             <div>
@@ -323,7 +333,7 @@ export function getMessageWindow(message, additionalEventListener = null) {
         /** Close and remove message window */
         document.querySelector("#message-close").addEventListener("click", () => {
             fadeElement(document.querySelector("#message-container"), "remove");
-            
+
         });
     }
 }
