@@ -12,6 +12,12 @@ zde najdete zdrojový kód mých osobních webových stránek [robertbelan.com](
 ### Shrnutí
 Dosavadní kód vyžaduje značnou úpravu, ale **funguje**. 
 
+**Todo:**  
+> - [x] "Make it work,  
+> - [ ] make it right,  
+> - [ ] make it fast."  
+>                 _Kent Beck_
+
 <br>
 
 ### Důvod vzniku webu
