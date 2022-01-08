@@ -133,8 +133,8 @@ function load3DModel() {
     })
 }
 
-// Vectary API - https://vectary.github.io/viewer-api/#/parameters
-const model3dData = `<iframe src="https://www.vectary.com/viewer/v1/?model=bdd97310-66b0-4ae9-afaa-c2b8ebbd09a5&env=studio3&pan=0&zoom=0&minPolar=80&maxPolar=100&minAzimuth=240&mouseFollow=0.1&maxAzimuth=290&doubleClickToFocus=0&showPreloader=0&showInteractionPrompt=0" frameborder="0" width="100%" height="100%"></iframe>`;
+// Vectary API
+const model3dData = `<iframe src="https://sorryMyFriendThisIsNotPublic.com></iframe>`; // :-)
 
 const modelPhotoData = `<img id="personImage" class="personImage" src="/logos/model.png" alt="Vzhled vytvářené postavy. Skromný fešák.">`;
 
