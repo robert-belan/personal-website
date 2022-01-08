@@ -133,8 +133,7 @@ function load3DModel() {
     })
 }
 
-// Vectary API
-const model3dData = `<iframe src="https://sorryMyFriendThisIsNotPublic.com></iframe>`; // :-)
+const model3dData = `<iframe src="https://myLittleEasterEgg.com></iframe>`; // :-)
 
 const modelPhotoData = `<img id="personImage" class="personImage" src="/logos/model.png" alt="Vzhled vytvářené postavy. Skromný fešák.">`;
 
