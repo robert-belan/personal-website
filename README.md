@@ -1,7 +1,7 @@
 # Osobní webové stránky / Personal Web Page  
 
 Vítám vás,  
-zde najdete zdrojový kód mých osobních webových stránek [robertbelan.com](https://www.robertbelan.com/) a k nim doplňující informace. 
+zde najdete zdrojový kód mých osobních webových stránek [~~robertbelan.com~~](https://www.robertbelan.com/) (již nefunkční, přemisťuji na GH Pages) a k nim doplňující informace. 
 
 ---
 
